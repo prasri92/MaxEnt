@@ -1,0 +1,40 @@
+Log onto gypsum:
+ssh ruppaal@gypsum.cs.umass.edu
+Using SSH keys: http://gypsum-gateway.cs.umass.edu/ssh.html
+
+To log on remotely: ssh ruppaal@fenris.cs.umass.edu
+
+
+Gypsum:
+
+\etc - root
+
+List of all modules: module avail
+List of installed modules: module list
+Load something: module load <modulename>
+To install (from pip): pip install --user <packagename>
+
+See list of partitions: sinfo
+To submit job: sbatch slurm.sh
+To see list of commands: history | grep "keyword you're looking for"
+To cancel job: scancel <jobid>
+Check on status: squeue -u ruppaal
+Check on other jobs: squeue
+
+Github:
+To switch to dev branch: git checkout dev
+To check which branch you're on: git 
+
+
+
+Screen:
+Create screen: screen -S screenname
+Detach from screen: ctrl+A D
+List screens: screen -ls
+Reenter screens: screen -r screenname
+Close screen: exit (inside the screen)
+
+
+
+
+
