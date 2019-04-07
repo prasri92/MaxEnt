@@ -121,18 +121,13 @@ class DataHelper():
         
         PARAMETERS
         ----------
-        - r (list) : a binary vector of size 30, 
+        - r (list) : a binary vector of size 'N', the number of diseases
+        - p (float, default=0.5) : the parameter 'p' for the Binomial Random Variable 
         
         RETURNS
         -------
-        - a dictionary containing information regarding the A, B, and E metrics for 
-        every cluster.
-        
-        NOTE: For any cluster,
-        - A : the diseases that are exclusive to the cluster.
-        - B : the diseases that are contained in the cluster 
-        and in at least one other cluster.
-        - E : the diseases that are not in the cluster.
+        - the probability of generating the disease vector 'r', according to the synthetic
+        data generation scheme.
         """
         obs = list(np.argwhere(np.array(r)==1))
         #alpha = (1-np.exp(-0.05*len(obs)))*(np.exp(-0.05))
@@ -176,7 +171,7 @@ class DataHelper():
         
         RETURNS
         -------
-        - A list containing probabilities for all possible 2**N disease vectors.
+        - A list containing probabilities for all possible 2^N disease vectors.
         """
         probs = []
         total=0.0
