@@ -182,13 +182,10 @@ class DataHelper():
             r = [int(j) for j in b]
             probs.append(self.computeProbability(r))
             total+=probs[-1]
-        print('Ignoring last probability, total = {}'.format(total))
+        print('Total = {}'.format(total))
         if timer:
             toc = time.time()
             print('Computational time for {} probabilities = {} seconds'.format(2**self.N, toc-tic))
-        # compute the probability of last disease manually (1-sum(other P's)) ;
-        # this bit sequence will contain self.N+1 bits and hence, can't be computed like others!
-        probs.append(1-sum(probs))   
         return probs
 
 if __name__=='__main__': 
