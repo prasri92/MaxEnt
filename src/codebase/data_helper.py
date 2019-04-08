@@ -8,9 +8,9 @@ Created on Fri Apr  5 08:30:48 2019
 import numpy as np
 import time
 
-class DataHelper():
+class DataHelper:
     
-    def __init__(self, num_diseases=10, num_clusters=5):
+    def __init__(self, num_diseases=10, num_clusters=5, tau=[0.2]*5):
         """
         A Data Helper class, that creates clusters of diseases and stores information;
         useful for computing the probability of generation of any disease vector.
@@ -18,15 +18,23 @@ class DataHelper():
         PARAMS
         ------
         - num_diseases(int, default=10) : the total number of possible diseases
-        - num_clusters(int, default=5) : the number of clusters used while 
-        grouping the diseases
+        - num_clusters(int, default=5) : the number of clusters used for 
+          grouping the diseases
+        - tau (list, default=[0.2, 0.2, 0.2, 0.2, 0.2]) : the probability of choosing
+          a cluster while sampling clusters for grouping diseases ; should sum to 1.0, and
+          len(<beta>) should be equal to <num_clusters>
         
         RETURNS
         -------
         None
         """
+        assert len(tau)==num_clusters, \
+        'Incorrect number of beta parameters! Make sure beta is available for every cluster.'
+        assert abs(sum(tau)-1.0)<=1e-10, \
+        'Invalid beta parameters! Should be normalized between 0 and 1, and sum to 1.0!'
         self.N = num_diseases
         self.K = num_clusters
+        self.tau = tau
         self.disjoint_clusters = self.makeClusters(overlap=False)
         self.overlapping_clusters = self.makeClusters(overlap=True)
         self.disjoint_clusters_stats = self.getClustersSummaries(overlap=False)
@@ -43,30 +51,23 @@ class DataHelper():
         RETURNS
         -------
         - a dictionary containing the cluster ID as key and the contained disease numbers
-        (0<=n<=N) as values.
+          (0<=n<=N) as values.
         """
         assert self.N>=self.K, \
-        'Reduce the number of clusters. Not possible to have {} clusters'.format(self.K)
+         'Reduce the number of clusters. Not possible to have {} clusters'.format(self.K)
         d_idxs = np.arange(self.N)
-        size = self.N//self.K
-        temp = [list(d_idxs[idx*size:idx*size+size]) for idx in range(self.K)]
-        rem = self.N%self.K
-        if rem>0:
-            temp[-1].extend(d_idxs[self.N-rem:])
-        clusters = {temp.index(d):d for d in temp}
-        if overlap:
-            # choose m clusters randomly
-            m = np.random.randint(low=max(0, self.K//2), high=max(1, self.K))
-            selections = np.random.choice(self.K, replace=False, size=m)
-            overlaps = {}
-            for idx_1 in selections:
-                # choose a uniform random number of out-of-cluster diseases to add 
-                overlaps[idx_1] = np.random.choice(\
-                        np.delete(np.arange(self.N), clusters[idx_1]), replace=False, \
-                        size=np.random.randint(low=1, high=self.N-len(clusters[idx_1])))
-            # modify original clusters to contain overlapping elements
-            for idx in selections:
-                clusters[idx].extend(overlaps[idx])
+        clusters = {idx:[] for idx in range(self.K)}
+        for d_idx in d_idxs:
+            if overlap:
+                # choose 'm', the number of clusters this disease can belong to, randomly
+                m = np.random.randint(low=1, high=self.K)
+            else:
+                # choose only one cluster, since every cluster should be disjoint
+                m = 1
+            # choose 'm' clusters, without replacement, according to beta vector
+            selections = np.random.choice(np.arange(self.K), size=m, p=self.tau, replace=False)
+            for k in selections:
+                clusters[k].append(d_idx)
         return clusters
     
     def getClustersSummaries(self, overlap=False):
@@ -81,12 +82,12 @@ class DataHelper():
         RETURNS
         -------
         - a dictionary containing information regarding the A, B, and E metrics for 
-        every cluster.
+          every cluster.
         
         NOTE: For any cluster,
         - A : the diseases that are exclusive to the cluster.
         - B : the diseases that are contained in the cluster 
-        and in at least one other cluster.
+              and in at least one other cluster.
         - E : the diseases that are not in the cluster.
         """
         if not overlap:
@@ -106,7 +107,7 @@ class DataHelper():
                 if d in clusters[k]:
                     exclusive=True
                     for k_ in np.delete(np.arange(self.K), k):
-                        if d in clusters[k_]:
+                        if d in clusters[k_] and exclusive==True:
                             B_k[k].append(d)
                             exclusive=False # 'd' is no more exclusive to the cluster 'k'
                     if exclusive:
@@ -127,11 +128,11 @@ class DataHelper():
         RETURNS
         -------
         - the probability of generating the disease vector 'r', according to the synthetic
-        data generation scheme.
+          data generation scheme.
         """
         obs = list(np.argwhere(np.array(r)==1))
-        #alpha = (1-np.exp(-0.05*len(obs)))*(np.exp(-0.05))
-        alpha=1/self.N
+        alpha = (1-np.exp(-0.05))*(np.exp(-0.05*len(obs)))
+        #alpha=1/self.N
         prob = 0.0
         for k in self.overlapping_clusters.keys():
             # initializations
@@ -154,8 +155,7 @@ class DataHelper():
             for i in range(D_and_A):
                 temp*=p/(D_k-i)
             for j in range(D_and_B):
-                temp*=(p/(D_k-D_and_A-j)+((1-p)/ \
-                          (self.N-A_k-j)))
+                temp*=(p/(D_k-D_and_A-j)+((1-p)/(self.N-A_k-j)))
             for l in range(D_and_E):
                 temp*=(1-p)/(self.N-A_k-D_and_B-l)
             prob+=temp
@@ -182,12 +182,12 @@ class DataHelper():
             r = [int(j) for j in b]
             probs.append(self.computeProbability(r))
             total+=probs[-1]
-        print('Total = {}'.format(total))
+        print('Sum of probabilities = {}'.format(total))
         if timer:
             toc = time.time()
             print('Computational time for {} probabilities = {} seconds'.format(2**self.N, toc-tic))
         return probs
 
 if __name__=='__main__': 
-    data = DataHelper(15, 4)
+    data = DataHelper(15, 4, tau=[0.4, 0.3, 0.2, 0.1])
     p_vals = data.computeAll(timer=True)
