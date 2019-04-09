@@ -100,8 +100,3 @@ if __name__=='__main__':
     gen = DataGenerator(2, 1.5)
     print(gen.generate_instance(True))
     print(gen.generate_instance(False))
-       
-        
-        
-            
-        

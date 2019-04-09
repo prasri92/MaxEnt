@@ -116,14 +116,26 @@ class DataHelper:
             cluster_stats[k] = {'A': A_k[k], 'E': E_k[k], 'B': B_k[k]}
         return cluster_stats  
     
-    def computeProbability(self, r, p=0.5):
+    def p_iteration_helper(self, D_and_B, k, D_k, D_and_A, A_k):
+        result = 1.0
+        for idx in range(D_and_B):
+            temp=0.0
+            temp+=((self.tau[k]/(D_k-D_and_A-idx))+((1-self.tau[k])/(self.N-A_k)))*(self.tau[k]**idx)
+            temp+=((self.tau[k]/(D_k-D_and_A))+((1-self.tau[k])/(self.N-A_k-idx)))*((1-self.tau[k])**idx)
+            if idx>=2:
+                for j in range(1, idx):
+                    temp+=((self.tau[k]/(D_k-D_and_A-idx))+((1-self.tau[k])/(self.N-A_k-(idx-j))))*\
+                            (self.tau[k]**j)*((1-self.tau[k])**(idx-j))
+            result*=temp
+        return result         
+        
+    def computeProbability(self, r):
         """
         Computes the probability of generating a disease vector 'r'.
         
         PARAMETERS
         ----------
         - r (list) : a binary vector of size 'N', the number of diseases
-        - p (float, default=0.5) : the parameter 'p' for the Binomial Random Variable 
         
         RETURNS
         -------
@@ -131,12 +143,12 @@ class DataHelper:
           data generation scheme.
         """
         obs = list(np.argwhere(np.array(r)==1))
-        alpha = (1-np.exp(-0.05))*(np.exp(-0.05*len(obs)))
-        #alpha=1/self.N
+        #alpha = (1-np.exp(-0.05))*(np.exp(-0.05*len(obs)))
+        alpha=1/self.N
         prob = 0.0
         for k in self.overlapping_clusters.keys():
             # initializations
-            temp = 1/self.K
+            temp = 1.0
             D_and_B = 0
             D_and_A = 0
             D_and_E = 0
@@ -153,11 +165,12 @@ class DataHelper:
             D_k = len(self.overlapping_clusters[k])
             A_k = len(self.overlapping_clusters_stats[k]['A'])
             for i in range(D_and_A):
-                temp*=p/(D_k-i)
+                temp*=self.tau[k]/(D_k-i)
             for j in range(D_and_B):
-                temp*=(p/(D_k-D_and_A-j)+((1-p)/(self.N-A_k-j)))
+                #temp*=(self.tau[k]/(D_k-D_and_A-j)+((1-self.tau[k])/(self.N-A_k-j)))
+                temp*=self.p_iteration_helper(D_and_B, k, D_k, D_and_A, A_k)
             for l in range(D_and_E):
-                temp*=(1-p)/(self.N-A_k-D_and_B-l)
+                temp*=(1-self.tau[k])/(self.N-A_k-D_and_B-l)
             prob+=temp
         return prob*alpha
    
@@ -189,5 +202,5 @@ class DataHelper:
         return probs
 
 if __name__=='__main__': 
-    data = DataHelper(15, 4, tau=[0.4, 0.3, 0.2, 0.1])
+    data = DataHelper(12, 4, tau=[0.4, 0.3, 0.2, 0.1])
     p_vals = data.computeAll(timer=True)
