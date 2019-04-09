@@ -10,9 +10,9 @@ import numpy as np
 from mlxtend.frequent_patterns import apriori
 from mlxtend.frequent_patterns import association_rules
 
-class MBA(directory):
+class MBA():
     """Class: takes in a cleaned data set in a csv format in which diseases are features with
-       that take binary values..       
+       that take binary values..
        Attributes:
            bask: This is a csv file used on processed and binarized disease data
            min_support: The minimum support to filter frequent item sets of diseases from the MLXtend library. Default is 0.004
@@ -23,7 +23,7 @@ class MBA(directory):
         self.min_support=min_support
         self.metric=metric
         self.min_threshold=min_threshold
-    
+
     print("Performing the Market Basket Analysis")
     def marketbasket(cleaneddata):
         frequent_itemsets = apriori(basket_sets, min_support=0.004, use_colnames=True)
@@ -46,11 +46,11 @@ class MBA(directory):
         print("Loading the data into a dictionary")
         """Add frozen sets of pairs, triplets and quadruplets to declared empty sets"""
         for itwo in indices_two:
-            sets_two.add(frozenset().union(rules.iloc[i2]['antecedants'],rules.iloc[itwo]['consequents'])
+            sets_two.add(frozenset().union(rules.iloc[i2]['antecedants'],rules.iloc[itwo]['consequents']))
         for ithree in indices_three:
-            sets_three.add(frozenset().union(rules.iloc[i3]['antecedants'],rules.iloc[ithree]['consequents'])
+            sets_three.add(frozenset().union(rules.iloc[i3]['antecedants'],rules.iloc[ithree]['consequents']))
         for ifour in indices_four:
-            sets_four.add(frozenset().union(rules.iloc[i4]['antecedants'],rules.iloc[ifour]['consequents'])
+            sets_four.add(frozenset().union(rules.iloc[i4]['antecedants'],rules.iloc[ifour]['consequents']))
         """Output two way, three way and four way dictionaries as input for optimization"""
         for stwo in sets_two:
             two_way_dict[tuple(stwo)]=val_two
@@ -58,12 +58,6 @@ class MBA(directory):
             three_way_dict[tuple(sthree)]=val_three
         for sfour in sets_four:
             four_way_dict[tuple(sfour)]=val_four
-        return two_way_dict, three_way_dict, four_way_dict    
-            
+        return two_way_dict, three_way_dict, four_way_dict
 
-      
-      
-           
-           
-           
-           
+        
