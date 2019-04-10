@@ -120,8 +120,11 @@ class DataHelper:
         result = 1.0
         for idx in range(D_and_B):
             temp=0.0
-            temp+=((self.tau[k]/(D_k-D_and_A-idx))+((1-self.tau[k])/(self.N-A_k)))*(self.tau[k]**idx)
-            temp+=((self.tau[k]/(D_k-D_and_A))+((1-self.tau[k])/(self.N-A_k-idx)))*((1-self.tau[k])**idx)
+            if idx==0:
+                temp+=((self.tau[k]/(D_k-D_and_A))+((1-self.tau[k])/(self.N-A_k)))*(self.tau[k]**idx)
+            else:
+                temp+=((self.tau[k]/(D_k-D_and_A-idx))+((1-self.tau[k])/(self.N-A_k)))*(self.tau[k]**idx)
+                temp+=((self.tau[k]/(D_k-D_and_A))+((1-self.tau[k])/(self.N-A_k-idx)))*((1-self.tau[k])**idx)
             if idx>=2:
                 for j in range(1, idx):
                     temp+=((self.tau[k]/(D_k-D_and_A-idx))+((1-self.tau[k])/(self.N-A_k-(idx-j))))*\
@@ -146,32 +149,33 @@ class DataHelper:
         #alpha = (1-np.exp(-0.05))*(np.exp(-0.05*len(obs)))
         alpha=1/self.N
         prob = 0.0
-        for k in self.overlapping_clusters.keys():
-            # initializations
-            temp = 1.0
-            D_and_B = 0
-            D_and_A = 0
-            D_and_E = 0
-            # compute required stats
-            for d_idx in obs:
-                d = list(d_idx)[0] # d_idx is a numpy array containing one integer (look np.argwhere)
-                if d in self.overlapping_clusters_stats[k]['B']:
-                    D_and_B+=1
-                if d in self.overlapping_clusters_stats[k]['A']:
-                    D_and_A+=1
-                if d in self.overlapping_clusters_stats[k]['E']:
-                    D_and_E+=1
-            # finally, compute the probability using these stats
-            D_k = len(self.overlapping_clusters[k])
-            A_k = len(self.overlapping_clusters_stats[k]['A'])
-            for i in range(D_and_A):
-                temp*=self.tau[k]/(D_k-i)
-            for j in range(D_and_B):
-                #temp*=(self.tau[k]/(D_k-D_and_A-j)+((1-self.tau[k])/(self.N-A_k-j)))
-                temp*=self.p_iteration_helper(D_and_B, k, D_k, D_and_A, A_k)
-            for l in range(D_and_E):
-                temp*=(1-self.tau[k])/(self.N-A_k-D_and_B-l)
-            prob+=temp
+        if obs:
+            for k in self.overlapping_clusters.keys():
+                # initializations
+                temp = 1.0
+                D_and_B = 0
+                D_and_A = 0
+                D_and_E = 0
+                # compute required stats
+                for d_idx in obs:
+                    d = list(d_idx)[0] # d_idx is a numpy array containing one integer (look np.argwhere)
+                    if d in self.overlapping_clusters_stats[k]['B']:
+                        D_and_B+=1
+                    if d in self.overlapping_clusters_stats[k]['A']:
+                        D_and_A+=1
+                    if d in self.overlapping_clusters_stats[k]['E']:
+                        D_and_E+=1
+                # finally, compute the probability using these stats
+                D_k = len(self.overlapping_clusters[k])
+                A_k = len(self.overlapping_clusters_stats[k]['A'])
+                for i in range(D_and_A):
+                    temp*=self.tau[k]/(D_k-i)
+                for j in range(D_and_B):
+                    temp*=(self.tau[k]/(D_k-D_and_A-j)+((1-self.tau[k])/(self.N-A_k-j)))
+                    #temp*=self.p_iteration_helper(D_and_B, k, D_k, D_and_A, A_k)
+                for l in range(D_and_E):
+                    temp*=(1-self.tau[k])/(self.N-A_k-D_and_B-l)
+                prob+=temp
         return prob*alpha
    
     def computeAll(self, timer=False): # add feature to pickle probs, if needed
@@ -193,8 +197,8 @@ class DataHelper:
         for idx in range(2**self.N):
             b = format(idx, '0{}b'.format(self.N))
             r = [int(j) for j in b]
-            probs.append(self.computeProbability(r))
-            total+=probs[-1]
+            p = self.computeProbability(r)
+            total+=p
         print('Sum of probabilities = {}'.format(total))
         if timer:
             toc = time.time()
@@ -202,5 +206,5 @@ class DataHelper:
         return probs
 
 if __name__=='__main__': 
-    data = DataHelper(12, 4, tau=[0.4, 0.3, 0.2, 0.1])
+    data = DataHelper(10, 4, tau=[0.4, 0.3, 0.2, 0.1])
     p_vals = data.computeAll(timer=True)
