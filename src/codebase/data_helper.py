@@ -6,6 +6,7 @@ Created on Fri Apr  5 08:30:48 2019
 @author: roshanprakash
 """
 import numpy as np
+np.random.seed(1)
 import time
 
 class DataHelper:
@@ -117,6 +118,23 @@ class DataHelper:
         return cluster_stats  
     
     def p_iteration_helper(self, D_and_B, k, D_k, D_and_A, A_k):
+        """
+        Corrected implementation of second term in probability formula.
+        
+        PARAMETERS
+        ----------
+        - D_and_B : the number of unique diseases in the disease vector and the set 
+          which contains all diseases in cluster 'k' and at least one other cluster
+        - k : the chosen cluster
+        - D_k : the number of diseases in cluster 'k'
+        - D_and_A : the number of unique diseases in the disease vector and the set 
+          which contains all diseases present only in cluster 'k'
+        - A_k : the number of unique diseases that appear only in 'k'
+        
+        RETURNS
+        -------
+        - corrected result.
+        """
         result = 1.0
         for idx in range(D_and_B):
             temp=0.0
@@ -132,7 +150,7 @@ class DataHelper:
             result*=temp
         return result         
         
-    def computeProbability(self, r):
+    def computeProbability(self, r, overlap=False):
         """
         Computes the probability of generating a disease vector 'r'.
         
@@ -146,36 +164,40 @@ class DataHelper:
           data generation scheme.
         """
         obs = list(np.argwhere(np.array(r)==1))
-        #alpha = (1-np.exp(-0.05))*(np.exp(-0.05*len(obs)))
-        alpha=1/self.N
+        alpha=1/(self.N+1)
         prob = 0.0
         if obs:
-            for k in self.overlapping_clusters.keys():
-                # initializations
-                temp = 1.0
-                D_and_B = 0
-                D_and_A = 0
-                D_and_E = 0
-                # compute required stats
-                for d_idx in obs:
-                    d = list(d_idx)[0] # d_idx is a numpy array containing one integer (look np.argwhere)
-                    if d in self.overlapping_clusters_stats[k]['B']:
-                        D_and_B+=1
-                    if d in self.overlapping_clusters_stats[k]['A']:
-                        D_and_A+=1
-                    if d in self.overlapping_clusters_stats[k]['E']:
-                        D_and_E+=1
-                # finally, compute the probability using these stats
-                D_k = len(self.overlapping_clusters[k])
-                A_k = len(self.overlapping_clusters_stats[k]['A'])
-                for i in range(D_and_A):
-                    temp*=self.tau[k]/(D_k-i)
-                for j in range(D_and_B):
-                    temp*=(self.tau[k]/(D_k-D_and_A-j)+((1-self.tau[k])/(self.N-A_k-j)))
-                    #temp*=self.p_iteration_helper(D_and_B, k, D_k, D_and_A, A_k)
-                for l in range(D_and_E):
-                    temp*=(1-self.tau[k])/(self.N-A_k-D_and_B-l)
-                prob+=temp
+            if overlap:
+                for k in self.overlapping_clusters.keys():
+                    # initializations
+                    temp = self.tau[k]
+                    D_and_B = 0
+                    D_and_A = 0
+                    D_and_E = 0
+                    # compute required stats
+                    for d_idx in obs:
+                        d = list(d_idx)[0] # d_idx is a numpy array containing one integer (look np.argwhere)
+                        if d in self.overlapping_clusters_stats[k]['B']:
+                            D_and_B+=1
+                        if d in self.overlapping_clusters_stats[k]['A']:
+                            D_and_A+=1
+                        if d in self.overlapping_clusters_stats[k]['E']:
+                            D_and_E+=1
+                    # finally, compute the probability using these stats
+                    D_k = len(self.overlapping_clusters[k])
+                    A_k = len(self.overlapping_clusters_stats[k]['A'])
+                    for i in range(D_and_A):
+                        temp*=0.75/(D_k-i)
+                    for j in range(D_and_B):
+                        #temp*=self.p_iteration_helper(D_and_B, k, D_k, D_and_A, A_k)
+                        temp*=(0.75/(D_k-D_and_A-j))+((1-0.75)/(self.N-A_k-j))
+                    for l in range(D_and_E):
+                        temp*=(1-0.75)/(self.N-D_k-l)    
+                    prob+=temp
+            else:
+                #### IMPLEMENT NON-OVERLAPPING CASE HERE #####
+        else:
+            prob=1
         return prob*alpha
    
     def computeAll(self, timer=False): # add feature to pickle probs, if needed
@@ -197,8 +219,8 @@ class DataHelper:
         for idx in range(2**self.N):
             b = format(idx, '0{}b'.format(self.N))
             r = [int(j) for j in b]
-            p = self.computeProbability(r)
-            total+=p
+            probs.append(self.computeProbability(r))
+            total+=probs[-1]
         print('Sum of probabilities = {}'.format(total))
         if timer:
             toc = time.time()
@@ -206,5 +228,5 @@ class DataHelper:
         return probs
 
 if __name__=='__main__': 
-    data = DataHelper(10, 4, tau=[0.4, 0.3, 0.2, 0.1])
+    data = DataHelper(12, 4, tau=[0.25, 0.4, 0.25, 0.1])
     p_vals = data.computeAll(timer=True)
