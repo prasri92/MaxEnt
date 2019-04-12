@@ -5,8 +5,10 @@ Created on Fri Apr  5 08:30:48 2019
 
 @author: roshanprakash
 """
+from scipy.stats import binom 
+from scipy.special import comb
 import numpy as np
-np.random.seed(1)
+np.random.seed(3)
 import time
 
 class DataHelper:
@@ -192,15 +194,33 @@ class DataHelper:
                         #temp*=self.p_iteration_helper(D_and_B, k, D_k, D_and_A, A_k)
                         temp*=(0.75/(D_k-D_and_A-j))+((1-0.75)/(self.N-A_k-j))
                     for l in range(D_and_E):
-                        temp*=(1-0.75)/(self.N-D_k-l)    
+                        temp*=(1-0.75)/(self.N-D_k-l)  
                     prob+=temp
             else:
-                #### IMPLEMENT NON-OVERLAPPING CASE HERE #####
+                for k in self.disjoint_clusters.keys():
+                    temp = self.tau[k]
+                    j = 0
+                    for d_idx in obs:
+                        d = list(d_idx)[0]
+                        if d in self.disjoint_clusters[k]:
+                            j+=1 # 'j' is the number of diseases that are in D and D_k
+                    size = len(self.disjoint_clusters[k])
+                    if j<len(obs):
+                        b = binom.pmf(j, len(obs), p=0.75)
+                    elif j==len(obs):
+                        b = 1-binom.cdf(j-1, len(obs), p=0.75)
+                    a = [list(d_idx)[0] for d_idx in obs]
+                    for i in self.disjoint_clusters[k]:
+                        if i in a:
+                            a.remove(i)
+                    c = np.delete(np.arange(self.N), self.disjoint_clusters[k]).size
+                    temp*=(b*(1/comb(size, j))*(1/comb(c, len(a))))
+                    prob+=temp    
         else:
             prob=1
         return prob*alpha
    
-    def computeAll(self, timer=False): # add feature to pickle probs, if needed
+    def computeAll(self, overlap=False, timer=False): # add feature to pickle probs, if needed
         """
         Computes the probabilities of generation of all possible disease vectors.
         
@@ -219,7 +239,7 @@ class DataHelper:
         for idx in range(2**self.N):
             b = format(idx, '0{}b'.format(self.N))
             r = [int(j) for j in b]
-            probs.append(self.computeProbability(r))
+            probs.append(self.computeProbability(r, overlap=False))
             total+=probs[-1]
         print('Sum of probabilities = {}'.format(total))
         if timer:
@@ -228,5 +248,5 @@ class DataHelper:
         return probs
 
 if __name__=='__main__': 
-    data = DataHelper(12, 4, tau=[0.25, 0.4, 0.25, 0.1])
+    data = DataHelper(13, 5, tau=[0.2, 0.25, 0.4, 0.1, 0.05])
     p_vals = data.computeAll(timer=True)
