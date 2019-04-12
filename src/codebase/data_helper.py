@@ -8,12 +8,12 @@ Created on Fri Apr  5 08:30:48 2019
 from scipy.stats import binom 
 from scipy.special import comb
 import numpy as np
-np.random.seed(3)
+np.random.seed(5)
 import time
 
 class DataHelper:
     
-    def __init__(self, num_diseases=10, num_clusters=5, tau=[0.2]*5):
+    def __init__(self, num_diseases=10, num_clusters=5, tau=[0.2]*5, beta=[0.2]*5):
         """
         A Data Helper class, that creates clusters of diseases and stores information;
         useful for computing the probability of generation of any disease vector.
@@ -38,6 +38,7 @@ class DataHelper:
         self.N = num_diseases
         self.K = num_clusters
         self.tau = tau
+        self.beta = beta
         self.disjoint_clusters = self.makeClusters(overlap=False)
         self.overlapping_clusters = self.makeClusters(overlap=True)
         self.disjoint_clusters_stats = self.getClustersSummaries(overlap=False)
@@ -68,7 +69,7 @@ class DataHelper:
                 # choose only one cluster, since every cluster should be disjoint
                 m = 1
             # choose 'm' clusters, without replacement, according to beta vector
-            selections = np.random.choice(np.arange(self.K), size=m, p=self.tau, replace=False)
+            selections = np.random.choice(np.arange(self.K), size=m, p=self.beta, replace=False)
             for k in selections:
                 clusters[k].append(d_idx)
         return clusters
@@ -141,14 +142,14 @@ class DataHelper:
         for idx in range(D_and_B):
             temp=0.0
             if idx==0:
-                temp+=((self.tau[k]/(D_k-D_and_A))+((1-self.tau[k])/(self.N-A_k)))*(self.tau[k]**idx)
+                temp+=((0.75/(D_k-D_and_A))+((1-0.75)/(self.N-A_k)))*(self.tau[k]**idx)
             else:
-                temp+=((self.tau[k]/(D_k-D_and_A-idx))+((1-self.tau[k])/(self.N-A_k)))*(self.tau[k]**idx)
-                temp+=((self.tau[k]/(D_k-D_and_A))+((1-self.tau[k])/(self.N-A_k-idx)))*((1-self.tau[k])**idx)
+                temp+=((0.75/(D_k-D_and_A-idx))+((1-0.75)/(self.N-A_k)))*(0.75**idx)
+                temp+=((0.75/(D_k-D_and_A))+((1-0.75)/(self.N-A_k-idx)))*((1-0.75)**idx)
             if idx>=2:
                 for j in range(1, idx):
-                    temp+=((self.tau[k]/(D_k-D_and_A-idx))+((1-self.tau[k])/(self.N-A_k-(idx-j))))*\
-                            (self.tau[k]**j)*((1-self.tau[k])**(idx-j))
+                    temp+=((0.75/(D_k-D_and_A-idx))+((1-0.75)/(self.N-A_k-(idx-j))))*\
+                            (0.75**j)*((1-0.75)**(idx-j))
             result*=temp
         return result         
         
@@ -205,9 +206,9 @@ class DataHelper:
                         if d in self.disjoint_clusters[k]:
                             j+=1 # 'j' is the number of diseases that are in D and D_k
                     size = len(self.disjoint_clusters[k])
-                    if j<len(obs):
+                    if j<size:
                         b = binom.pmf(j, len(obs), p=0.75)
-                    elif j==len(obs):
+                    elif j==size:
                         b = 1-binom.cdf(j-1, len(obs), p=0.75)
                     a = [list(d_idx)[0] for d_idx in obs]
                     for i in self.disjoint_clusters[k]:
@@ -248,5 +249,7 @@ class DataHelper:
         return probs
 
 if __name__=='__main__': 
-    data = DataHelper(13, 5, tau=[0.2, 0.25, 0.4, 0.1, 0.05])
+    data = DataHelper(8, 4, tau=[0.9, 0.01, 0.01, 0.08], beta=[0.9, 0.01, 0.01, 0.08])
     p_vals = data.computeAll(timer=True)
+    print(data.disjoint_clusters_stats)
+    #print(p_vals)
