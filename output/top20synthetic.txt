@@ -1,0 +1,2 @@
+Sum of probabilities = 0.9999785092262313
+Computational time for 1048576 probabilities = 934.0475080013275 seconds

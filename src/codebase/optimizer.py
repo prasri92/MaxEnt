@@ -476,7 +476,7 @@ class Optimizer(object):
                     N = self.feats_obj.N        
                     # data_arr = self.feats_obj.data_arr
 
-                    # # THIS CAN SPED UP BY EFFICIENT NUMPY OPERATIONS
+                    # # THIS CAN BE SPED UP BY EFFICIENT NUMPY OPERATIONS
                     # for i in range(N):
                     #     rvec = data_arr[i, partition]
                     #     inner_constraint_sum = self.compute_constraint_sum(thetas, rvec, partition)
@@ -502,10 +502,14 @@ class Optimizer(object):
                 inn_arr = np.exp(inn_arr)
                 inn_arr /= norm_sol[i]
                 total_prob = np.sum(inn_arr, axis=0)
+                print('thetas', optimThetas)
                 print('Partition num, Total prob: ', i, total_prob)
 
         self.opt_sol = solution
         self.norm_z = norm_sol
+        #prach-edit 
+        # print("Solution:", solution)
+        # print("Normalized solution:", norm_sol)
         return (solution, norm_sol)
 
 
@@ -664,12 +668,3 @@ class Optimizer(object):
         trans_prob = self.prob_dist(given_rvec)/norm_prob
 
         return trans_prob
-
-
-
-
-
-
-
-
-

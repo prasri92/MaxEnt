@@ -1,8 +1,11 @@
-data/*
+dataset*
+toy_dataset*
 misc/*
+*.ipynb
 *.pk
 *.pdf
 *.pyc
 *.pk
 *.png
 *.swp
+*.pickle

@@ -8,7 +8,8 @@ Created on Fri Apr  5 08:30:48 2019
 from scipy.stats import binom 
 from scipy.special import comb
 import numpy as np
-np.random.seed(5)
+import pickle
+np.random.seed(0)
 import time
 
 class DataHelper:
@@ -44,7 +45,54 @@ class DataHelper:
         self.disjoint_clusters_stats = self.getClustersSummaries(overlap=False)
         self.overlapping_clusters_stats = self.getClustersSummaries(overlap=True)
         
+    
     def makeClusters(self, overlap=False):
+        """
+        Groups the diseases into different clusters.
+
+        PARAMETERS
+        ----------
+        - overlap(bool, default=False) : if True, overlapping clusters 
+           will be created
+
+        RETURNS
+        -------
+        - a dictionary containing the cluster ID as key and the 
+           contained disease numbers
+          (0<=n<=N) as values.
+        """
+        assert self.N>=self.K, \
+        'Reduce the number of clusters. Not possible to have {} clusters'.format(self.K)
+        d_idxs = np.arange(self.N)
+        redo = True
+        #redos=0
+        while redo==True:
+            clusters = {idx:[] for idx in range(self.K)}
+            for d_idx in d_idxs:
+                if overlap:
+                    if self.K==2:
+                        low=2
+                    else:
+                        low=1
+                    # choose 'm', the number of clusters this disease can belong to, randomly
+                    m = np.random.randint(low=low, high=self.K+1)
+                else:
+                    # choose only one cluster, since every cluster should be disjoint
+                    m = 1
+                # choose 'm' clusters, without replacement, according to beta vector
+                selections = np.random.choice(np.arange(self.K), size=m, p=self.beta, replace=False)
+                for k in selections:
+                    clusters[k].append(d_idx)
+            for k in clusters.keys():
+                if len(list(clusters[k]))!=0:
+                    redo = False
+                else:
+                    redo = True
+                    #redos+=1
+                    break
+        #print(clusters)
+        return clusters
+        '''
         """
         Groups the diseases into different clusters.
         
@@ -56,24 +104,36 @@ class DataHelper:
         -------
         - a dictionary containing the cluster ID as key and the contained disease numbers
           (0<=n<=N) as values.
+        """    
         """
-        assert self.N>=self.K, \
-         'Reduce the number of clusters. Not possible to have {} clusters'.format(self.K)
-        d_idxs = np.arange(self.N)
-        clusters = {idx:[] for idx in range(self.K)}
-        for d_idx in d_idxs:
-            if overlap:
-                # choose 'm', the number of clusters this disease can belong to, randomly
-                m = np.random.randint(low=1, high=self.K)
-            else:
-                # choose only one cluster, since every cluster should be disjoint
-                m = 1
-            # choose 'm' clusters, without replacement, according to beta vector
-            selections = np.random.choice(np.arange(self.K), size=m, p=self.beta, replace=False)
-            for k in selections:
-                clusters[k].append(d_idx)
-        return clusters
-    
+        TODO: Fix the generation scheme for the clusters
+        """
+        
+        # assert self.N>=self.K, \
+        #  'Reduce the number of clusters. Not possible to have {} clusters'.format(self.K)
+        # d_idxs = np.arange(self.N)
+        # clusters = {idx:[] for idx in range(self.K)}
+        # for d_idx in d_idxs:
+        #     if overlap:
+        #         # choose 'm', the number of clusters this disease can belong to, randomly
+        #         m = np.random.randint(low=1, high=self.K+1)
+        #     else:
+        #         # choose only one cluster, since every cluster should be disjoint
+        #         m = 1
+        #     # choose 'm' clusters, without replacement, according to beta vector
+        #     selections = np.random.choice(np.arange(self.K), size=m, p=self.beta, replace=False)
+        #     for k in selections:
+        #         clusters[k].append(d_idx)
+        # # TODO: this has to repeat until we get no empty cluster,
+        # # computational efficiency vs. change in the cluster size 
+        # # usually occurs for disjoint case
+        # # print('clusters are:', clusters)
+        # return clusters
+        
+        #Example, non-overlapping clusters with equal sizes 
+        return {0:[0], 1:[1], 2:[2,3], 3:[4]}
+        # return {0:[0,1,2,6,4,5],1:[0,3,4,5],2:[2,5,6,7,8],3:[9,1,7,10,11]}
+        '''
     def getClustersSummaries(self, overlap=False):
         """
         Gathers important cluster information relative to the entire sample space of 
@@ -118,40 +178,9 @@ class DataHelper:
                         A_k[k].append(d)
         for k in range(self.K):
             cluster_stats[k] = {'A': A_k[k], 'E': E_k[k], 'B': B_k[k]}
+        # print(cluster_stats)
         return cluster_stats  
-    
-    def p_iteration_helper(self, D_and_B, k, D_k, D_and_A, A_k):
-        """
-        Corrected implementation of second term in probability formula.
-        
-        PARAMETERS
-        ----------
-        - D_and_B : the number of unique diseases in the disease vector and the set 
-          which contains all diseases in cluster 'k' and at least one other cluster
-        - k : the chosen cluster
-        - D_k : the number of diseases in cluster 'k'
-        - D_and_A : the number of unique diseases in the disease vector and the set 
-          which contains all diseases present only in cluster 'k'
-        - A_k : the number of unique diseases that appear only in 'k'
-        
-        RETURNS
-        -------
-        - corrected result.
-        """
-        result = 1.0
-        for idx in range(D_and_B):
-            temp=0.0
-            if idx==0:
-                temp+=((0.75/(D_k-D_and_A))+((1-0.75)/(self.N-A_k)))*(self.tau[k]**idx)
-            else:
-                temp+=((0.75/(D_k-D_and_A-idx))+((1-0.75)/(self.N-A_k)))*(0.75**idx)
-                temp+=((0.75/(D_k-D_and_A))+((1-0.75)/(self.N-A_k-idx)))*((1-0.75)**idx)
-            if idx>=2:
-                for j in range(1, idx):
-                    temp+=((0.75/(D_k-D_and_A-idx))+((1-0.75)/(self.N-A_k-(idx-j))))*\
-                            (0.75**j)*((1-0.75)**(idx-j))
-            result*=temp
-        return result         
+
         
     def computeProbability(self, r, overlap=False):
         """
@@ -189,13 +218,13 @@ class DataHelper:
                     # finally, compute the probability using these stats
                     D_k = len(self.overlapping_clusters[k])
                     A_k = len(self.overlapping_clusters_stats[k]['A'])
+
                     for i in range(D_and_A):
-                        temp*=0.75/(D_k-i)
+                        temp*=(0.2/(D_k-i))
                     for j in range(D_and_B):
-                        #temp*=self.p_iteration_helper(D_and_B, k, D_k, D_and_A, A_k)
-                        temp*=(0.75/(D_k-D_and_A-j))+((1-0.75)/(self.N-A_k-j))
+                        temp*=((0.2/(D_k-D_and_A-j))+((1-0.2)/(self.N-A_k-j)))
                     for l in range(D_and_E):
-                        temp*=(1-0.75)/(self.N-D_k-l)  
+                        temp*=((1-0.2)/((self.N-A_k)-D_and_B-l))  
                     prob+=temp
             else:
                 for k in self.disjoint_clusters.keys():
@@ -240,7 +269,9 @@ class DataHelper:
         for idx in range(2**self.N):
             b = format(idx, '0{}b'.format(self.N))
             r = [int(j) for j in b]
-            probs.append(self.computeProbability(r, overlap=False))
+            p = self.computeProbability(r,overlap=False)
+            probs.append(p)
+            # probs.append(self.computeProbability(r, overlap=True))
             total+=probs[-1]
         print('Sum of probabilities = {}'.format(total))
         if timer:
@@ -249,7 +280,8 @@ class DataHelper:
         return probs
 
 if __name__=='__main__': 
-    data = DataHelper(8, 4, tau=[0.9, 0.01, 0.01, 0.08], beta=[0.9, 0.01, 0.01, 0.08])
+    data = DataHelper(20, 4, tau=[0.45, 0.25, 0.2, 0.1], beta=[0.35, 0.35, 0.15, 0.15])
     p_vals = data.computeAll(timer=True)
-    print(data.disjoint_clusters_stats)
-    #print(p_vals)
+    outfilename = '../../output/top20diseases_synthetic.pickle'
+    with open(outfilename, "wb") as outfile:
+        pickle.dump(p_vals, outfile)

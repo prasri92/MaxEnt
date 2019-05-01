@@ -57,9 +57,10 @@ class DataGenerator(DataHelper):
         r = np.zeros(self.N)
         
         # ==================== MODIFY BELOW =======================#
-        # first, choose 'n', using alpha
-        n = 4 
-        # next, choose 'k', using beta
+        # first, choose 'n', using alpha - alpha should be an exponential distribution
+        n = 4
+        # n = np.random.choice(np.arange(self.N)) 
+        # next, choose 'k', using beta - should be a geometric distribution 
         k = np.random.choice(np.arange(self.K))
         # =========================================================#
         
