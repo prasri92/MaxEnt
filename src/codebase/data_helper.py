@@ -285,3 +285,5 @@ if __name__=='__main__':
     outfilename = '../../output/top20diseases_synthetic.pickle'
     with open(outfilename, "wb") as outfile:
         pickle.dump(p_vals, outfile)
+
+        

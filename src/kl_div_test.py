@@ -10,6 +10,7 @@ def read_prob_dist(filename):
 def kl_divergence(p, q):
 	return (p*np.log(p/q)).sum()
 
+
 def main():
 	actual = '../output/top20diseases_actual.pickle'
 	synthetic = '../output/top20diseases_synthetic.pickle'

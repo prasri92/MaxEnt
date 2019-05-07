@@ -108,6 +108,7 @@ def compute_prob_exact(optobj):
     for tmp in all_perms:
         vec = np.asarray(tmp)
         p_vec = optobj.prob_dist(vec)
+        print(p_vec)
         total_prob += p_vec
         maxent_prob.append(p_vec) 
     return maxent_prob
