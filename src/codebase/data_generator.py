@@ -11,7 +11,7 @@ from data_helper import *
 import csv
 
 class DataGenerator(DataHelper):
-    def __init__(self, alpha, s, num_diseases, num_clusters, tau):
+    def __init__(self, alpha, s, num_diseases, num_clusters, tau, beta, p):
     # def __init__(self, alpha, s, num_diseases=10, num_clusters=5, tau=[0.2]*5):
         """
         A Data Generator sub-class, that operates under the <DataHelper> superclass.
@@ -31,15 +31,18 @@ class DataGenerator(DataHelper):
         - tau (list) : the probability of choosing a cluster while sampling clusters 
           for grouping diseases ; should sum to 1.0, and
           len(<beta>) should be equal to <num_clusters>
-        
+        - p : the binomial probability 
+        - s : the skew for the Zipfian distribution
+
         RETURNS
         -------
         None
         """
-        super().__init__(num_diseases=num_diseases, num_clusters=num_clusters, tau=tau)
+        super().__init__(num_diseases=num_diseases, num_clusters=num_clusters, tau=tau, beta=beta, p=p)
         self.alpha = alpha
         self.s = s
         self.num_clusters = num_clusters
+        self.p = p
              
     def generate_instance(self, overlap=False):
         """
@@ -61,13 +64,21 @@ class DataGenerator(DataHelper):
         r = r.astype(int)
         
         # first, choose 'n', using alpha - alpha should be an truncated exponential distribution
-        #VERIFY
         lower, upper, scale = 1, self.N, 1 
-        X = stats.truncexpon(b=(upper-lower)/scale, scale=scale)
+        """
+        # X = stats.truncexpon(b=(upper-lower)/scale, scale=scale)
         # X = stats.truncexpon(b=self.alpha, loc = lower, scale=scale)
-        n = X.rvs(1)
+        # X = stats.truncexpon(b=self.alpha, scale=scale)
+        """
+        def trunc_expon_rv(lower, upper, scale, size):
+            cdf = np.random.uniform(stats.expon.cdf(x=lower, scale=scale),\
+            stats.expon.cdf(x=upper, scale=scale), size=size)
+            return stats.expon.ppf(q=cdf, scale=scale)
+        n = trunc_expon_rv(lower, upper, self.alpha, 1)
         n = int(n[0])
-        
+        # print('number of diseases required',n)
+
+    
         # next, choose 'k', using beta - should be a truncated zipfian distribution
         x = np.arange(1, self.num_clusters+1)
         weights = x ** (-self.s)
@@ -76,9 +87,17 @@ class DataGenerator(DataHelper):
         k = bounded_zipf.rvs(size=1)
         k = int(k[0])-1
         
+        '''
+        #if n is a uniform distribution 
+        n = np.random.choice(np.arange(self.N))
+
+        #if beta is a uniform distribution
+        k = np.random.choice(np.arange(self.K))
+        '''
+        
         # Sample in-cluster and out-of-cluster diseases
         if overlap: # scheme for generation from overlapping clusters
-            C = min(np.random.binomial(n=n, p=0.75), len(self.overlapping_clusters[k]))
+            C = min(np.random.binomial(n=n, p=self.p), len(self.overlapping_clusters[k]))
             outer_diseases = list(np.delete(np.arange(self.N), self.overlapping_clusters[k]))
             if len(outer_diseases)>n-C: # sufficient number of unique out-of-cluster diseases exist
                 D.extend(np.random.choice(self.overlapping_clusters[k], size=C, replace=False))
@@ -100,8 +119,9 @@ class DataGenerator(DataHelper):
             # for patients with zero diseases 
             if n == 0:
                 return list(r)
-
-            C = min(np.random.binomial(n=n, p=0.75), len(self.disjoint_clusters[k]))
+            # print("cluster size", len(self.disjoint_clusters[k]))
+            C = min(np.random.binomial(n=n, p=self.p), len(self.disjoint_clusters[k]))
+            # print("in cluster wanted", C)
             outer_diseases = list(np.delete(np.arange(self.N), self.disjoint_clusters[k]))
             if len(outer_diseases)>n-C: # sufficient number of out-of-cluster diseases exist
                 D.extend(np.random.choice(self.disjoint_clusters[k], size=C, replace=False))
@@ -109,19 +129,27 @@ class DataGenerator(DataHelper):
             else:
                 # adjusted C = C + (n - number of out-of-cluster diseases)
                 D.extend(np.random.choice(self.disjoint_clusters[k], \
-                                            size= C+n-len(outer_diseases), replace=False))
-                D.extend(outer_diseases) # all the out-of-cluster diseases need to be added 
+                    size = max(min(C, len(self.disjoint_clusters[k])), n+len(self.disjoint_clusters[k])-self.N), replace=False))
+                D.extend(outer_diseases) # all the out-of-cluster diseases need to be added
+        
         r[np.array(D)] = 1
         return list(r)
     
-if __name__=='__main__':
-    #set dataset_size to be number of patients 
-    dataset_size = 100
-    #FIX CSV WRITE
-    with open("../../dataset/synthetic_data_1.csv", "a") as csvFile: 
+def run(file_name, dataset_size, alpha, s, num_diseases, num_clusters, tau, beta, p):
+    # for i in range(dataset_size):
+    #         gen = DataGenerator(alpha=alpha, s=s, num_diseases=num_diseases, num_clusters=num_clusters, tau=tau, beta=beta, p=p)
+    #         row = gen.generate_instance(False)
+    #         print(row)
+    with open(file_name, "a") as csvFile: 
         for i in range(dataset_size):
-            # By setting alpha = 2 * num_diseases, we have make lambda for trunc exp to be 0.5 
-            gen = DataGenerator(alpha=20, s=1.5, num_diseases=10, num_clusters=5, tau=[0.2]*5)
+            gen = DataGenerator(alpha=alpha, s=s, num_diseases=num_diseases, num_clusters=num_clusters, tau=tau, beta=beta, p=p)
             row = gen.generate_instance(False)
             csv.writer(csvFile).writerow(row)
     csvFile.close()
+    
+
+if __name__ == '__main__':
+    #example test case 
+    run("../../dataset/synthetic_data_1.csv", 50, 2, 1.5, 15, 5, [0.2,0.2,0.2,0.2,0.2], [0.2,0.2,0.2,0.2,0.2], 0.5)
+    # run("../../dataset/synthetic_data_1.csv", 20, 20, 1.5, 10, 4, [0.25,0.25,0.25,0.25], [0.25,0.25,0.25,0.25], 0.5)
+
