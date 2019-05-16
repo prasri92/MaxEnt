@@ -78,7 +78,6 @@ class DataGenerator(DataHelper):
         n = int(n[0])
         # print('number of diseases required',n)
 
-    
         # next, choose 'k', using beta - should be a truncated zipfian distribution
         x = np.arange(1, self.num_clusters+1)
         weights = x ** (-self.s)
@@ -87,13 +86,6 @@ class DataGenerator(DataHelper):
         k = bounded_zipf.rvs(size=1)
         k = int(k[0])-1
         
-        '''
-        #if n is a uniform distribution 
-        n = np.random.choice(np.arange(self.N))
-
-        #if beta is a uniform distribution
-        k = np.random.choice(np.arange(self.K))
-        '''
         
         # Sample in-cluster and out-of-cluster diseases
         if overlap: # scheme for generation from overlapping clusters
@@ -140,7 +132,7 @@ def run(file_name, dataset_size, alpha, s, num_diseases, num_clusters, tau, beta
     #         gen = DataGenerator(alpha=alpha, s=s, num_diseases=num_diseases, num_clusters=num_clusters, tau=tau, beta=beta, p=p)
     #         row = gen.generate_instance(False)
     #         print(row)
-    with open(file_name, "a") as csvFile: 
+    with open(file_name, "w") as csvFile: 
         for i in range(dataset_size):
             gen = DataGenerator(alpha=alpha, s=s, num_diseases=num_diseases, num_clusters=num_clusters, tau=tau, beta=beta, p=p)
             row = gen.generate_instance(False)

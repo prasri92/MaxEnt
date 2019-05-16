@@ -1,3 +1,6 @@
+"""
+mlxtend version = 0.15.0
+"""
 from __future__ import division
 import pickle
 import numpy as np
@@ -7,6 +10,7 @@ import pandas as pd
 from mlxtend.frequent_patterns import apriori
 from mlxtend.frequent_patterns import association_rules
 import sys
+import time
 
 
 path_to_codebase = './codebase/'
@@ -17,7 +21,7 @@ from codebase.optimizer import Optimizer
 
 # filePath = '../data/Age50_DataExtract_fy.csv'
 # filePath = '../toy_dataset/Age50_DataExtract_fy.csv'
-filePath = '../dataset/basket_sets.csv'
+# filePath = '../dataset/basket_sets.csv'
 
 def marketbasket(cleaneddata):
     frequent_itemsets = apriori(cleaneddata, min_support=0.004, use_colnames=True)
@@ -103,21 +107,25 @@ def marketbasket(cleaneddata):
 def compute_prob_exact(optobj):
     maxent_prob = []
     num_feats = optobj.feats_obj.data_arr.shape[1]
+    maxent_diseases = np.zeros(num_feats+1)
     all_perms = itertools.product([0, 1], repeat=num_feats)
     total_prob = 0.0    # finally should be very close to 1
     for tmp in all_perms:
         vec = np.asarray(tmp)
         p_vec = optobj.prob_dist(vec)
-        print(p_vec)
+        j = sum(vec)
+        maxent_diseases[j] += p_vec
         total_prob += p_vec
         maxent_prob.append(p_vec) 
-    return maxent_prob
+    print(total_prob)
+    return maxent_prob, maxent_diseases
 
 def main():
-    directory = '../dataset/basket_sets.csv'
+    tic = time.time()
+    directory = '../dataset/synthetic_data_expt4.csv'
     cleaneddata=pd.read_csv(directory, error_bad_lines=False)
     two_wayc, three_wayc, four_wayc = marketbasket(cleaneddata)
-    data_array = load_disease_data(filePath)
+    data_array = load_disease_data(directory)
     feats = ExtractFeatures(data_array)
 
     feats.set_two_way_constraints(two_wayc)
@@ -125,16 +133,21 @@ def main():
     feats.set_four_way_constraints(four_wayc)
 
     feats.partition_features()
-    print feats.feat_partitions
+    print(feats.feat_partitions)
 
     opt = Optimizer(feats) 
     soln_opt = opt.solver_optimize()
+    print("Optimizer is done. Computing probabilities")
 
-    maxent = compute_prob_exact(opt)
-    
-    outfilename = '../output/top20diseases_actual.pickle'
+    maxent, sum_prob_maxent = compute_prob_exact(opt)
+    print("writing to file")
+
+    outfilename = '../output/syn_maxent_expt4.pickle'
     with open(outfilename, "wb") as outfile:
-        pickle.dump(maxent, outfile)
+        pickle.dump((maxent, sum_prob_maxent), outfile)
+
+    toc = time.time()
+    print('Computational time for calculating maxent = {} seconds'.format(toc-tic))
 
 if __name__ == '__main__':
     main()

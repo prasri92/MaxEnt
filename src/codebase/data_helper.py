@@ -34,9 +34,9 @@ class DataHelper:
         None
         """
         assert len(tau)==num_clusters, \
-        'Incorrect number of beta parameters! Make sure beta is available for every cluster.'
+        'Incorrect number of tau parameters! Make sure beta is available for every cluster.'
         assert abs(sum(tau)-1.0)<=1e-10, \
-        'Invalid beta parameters! Should be normalized between 0 and 1, and sum to 1.0!'
+        'Invalid tau parameters! Should be normalized between 0 and 1, and sum to 1.0!'
         self.N = num_diseases
         self.K = num_clusters
         self.tau = tau

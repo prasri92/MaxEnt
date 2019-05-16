@@ -1,3 +1,4 @@
+#Parallelizing code 
 import data_helper
 import data_generator 
 from multiprocessing import Process
@@ -7,7 +8,7 @@ import numpy as np
 num_diseases = 20
 clusters = 5
 # uniform distribution
-expon_lambda = 0.75
+expon_lambda = 1.25
 zipfian_parameter = 1.0
 
 x = np.arange(1, clusters+1)
@@ -18,10 +19,10 @@ print(tau)
 beta= [0.2, 0.2, 0.2, 0.2, 0.2]
 p = 0.5
 
-file_name_real = '../../output/top20diseases_real_expt13.pickle'
+file_name_real = '../../output/top20diseases_real_expt23.pickle'
 
 dataset_size = 30000
-file_name_synthetic = "../../dataset/synthetic_data_expt13.csv"
+file_name_synthetic = "../../dataset/synthetic_data_expt23.csv"
 
 
 def get_true_distribution():
