@@ -11,3 +11,7 @@
 
 # TO DISCUSS
 1. Truncated Exponential with an upper and lower bound set. Check how to control the scale variable as well as how to set b. (Current hack, set alpha = 2 * num_diseases so that b = 1/lambda = 2 or lambda = 0.5)
+
+#support
+how do we rank the constraints that we get from the support, what is the support level that we need? 
+start from the 2, and work our way down to find the correct support metric. 

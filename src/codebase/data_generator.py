@@ -63,8 +63,9 @@ class DataGenerator(DataHelper):
         r = np.zeros(self.N)
         r = r.astype(int)
         
+        #check the truncated exponential. 
         # first, choose 'n', using alpha - alpha should be an truncated exponential distribution
-        lower, upper, scale = 1, self.N, 1 
+        lower, upper, scale = 0, self.N, 1 
         """
         # X = stats.truncexpon(b=(upper-lower)/scale, scale=scale)
         # X = stats.truncexpon(b=self.alpha, loc = lower, scale=scale)
@@ -142,6 +143,6 @@ def run(file_name, dataset_size, alpha, s, num_diseases, num_clusters, tau, beta
 
 if __name__ == '__main__':
     #example test case 
-    run("../../dataset/synthetic_data_1.csv", 50, 2, 1.5, 15, 5, [0.2,0.2,0.2,0.2,0.2], [0.2,0.2,0.2,0.2,0.2], 0.5)
+    run("../../dataset/synthetic_data_test_1.csv", 30000, 3, 1.5, 20, 5, [0.2,0.2,0.2,0.2,0.2], [0.2,0.2,0.2,0.2,0.2], 0.5)
     # run("../../dataset/synthetic_data_1.csv", 20, 20, 1.5, 10, 4, [0.25,0.25,0.25,0.25], [0.25,0.25,0.25,0.25], 0.5)
 
