@@ -13,20 +13,18 @@ from mlxtend.frequent_patterns import association_rules
 import sys
 import time
 
-
 path_to_codebase = './codebase/'
 sys.path.insert(0, path_to_codebase)
 from codebase.utils import load_disease_data
 from codebase.extract_features import ExtractFeatures
 from codebase.optimizer import Optimizer
 
-# filePath = '../data/Age50_DataExtract_fy.csv'
-# filePath = '../toy_dataset/Age50_DataExtract_fy.csv'
-# filePath = '../dataset/basket_sets.csv'
+#Knee for market basket analysis is when the support = 0.001, all diseases are part of the same 
+# constrain, and for 0.002 we find that they are each their own cluster. 
 
 def marketbasket(cleaneddata):
     frequent_itemsets = apriori(cleaneddata, min_support=0.001, use_colnames=True)
-    rules = association_rules(frequent_itemsets, metric="support", min_threshold=0.001)
+    rules = association_rules(frequent_itemsets, metric="lift", min_threshold=0.001)
     rules["antecedent_len"] = rules["antecedents"].apply(lambda x: len(x))
     rules["consequent_len"] = rules["consequents"].apply(lambda x: len(x))
     indices_two=list(rules.loc[(rules['antecedent_len'] == 1) & (rules['consequent_len'] == 1)].sort_values(by=['lift'], ascending=False).index.values)
@@ -53,7 +51,7 @@ def marketbasket(cleaneddata):
     for i in sets_two:
         tmp = []
         for j in i:
-            tmp.append(int(j))
+            tmp.append(int(float(j)))
         ltwo.append(tmp)
 
     for ithree in indices_three:
@@ -65,7 +63,7 @@ def marketbasket(cleaneddata):
     for i in sets_three:
         tmp = []
         for j in i:
-            tmp.append(int(j))
+            tmp.append(int(float(j)))
         lthree.append(tmp)
 
     for ifour in indices_four:
@@ -78,9 +76,9 @@ def marketbasket(cleaneddata):
     for i in sets_four:
         tmp = []
         for j in i:
-            tmp.append(int(j))
+            tmp.append(int(float(j)))
         lfour.append(tmp)
-    print(sets_two, sets_three, sets_four)
+    # print(sets_two, sets_three, sets_four)
     print(ltwo, lthree, lfour)
 
     """Output two way, three way and four way dictionaries as input for optimization"""
@@ -91,19 +89,6 @@ def marketbasket(cleaneddata):
     for sfour in lfour:
         four_way_dict[tuple(sfour)]=val_four
     return two_way_dict, three_way_dict, four_way_dict
-    
-# def compute_prob_exact(optobj):
-#     maxent_prob = []
-#     probsum = 0
-#     numfeat = optobj.feats_obj.data_arr.shape[1]
-#     for idx in range(2**numfeat):
-#         b = format(idx, '0{}b'.format(numfeat))
-#         r = [int(j) for j in b]
-#         tmp = optobj.prob_dist(r)
-#         probsum += tmp
-#         maxent_prob.append(tmp)
-#     print("Total probability", probsum)
-#     return maxent_prob
 
 def compute_prob_exact(optobj):
     maxent_prob = []
@@ -130,8 +115,10 @@ def compute_prob_exact(optobj):
 
 def main(file_num=None):
     tic = time.time()
-    directory = '../dataset/synthetic_data_test_1.csv'
-    # directory = '../dataset/synthetic_data_expt'+str(file_num)+'.csv'
+    # real data
+    # directory = '../dataset/basket_sets.csv'
+    # generating synthetic data 
+    directory = '../dataset/d5000/synthetic_data_expt'+str(file_num)+'.csv'
     cleaneddata=pd.read_csv(directory, error_bad_lines=False)
     two_wayc, three_wayc, four_wayc = marketbasket(cleaneddata)
     data_array = load_disease_data(directory)
@@ -152,64 +139,19 @@ def main(file_num=None):
     soln_opt = opt.solver_optimize()
     print("Optimizer is done. Computing probabilities")
 
-    # maxent, sum_prob_maxent, emp_prob = compute_prob_exact(opt)
-    # print("writing to file")
+    maxent, sum_prob_maxent, emp_prob = compute_prob_exact(opt)
+    print("writing to file")
 
-    # outfilename = '../output/syn_maxent_expt'+str(file_num)+'.pickle'
-    # with open(outfilename, "wb") as outfile:
-    #     pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)
+    # for real data
+    # outfilename = '../output/realdata_maxent.pickle'
+    # for synthetic data 
+    outfilename = '../output/d5000/syn_maxent_expt'+str(file_num)+'_s0.001.pickle'
+    with open(outfilename, "wb") as outfile:
+        pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)
 
     toc = time.time()
     print('Computational time for calculating maxent = {} seconds'.format(toc-tic))
 
 if __name__ == '__main__':
-    main()
-    # for i in range(1, 2):
-    #     main(i)
-
-'''
-
-vals = [0, 1, 2, 3, 4, 5]
-for v in vals:
-    print str(v), compute_prob_exact(opt, v)
-
-#### PLOTS #### 
-
-#Calculate the max-ent probability of having x number of diseases
-# total should add upto 1
-num_feats = data_array.shape[1]
-all_perms = itertools.product([0, 1], repeat=num_feats)
-total_prob = 0.0    # finally should be very close to 1
-mxt_prob = np.zeros(num_feats + 1)
-for tmp in all_perms:
-    vec = np.asarray(tmp)
-    j = sum(vec)
-    p_vec = opt.prob_dist(vec)
-    total_prob += p_vec
-    mxt_prob[j] += p_vec
-
-emp_prob = np.zeros(num_feats + 1)
-for vec in data_array:
-    j = sum(vec)
-    emp_prob[j] += 1
-emp_prob /= data_array.shape[0] # N
-
-print mxt_prob, emp_prob
-
-
-# xvec = [i+1 for i in range(num_feats + 1)]
-# # ~xvec
-# x_ticks = np.arange(0, num_feats+2, 1.0)
-# # ~x_ticks
-# plot_lims = [0,  num_feats+2, -0.1, 1.0]
-# # ~plot_lims
-# # Both on same plot
-# plt.figure()
-# plt.plot(xvec, emp_prob, 'ro', label='empirical')  # empirical
-# plt.plot(xvec, mxt_prob, 'bo', label='maxent')  # maxent
-# plt.legend()
-# plt.xticks(x_ticks)
-# plt.axis(plot_lims)
-# plt.show()
-# # plt.savefig('../out/plot_merge_' + str(k_val) + '.png')
-'''
+    for i in range(1, 6):
+        main(i)

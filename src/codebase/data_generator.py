@@ -9,6 +9,7 @@ import numpy as np
 import scipy.stats as stats 
 from data_helper import *
 import csv
+import matplotlib.pyplot as plt 
 
 class DataGenerator(DataHelper):
     def __init__(self, alpha, s, num_diseases, num_clusters, tau, beta, p):
@@ -63,14 +64,8 @@ class DataGenerator(DataHelper):
         r = np.zeros(self.N)
         r = r.astype(int)
         
-        #check the truncated exponential. 
         # first, choose 'n', using alpha - alpha should be an truncated exponential distribution
         lower, upper, scale = 0, self.N, 1 
-        """
-        # X = stats.truncexpon(b=(upper-lower)/scale, scale=scale)
-        # X = stats.truncexpon(b=self.alpha, loc = lower, scale=scale)
-        # X = stats.truncexpon(b=self.alpha, scale=scale)
-        """
         def trunc_expon_rv(lower, upper, scale, size):
             cdf = np.random.uniform(stats.expon.cdf(x=lower, scale=scale),\
             stats.expon.cdf(x=upper, scale=scale), size=size)
@@ -111,7 +106,7 @@ class DataGenerator(DataHelper):
             
             # for patients with zero diseases 
             if n == 0:
-                return list(r)
+                return list(r), n
             # print("cluster size", len(self.disjoint_clusters[k]))
             C = min(np.random.binomial(n=n, p=self.p), len(self.disjoint_clusters[k]))
             # print("in cluster wanted", C)
@@ -126,23 +121,22 @@ class DataGenerator(DataHelper):
                 D.extend(outer_diseases) # all the out-of-cluster diseases need to be added
         
         r[np.array(D)] = 1
-        return list(r)
+        return list(r), n 
     
 def run(file_name, dataset_size, alpha, s, num_diseases, num_clusters, tau, beta, p):
-    # for i in range(dataset_size):
-    #         gen = DataGenerator(alpha=alpha, s=s, num_diseases=num_diseases, num_clusters=num_clusters, tau=tau, beta=beta, p=p)
-    #         row = gen.generate_instance(False)
-    #         print(row)
+    n = np.zeros(num_diseases)
     with open(file_name, "w") as csvFile: 
+        first_row = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+        csv.writer(csvFile).writerow(first_row)
         for i in range(dataset_size):
             gen = DataGenerator(alpha=alpha, s=s, num_diseases=num_diseases, num_clusters=num_clusters, tau=tau, beta=beta, p=p)
-            row = gen.generate_instance(False)
+            row, no_diseases = gen.generate_instance(False)
+            n[no_diseases]+=1
             csv.writer(csvFile).writerow(row)
     csvFile.close()
     
 
+
 if __name__ == '__main__':
     #example test case 
-    run("../../dataset/synthetic_data_test_1.csv", 30000, 3, 1.5, 20, 5, [0.2,0.2,0.2,0.2,0.2], [0.2,0.2,0.2,0.2,0.2], 0.5)
-    # run("../../dataset/synthetic_data_1.csv", 20, 20, 1.5, 10, 4, [0.25,0.25,0.25,0.25], [0.25,0.25,0.25,0.25], 0.5)
-
+    run("../../dataset/synthetic_data_test_1.csv", 10000, 0.7, 1.5, 20, 5, [0.2,0.2,0.2,0.2,0.2], [0.2,0.2,0.2,0.2,0.2], 0.5)
