@@ -23,8 +23,8 @@ from codebase.optimizer import Optimizer
 # constrain, and for 0.002 we find that they are each their own cluster. 
 
 def marketbasket(cleaneddata):
-    frequent_itemsets = apriori(cleaneddata, min_support=0.001, use_colnames=True)
-    rules = association_rules(frequent_itemsets, metric="lift", min_threshold=0.001)
+    frequent_itemsets = apriori(cleaneddata, min_support=0.002, use_colnames=True)
+    rules = association_rules(frequent_itemsets, metric="lift", min_threshold=0.002)
     rules["antecedent_len"] = rules["antecedents"].apply(lambda x: len(x))
     rules["consequent_len"] = rules["consequents"].apply(lambda x: len(x))
     indices_two=list(rules.loc[(rules['antecedent_len'] == 1) & (rules['consequent_len'] == 1)].sort_values(by=['lift'], ascending=False).index.values)
@@ -145,7 +145,9 @@ def main(file_num=None):
     # for real data
     # outfilename = '../output/realdata_maxent.pickle'
     # for synthetic data 
-    outfilename = '../output/d5000/syn_maxent_expt'+str(file_num)+'_s0.001.pickle'
+    # outfilename = '../output/d5000/syn_maxent_expt'+str(file_num)+'_s0.001.pickle'
+    outfilename = '../output/d5000/syn_maxent_expt'+str(file_num)+'.pickle'
+
     with open(outfilename, "wb") as outfile:
         pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)
 
@@ -153,5 +155,5 @@ def main(file_num=None):
     print('Computational time for calculating maxent = {} seconds'.format(toc-tic))
 
 if __name__ == '__main__':
-    for i in range(1, 6):
+    for i in range(6, 11):
         main(i)

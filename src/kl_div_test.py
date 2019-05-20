@@ -41,24 +41,25 @@ if __name__ == '__main__':
 	maxent_prob = []
 	emp_prob = []
 	kl = []
-	for i in range(1,6):
+	for i in range(6,11):
 		m, e, k = main_1(i)
 		maxent_prob.append(m)
 		emp_prob.append(e)
 		kl.append(k)
 
-	for i in range(1, 6):
-		m2, e2, k2 = main_2(i)
-		maxent_prob.append(m2)
-		emp_prob.append(e2)
-		kl.append(k2)
+	# for i in range(1, 6):
+	# 	m2, e2, k2 = main_2(i)
+	# 	maxent_prob.append(m2)
+	# 	emp_prob.append(e2)
+	# 	kl.append(k2)
 
 	num_feats = 20
 	xvec = [i+1 for i in range(num_feats + 1)]
 	x_ticks = np.arange(0, num_feats+2, 1.0)
 	plot_lims = [0,  num_feats+2, -0.1, 1.0]
 
-	fig, ((ax1,ax2,ax3,ax4,ax5), (ax6, ax7, ax8, ax9, ax10)) = plt.subplots(2,5, figsize=(28, 5), sharey=True)
+	fig, (ax1,ax2,ax3,ax4,ax5) = plt.subplots(1,5, figsize=(28, 5), sharey=True)
+	# fig, ((ax1,ax2,ax3,ax4,ax5), (ax6, ax7, ax8, ax9, ax10)) = plt.subplots(2,5, figsize=(28, 5), sharey=True)
 
 	ax1.plot(xvec, maxent_prob[0], 'r', label='maxent')
 	ax1.plot(xvec, emp_prob[0], 'b', label='empirical')
@@ -97,6 +98,7 @@ if __name__ == '__main__':
 
 	plt.figtext(0.5, 0.95, "Support = 0.002")
 
+	'''
 	ax6.plot(xvec, maxent_prob[5], 'r', label='maxent')
 	ax6.plot(xvec, emp_prob[5], 'b', label='empirical')
 	ax6.axis(plot_lims)
@@ -133,6 +135,7 @@ if __name__ == '__main__':
 	ax10.legend()
 
 	plt.figtext(0.5, 0.5, 'Support = 0.001')
+	'''
 	plt.subplots_adjust(hspace = 0.7)
 	plt.show()
 	# plt.savefig('../figures/'+'Lambda=0.8, support=0.002'+'.png')
