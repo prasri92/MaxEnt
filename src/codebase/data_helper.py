@@ -11,11 +11,10 @@ import numpy as np
 import pickle
 np.random.seed(0)
 import time
-import math
 
 class DataHelper:
     
-    def __init__(self, num_diseases, num_clusters, tau, beta, p):
+    def __init__(self, num_diseases, num_clusters, alpha, tau, beta, p=None, q1=None, q2=None):
         """
         A Data Helper class, that creates clusters of diseases and stores information;
         useful for computing the probability of generation of any disease vector.
@@ -25,9 +24,18 @@ class DataHelper:
         - num_diseases(int, default=10) : the total number of possible diseases
         - num_clusters(int, default=5) : the number of clusters used for 
           grouping the diseases
+        - alpha(list of length <num_diseases>+1) : the probability of choosing 'k' diseases 
+                                                 in the synthetic generator for all values of k 
+                                                 where 0<=k<=N
         - tau (list, default=[0.2, 0.2, 0.2, 0.2, 0.2]) : the probability of choosing
+          a cluster while generating a disease vector ; should sum to 1.0, and
+          len(<tau>) should be equal to <num_clusters>
+        - beta (list, default=[0.2, 0.2, 0.2, 0.2, 0.2]) : the probability of choosing
           a cluster while sampling clusters for grouping diseases ; should sum to 1.0, and
           len(<beta>) should be equal to <num_clusters>
+        - p (float) : the binomial's 'p' value in the disjoint case
+        - q1(float) : the first binomial's 'p' value in the overlapping case
+        - q2(float) : the second binomial's 'p' value in the overlapping case
         
         RETURNS
         -------
@@ -39,35 +47,34 @@ class DataHelper:
         'Invalid tau parameters! Should be normalized between 0 and 1, and sum to 1.0!'
         self.N = num_diseases
         self.K = num_clusters
+        self.alpha = alpha
         self.tau = tau
         self.beta = beta
+        self.q1 = q1
+        self.q2 = q2
         self.p = p
         self.disjoint_clusters = self.makeClusters(overlap=False)
         self.overlapping_clusters = self.makeClusters(overlap=True)
         self.disjoint_clusters_stats = self.getClustersSummaries(overlap=False)
         self.overlapping_clusters_stats = self.getClustersSummaries(overlap=True)
         
-    
     def makeClusters(self, overlap=False):
         """
         Groups the diseases into different clusters.
 
         PARAMETERS
         ----------
-        - overlap(bool, default=False) : if True, overlapping clusters 
-           will be created
+        - overlap(bool, default=False) : if True, overlapping clusters will be created
 
         RETURNS
         -------
-        - a dictionary containing the cluster ID as key and the 
-           contained disease numbers
+        - a dictionary containing the cluster ID as key and the contained disease numbers
           (0<=n<=N) as values.
         """
         assert self.N>=self.K, \
         'Reduce the number of clusters. Not possible to have {} clusters'.format(self.K)
         d_idxs = np.arange(self.N)
         redo = True
-        #redos=0
         while redo==True:
             clusters = {idx:[] for idx in range(self.K)}
             for d_idx in d_idxs:
@@ -90,9 +97,7 @@ class DataHelper:
                     redo = False
                 else:
                     redo = True
-                    #redos+=1
                     break
-        #print(clusters)
         return clusters
 
     def getClustersSummaries(self, overlap=False):
@@ -139,10 +144,8 @@ class DataHelper:
                         A_k[k].append(d)
         for k in range(self.K):
             cluster_stats[k] = {'A': A_k[k], 'E': E_k[k], 'B': B_k[k]}
-        # print(cluster_stats)
         return cluster_stats  
 
-        
     def computeProbability(self, r, overlap=False):
         """
         Computes the probability of generating a disease vector 'r'.
@@ -156,51 +159,63 @@ class DataHelper:
         - the probability of generating the disease vector 'r', according to the synthetic
           data generation scheme.
         """
-        obs = list(np.argwhere(np.array(r)==1))
-        alpha=1/(self.N+1)
-        prob = 0.0
-        if obs:
+        observation = list(np.argwhere(np.array(r)==1))
+        if observation:
+            prob = 0.0
             if overlap:
                 for k in self.overlapping_clusters.keys():
-                    # initializations
-                    temp = self.tau[k]
-                    D_and_B = 0
-                    D_and_A = 0
-                    D_and_E = 0
-                    # compute required stats
-                    for d_idx in obs:
+                    p_k = self.tau[k]
+                    D = len(observation)
+                    size = len(self.overlapping_clusters[k])
+                    Ak = len(self.overlapping_clusters_stats[k]['A'])
+                    D_Ak = 0
+                    D_Bk = 0
+                    D_Dk = 0
+                    D_Dk_ = 0
+                    for d_idx in observation:
                         d = list(d_idx)[0] # d_idx is a numpy array containing one integer (look np.argwhere)
+                        if d in self.overlapping_clusters[k]:
+                            D_Dk+=1
+                        else:
+                            D_Dk_+=1
                         if d in self.overlapping_clusters_stats[k]['B']:
-                            D_and_B+=1
-                        if d in self.overlapping_clusters_stats[k]['A']:
-                            D_and_A+=1
-                        if d in self.overlapping_clusters_stats[k]['E']:
-                            D_and_E+=1
-                    # finally, compute the probability using these stats
-                    D_k = len(self.overlapping_clusters[k])
-                    A_k = len(self.overlapping_clusters_stats[k]['A'])
-
-                    for i in range(D_and_A):
-                        temp*=(0.2/(D_k-i))
-                    for j in range(D_and_B):
-                        temp*=((0.2/(D_k-D_and_A-j))+((1-0.2)/(self.N-A_k-j)))
-                    for l in range(D_and_E):
-                        temp*=((1-0.2)/((self.N-A_k)-D_and_B-l))  
-                    prob+=temp
+                            D_Bk+=1
+                        elif d in self.overlapping_clusters_stats[k]['A']:
+                            D_Ak+=1
+                    Bk = np.setdiff1d(self.overlapping_clusters[k], self.overlapping_clusters_stats[k]['A']).size
+                    Ek = np.setdiff1d(np.arange(self.N), self.overlapping_clusters[k]).size 
+                    d = min(size, D)
+                    if D_Dk<d:
+                        b = binom.pmf(D_Dk, d, self.q1) # binomial 'p' can be set later
+                    else:
+                        b = 1-binom.cdf(D_Dk-1, d, self.q1)
+                        for i in range(0, size+1):
+                            if self.N-size<D-i:
+                                b+=binom.pmf(i, d, self.q1)
+                    if D_Ak<Ak:
+                        b_exc = binom.pmf(D_Ak, D_Dk, self.q2) # binomial 'p_exc' can be set later
+                    else:
+                        b_exc = 1-binom.cdf(D_Ak-1, D_Dk, self.q2)
+                        for j in range(0, Ak+1):
+                            if Bk<D_Dk-j:
+                                b_exc+=binom.pmf(j, D_Dk, self.q2)
+                    p_k*=(b*b_exc*(1/comb(Ak, D_Ak))*(1/comb(Bk, D_Bk))\
+                               *(1/comb(Ek, D_Dk_)))
+                    prob+=p_k
             else:
                 for k in self.disjoint_clusters.keys():
                     temp = self.tau[k]
                     j = 0
-                    for d_idx in obs:
+                    for d_idx in observation:
                         d = list(d_idx)[0]
                         if d in self.disjoint_clusters[k]:
                             j+=1 # 'j' is the number of diseases that are in D and D_k
                     size = len(self.disjoint_clusters[k])
                     if j<size:
-                        b = binom.pmf(j, len(obs), p=self.p)
+                        b = binom.pmf(j, len(observation), p=self.p)
                     elif j==size:
-                        b = 1-binom.cdf(j-1, len(obs), p=self.p)
-                    a = [list(d_idx)[0] for d_idx in obs]
+                        b = 1-binom.cdf(j-1, len(observation), p=self.p)
+                    a = [list(d_idx)[0] for d_idx in observation]
                     for i in self.disjoint_clusters[k]:
                         if i in a:
                             a.remove(i)
@@ -208,10 +223,10 @@ class DataHelper:
                     temp*=(b*(1/comb(size, j))*(1/comb(c, len(a))))
                     prob+=temp    
         else:
-            prob=1
-        return prob*alpha
+            prob=1.0
+        return prob*self.alpha[len(observation)]
    
-    def computeAll(self, overlap=False, timer=False): # add feature to pickle probs, if needed
+    def computeAll(self, overlap=False, timer=False): 
         """
         Computes the probabilities of generation of all possible disease vectors.
         
@@ -230,7 +245,7 @@ class DataHelper:
         for idx in range(2**self.N):
             b = format(idx, '0{}b'.format(self.N))
             r = [int(j) for j in b]
-            p = self.computeProbability(r, overlap=False)
+            p = self.computeProbability(r, overlap=True)
             probs.append(p)
             # probs.append(self.computeProbability(r, overlap=True))
             total+=probs[-1]
@@ -248,7 +263,11 @@ def run(outfilename, d, c, tau, beta, p):
 
 if __name__=='__main__': 
     # example case
-    outfilename = '../../output/top20diseases_synthetic.pickle'
-    run(outfilename, 10, 4, [0.25,0.25,0.25,0.25],[0.25,0.25,0.25,0.25], 0.5)
-
+    #outfilename = '../../output/top20diseases_synthetic.pickle'
+    #run(outfilename, 10, 4, [0.25,0.25,0.25,0.25],[0.25,0.25,0.25,0.25], 0.5)
+    # overlap
+    data = DataHelper(5, 4, alpha=[0.4, 0.1, 0.2, 0.1, 0.1, 0.1], tau=[0.25]*4, beta=[0.25]*4, q1=0.65, q2=0.97)
+    # disjoint
+    #data = DataHelper(5, 4, alpha=[0.4, 0.1, 0.2, 0.1, 0.1, 0.1], tau=[0.25]*4, beta=[0.25]*4, p=0.7)
+    p_vals = data.computeAll(timer=True)
     
