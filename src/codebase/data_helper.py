@@ -144,6 +144,7 @@ class DataHelper:
                         A_k[k].append(d)
         for k in range(self.K):
             cluster_stats[k] = {'A': A_k[k], 'E': E_k[k], 'B': B_k[k]}
+        print(cluster_stats)
         return cluster_stats  
 
     def computeProbability(self, r, overlap=False):
@@ -184,21 +185,34 @@ class DataHelper:
                             D_Ak+=1
                     Bk = np.setdiff1d(self.overlapping_clusters[k], self.overlapping_clusters_stats[k]['A']).size
                     Ek = np.setdiff1d(np.arange(self.N), self.overlapping_clusters[k]).size 
-                    d = min(size, D)
+                    d = min(size, D) 
                     if D_Dk<d:
-                        b = binom.pmf(D_Dk, d, self.q1) # binomial 'p' can be set later
+                        b = binom.pmf(D_Dk, D, self.q1)
+                        if D_Dk_==Ek: # accounts for revisits 
+                            for i in range(0, D_Dk):
+                                if self.N-size<D-i:
+                                    b+=binom.pmf(i, D, self.q1)  
                     else:
-                        b = 1-binom.cdf(D_Dk-1, d, self.q1)
-                        for i in range(0, size+1):
-                            if self.N-size<D-i:
-                                b+=binom.pmf(i, d, self.q1)
-                    if D_Ak<Ak:
-                        b_exc = binom.pmf(D_Ak, D_Dk, self.q2) # binomial 'p_exc' can be set later
+                        b = 1-binom.cdf(D_Dk-1, D, self.q1)
+                        if D_Dk_==Ek: # accounts for revisits 
+                            for i in range(0, d+1):
+                                if self.N-size<D-i:
+                                    b+=binom.pmf(i, D, self.q1)
+                    # NOTE :  Revisits (above) happen only when all out_of_cluster diseases are present in D
+                    d_ = min(D_Dk, Ak)
+                    if D_Ak<d_:
+                        b_exc = binom.pmf(D_Ak, D_Dk, self.q2) 
+                        if Bk==D_Bk: # accounts for revisits 
+                            for j in range(0, D_Ak):
+                                if Bk<D_Dk-j:
+                                    b_exc+=binom.pmf(j, D_Dk, self.q2)
                     else:
                         b_exc = 1-binom.cdf(D_Ak-1, D_Dk, self.q2)
-                        for j in range(0, Ak+1):
-                            if Bk<D_Dk-j:
-                                b_exc+=binom.pmf(j, D_Dk, self.q2)
+                        if Bk==D_Bk: # accounts for revisits 
+                            for j in range(0, d_+1):
+                                if Bk<D_Dk-j:
+                                    b_exc+=binom.pmf(j, D_Dk, self.q2)
+                    # NOTE :  Revisits (above) happen only when all overlapping diseases are present in D
                     p_k*=(b*b_exc*(1/comb(Ak, D_Ak))*(1/comb(Bk, D_Bk))\
                                *(1/comb(Ek, D_Dk_)))
                     prob+=p_k
@@ -247,6 +261,7 @@ class DataHelper:
             r = [int(j) for j in b]
             p = self.computeProbability(r, overlap=True)
             probs.append(p)
+            print(r, p)
             # probs.append(self.computeProbability(r, overlap=True))
             total+=probs[-1]
         print('Sum of probabilities = {}'.format(total))
@@ -266,7 +281,7 @@ if __name__=='__main__':
     #outfilename = '../../output/top20diseases_synthetic.pickle'
     #run(outfilename, 10, 4, [0.25,0.25,0.25,0.25],[0.25,0.25,0.25,0.25], 0.5)
     # overlap
-    data = DataHelper(5, 4, alpha=[0.4, 0.1, 0.2, 0.1, 0.1, 0.1], tau=[0.25]*4, beta=[0.25]*4, q1=0.65, q2=0.97)
+    data = DataHelper(10, 3, alpha=[1/11]*11, tau=[0.7, 0.25, 0.05], beta=[1/3]*3, q1=0.65, q2=0.97)
     # disjoint
     #data = DataHelper(5, 4, alpha=[0.4, 0.1, 0.2, 0.1, 0.1, 0.1], tau=[0.25]*4, beta=[0.25]*4, p=0.7)
     p_vals = data.computeAll(timer=True)
