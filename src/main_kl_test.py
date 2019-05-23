@@ -162,5 +162,5 @@ def main(file_num=None):
     print('Computational time for calculating maxent = {} seconds'.format(toc-tic))
 
 if __name__ == '__main__':
-    for i in range(11, 16):
+    for i in range(1, 6):
         main(i)
