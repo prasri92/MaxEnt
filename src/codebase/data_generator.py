@@ -126,7 +126,7 @@ class DataGenerator(DataHelper):
 def run(file_name, dataset_size, alpha, s, num_diseases, num_clusters, tau, beta, p):
     n = np.zeros(num_diseases)
     with open(file_name, "w") as csvFile: 
-        first_row = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+        first_row = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
         csv.writer(csvFile).writerow(first_row)
         for i in range(dataset_size):
             gen = DataGenerator(alpha=alpha, s=s, num_diseases=num_diseases, num_clusters=num_clusters, tau=tau, beta=beta, p=p)

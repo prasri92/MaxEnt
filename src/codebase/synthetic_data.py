@@ -8,7 +8,7 @@ num_diseases = 20
 clusters = 5
 # uniform distribution
 #test skew 
-expon_lambda=[1.6]
+expon_lambda=[3.2]
 # expon_lambda = [0.8, 1.6, 2.4, 3.2, 4.0]
 zipfian_parameter = [0.0, 1.0, 2.0, 3.0, 4.0]
 
@@ -34,7 +34,7 @@ def get_synthetic_data(file_name_synthetic, expon_lambda, zipfian_parameter, tau
 	print("Data Generated successfully!")
 
 def main():	
-	file_num = 6
+	file_num = 16
 	for l in expon_lambda:
 		for z in zipfian_parameter:
 			tau = generate_tau(z)
