@@ -12,15 +12,15 @@ import csv
 import matplotlib.pyplot as plt 
 
 class DataGenerator(DataHelper):
-    def __init__(self, alpha, s, num_diseases, num_clusters, tau, beta, p):
-    # def __init__(self, alpha, s, num_diseases=10, num_clusters=5, tau=[0.2]*5):
+    def __init__(self, exponent_param, s, num_diseases, num_clusters, tau, beta, p):
+    # def __init__(self, exponent_param, s, num_diseases=10, num_clusters=5, tau=[0.2]*5):
         """
         A Data Generator sub-class, that operates under the <DataHelper> superclass.
         This class contains methods to synthetically generate disease data.
    
         PARAMS
         ------
-        - alpha (float) : the parameter used for choosing 'n', the number of diseases 
+        - exponent_param (float) : (1/lambda) the parameter used for choosing 'n', the number of diseases 
           to sample for any instance. Parameter for truncated exponentials distribution. 
           equal to b in scipy.stats.truncexpon module
         - s (float) : the parameter for Zipf distribution; used for choosing a cluster 
@@ -39,8 +39,13 @@ class DataGenerator(DataHelper):
         -------
         None
         """
-        super().__init__(num_diseases=num_diseases, num_clusters=num_clusters, tau=tau, beta=beta, p=p)
-        self.alpha = alpha
+        #generate a truncated exponential distribution for exponent
+        x = np.arange(num_diseases+1)
+        self.alpha = (1/exponent_param)*np.exp(-(1/exponent_param)*x)
+        self.alpha = self.alpha/sum(self.alpha)
+
+        super().__init__(num_diseases=num_diseases, num_clusters=num_clusters, alpha=self.alpha, tau=tau, beta=beta, p=p)
+        self.exponent_param = exponent_param
         self.s = s
         self.num_clusters = num_clusters
         self.p = p
@@ -70,7 +75,7 @@ class DataGenerator(DataHelper):
             cdf = np.random.uniform(stats.expon.cdf(x=lower, scale=scale),\
             stats.expon.cdf(x=upper, scale=scale), size=size)
             return stats.expon.ppf(q=cdf, scale=scale)
-        n = trunc_expon_rv(lower, upper, self.alpha, 1)
+        n = trunc_expon_rv(lower, upper, self.exponent_param, 1)
         n = int(n[0])
         
         # next, choose 'k', from a truncated zipfian distribution
@@ -118,13 +123,13 @@ class DataGenerator(DataHelper):
         r[np.array(D)] = 1
         return list(r), n 
     
-def run(file_name, dataset_size, alpha, s, num_diseases, num_clusters, tau, beta, p):
+def run(file_name, dataset_size, exponent_param, s, num_diseases, num_clusters, tau, beta, p):
     n = np.zeros(num_diseases)
     with open(file_name, "w") as csvFile: 
         first_row = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
         csv.writer(csvFile).writerow(first_row)
         for i in range(dataset_size):
-            gen = DataGenerator(alpha=alpha, s=s, num_diseases=num_diseases, num_clusters=num_clusters, tau=tau, beta=beta, p=p)
+            gen = DataGenerator(exponent_param=exponent_param, s=s, num_diseases=num_diseases, num_clusters=num_clusters, tau=tau, beta=beta, p=p)
             row, no_diseases = gen.generate_instance(False)
             n[no_diseases]+=1
             csv.writer(csvFile).writerow(row)
@@ -134,4 +139,4 @@ def run(file_name, dataset_size, alpha, s, num_diseases, num_clusters, tau, beta
 
 if __name__ == '__main__':
     #example test case 
-    run("../../dataset/synthetic_data_test_1.csv", 10000, 0.7, 1.5, 20, 5, [0.2,0.2,0.2,0.2,0.2], [0.2,0.2,0.2,0.2,0.2], 0.5)
+    run("../../dataset/synthetic_data_test_1.csv", 500, 0.7, 1.5, 20, 5, [0.2,0.2,0.2,0.2,0.2], [0.2,0.2,0.2,0.2,0.2], 0.5)

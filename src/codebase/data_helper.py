@@ -14,7 +14,7 @@ import time
 
 class DataHelper:
     
-    def __init__(self, num_diseases, num_clusters, alpha, tau, beta, p=None, q1=None, q2=None):
+    def __init__(self, num_diseases, num_clusters, alpha=None, tau=None, beta=None, p=None, q1=None, q2=None):
         """
         A Data Helper class, that creates clusters of diseases and stores information;
         useful for computing the probability of generation of any disease vector.
@@ -24,9 +24,8 @@ class DataHelper:
         - num_diseases(int, default=10) : the total number of possible diseases
         - num_clusters(int, default=5) : the number of clusters used for 
           grouping the diseases
-        - alpha(list of length <num_diseases>+1) : the probability of choosing 'k' diseases 
-                                                 in the synthetic generator for all values of k 
-                                                 where 0<=k<=N
+        - alpha : an exponential distribution for probabilty of 
+            having n diseases (with n = 0 to N) 
         - tau (list, default=[0.2, 0.2, 0.2, 0.2, 0.2]) : the probability of choosing
           a cluster while generating a disease vector ; should sum to 1.0, and
           len(<tau>) should be equal to <num_clusters>
@@ -57,6 +56,7 @@ class DataHelper:
         self.overlapping_clusters = self.makeClusters(overlap=True)
         self.disjoint_clusters_stats = self.getClustersSummaries(overlap=False)
         self.overlapping_clusters_stats = self.getClustersSummaries(overlap=True)
+
         
     def makeClusters(self, overlap=False):
         """
@@ -259,10 +259,8 @@ class DataHelper:
         for idx in range(2**self.N):
             b = format(idx, '0{}b'.format(self.N))
             r = [int(j) for j in b]
-            p = self.computeProbability(r, overlap=True)
+            p = self.computeProbability(r, overlap=overlap)
             probs.append(p)
-            print(r, p)
-            # probs.append(self.computeProbability(r, overlap=True))
             total+=probs[-1]
         print('Sum of probabilities = {}'.format(total))
         if timer:
@@ -271,18 +269,16 @@ class DataHelper:
         return probs
 
 def run(outfilename, d, c, tau, beta, p):
-    data = DataHelper(d, c, tau, beta, p)
-    p_vals = data.computeAll(timer=True)
+    data = DataHelper(d, c, alpha, tau, beta, p)
+    p_vals = data.computeAll(timer=True, overlap=True)
     with open(outfilename, "wb") as outfile:
         pickle.dump(p_vals, outfile)
 
 if __name__=='__main__': 
-    # example case
-    #outfilename = '../../output/top20diseases_synthetic.pickle'
-    #run(outfilename, 10, 4, [0.25,0.25,0.25,0.25],[0.25,0.25,0.25,0.25], 0.5)
     # overlap
-    data = DataHelper(10, 3, alpha=[1/11]*11, tau=[0.7, 0.25, 0.05], beta=[1/3]*3, q1=0.65, q2=0.97)
+    data = DataHelper(5, 3, alpha=[0.1]*6, tau=[0.7, 0.25, 0.05], beta=[1/3]*3, q1=0.65, q2=0.97)
     # disjoint
-    #data = DataHelper(5, 4, alpha=[0.4, 0.1, 0.2, 0.1, 0.1, 0.1], tau=[0.25]*4, beta=[0.25]*4, p=0.7)
-    p_vals = data.computeAll(timer=True)
+    # data = DataHelper(5, 4, alpha=[0.1]*6, tau=[0.25]*4, beta=[0.25]*4, p=0.7)
+    p_vals = data.computeAll(timer=True, overlap=True)
+    print(p_vals)
     
