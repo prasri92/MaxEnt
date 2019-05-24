@@ -19,12 +19,18 @@ from codebase.utils import load_disease_data
 from codebase.extract_features import ExtractFeatures
 from codebase.optimizer import Optimizer
 
-#Knee for market basket analysis is when the support = 0.001, all diseases are part of the same 
-# constrain, and for 0.002 we find that they are each their own cluster. 
+'''
+Support =
+l = 0.8, support = 0.002, 0.001 (all are in same cluster)
+l = 0.16, support = 0.002, 0.001
+l = 2.4, support = 0.022 
+l = 3.2, support = 0.04
+l = 4.0, support = 0.058
+'''
 
 def marketbasket(cleaneddata):
-    frequent_itemsets = apriori(cleaneddata, min_support=0.002, use_colnames=True)
-    rules = association_rules(frequent_itemsets, metric="lift", min_threshold=0.002)
+    frequent_itemsets = apriori(cleaneddata, min_support=0.1, use_colnames=True)
+    rules = association_rules(frequent_itemsets, metric="lift", min_threshold=0.1)
     rules["antecedent_len"] = rules["antecedents"].apply(lambda x: len(x))
     rules["consequent_len"] = rules["consequents"].apply(lambda x: len(x))
     indices_two=list(rules.loc[(rules['antecedent_len'] == 1) & (rules['consequent_len'] == 1)].sort_values(by=['lift'], ascending=False).index.values)
@@ -146,7 +152,8 @@ def main(file_num=None):
     # outfilename = '../output/realdata_maxent.pickle'
     # for synthetic data 
     # outfilename = '../output/d5000/syn_maxent_expt'+str(file_num)+'_s0.001.pickle'
-    outfilename = '../output/d5000/syn_maxent_expt'+str(file_num)+'.pickle'
+    # outfilename = '../output/d5000/syn_maxent_expt'+str(file_num)+'.pickle'
+    outfilename = '../output/d5000/testfile.pickle'
 
     with open(outfilename, "wb") as outfile:
         pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)

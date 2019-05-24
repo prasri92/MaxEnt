@@ -8,8 +8,8 @@ num_diseases = 20
 clusters = 5
 # uniform distribution
 #test skew 
-expon_lambda=[4.0]
-# expon_lambda = [0.8, 1.6, 2.4, 3.2, 4.0]
+
+expon_parameter = [0.8, 1.6, 2.4, 3.2, 4.0]
 zipfian_parameter = [0.0, 1.0, 2.0, 3.0, 4.0]
 
 #Change for each expt 
@@ -29,13 +29,13 @@ def get_true_distribution(file_name_real, tau):
 	print(data_helper.run(file_name_real, num_diseases, clusters, tau, beta, p))
 	print("Data Helper done!")
 
-def get_synthetic_data(file_name_synthetic, expon_lambda, zipfian_parameter, tau):
-	data_generator.run(file_name_synthetic, dataset_size, expon_lambda, zipfian_parameter, num_diseases, clusters, tau, beta, p)
+def get_synthetic_data(file_name_synthetic, expon_parameter, zipfian_parameter, tau):
+	data_generator.run(file_name_synthetic, dataset_size, expon_parameter, zipfian_parameter, num_diseases, clusters, tau, beta, p)
 	print("Data Generated successfully!")
 
 def main():	
-	file_num = 1
-	for l in expon_lambda:
+	file_num = 16
+	for l in expon_parameter:
 		for z in zipfian_parameter:
 			tau = generate_tau(z)
 			file_name_real = '../../output/d5000/truedist_expt'+str(file_num)+'.pickle'
