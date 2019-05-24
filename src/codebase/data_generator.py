@@ -9,42 +9,74 @@ import numpy as np
 import scipy.stats as stats 
 from data_helper import *
 import csv
-import matplotlib.pyplot as plt 
 
 class DataGenerator(DataHelper):
-    def __init__(self, alpha, s, num_diseases, num_clusters, tau, beta, p):
-    # def __init__(self, alpha, s, num_diseases=10, num_clusters=5, tau=[0.2]*5):
+    
+    def __init__(self, e, z, num_diseases, num_clusters, beta, p=None, q1=None, q2=None):
         """
         A Data Generator sub-class, that operates under the <DataHelper> superclass.
         This class contains methods to synthetically generate disease data.
    
         PARAMS
         ------
-        - alpha (float) : the parameter used for choosing 'n', the number of diseases 
-          to sample for any instance. Parameter for truncated exponentials distribution. 
-          equal to b in scipy.stats.truncexpon module
-        - s (float) : the parameter for Zipf distribution; used for choosing a cluster 
-          from where the in-cluster diseases will be sampled; s is the parameter used
-          to define the weights in the truncated zipfian distribution
+        - e(float) : parameter for the truncated exponential distribution ; used while 
+                     choosing the number of diseases in an instance to be generated
+        - z(float) : the skew for the Zipfian distribution ; used while choosing a cluster 
+                     from where in-cluster diseases will be sampled
         - num_diseases(int) : the total number of possible diseases
-        - num_clusters(int) : the number of clusters used for 
-          grouping the diseases
-        - tau (list) : the probability of choosing a cluster while sampling clusters 
-          for grouping diseases ; should sum to 1.0, and
-          len(<beta>) should be equal to <num_clusters>
-        - p : the binomial probability 
-        - s : the skew for the Zipfian distribution
-
+        - num_clusters(int) : the number of clusters used for grouping the diseases
+        - beta(list) : the probabilities of choosing each of the clusters while sampling
+                       clusters for grouping diseases ; should sum to 1.0, and
+                       len(<beta>) should be equal to <num_clusters>
+        - p(float) : the binomial's 'p' value in the disjoint clusters case
+        - q1(float) : the first binomial's 'p' value in the overlapping clusters case
+        - q2(float) : the second binomial's 'p' value in the overlapping clusters case
+    
         RETURNS
         -------
         None
         """
-        super().__init__(num_diseases=num_diseases, num_clusters=num_clusters, tau=tau, beta=beta, p=p)
-        self.alpha = alpha
-        self.s = s
+        self.e = e
+        self.z = z
         self.num_clusters = num_clusters
         self.p = p
-             
+        assert abs(1-sum(beta))<1e-6, 'Betas do not add to 1.0, Check and try again!'
+        super().__init__(alpha=self._compute_alpha(num_diseases), num_diseases=num_diseases, \
+                          num_clusters=num_clusters, tau=self._compute_tau(), beta=beta, p=p, q1=q1, q2=q2)
+          
+    def _compute_alpha(self, N):
+        """ 
+        Computes the probabilities of choosing each of 0 to N diseases according to the simulation scheme.
+        
+        PARAMETERS
+        ----------
+        - N(int) : the number of diseases
+        
+        RETURNS
+        -------
+        - A list of size N+1, containing the probabilities of choosing each of 0 to N diseases.
+        """
+        alpha = []
+        for i in range(N+1):
+            alpha.append(stats.expon.pdf(i, scale=self.e))
+        return np.array(alpha)/sum(alpha)
+    
+    def _compute_tau(self):
+        """ 
+        Computes the probabilities of choosing each of the <num_clusters> clusters.
+        
+        PARAMETERS
+        ----------
+        - None
+        
+        RETURNS
+        -------
+        - A list of size <num_clusters>, containing the probabilities of choosing each of the clusters.
+        """
+        tau = np.arange(1, self.num_clusters+1)**(-self.z)
+        tau/=tau.sum()
+        return tau
+    
     def generate_instance(self, overlap=False):
         """
         Generates a disease vector using one of two sampling schemes.
@@ -52,86 +84,81 @@ class DataGenerator(DataHelper):
         PARAMETERS
         ----------
          - overlap(bool, default=False) : if True, overlapping clusters will be accessed from 
-         the super class.
+           the super class.
          
         RETURNS
         -------
         - a binary vector of size 'N', the total number of possible diseases, wherein each bit
-        indicates presence or absence of the corresponding disease.
+          indicates presence or absence of the corresponding disease.
         """
         # initializations
         D = []
         r = np.zeros(self.N)
         r = r.astype(int)
-        
         # first, choose 'n', from a truncated exponential distribution
-        lower, upper, scale = 0, self.N, 1 
-        def trunc_expon_rv(lower, upper, scale, size):
-            cdf = np.random.uniform(stats.expon.cdf(x=lower, scale=scale),\
-            stats.expon.cdf(x=upper, scale=scale), size=size)
-            return stats.expon.ppf(q=cdf, scale=scale)
-        n = trunc_expon_rv(lower, upper, self.alpha, 1)
-        n = int(n[0])
-        
+        n = np.random.choice(np.arange(self.N+1), p=self.alpha)
         # next, choose 'k', from a truncated zipfian distribution
-        x = np.arange(1, self.num_clusters+1)
-        weights = x ** (-self.s)
-        weights /= weights.sum() 
-        bounded_zipf = stats.rv_discrete(name='bounded_zipf', values=(x, weights))
-        k = bounded_zipf.rvs(size=1)
-        k = int(k[0])-1
-        
-        # Sample in-cluster and out-of-cluster diseases
+        k = np.random.choice(np.arange(self.num_clusters), p=self.tau)
         if overlap: # scheme for generation from overlapping clusters
-            C = min(np.random.binomial(n=n, p=self.p), len(self.overlapping_clusters[k]))
-            outer_diseases = list(np.delete(np.arange(self.N), self.overlapping_clusters[k]))
-            if len(outer_diseases)>n-C: # sufficient number of unique out-of-cluster diseases exist
-                D.extend(np.random.choice(self.overlapping_clusters[k], size=C, replace=False))
-                while len(D)<n:
-                    choice = np.random.choice(np.delete(np.arange(self.N), \
-                                                    self.overlapping_clusters[k]))
-                    if not choice in D:
-                        D.append(choice) 
-            else: # insufficient number of unique out-of-cluster diseases
-                D.extend(outer_diseases)
-                while len(D)<n:
-                    # choose remaining diseases from cluster 'k'
-                    choice = np.random.choice(self.overlapping_clusters[k])
-                    if not choice in D:
-                        D.append(choice) 
-                
-        else: # scheme for generation from disjoint clusters
-            if n == 0: # for patients with zero diseases 
+            if  n==0:
                 return list(r), n
-            # print("cluster size", len(self.disjoint_clusters[k]))
-            C = min(np.random.binomial(n=n, p=self.p), len(self.disjoint_clusters[k]))
-            # print("in cluster wanted", C)
-            outer_diseases = list(np.delete(np.arange(self.N), self.disjoint_clusters[k]))
-            if len(outer_diseases)>n-C: # sufficient number of out-of-cluster diseases exist
-                D.extend(np.random.choice(self.disjoint_clusters[k], size=C, replace=False))
-                D.extend(np.random.choice(outer_diseases, size=n-C, replace=False))
-            else:
-                # adjusted C = C + (n - number of out-of-cluster diseases)
-                D.extend(np.random.choice(self.disjoint_clusters[k], \
-                    size = max(min(C, len(self.disjoint_clusters[k])), n+len(self.disjoint_clusters[k])-self.N), replace=False))
-                D.extend(outer_diseases) # all the out-of-cluster diseases need to be added
+            C_k = max(min(np.random.binomial(n=n, p=self.q1), len(self.overlapping_clusters[k])), \
+                        n+len(self.overlapping_clusters[k])-self.N)
+            if self.overlapping_clusters_stats[k]['A']: # this cluster contains exclusive diseases
+                A_k = max(min(np.random.binomial(n=C_k, p=self.q2), len(self.overlapping_clusters_stats[k]['A'])), \
+                        C_k-len(self.overlapping_clusters_stats[k]['B']))
+                D.extend(np.random.choice(self.overlapping_clusters_stats[k]['A'], size=A_k, replace=False))
+                D.extend(np.random.choice(self.overlapping_clusters_stats[k]['B'], size=C_k-A_k, replace=False))
+            else: # this cluster does NOT contain any exclusive diseases
+                A_k = 0
+                D.extend(np.random.choice(self.overlapping_clusters_stats[k]['B'], size=C_k, replace=False))
+            D.extend(np.random.choice(self.overlapping_clusters_stats[k]['E'], size=n-C_k, replace=False))
+        else: # scheme for generation from disjoint clusters
+            if n==0: 
+                return list(r), n
+            C_k = max(min(np.random.binomial(n=n, p=self.p), len(self.disjoint_clusters[k])), \
+                        n+len(self.disjoint_clusters[k])-self.N)
+            D.extend(np.random.choice(self.disjoint_clusters[k], size=C_k, replace=False))
+            D.extend(np.random.choice(self.disjoint_clusters_stats[k]['E'], size=n-C_k, replace=False))
         r[np.array(D)] = 1
         return list(r), n 
+
+# =========================================================================================================================== #   
+
+def run(file_name, dataset_size, e, z, num_diseases, num_clusters, beta, p=None, q1=None, q2=None):
+    """ 
+    Runs the synthetic data generator to generate instances and saves the generated instances to disk.
     
-def run(file_name, dataset_size, alpha, s, num_diseases, num_clusters, tau, beta, p):
+    PARAMETERS
+    ----------
+    - file_name(str) : the filename to use for saving generated data instances 
+    - dataset_size(int) : the number of data instances to generate
+    - e(float) : the parameter for the truncated exponential distribution
+    - z(float) : the skew for the Zipfian distribution 
+    - num_diseases(int) : the total number of possible diseases
+    - num_clusters(int) : the number of clusters used for grouping the diseases
+    - beta(list) : the probabilities of choosing each of the clusters while sampling
+                       clusters for grouping diseases ; should sum to 1.0, and
+                       len(<beta>) should be equal to <num_clusters>
+    - p(float) : the binomial's 'p' value in the disjoint clusters case
+    - q1(float) : the first binomial's 'p' value in the overlapping clusters case
+    - q2(float) : the second binomial's 'p' value in the overlapping clusters case
+    
+    RETURNS
+    -------
+    - None
+    """
     n = np.zeros(num_diseases)
     with open(file_name, "w") as csvFile: 
-        first_row = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+        first_row = list(np.arange(num_diseases))
         csv.writer(csvFile).writerow(first_row)
         for i in range(dataset_size):
-            gen = DataGenerator(alpha=alpha, s=s, num_diseases=num_diseases, num_clusters=num_clusters, tau=tau, beta=beta, p=p)
-            row, no_diseases = gen.generate_instance(False)
+            gen = DataGenerator(e=e, z=z, num_diseases=num_diseases, num_clusters=num_clusters, beta=beta, p=p, q1=q1, q2=q2)
+            row, no_diseases = gen.generate_instance(overlap=True)
             n[no_diseases]+=1
             csv.writer(csvFile).writerow(row)
     csvFile.close()
-    
-
 
 if __name__ == '__main__':
     #example test case 
-    run("../../dataset/synthetic_data_test_1.csv", 10000, 0.7, 1.5, 20, 5, [0.2,0.2,0.2,0.2,0.2], [0.2,0.2,0.2,0.2,0.2], 0.5)
+    run("../../dataset/synthetic_data_test_1.csv", 500, 0.7, 1.5, 20, 5, [0.2,0.2,0.2,0.2,0.2], 0.6, 0.3, 0.15)

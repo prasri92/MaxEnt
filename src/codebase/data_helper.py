@@ -22,18 +22,21 @@ class DataHelper:
         PARAMS
         ------
         - num_diseases(int, default=10) : the total number of possible diseases
-        - num_clusters(int, default=5) : the number of clusters used for 
-          grouping the diseases
+        - num_clusters(int, default=5) : the number of clusters used for grouping the diseases
         - alpha(list of length <num_diseases>+1) : the probability of choosing 'k' diseases 
                                                  in the synthetic generator for all values of k 
                                                  where 0<=k<=N
-        - tau (list, default=[0.2, 0.2, 0.2, 0.2, 0.2]) : the probability of choosing
-          a cluster while generating a disease vector ; should sum to 1.0, and
-          len(<tau>) should be equal to <num_clusters>
-        - beta (list, default=[0.2, 0.2, 0.2, 0.2, 0.2]) : the probability of choosing
-          a cluster while sampling clusters for grouping diseases ; should sum to 1.0, and
-          len(<beta>) should be equal to <num_clusters>
-        - p (float) : the binomial's 'p' value in the disjoint case
+        - tau(list, default=[0.2, 0.2, 0.2, 0.2, 0.2]) : the probabilities of choosing each of 
+                                                         the <num_clusters> clusters
+                                                         while generating a disease vector ; 
+                                                         should sum to 1.0, and
+                                                         len(<tau>) should be equal to <num_clusters>
+        - beta(list, default=[0.2, 0.2, 0.2, 0.2, 0.2]) : the probabilities of choosing each of 
+                                                          the <num_clusters> clusters while sampling
+                                                          clusters for grouping diseases ; 
+                                                          should sum to 1.0, and len(<tau>) should be 
+                                                          equal to <num_clusters>
+        - p(float) : the binomial's 'p' value in the disjoint case
         - q1(float) : the first binomial's 'p' value in the overlapping case
         - q2(float) : the second binomial's 'p' value in the overlapping case
         
@@ -144,7 +147,6 @@ class DataHelper:
                         A_k[k].append(d)
         for k in range(self.K):
             cluster_stats[k] = {'A': A_k[k], 'E': E_k[k], 'B': B_k[k]}
-        print(cluster_stats)
         return cluster_stats  
 
     def computeProbability(self, r, overlap=False):
@@ -261,8 +263,6 @@ class DataHelper:
             r = [int(j) for j in b]
             p = self.computeProbability(r, overlap=True)
             probs.append(p)
-            print(r, p)
-            # probs.append(self.computeProbability(r, overlap=True))
             total+=probs[-1]
         print('Sum of probabilities = {}'.format(total))
         if timer:
