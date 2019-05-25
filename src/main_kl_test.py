@@ -124,7 +124,7 @@ def main(file_num=None):
     # real data
     # directory = '../dataset/basket_sets.csv'
     # generating synthetic data 
-    directory = '../dataset/d5000/synthetic_data_expt'+str(file_num)+'.csv'
+    directory = '../dataset/d500/synthetic_data_expt'+str(file_num)+'.csv'
     cleaneddata=pd.read_csv(directory, error_bad_lines=False)
     two_wayc, three_wayc, four_wayc = marketbasket(cleaneddata)
     data_array = load_disease_data(directory)
@@ -151,9 +151,7 @@ def main(file_num=None):
     # for real data
     # outfilename = '../output/realdata_maxent.pickle'
     # for synthetic data 
-    # outfilename = '../output/d5000/syn_maxent_expt'+str(file_num)+'_s0.001.pickle'
-    # outfilename = '../output/d5000/syn_maxent_expt'+str(file_num)+'.pickle'
-    outfilename = '../output/d5000/testfile.pickle'
+    outfilename = '../output/d500/syn_maxent_expt'+str(file_num)+'.pickle'
 
     with open(outfilename, "wb") as outfile:
         pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)
@@ -162,5 +160,5 @@ def main(file_num=None):
     print('Computational time for calculating maxent = {} seconds'.format(toc-tic))
 
 if __name__ == '__main__':
-    for i in range(1, 6):
+    for i in range(1, 2):
         main(i)
