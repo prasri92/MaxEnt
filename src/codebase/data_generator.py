@@ -155,7 +155,7 @@ def run(file_name, dataset_size, e, z, num_diseases, num_clusters, beta, p=None,
         for i in range(dataset_size):
             gen = DataGenerator(e=e, z=z, num_diseases=num_diseases, num_clusters=num_clusters, beta=beta, p=p, q1=q1, q2=q2)
             row, no_diseases = gen.generate_instance(overlap=overlap)
-            n[no_diseases]+=1
+            n[no_diseases-1]+=1
             csv.writer(csvFile).writerow(row)
     csvFile.close()
 
