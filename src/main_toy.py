@@ -59,7 +59,7 @@ feats.set_four_way_constraints(four_wayc)
 # feats.compute_topK_feats()
 
 feats.partition_features()
-print feats.feat_partitions
+print(feats.feat_partitions)
 
 opt = Optimizer(feats) 
 soln_opt = opt.solver_optimize()
@@ -104,7 +104,7 @@ def compute_prob_exact(optobj, k):
 
 vals = [0, 1, 2, 3, 4, 5]
 for v in vals:
-    print str(v), compute_prob_exact(opt, v)
+    print(str(v), compute_prob_exact(opt, v))
 
 #### PLOTS #### 
 
@@ -127,7 +127,7 @@ for vec in data_array:
     emp_prob[j] += 1
 emp_prob /= data_array.shape[0] # N
 
-print mxt_prob, emp_prob
+print(mxt_prob, emp_prob)
 
 
 # xvec = [i+1 for i in range(num_feats + 1)]
