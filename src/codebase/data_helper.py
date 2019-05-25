@@ -7,6 +7,7 @@ Created on Fri Apr  5 08:30:48 2019
 """
 from scipy.stats import binom 
 from scipy.special import comb
+import scipy.stats as stats
 import numpy as np
 import pickle
 np.random.seed(0)
@@ -34,7 +35,7 @@ class DataHelper:
         - beta(list, default=[0.2, 0.2, 0.2, 0.2, 0.2]) : the probabilities of choosing each of 
                                                           the <num_clusters> clusters while sampling
                                                           clusters for grouping diseases ; 
-                                                          should sum to 1.0, and len(<tau>) should be 
+                                                          should sum to 1.0, and len(<beta>) should be 
                                                           equal to <num_clusters>
         - p(float) : the binomial's 'p' value in the disjoint case
         - q1(float) : the first binomial's 'p' value in the overlapping case
@@ -261,7 +262,7 @@ class DataHelper:
         for idx in range(2**self.N):
             b = format(idx, '0{}b'.format(self.N))
             r = [int(j) for j in b]
-            p = self.computeProbability(r, overlap=True)
+            p = self.computeProbability(r, overlap=overlap)
             probs.append(p)
             total+=probs[-1]
         print('Sum of probabilities = {}'.format(total))
@@ -270,19 +271,23 @@ class DataHelper:
             print('Computational time for {} probabilities = {} seconds'.format(2**self.N, toc-tic))
         return probs
 
-def run(outfilename, d, c, tau, beta, p):
-    data = DataHelper(d, c, tau, beta, p)
-    p_vals = data.computeAll(timer=True)
+def run(outfilename, d, c, e, tau, beta, p):
+    alpha = []
+    for i in range(d+1):
+        alpha.append(stats.expon.pdf(i, scale=e))
+    alpha = np.array(alpha)/sum(alpha)
+    data = DataHelper(d, c, alpha, tau, beta, p)
+    p_vals = data.computeAll(timer=True, overlap=False)
     with open(outfilename, "wb") as outfile:
         pickle.dump(p_vals, outfile)
 
 if __name__=='__main__': 
     # example case
-    #outfilename = '../../output/top20diseases_synthetic.pickle'
-    #run(outfilename, 10, 4, [0.25,0.25,0.25,0.25],[0.25,0.25,0.25,0.25], 0.5)
+    outfilename = '../../output/test_data_helper.pickle'
+    run(outfilename, 10, 4, 2.4, [0.1, 0.5, 0.1, 0.3], [0.25,0.25,0.25,0.25], 0.5)
     # overlap
-    data = DataHelper(10, 3, alpha=[1/11]*11, tau=[0.7, 0.25, 0.05], beta=[1/3]*3, q1=0.65, q2=0.97)
+    # data = DataHelper(10, 3, alpha=[1/11]*11, tau=[0.7, 0.25, 0.05], beta=[1/3]*3, q1=0.65, q2=0.97)
     # disjoint
     #data = DataHelper(5, 4, alpha=[0.4, 0.1, 0.2, 0.1, 0.1, 0.1], tau=[0.25]*4, beta=[0.25]*4, p=0.7)
-    p_vals = data.computeAll(timer=True)
+    # p_vals = data.computeAll(timer=True)
     
