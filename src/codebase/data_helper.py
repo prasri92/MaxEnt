@@ -270,7 +270,8 @@ class DataHelper:
             toc = time.time()
             print('Computational time for {} probabilities = {} seconds'.format(2**self.N, toc-tic))
         return probs
-
+'''
+#non-overlapping case 
 def run(outfilename, d, c, e, tau, beta, p):
     alpha = []
     for i in range(d+1):
@@ -280,11 +281,22 @@ def run(outfilename, d, c, e, tau, beta, p):
     p_vals = data.computeAll(timer=True, overlap=False)
     with open(outfilename, "wb") as outfile:
         pickle.dump(p_vals, outfile)
+'''
+#overlapping case
+def run(outfilename, d, c, e, tau, beta, p, q1, q2):
+    alpha = []
+    for i in range(d+1):
+        alpha.append(stats.expon.pdf(i, scale=e))
+    alpha = np.array(alpha)/sum(alpha)
+    data = DataHelper(d, c, alpha, tau, beta, p, q1, q2)
+    p_vals = data.computeAll(timer=True, overlap=True)
+    with open(outfilename, "wb") as outfile:
+        pickle.dump(p_vals, outfile)
 
 if __name__=='__main__': 
     # example case
-    outfilename = '../../output/test_data_helper.pickle'
-    run(outfilename, 10, 4, 2.4, [0.1, 0.5, 0.1, 0.3], [0.25,0.25,0.25,0.25], 0.5)
+    outfilename = '../../output/test_data_helper_overlap.pickle'
+    run(outfilename, 10, 4, 2.4, [0.1, 0.5, 0.1, 0.3], [0.25,0.25,0.25,0.25], 0.5, 0.6, 0.7)
     # overlap
     # data = DataHelper(10, 3, alpha=[1/11]*11, tau=[0.7, 0.25, 0.05], beta=[1/3]*3, q1=0.65, q2=0.97)
     # disjoint

@@ -21,14 +21,13 @@ def kl_divergence(p, q):
 	return (p*np.log(p/q)).sum()
 
 
-
 def main_1(i):
-	actual = '../output/d5000/truedist_expt'+str(i)+'.pickle'
-	synthetic = '../output/d5000/syn_maxent_expt'+str(i)+'.pickle'
+	actual = '../output/d500/truedist_expt'+str(i)+'.pickle'
+	synthetic = '../output/d500/syn_maxent_expt'+str(i)+'.pickle'
 	p = (np.array(read_prob_dist(actual)))
 	q = (np.array(read_prob_dist(synthetic)))
 	maxent_prob, emp_prob = read_prob_sum(synthetic)
-	kl_div = kl_divergence(q,p)
+	kl_div = kl_divergence(p,q)
 
 	return maxent_prob, emp_prob, kl_div
 '''

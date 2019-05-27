@@ -125,7 +125,7 @@ class DataGenerator(DataHelper):
 
 # =========================================================================================================================== #   
 
-def run(file_name, dataset_size, e, z, num_diseases, num_clusters, beta, p=None, q1=None, q2=None, overlap=False):
+def run(file_name, dataset_size, e, z, num_diseases, num_clusters, beta, p=None, q1=None, q2=None, overlap=True):
     """ 
     Runs the synthetic data generator to generate instances and saves the generated instances to disk.
     
@@ -161,4 +161,4 @@ def run(file_name, dataset_size, e, z, num_diseases, num_clusters, beta, p=None,
 
 if __name__ == '__main__':
     #example test case 
-    run("../../dataset/synthetic_data_test_1.csv", 500, 0.7, 1.5, 20, 5, [0.2,0.2,0.2,0.2,0.2], 0.6, 0.3, 0.15)
+    run("../../dataset/synthetic_data_test_1.csv", 500, 0.7, 1.5, 10, 5, [0.2,0.2,0.2,0.2,0.2], 0.6, 0.3, 0.15)

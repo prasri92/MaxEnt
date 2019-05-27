@@ -1,6 +1,6 @@
 """
 mlxtend version = 0.15.0
-python = 2.7
+python = 3.7.3
 """
 from __future__ import division
 import pickle
@@ -20,17 +20,17 @@ from codebase.extract_features import ExtractFeatures
 from codebase.optimizer import Optimizer
 
 '''
-Support =
-l = 0.8, support = 0.002, 0.001 (all are in same cluster)
-l = 0.16, support = 0.002, 0.001
-l = 2.4, support = 0.022 
-l = 3.2, support = 0.04
-l = 4.0, support = 0.058
+Support v4 
+l = 0.8, support = 0.002
+l = 1.6, support = 0.005
+l = 2.4, support = 0.005 (to get 2,3,4 way constraints)
+l = 3.2, support = 0.022
+l = 4.0, support = 0.029
 '''
 
-def marketbasket(cleaneddata):
-    frequent_itemsets = apriori(cleaneddata, min_support=0.1, use_colnames=True)
-    rules = association_rules(frequent_itemsets, metric="lift", min_threshold=0.1)
+def marketbasket(cleaneddata, support):
+    frequent_itemsets = apriori(cleaneddata, min_support=support, use_colnames=True)
+    rules = association_rules(frequent_itemsets, metric="lift", min_threshold=0.002)
     rules["antecedent_len"] = rules["antecedents"].apply(lambda x: len(x))
     rules["consequent_len"] = rules["consequents"].apply(lambda x: len(x))
     indices_two=list(rules.loc[(rules['antecedent_len'] == 1) & (rules['consequent_len'] == 1)].sort_values(by=['lift'], ascending=False).index.values)
@@ -120,13 +120,19 @@ def compute_prob_exact(optobj):
     return maxent_prob, maxent_diseases, emp_prob
 
 def main(file_num=None):
+    print("File num: " + str(file_num) + " has started")
+    support_data = {1:0.002, 2:0.002, 3:0.002, 4:0.002, 5:0.002, 6:0.005, \
+        7:0.005, 8:0.005, 9:0.005, 10:0.005, 11:0.012, 12:0.012, 13:0.016, \
+        14:0.014, 15:0.013, 16:0.02, 17:0.018, 18:0.021, 19:0.023, 20:0.025, 21:0.029, \
+        22:0.026, 23:0.027, 24:0.029, 25:0.032}
+    support = support_data[file_num]
     tic = time.time()
     # real data
     # directory = '../dataset/basket_sets.csv'
     # generating synthetic data 
     directory = '../dataset/d500/synthetic_data_expt'+str(file_num)+'.csv'
     cleaneddata=pd.read_csv(directory, error_bad_lines=False)
-    two_wayc, three_wayc, four_wayc = marketbasket(cleaneddata)
+    two_wayc, three_wayc, four_wayc = marketbasket(cleaneddata, support)
     data_array = load_disease_data(directory)
     feats = ExtractFeatures(data_array)
 
@@ -160,5 +166,5 @@ def main(file_num=None):
     print('Computational time for calculating maxent = {} seconds'.format(toc-tic))
 
 if __name__ == '__main__':
-    for i in range(1, 2):
-        main(i)
+    file_num = sys.argv[1]
+    main(int(file_num))
