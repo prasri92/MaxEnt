@@ -150,7 +150,7 @@ def run(file_name, dataset_size, e, z, num_diseases, num_clusters, beta, p=None,
     """
     n = np.zeros(num_diseases)
     with open(file_name, "w") as csvFile: 
-        first_row = list(np.arange(num_diseases))
+        first_row = list(np.arange(1, num_diseases+1))
         csv.writer(csvFile).writerow(first_row)
         for i in range(dataset_size):
             gen = DataGenerator(e=e, z=z, num_diseases=num_diseases, num_clusters=num_clusters, beta=beta, p=p, q1=q1, q2=q2)
@@ -161,4 +161,4 @@ def run(file_name, dataset_size, e, z, num_diseases, num_clusters, beta, p=None,
 
 if __name__ == '__main__':
     #example test case 
-    run("../../dataset/synthetic_data_test_1.csv", 500, 0.7, 1.5, 10, 5, [0.2,0.2,0.2,0.2,0.2], 0.6, 0.3, 0.15)
+    run("../../dataset/synthetic_data_test_1.csv", 500, 4.0, 2.0, 10, 5, [0.2,0.2,0.2,0.2,0.2], 0.6, 0.3, 0.15)

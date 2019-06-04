@@ -20,8 +20,6 @@ class Optimizer(object):
     from the ExtractFeatures class which contains the feature paritions and 
     the feature pairs for the constraints. Optimization algorithm uses the 
     `fmin_l_bfgs_b` function from scipy for finding an optimal set of params.
-
-
     Attributes:
         feats_obj: Object from the ExtractFeatures class. Has the necessary 
             feature partitions and pairs for the optimization algorithm.
@@ -62,17 +60,14 @@ class Optimizer(object):
         sum goes over all the constraints. Note that probability is
         not calculated here. Just the inner sum that is exponentiated
         later.
-
         Args:
             thetas: list of the maxent paramters
             
             rvec: vector to compute the probability for. Note that it should be
             the 'cropped' version of the vector with respect to the partition
             supplied i.e only those feature indices.
-
             partition: a list of feature indices indicating that they all belong
             in a single partition and we only need to consider them for now.
-
         """ 
 
         # thetas is ordered as follows: 
@@ -170,7 +165,6 @@ class Optimizer(object):
         """
             partition: a list of feature indices indicating that they all belong
             in a single partition and we only need to consider them for now.
-
         """ 
 
         # thetas is ordered as follows: 
@@ -229,17 +223,14 @@ class Optimizer(object):
         sum goes over all the constraints. Note that probability is
         not calculated here. Just the inner sum that is exponentiated
         later.
-
         Args:
             thetas: list of the maxent paramters
             
             rvec: vector to compute the probability for. Note that it should be
             the 'cropped' version of the vector with respect to the partition
             supplied i.e only those feature indices.
-
             partition: a list of feature indices indicating that they all belong
             in a single partition and we only need to consider them for now.
-
         """ 
 
         # thetas is ordered as follows: 
@@ -346,8 +337,11 @@ class Optimizer(object):
         findpos = {elem:i for i,elem in enumerate(partition)}       
 
         # Create all permuatations of a vector belonging to that partition
-        all_perms = itertools.product([0, 1], repeat=num_feats)
-        num_total_vectors = 2**(num_feats)
+        all_perms = list(itertools.product([0, 1], repeat=num_feats))[1:]
+        num_total_vectors = 2**(num_feats)-1
+
+        # all_perms = itertools.product([0, 1], repeat=num_feats)
+        # num_total_vectors = 2**(num_feats)
         constraint_mat = np.zeros((num_total_vectors, len_theta))        
                 
 
@@ -371,7 +365,6 @@ class Optimizer(object):
         Uses the log-sum-exp trick for numerical stablility
         Args:
             thetas: The parameters for the given partition
-
             partition: List of feature indices indicating that they all belong
             in the same feature-partition.
         """
@@ -383,7 +376,7 @@ class Optimizer(object):
             norm_sum = 1 + np.exp(thetas[0])
             return np.log(norm_sum)            
         
-        num_total_vectors = 2**(num_feats)
+        num_total_vectors = 2**(num_feats)-1
         inner_array = np.dot(constraint_mat, thetas)
         
         log_norm = 0.0
@@ -399,10 +392,8 @@ class Optimizer(object):
     # Still KEEP it around for len(part) == 1 case
     def binary_norm_Z(self, thetas, partition):
         """Computes the normalization constant Z(theta) for a given partition
-
         Args:
             thetas: The parameters for the given partition
-
             partition: List of feature indices indicating that they all belong
             in the same feature-partition.
         """

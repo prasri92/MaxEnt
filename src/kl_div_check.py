@@ -24,4 +24,4 @@ def main_1(i, j):
 	print('KL_divergence is: ', kl_div)
 
 if __name__ == '__main__':
-	main_1(1, 25)
+	main_1(5, 6)
