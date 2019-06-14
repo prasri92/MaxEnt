@@ -117,6 +117,7 @@ def compute_prob_exact(optobj):
         emp_prob[j] += 1
     emp_prob /= optobj.feats_obj.data_arr.shape[0]
     
+    print("maxent_diseases: " + str(maxent_diseases))
     return maxent_prob, maxent_diseases, emp_prob
 
 def main(file_num=None):
@@ -125,17 +126,19 @@ def main(file_num=None):
     #     7:0.005, 8:0.005, 9:0.005, 10:0.005, 11:0.012, 12:0.012, 13:0.016, \
     #     14:0.014, 15:0.013, 16:0.02, 17:0.018, 18:0.021, 19:0.023, 20:0.025, 21:0.029, \
     #     22:0.026, 23:0.027, 24:0.029, 25:0.032}
-    support_data_overlap = {1:0.002, 2:0.002, 3:0.002, 4:0.002, 5:0.002, 6:0.005, \
-        7:0.005, 8:0.005, 9:0.005, 10:0.005, 11:0.012, 12:0.014, 13:0.014, \
-        14:0.015, 15:0.012, 16:0.02, 17:0.022, 18:0.018, 19:0.022, 20:0.019, 21:0.028, \
-        22:0.032, 23:0.03, 24:0.029, 25:0.035}
+    # support_data_overlap = {1:0.002, 2:0.002, 3:0.002, 4:0.002, 5:0.002, 6:0.005, \
+    #     7:0.005, 8:0.005, 9:0.005, 10:0.005, 11:0.012, 12:0.014, 13:0.014, \
+    #     14:0.015, 15:0.012, 16:0.02, 17:0.022, 18:0.018, 19:0.022, 20:0.019, 21:0.028, \
+    #     22:0.032, 23:0.03, 24:0.029, 25:0.035}
     # support = support_data[file_num]
-    support = support_data_overlap[file_num]
+    # support = support_data_overlap[file_num]
+
+    support = 0.1
     tic = time.time()
     # real data
     # directory = '../dataset/basket_sets.csv'
     # generating synthetic data 
-    directory = '../dataset/d500_overlap/synthetic_data_expt'+str(file_num)+'.csv'
+    directory = '../dataset/d25_4/synthetic_data_expt'+str(file_num)+'.csv'
     cleaneddata=pd.read_csv(directory, error_bad_lines=False)
     two_wayc, three_wayc, four_wayc = marketbasket(cleaneddata, support)
     data_array = load_disease_data(directory)
@@ -162,7 +165,7 @@ def main(file_num=None):
     # for real data
     # outfilename = '../output/realdata_maxent.pickle'
     # for synthetic data 
-    outfilename = '../output/d500_overlap/syn_maxent_expt'+str(file_num)+'.pickle'
+    outfilename = '../output/d25_4/syn_maxent_expt'+str(file_num)+'_support_'+str(support)+'.pickle'
 
     with open(outfilename, "wb") as outfile:
         pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)

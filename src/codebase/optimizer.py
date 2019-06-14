@@ -225,7 +225,6 @@ class Optimizer(object):
         later.
         Args:
             thetas: list of the maxent paramters
-            
             rvec: vector to compute the probability for. Note that it should be
             the 'cropped' version of the vector with respect to the partition
             supplied i.e only those feature indices.
@@ -296,6 +295,7 @@ class Optimizer(object):
 
         # Thetas is still a contiguous across the marginals and the 2way, 3way
         # and the 4way constraints for a given partiton
+        # print('feat_arr', feat_arr)
         return feat_arr
 
 
@@ -339,6 +339,8 @@ class Optimizer(object):
         # Create all permuatations of a vector belonging to that partition
         all_perms = list(itertools.product([0, 1], repeat=num_feats))[1:]
         num_total_vectors = 2**(num_feats)-1
+        # print('length of all_perms', len(all_perms)==num_total_vectors)
+
 
         # all_perms = itertools.product([0, 1], repeat=num_feats)
         # num_total_vectors = 2**(num_feats)
@@ -377,13 +379,14 @@ class Optimizer(object):
             return np.log(norm_sum)            
         
         num_total_vectors = 2**(num_feats)-1
+        # num_total_vectors = 2**(num_feats)
         inner_array = np.dot(constraint_mat, thetas)
         
         log_norm = 0.0
         a_max = np.max(inner_array)
         inner_array -= a_max
         log_norm = a_max + np.log(np.sum(np.exp(inner_array)))
-        
+
         return log_norm
 
 
@@ -405,7 +408,9 @@ class Optimizer(object):
             return norm_sum
 
         # Create all permuatations of a vector belonging to that partition
-        all_perms = itertools.product([0, 1], repeat=num_feats)
+        # all_perms = itertools.product([0, 1], repeat=num_feats)
+        all_perms = list(itertools.product([0, 1], repeat=num_feats))[1:]
+
         for vec in all_perms:
             tmpvec = np.asarray(vec)
             tmp = self.compute_constraint_sum(thetas, tmpvec, partition)
@@ -486,9 +491,10 @@ class Optimizer(object):
                                         disp=True)
 
                 solution[i] = optimThetas
+                
+
                 # norm_sol[i] = self.binary_norm_Z(optimThetas[0], partition)
                 norm_sol[i] = np.exp(self.log_norm_Z(optimThetas[0], partition, c_matrix_partition))
-
                 inn_arr = np.dot(c_matrix_partition, optimThetas[0])
                 inn_arr = np.exp(inn_arr)
                 inn_arr /= norm_sol[i]

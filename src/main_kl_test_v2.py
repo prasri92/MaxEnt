@@ -68,14 +68,12 @@ def marketbasket(cleaneddata, support):
         a = rules.iloc[ifour]['antecedents']
         b = rules.iloc[ifour]['consequents']
         sets_four.add(a.union(b))
-    
     lfour = []
     for i in sets_four:
         tmp = []
         for j in i:
             tmp.append(int(float(j)))
         lfour.append(tmp)
-    # print(sets_two, sets_three, sets_four)
     print(ltwo, lthree, lfour)
 
     """Output two way, three way and four way dictionaries as input for optimization"""
@@ -87,13 +85,11 @@ def marketbasket(cleaneddata, support):
         four_way_dict[tuple(sfour)]=val_four
     return two_way_dict, three_way_dict, four_way_dict
 
-def compute_prob_exact(optobj, prob_zeros):
+def compute_prob_exact(optobj, prob_zeros, size):
     maxent_prob = []
     num_feats = optobj.feats_obj.data_arr.shape[1]
     maxent_diseases = np.zeros(num_feats+1)
-    all_perms = itertools.product([0, 1], repeat=num_feats)
-    all_perms = list(all_perms)
-    print(all_perms[0])
+    all_perms = list(itertools.product([0, 1], repeat=num_feats))
 
     total_prob = 0.0    # finally should be very close to 1
 
@@ -103,7 +99,6 @@ def compute_prob_exact(optobj, prob_zeros):
     maxent_diseases[0] = prob_zeros
 
     for tmp in all_perms[1:]:
-    # for tmp in all_perms:
         vec = np.asarray(tmp)
         p_vec = optobj.prob_dist(vec)*(1-prob_zeros)
         j = sum(vec)
@@ -115,48 +110,45 @@ def compute_prob_exact(optobj, prob_zeros):
     print("Total_prob: " + str(total_prob))
 
     emp_prob = np.zeros(num_feats + 1)
+    emp_prob[0] = prob_zeros
     for vec in optobj.feats_obj.data_arr:
         j = sum(vec)
         emp_prob[j] += 1
-    emp_prob /= optobj.feats_obj.data_arr.shape[0]
+    # emp_prob /= optobj.feats_obj.data_arr.shape[0]
+    emp_prob[1:] /= int(size)
     
+    print('empirical probability: ', emp_prob)
     print("maxent_diseases: " + str(maxent_diseases))
     return maxent_prob, maxent_diseases, emp_prob
 
-def main(file_num=None):
+def main(file_num=None, size=None, support=None):
     print("File num: " + str(file_num) + " has started")
     
-    # support_data = {1:0.002, 2:0.002, 3:0.002, 4:0.002, 5:0.002, 6:0.005, \
-    #     7:0.005, 8:0.005, 9:0.005, 10:0.005, 11:0.012, 12:0.012, 13:0.016, \
-    #     14:0.014, 15:0.013, 16:0.02, 17:0.018, 18:0.021, 19:0.023, 20:0.025, 21:0.029, \
-    #     22:0.026, 23:0.027, 24:0.029, 25:0.032}
-    # support = support_data[file_num]
-
-    support_data_overlap_nonzero = {1:0.002, 2:0.002, 3:0.002, 4:0.002, 5:0.002, 6:0.007, \
-        7:0.008, 8:0.007, 9:0.007, 10:0.007, 11:0.012, 12:0.016, 13:0.019, \
-        14:0.019, 15:0.018, 16:0.024, 17:0.028, 18:0.02, 19:0.028, 20:0.027, 21:0.04, \
-        22:0.04, 23:0.041, 24:0.041, 25:0.047}
+    support_data_overlap_nonzero = {1:0.003, 2:0.002, 3:0.002, 4:0.001, 5:0.002, 6:0.01, \
+        7:0.008, 8:0.01, 9:0.01, 10:0.01, 11:0.016, 12:0.019, 13:0.019, \
+        14:0.019, 15:0.018, 16:0.024, 17:0.028, 18:0.02, 19:0.028, 20:0.027, 21:0.035, \
+        22:0.04, 23:0.041, 24:0.04, 25:0.042}
     support = support_data_overlap_nonzero[file_num]
 
+    #for four diseases
+    # support = 0.4
  
     tic = time.time()
 
     # real data
     # directory = '../dataset/basket_sets.csv'
     # generating synthetic data 
-    directory = '../dataset/d500_overlap/synthetic_data_expt'+str(file_num)+'.csv'
-    
+    directory = '../dataset/d'+str(size)+'_overlap/synthetic_data_expt'+str(file_num)+'.csv'
+
     cleaneddata=pd.read_csv(directory, error_bad_lines=False)
-    
     cleaneddata = cleaneddata.loc[~(cleaneddata==0).all(axis=1)]
     non_zero_rows = cleaneddata.shape[0]
-    prob_zeros = (500-non_zero_rows)/500
+    prob_zeros = (int(size)-non_zero_rows)/int(size)
 
     print("The zero vector probabilities are: " + str(prob_zeros))
 
     two_wayc, three_wayc, four_wayc = marketbasket(cleaneddata, support)
-    data_array = load_disease_data(directory)
-    feats = ExtractFeatures(data_array)
+    feats = ExtractFeatures(cleaneddata.values)
 
     feats.set_two_way_constraints(two_wayc)
     feats.set_three_way_constraints(three_wayc)
@@ -173,13 +165,13 @@ def main(file_num=None):
     soln_opt = opt.solver_optimize()
     print("Optimizer is done. Computing probabilities")
 
-    maxent, sum_prob_maxent, emp_prob = compute_prob_exact(opt, prob_zeros)
+    maxent, sum_prob_maxent, emp_prob = compute_prob_exact(opt, prob_zeros, size)
     print("writing to file")
 
     # for real data
     # outfilename = '../output/realdata_maxent.pickle'
     # for synthetic data 
-    outfilename = '../output/d500_overlap_nonzero/syn_maxent_expt'+str(file_num)+'.pickle'
+    outfilename = '../output/d'+str(size)+'_overlap_nonzeros/syn_maxent_expt'+str(file_num)+'.pickle'#'_support_'+str(support)+'.pickle'
 
     with open(outfilename, "wb") as outfile:
         pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)
@@ -189,5 +181,6 @@ def main(file_num=None):
 
 if __name__ == '__main__':
     file_num = sys.argv[1]
-    main(int(file_num))
+    size = sys.argv[2]
+    main(file_num=int(file_num), size=size)
 

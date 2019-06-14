@@ -15,3 +15,8 @@
 #support
 how do we rank the constraints that we get from the support, what is the support level that we need? 
 start from the 2, and work our way down to find the correct support metric. 
+
+#to do 6/5/19
+1. take for each case, the support value and rank the supports 
+2. add constraint for number of 0,1,2 just like we did. 
+
