@@ -263,6 +263,7 @@ class DataHelper:
             b = format(idx, '0{}b'.format(self.N))
             r = [int(j) for j in b]
             p = self.computeProbability(r, overlap=overlap)
+            
             probs.append(p)
             total+=probs[-1]
         print('Sum of probabilities = {}'.format(total))

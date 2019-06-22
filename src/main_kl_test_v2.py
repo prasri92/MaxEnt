@@ -85,6 +85,11 @@ def marketbasket(cleaneddata, support):
         four_way_dict[tuple(sfour)]=val_four
     return two_way_dict, three_way_dict, four_way_dict
 
+def read_prob_dist(filename):
+    with open(filename, "rb") as outfile:
+        prob = pickle.load(outfile,encoding='latin1')
+    return prob
+
 def compute_prob_exact(optobj, prob_zeros, size):
     maxent_prob = []
     num_feats = optobj.feats_obj.data_arr.shape[1]
@@ -98,9 +103,11 @@ def compute_prob_exact(optobj, prob_zeros, size):
     total_prob += prob_zeros
     maxent_diseases[0] = prob_zeros
 
+    print("Individual r vectors: ")
     for tmp in all_perms[1:]:
         vec = np.asarray(tmp)
         p_vec = optobj.prob_dist(vec)*(1-prob_zeros)
+        print(p_vec)
         j = sum(vec)
         maxent_diseases[j] += p_vec 
         total_prob += p_vec
@@ -121,24 +128,24 @@ def compute_prob_exact(optobj, prob_zeros, size):
     print("maxent_diseases: " + str(maxent_diseases))
     return maxent_prob, maxent_diseases, emp_prob
 
-def main(file_num=None, size=None, support=None):
+def main(file_num=None, size=None, support=None, trial=None):
     print("File num: " + str(file_num) + " has started")
     
-    support_data_overlap_nonzero = {1:0.003, 2:0.002, 3:0.002, 4:0.001, 5:0.002, 6:0.01, \
-        7:0.008, 8:0.01, 9:0.01, 10:0.01, 11:0.016, 12:0.019, 13:0.019, \
-        14:0.019, 15:0.018, 16:0.024, 17:0.028, 18:0.02, 19:0.028, 20:0.027, 21:0.035, \
-        22:0.04, 23:0.041, 24:0.04, 25:0.042}
-    support = support_data_overlap_nonzero[file_num]
+    # support_data_overlap_nonzero = {1:0.003, 2:0.002, 3:0.002, 4:0.001, 5:0.002, 6:0.01, \
+    #     7:0.008, 8:0.01, 9:0.01, 10:0.01, 11:0.016, 12:0.019, 13:0.019, \
+    #     14:0.019, 15:0.018, 16:0.024, 17:0.028, 18:0.02, 19:0.028, 20:0.027, 21:0.035, \
+    #     22:0.04, 23:0.041, 24:0.04, 25:0.042}  
+    # support = support_data_overlap_nonzero[file_num]
 
     #for four diseases
-    # support = 0.4
+    support = 0.0001
  
     tic = time.time()
 
     # real data
     # directory = '../dataset/basket_sets.csv'
     # generating synthetic data 
-    directory = '../dataset/d'+str(size)+'_overlap/synthetic_data_expt'+str(file_num)+'.csv'
+    directory = '../dataset/d'+str(size)+'_2/synthetic_data_expt'+str(file_num)+'.csv'
 
     cleaneddata=pd.read_csv(directory, error_bad_lines=False)
     cleaneddata = cleaneddata.loc[~(cleaneddata==0).all(axis=1)]
@@ -148,6 +155,18 @@ def main(file_num=None, size=None, support=None):
     print("The zero vector probabilities are: " + str(prob_zeros))
 
     two_wayc, three_wayc, four_wayc = marketbasket(cleaneddata, support)
+    # two_wayc = {}
+    # two_wayc = {(1, 0): (1, 1), (0, 3): (1, 1)} 
+    # two_wayc = {(1, 0): (1, 1), (0, 3): (1, 1) , (3, 2): (1, 1), (0, 2): (1, 1)}
+    # two_wayc = {(1, 0): (1, 1), (0, 3): (1, 1), (3, 2): (1, 1), (0, 2): (1, 1), (1, 3): (1, 1), (1, 2): (1, 1)}
+
+    # three_wayc = {}
+    # three_wayc = {(1, 0, 3): (1, 1, 1), (0, 3, 2): (1, 1, 1)}  
+    # three_wayc = {(1, 0, 3): (1, 1, 1), (0, 3, 2): (1, 1, 1), (1, 3, 2): (1, 1, 1), (1, 0, 2): (1, 1, 1)}
+    
+    # four_wayc = {}
+    # four_wayc = {(1, 0, 3, 2): (1, 1, 1, 1)}
+    
     feats = ExtractFeatures(cleaneddata.values)
 
     feats.set_two_way_constraints(two_wayc)
@@ -168,10 +187,10 @@ def main(file_num=None, size=None, support=None):
     maxent, sum_prob_maxent, emp_prob = compute_prob_exact(opt, prob_zeros, size)
     print("writing to file")
 
-    # for real data
+    # for real data'support_'+str(support)+
     # outfilename = '../output/realdata_maxent.pickle'
     # for synthetic data 
-    outfilename = '../output/d'+str(size)+'_overlap_nonzeros/syn_maxent_expt'+str(file_num)+'.pickle'#'_support_'+str(support)+'.pickle'
+    outfilename = '../output/d'+str(size)+'_2_nonzeros/syn_maxent_expt'+str(file_num)+'_support_'+str(support)+'.pickle'#'_constraints_'+str(trial)+'.pickle' #
 
     with open(outfilename, "wb") as outfile:
         pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)
@@ -179,8 +198,14 @@ def main(file_num=None, size=None, support=None):
     toc = time.time()
     print('Computational time for calculating maxent = {} seconds'.format(toc-tic))
 
+    actual = '../output/d25_2/truedist_expt'+str(file_num)+'.pickle'
+    all_emp = read_prob_dist(actual)
+    print("True distribution: ", all_emp)
+
+
 if __name__ == '__main__':
     file_num = sys.argv[1]
     size = sys.argv[2]
-    main(file_num=int(file_num), size=size)
+    # trial = sys.argv[3]
+    main(file_num=int(file_num), size=size)#, trial=trial)
 

@@ -5,7 +5,7 @@ import numpy as np
 import sys
 
 #Define global parameters 
-num_diseases = 4
+num_diseases = 2
 clusters = 2
 
 expon_parameter = [0.8, 1.6, 2.4, 3.2, 4.0]
@@ -54,8 +54,8 @@ def main():
 '''
 def main(l, z, file_num):
 	tau = generate_tau(z)
-	file_name_real = '../../output/'+'d'+str(size)+'_4/truedist_expt'+str(file_num)+'.pickle'
-	file_name_synthetic = "../../dataset/"+"d"+str(size)+"_4/synthetic_data_expt"+str(file_num)+".csv"
+	file_name_real = '../../output/'+'d'+str(size)+'_2/truedist_expt'+str(file_num)+'.pickle'
+	file_name_synthetic = "../../dataset/"+"d"+str(size)+"_2/synthetic_data_expt"+str(file_num)+".csv"
 	p1 = Process(target=get_true_distribution, args=(file_name_real, tau, l))
 	p2 = Process(target=get_synthetic_data, args=(file_name_synthetic, l, z, beta, size))
 	p1.start()

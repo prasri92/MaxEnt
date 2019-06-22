@@ -4,6 +4,7 @@ from collections import defaultdict
 
 import numpy as np
 from scipy.optimize import fmin_l_bfgs_b as spmin_LBFGSB
+from scipy.optimize import minimize
 
 """
 TODO:
@@ -198,7 +199,9 @@ class Optimizer(object):
         N = self.feats_obj.N        
         data_arr = self.feats_obj.data_arr        
         for i in range(N):
+        # for i in range(1, N):
             rvec = data_arr[i, partition]
+            # print("RVEC", rvec)
             tmp_arr = self.util_compute_array(rvec, partition, twoway_dict, 
                                     threeway_dict, fourway_dict, findpos,
                                     num_feats, num_2wayc, num_3wayc, num_4wayc)
@@ -206,7 +209,6 @@ class Optimizer(object):
             data_stats_vector += tmp_arr
 
             # objective_sum += inner_constraint_sum
-        
         return data_stats_vector
 
 
@@ -485,15 +487,16 @@ class Optimizer(object):
 
                     return (-1 * objective_sum) # SINCE MINIMIZING IN THE LBFGS SCIPY FUNCTION
 
-
+            
                 optimThetas = spmin_LBFGSB(func_objective, x0=initial_val,
                                         fprime=None, approx_grad=True, 
                                         disp=True)
-
+                
                 solution[i] = optimThetas
                 
 
                 # norm_sol[i] = self.binary_norm_Z(optimThetas[0], partition)
+
                 norm_sol[i] = np.exp(self.log_norm_Z(optimThetas[0], partition, c_matrix_partition))
                 inn_arr = np.dot(c_matrix_partition, optimThetas[0])
                 inn_arr = np.exp(inn_arr)
@@ -523,6 +526,7 @@ class Optimizer(object):
         for i, partition in enumerate(parts):
             tmpvec = rvec[partition]
             term_exp = self.compute_constraint_sum(solution[i][0], tmpvec, partition)
+
             part_logprob = term_exp - np.log(norm_sol[i])
             log_prob += part_logprob
             part_prob = np.exp(part_logprob)
