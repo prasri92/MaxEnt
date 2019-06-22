@@ -339,13 +339,13 @@ class Optimizer(object):
         findpos = {elem:i for i,elem in enumerate(partition)}       
 
         # Create all permuatations of a vector belonging to that partition
-        all_perms = list(itertools.product([0, 1], repeat=num_feats))[1:]
-        num_total_vectors = 2**(num_feats)-1
+        # all_perms = list(itertools.product([0, 1], repeat=num_feats))[1:]
+        # num_total_vectors = 2**(num_feats)-1
         # print('length of all_perms', len(all_perms)==num_total_vectors)
 
 
-        # all_perms = itertools.product([0, 1], repeat=num_feats)
-        # num_total_vectors = 2**(num_feats)
+        all_perms = itertools.product([0, 1], repeat=num_feats)
+        num_total_vectors = 2**(num_feats)
         constraint_mat = np.zeros((num_total_vectors, len_theta))        
                 
 
@@ -380,8 +380,8 @@ class Optimizer(object):
             norm_sum = 1 + np.exp(thetas[0])
             return np.log(norm_sum)            
         
-        num_total_vectors = 2**(num_feats)-1
-        # num_total_vectors = 2**(num_feats)
+        # num_total_vectors = 2**(num_feats)-1
+        num_total_vectors = 2**(num_feats)
         inner_array = np.dot(constraint_mat, thetas)
         
         log_norm = 0.0
@@ -410,8 +410,8 @@ class Optimizer(object):
             return norm_sum
 
         # Create all permuatations of a vector belonging to that partition
-        # all_perms = itertools.product([0, 1], repeat=num_feats)
-        all_perms = list(itertools.product([0, 1], repeat=num_feats))[1:]
+        all_perms = itertools.product([0, 1], repeat=num_feats)
+        # all_perms = list(itertools.product([0, 1], repeat=num_feats))[1:]
 
         for vec in all_perms:
             tmpvec = np.asarray(vec)

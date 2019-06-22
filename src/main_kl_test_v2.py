@@ -88,7 +88,7 @@ def marketbasket(cleaneddata, support):
 def read_prob_dist(filename):
     with open(filename, "rb") as outfile:
         prob = pickle.load(outfile,encoding='latin1')
-    return prob
+    return prob[0]
 
 def compute_prob_exact(optobj, prob_zeros, size):
     maxent_prob = []

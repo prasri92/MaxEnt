@@ -19,16 +19,15 @@ from codebase.utils import load_disease_data
 from codebase.extract_features import ExtractFeatures
 from codebase.optimizer import Optimizer
 
-'''
-Support v4 
-l = 0.8, support = 0.002
-l = 1.6, support = 0.005
-l = 2.4, support = 0.005 (to get 2,3,4 way constraints)
-l = 3.2, support = 0.022
-l = 4.0, support = 0.029
-'''
-
 def marketbasket(cleaneddata, support):
+    '''
+    Function to use market basket analysis to return 2 way, 3 way and 4 way constraints. 
+    Input: 
+        Data vectors from synthetically generated data 
+        Support: Support for the apriori algorithm
+    Returns: 
+        Dictionary containing 2 way, 3 way and 4 way constraints 
+    '''
     frequent_itemsets = apriori(cleaneddata, min_support=support, use_colnames=True)
     rules = association_rules(frequent_itemsets, metric="lift", min_threshold=0.002)
     rules["antecedent_len"] = rules["antecedents"].apply(lambda x: len(x))
@@ -84,9 +83,7 @@ def marketbasket(cleaneddata, support):
         for j in i:
             tmp.append(int(float(j)))
         lfour.append(tmp)
-    # print(sets_two, sets_three, sets_four)
-    print(ltwo, lthree, lfour)
-
+    
     """Output two way, three way and four way dictionaries as input for optimization"""
     for stwo in ltwo:
         two_way_dict[tuple(stwo)]=val_two
@@ -94,22 +91,29 @@ def marketbasket(cleaneddata, support):
         three_way_dict[tuple(sthree)]=val_three
     for sfour in lfour:
         four_way_dict[tuple(sfour)]=val_four
+    
     return two_way_dict, three_way_dict, four_way_dict
+
+def read_prob_dist(filename):
+    with open(filename, "rb") as outfile:
+        prob = pickle.load(outfile,encoding='latin1')
+    return prob[1]
 
 def compute_prob_exact(optobj):
     maxent_prob = []
     num_feats = optobj.feats_obj.data_arr.shape[1]
-    maxent_diseases = np.zeros(num_feats+1)
+    maxent_sum_diseases = np.zeros(num_feats+1)
     all_perms = itertools.product([0, 1], repeat=num_feats)
     total_prob = 0.0    # finally should be very close to 1
     for tmp in all_perms:
         vec = np.asarray(tmp)
         p_vec = optobj.prob_dist(vec)
-        print(p_vec)
+        print('Vector:', vec, ' Probability: ', p_vec)
         j = sum(vec)
-        maxent_diseases[j] += p_vec
+        maxent_sum_diseases[j] += p_vec
         total_prob += p_vec
         maxent_prob.append(p_vec) 
+    
     print('Total Probability: ', total_prob)
 
     emp_prob = np.zeros(num_feats + 1)
@@ -118,9 +122,7 @@ def compute_prob_exact(optobj):
         emp_prob[j] += 1
     emp_prob /= optobj.feats_obj.data_arr.shape[0]
     
-    print("Empirical probabilities: " +str(emp_prob))
-    print("maxent_diseases: " + str(maxent_diseases))
-    return maxent_prob, maxent_diseases, emp_prob
+    return maxent_prob, maxent_sum_diseases, emp_prob
 
 def main(file_num=None):
     print("File num: " + str(file_num) + " has started")
@@ -135,13 +137,13 @@ def main(file_num=None):
     #     14:0.015, 15:0.012, 16:0.02, 17:0.022, 18:0.018, 19:0.022, 20:0.019, 21:0.028, \
     #     22:0.032, 23:0.03, 24:0.029, 25:0.1} #25:0.035}
     # support = support_data_overlap[file_num]
-    support = 0.8
+    support = 0.3
     
     tic = time.time()
     # real data
     # directory = '../dataset/basket_sets.csv'
     # generating synthetic data 
-    directory = '../dataset/d25_2/synthetic_data_expt'+str(file_num)+'.csv'
+    directory = '../dataset/d50_4/synthetic_data_expt'+str(file_num)+'.csv'
     cleaneddata=pd.read_csv(directory, error_bad_lines=False)
     
     two_wayc, three_wayc, four_wayc = marketbasket(cleaneddata, support)
@@ -150,6 +152,7 @@ def main(file_num=None):
     # four_wayc = {}
 
     data_array = load_disease_data(directory)
+    # data_array = load_disease_data(cleaneddata.values)
     feats = ExtractFeatures(data_array)
 
     feats.set_two_way_constraints(two_wayc)
@@ -168,12 +171,16 @@ def main(file_num=None):
     print("Optimizer is done. Computing probabilities")
 
     maxent, sum_prob_maxent, emp_prob = compute_prob_exact(opt)
+    print("Empirical: " +str(emp_prob))
+    print("Maxent: " + str(sum_prob_maxent))
+    print("True distribution:" + str(read_prob_dist('../output/d50_4/truedist_expt'+str(file_num)+'.pickle')))
+    
     print("writing to file")
 
     # for real data
     # outfilename = '../output/realdata_maxent.pickle'
     # for synthetic data 
-    outfilename = '../output/d25_2/syn_maxent_expt'+str(file_num)+'_support_'+str(support)+'.pickle'
+    outfilename = '../output/d50_4/syn_maxent_expt'+str(file_num)+'_support_'+str(support)+'.pickle'
 
     with open(outfilename, "wb") as outfile:
         pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)

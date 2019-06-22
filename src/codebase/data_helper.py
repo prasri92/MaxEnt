@@ -256,6 +256,7 @@ class DataHelper:
         - A list containing probabilities for all possible 2^N disease vectors.
         """
         probs = []
+        marginal_probs = np.zeros(self.N+1)
         total=0.0
         if timer:
             tic = time.time()
@@ -263,14 +264,15 @@ class DataHelper:
             b = format(idx, '0{}b'.format(self.N))
             r = [int(j) for j in b]
             p = self.computeProbability(r, overlap=overlap)
-            
+            m = sum(r)
+            marginal_probs[m]+=p
             probs.append(p)
             total+=probs[-1]
         print('Sum of probabilities = {}'.format(total))
         if timer:
             toc = time.time()
             print('Computational time for {} probabilities = {} seconds'.format(2**self.N, toc-tic))
-        return probs
+        return probs,marginal_probs
 '''
 #non-overlapping case 
 def run(outfilename, d, c, e, tau, beta, p):
@@ -290,9 +292,9 @@ def run(outfilename, d, c, e, tau, beta, p, q1, q2):
         alpha.append(stats.expon.pdf(i, scale=e))
     alpha = np.array(alpha)/sum(alpha)
     data = DataHelper(d, c, alpha, tau, beta, p, q1, q2)
-    p_vals = data.computeAll(timer=True, overlap=True)
+    p_vals, marginals = data.computeAll(timer=True, overlap=True)
     with open(outfilename, "wb") as outfile:
-        pickle.dump(p_vals, outfile)
+        pickle.dump((p_vals, marginals), outfile)
 
 if __name__=='__main__': 
     # example case
