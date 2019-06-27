@@ -4,7 +4,7 @@ from collections import defaultdict
 
 import numpy as np
 from scipy.optimize import fmin_l_bfgs_b as spmin_LBFGSB
-from scipy.optimize import minimize
+from scipy.optimize import fmin_tnc as spmin_tnc
 
 """
 TODO:
@@ -51,8 +51,7 @@ class Optimizer(object):
         return flag
 
 
-    # This function computes the inner sum of the 
-    # optimization function objective    
+    # This function computes the inner sum of the optimization function objective    
     # could split thetas into marginal and specials
     def compute_constraint_sum(self, thetas, rvec, partition):
         """Function to compute the inner sum for a given input vector. 
@@ -73,9 +72,10 @@ class Optimizer(object):
 
         # thetas is ordered as follows: 
         # (1) all the marginal constraints
-        # (2) all the two-way constraints
-        # (3) all the three-way constraints
-        # (4) all the four-way constraints
+        # (2) zero vector constraint
+        # (3) all the two-way constraints
+        # (4) all the three-way constraints
+        # (5) all the four-way constraints
 
         # Just the single feature marginal case --> MLE update
         if len(partition) == 1:
@@ -99,7 +99,7 @@ class Optimizer(object):
         num_4wayc = len([1 for k,v in fourway_dict.items() if self.check_in_partition(partition, k)]) # num of 4way constraints for the partition
         
         assert len(rvec) == num_feats        
-        assert len(thetas) == num_feats + num_2wayc + num_3wayc + num_4wayc
+        assert len(thetas) == num_feats + num_2wayc + num_3wayc + num_4wayc + 1
         
        
         # Reverse lookup hashmap for the indices in the partition
@@ -125,9 +125,15 @@ class Optimizer(object):
             indicator = 1 if rvec[i] == 1 else 0
             constraint_sum += thetas[i] * indicator
 
+        # zero vector constraint
+        j = 0
+        zero_offset = num_feats
+        indicator = 1 if sum(rvec) == 0 else 0
+        constraint_sum += thetas[zero_offset + j] * indicator
+
         # 2-way constraints
         j = 0
-        twoway_offset = num_feats
+        twoway_offset = num_feats + 1
         for key,val in twoway_dict.items():
             if self.check_in_partition(partition, key):                
                 indicator = 1 if check_condition(key, val) else 0
@@ -152,6 +158,7 @@ class Optimizer(object):
                 constraint_sum += thetas[fourway_offset + j] * indicator
                 j += 1
 
+
         # Thetas is still a contiguous across the marginals and the 2way, 3way
         # and the 4way constraints for a given partiton
 
@@ -172,7 +179,8 @@ class Optimizer(object):
         # (1) all the marginal constraints
         # (2) all the two-way constraints
         # (3) all the three-way constraints
-        # (4) all the four-way constraints       
+        # (4) all the four-way constraints 
+        # (5) zero vector constraint     
 
         twoway_dict = self.feats_obj.two_way_dict
         threeway_dict = self.feats_obj.three_way_dict
@@ -185,8 +193,8 @@ class Optimizer(object):
         num_4wayc = len([1 for k,v in fourway_dict.items() if self.check_in_partition(partition, k)]) # num of 4way constraints for the partition
         
         # assert len(rvec) == num_feats        
-        # assert len(thetas) == num_feats + num_2wayc + num_3wayc + num_4wayc
-        len_theta = num_feats + num_2wayc + num_3wayc + num_4wayc
+        # assert len(thetas) == num_feats + num_2wayc + num_3wayc + num_4wayc + 1
+        len_theta = num_feats + num_2wayc + num_3wayc + num_4wayc + 1
         data_stats_vector = np.zeros(len_theta)
        
         # Reverse lookup hashmap for the indices in the partition
@@ -236,9 +244,10 @@ class Optimizer(object):
 
         # thetas is ordered as follows: 
         # (1) all the marginal constraints
-        # (2) all the two-way constraints
-        # (3) all the three-way constraints
-        # (4) all the four-way constraints
+        # (2) zero vector constraints
+        # (3) all the two-way constraints
+        # (4) all the three-way constraints
+        # (5) all the four-way constraints
 
         # Just the single feature marginal case --> MLE update
         if len(partition) == 1:
@@ -255,7 +264,7 @@ class Optimizer(object):
                     break
             return flag
 
-        len_theta = len_theta = num_feats + num_2wayc + num_3wayc + num_4wayc
+        len_theta = len_theta = num_feats + num_2wayc + num_3wayc + num_4wayc + 1
         feat_arr = np.zeros(len_theta)
 
         # CHECKING WITH 1 since BINARY FEATURES
@@ -265,9 +274,15 @@ class Optimizer(object):
             feat_arr[i] = indicator
             # constraint_sum += thetas[i] * indicator
 
+        # zero vector constraint
+        j = 0
+        zero_offset = num_feats
+        indicator = 1 if sum(rvec) == 0 else 0
+        feat_arr[zero_offset + j] = indicator
+
         # 2-way constraints
         j = 0
-        twoway_offset = num_feats
+        twoway_offset = num_feats + 1
         for key,val in twoway_dict.items():
             if self.check_in_partition(partition, key):                
                 indicator = 1 if check_condition(key, val) else 0
@@ -328,7 +343,7 @@ class Optimizer(object):
         num_2wayc = len([1 for k,v in twoway_dict.items() if self.check_in_partition(partition, k)])  # num of 2way constraints for the partition
         num_3wayc = len([1 for k,v in threeway_dict.items() if self.check_in_partition(partition, k)]) # num of 3way constraints for the partition
         num_4wayc = len([1 for k,v in fourway_dict.items() if self.check_in_partition(partition, k)]) # num of 4way constraints for the partition
-        len_theta = num_feats + num_2wayc + num_3wayc + num_4wayc
+        len_theta = num_feats + num_2wayc + num_3wayc + num_4wayc + 1
         data_stats_vector = np.zeros(len_theta)
        
         # Reverse lookup hashmap for the indices in the partition
@@ -491,6 +506,9 @@ class Optimizer(object):
                 optimThetas = spmin_LBFGSB(func_objective, x0=initial_val,
                                         fprime=None, approx_grad=True, 
                                         disp=True)
+                # optimThetas = spmin_tnc(func_objective, x0=initial_val,
+                #                         fprime=None, approx_grad=True, 
+                #                         disp=True)
                 
                 solution[i] = optimThetas
                 
