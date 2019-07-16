@@ -128,21 +128,21 @@ def compute_prob_exact(optobj, prob_zeros, size):
 def main(file_num=None, size=None, support=None, trial=None):
     print("File num: " + str(file_num) + " has started")
     
-    support_data_overlap_nonzero = {1:0.003, 2:0.002, 3:0.002, 4:0.001, 5:0.002, 6:0.007, \
-        7:0.008, 8:0.01, 9:0.006, 10:0.007, 11:0.016, 12:0.015, 13:0.016, \
-        14:0.014, 15:0.014, 16:0.028, 17:0.028, 18:0.02, 19:0.02, 20:0.02, 21:0.035, \
-        22:0.04, 23:0.041, 24:0.04, 25:0.035}  
-    support = support_data_overlap_nonzero[file_num]
+    # support_data_overlap_nonzero = {1:0.003, 2:0.002, 3:0.002, 4:0.001, 5:0.002, 6:0.007, \
+    #     7:0.008, 8:0.01, 9:0.006, 10:0.007, 11:0.016, 12:0.015, 13:0.016, \
+    #     14:0.014, 15:0.014, 16:0.028, 17:0.028, 18:0.02, 19:0.02, 20:0.02, 21:0.035, \
+    #     22:0.04, 23:0.041, 24:0.04, 25:0.035}  
+    # support = support_data_overlap_nonzero[file_num]
 
-    #for four diseases
-    # support = 0.3
+    # for four diseases
+    support = 0.01
  
     tic = time.time()
 
     # real data
     # directory = '../dataset/basket_sets.csv'
     # generating synthetic data 
-    directory = '../dataset/d'+str(size)+'_10/synthetic_data_expt'+str(file_num)+'.csv'
+    directory = '../dataset/d'+str(size)+'_4/synthetic_data_expt'+str(file_num)+'.csv'
 
     cleaneddata=pd.read_csv(directory, error_bad_lines=False)
     cleaneddata = cleaneddata.loc[~(cleaneddata==0).all(axis=1)]
@@ -157,11 +157,11 @@ def main(file_num=None, size=None, support=None, trial=None):
     # two_wayc = {(1, 0): (1, 1), (0, 3): (1, 1) , (3, 2): (1, 1), (0, 2): (1, 1)}
     # two_wayc = {(1, 0): (1, 1), (0, 3): (1, 1), (3, 2): (1, 1), (0, 2): (1, 1), (1, 3): (1, 1), (1, 2): (1, 1)}
 
-    # three_wayc = {}
+    three_wayc = {}
     # three_wayc = {(1, 0, 3): (1, 1, 1), (0, 3, 2): (1, 1, 1)}  
     # three_wayc = {(1, 0, 3): (1, 1, 1), (0, 3, 2): (1, 1, 1), (1, 3, 2): (1, 1, 1), (1, 0, 2): (1, 1, 1)}
     
-    # four_wayc = {}
+    four_wayc = {}
     # four_wayc = {(1, 0, 3, 2): (1, 1, 1, 1)}
     
     feats = ExtractFeatures(cleaneddata.values)
@@ -184,14 +184,14 @@ def main(file_num=None, size=None, support=None, trial=None):
     maxent, sum_prob_maxent, emp_prob = compute_prob_exact(opt, prob_zeros, size)
     print("Empirical: " +str(emp_prob))
     print("Maxent: " + str(sum_prob_maxent))
-    print("True distribution:" + str(read_prob_dist('../output/d'+str(size)+'_10/truedist_expt'+str(file_num)+'.pickle')))
+    print("True distribution:" + str(read_prob_dist('../output/d'+str(size)+'_4/truedist_expt'+str(file_num)+'.pickle')))
     
     print("writing to file")
 
     # for real data'support_'+str(support)+
     # outfilename = '../output/realdata_maxent.pickle'
     # for synthetic data 
-    outfilename = '../output/d'+str(size)+'_10_nonzeros/syn_maxent_expt'+str(file_num)+'.pickle'#'_constraints_'+str(trial)+'.pickle' #
+    outfilename = '../output/d'+str(size)+'_4_nonzeros/syn_maxent_expt'+str(file_num)+'.pickle'#'_constraints_'+str(trial)+'.pickle' #
 
     with open(outfilename, "wb") as outfile:
         pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)

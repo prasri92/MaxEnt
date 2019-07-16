@@ -28,8 +28,8 @@ def kl_divergence(p, q):
 
 
 def compute_prob(i, j=None):
-	actual = '../output/d250_10/truedist_expt'+str(i)+'.pickle'
-	synthetic = '../output/d250_10_addzeros/syn_maxent_expt'+str(i)+'.pickle'
+	actual = '../output/d50_4/truedist_expt'+str(i)+'.pickle'
+	synthetic = '../output/d50_4_addzeros/syn_maxent_expt'+str(i)+'.pickle'
 	p = (np.array(read_prob_dist(actual)))
 	q = (np.array(read_prob_dist(synthetic)))
 	maxent_prob, emp_prob = read_prob_sum(synthetic)
@@ -50,7 +50,7 @@ if __name__ == '__main__':
 		kl.append(k)
 		true_prob.append(t)
 
-	num_feats = 10
+	num_feats = 4
 	xvec = [i for i in range(num_feats+1)]
 	x_ticks = np.arange(0, num_feats+1, 1.0)
 	plot_lims = [-1,  num_feats+1, -0.1, 1.0]
@@ -89,14 +89,16 @@ if __name__ == '__main__':
 	# 	(ax10,ax11, ax12, ax13, ax14)) = plt.subplots(3,5, figsize=(40, 20))
 	# lst = [ax0, ax1, ax2, ax3, ax4, ax5, ax6, ax7, ax8, ax9, ax10, ax11, ax12, ax13, ax14]
 
+	# fig, (ax0, ax1, ax2, ax3, ax4) = plt.subplots(1,5, figsize=(40,20))
+	# lst = [ax0, ax1, ax2, ax3, ax4]
+
 	data = ["File Number"]
 	for i in range(21):
 		data.append(i)
 
-	out = csv.writer(open("../output/prob_dist/10d_size250_addzeros.csv","w"), delimiter=',',quoting=csv.QUOTE_ALL)
+	out = csv.writer(open("../output/prob_dist/4d_size50_addzeros.csv","w"), delimiter=',',quoting=csv.QUOTE_ALL)
 	out.writerow(data)
 	
-	print(len(maxent_prob))
 	for num,i in enumerate(lst):
 		row = [num+1]
 		for prob in maxent_prob[num]:
@@ -105,7 +107,7 @@ if __name__ == '__main__':
 		
 		i.plot(xvec, maxent_prob[num], 'r', label='Maxent')
 		i.plot(xvec, emp_prob[num], 'b', label='Empirical')
-		i.plot(xvec, true_prob[num], 'g', label='True')
+		# i.plot(xvec, true_prob[num], 'g', label='True')
 		i.axis(plot_lims)
 		i.set_xticks(x_ticks)
 		# for xy in zip(xvec, maxent_prob[num]):
@@ -123,6 +125,6 @@ if __name__ == '__main__':
 		i.legend(fontsize=6)
 		row = []
 
-	fig.suptitle('Diseases = 10\nDataset Size = 250\nZero constraint imposed', fontsize=10)
+	fig.suptitle('Diseases = 4\nDataset Size = 50\n0 constraint imposed', fontsize=10)
 	plt.subplots_adjust(hspace = 0.6)
 	plt.show()

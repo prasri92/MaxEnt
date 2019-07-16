@@ -230,13 +230,13 @@ class ExtractFeatures(object):
         
         for tup_2way in self.two_way_dict.keys():
             # Here tup_2way is a tuple of feature indices            
-            print("Added edge for:", tup_2way)
+            # print("Added edge for:", tup_2way)
             self.util_add_edges(graph, tup_2way)
 
         if len(self.three_way_dict) != 0:
             for tup_3way in self.three_way_dict.keys():
                 # Here tup_3way is a triplet of feature indices
-                print("Added edge for:", tup_3way)
+                # print("Added edge for:", tup_3way)
                 self.util_add_edges(graph, tup_3way)
         else:
             print("No 3 way constraints specified")
@@ -244,7 +244,7 @@ class ExtractFeatures(object):
         if len(self.four_way_dict) != 0:
             for tup_4way in self.three_way_dict.keys():
                 # Here tup_3way is a triplet of feature indices
-                print("Added edge for:", tup_4way)
+                # print("Added edge for:", tup_4way)
                 self.util_add_edges(graph, tup_4way)
         else:
             print("No 4 way constraints specified")            

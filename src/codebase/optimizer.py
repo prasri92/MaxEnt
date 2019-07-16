@@ -3,9 +3,10 @@ import itertools
 from collections import defaultdict
 
 import numpy as np
+import pandas as pd
 from scipy.optimize import fmin_l_bfgs_b as spmin_LBFGSB
 from scipy.optimize import fmin_tnc as spmin_tnc
-
+from scipy.optimize import linprog
 """
 TODO:
 - documentation
@@ -72,7 +73,7 @@ class Optimizer(object):
 
         # thetas is ordered as follows: 
         # (1) all the marginal constraints
-        # (2) zero vector constraint
+        # (2) 0 diseases constraints
         # (3) all the two-way constraints
         # (4) all the three-way constraints
         # (5) all the four-way constraints
@@ -99,7 +100,7 @@ class Optimizer(object):
         num_4wayc = len([1 for k,v in fourway_dict.items() if self.check_in_partition(partition, k)]) # num of 4way constraints for the partition
         
         assert len(rvec) == num_feats        
-        assert len(thetas) == num_feats + num_2wayc + num_3wayc + num_4wayc + 1
+        assert len(thetas) == num_feats + num_2wayc + num_3wayc + num_4wayc 
         
        
         # Reverse lookup hashmap for the indices in the partition
@@ -126,14 +127,26 @@ class Optimizer(object):
             constraint_sum += thetas[i] * indicator
 
         # zero vector constraint
-        j = 0
-        zero_offset = num_feats
-        indicator = 1 if sum(rvec) == 0 else 0
-        constraint_sum += thetas[zero_offset + j] * indicator
+        # j = 0
+        # zero_offset = num_feats
+        # indicator = 1 if sum(rvec) == 0 else 0
+        # constraint_sum += thetas[zero_offset + j] * indicator
+        # j += 1
+        # indicator = 1 if sum(rvec) == 1 else 0
+        # constraint_sum += thetas[zero_offset + j] * indicator
+        # j += 1
+        # indicator = 1 if sum(rvec) == 2 else 0
+        # constraint_sum += thetas[zero_offset + j] * indicator
+        # j += 1
+        # indicator = 1 if sum(rvec) == 3 else 0
+        # constraint_sum += thetas[zero_offset + j] * indicator
+        # j += 1
+        # indicator = 1 if sum(rvec) == 4 else 0
+        # constraint_sum += thetas[zero_offset + j] * indicator
 
         # 2-way constraints
         j = 0
-        twoway_offset = num_feats + 1
+        twoway_offset = num_feats 
         for key,val in twoway_dict.items():
             if self.check_in_partition(partition, key):                
                 indicator = 1 if check_condition(key, val) else 0
@@ -177,10 +190,10 @@ class Optimizer(object):
 
         # thetas is ordered as follows: 
         # (1) all the marginal constraints
-        # (2) all the two-way constraints
-        # (3) all the three-way constraints
-        # (4) all the four-way constraints 
-        # (5) zero vector constraint     
+        # (2) 0 and 1 disease constraints
+        # (3) all the two-way constraints
+        # (4) all the three-way constraints
+        # (5) all the four-way constraints     
 
         twoway_dict = self.feats_obj.two_way_dict
         threeway_dict = self.feats_obj.three_way_dict
@@ -194,7 +207,7 @@ class Optimizer(object):
         
         # assert len(rvec) == num_feats        
         # assert len(thetas) == num_feats + num_2wayc + num_3wayc + num_4wayc + 1
-        len_theta = num_feats + num_2wayc + num_3wayc + num_4wayc + 1
+        len_theta = num_feats + num_2wayc + num_3wayc + num_4wayc 
         data_stats_vector = np.zeros(len_theta)
        
         # Reverse lookup hashmap for the indices in the partition
@@ -264,7 +277,7 @@ class Optimizer(object):
                     break
             return flag
 
-        len_theta = len_theta = num_feats + num_2wayc + num_3wayc + num_4wayc + 1
+        len_theta = len_theta = num_feats + num_2wayc + num_3wayc + num_4wayc 
         feat_arr = np.zeros(len_theta)
 
         # CHECKING WITH 1 since BINARY FEATURES
@@ -275,14 +288,27 @@ class Optimizer(object):
             # constraint_sum += thetas[i] * indicator
 
         # zero vector constraint
-        j = 0
-        zero_offset = num_feats
-        indicator = 1 if sum(rvec) == 0 else 0
-        feat_arr[zero_offset + j] = indicator
+        # j = 0
+        # zero_offset = num_feats
+        # indicator = 1 if sum(rvec) == 0 else 0
+        # feat_arr[zero_offset + j] = indicator
+        # j += 1
+        # indicator = 1 if sum(rvec) == 1 else 0
+        # feat_arr[zero_offset + j] = indicator
+        # j += 1
+        # indicator = 1 if sum(rvec) == 2 else 0
+        # feat_arr[zero_offset + j] = indicator
+        # j += 1
+        # indicator = 1 if sum(rvec) == 3 else 0
+        # feat_arr[zero_offset + j] = indicator
+        # j += 1
+        # indicator = 1 if sum(rvec) == 4 else 0
+        # feat_arr[zero_offset + j] = indicator
+
 
         # 2-way constraints
         j = 0
-        twoway_offset = num_feats + 1
+        twoway_offset = num_feats
         for key,val in twoway_dict.items():
             if self.check_in_partition(partition, key):                
                 indicator = 1 if check_condition(key, val) else 0
@@ -343,7 +369,7 @@ class Optimizer(object):
         num_2wayc = len([1 for k,v in twoway_dict.items() if self.check_in_partition(partition, k)])  # num of 2way constraints for the partition
         num_3wayc = len([1 for k,v in threeway_dict.items() if self.check_in_partition(partition, k)]) # num of 3way constraints for the partition
         num_4wayc = len([1 for k,v in fourway_dict.items() if self.check_in_partition(partition, k)]) # num of 4way constraints for the partition
-        len_theta = num_feats + num_2wayc + num_3wayc + num_4wayc + 1
+        len_theta = num_feats + num_2wayc + num_3wayc + num_4wayc
         data_stats_vector = np.zeros(len_theta)
        
         # Reverse lookup hashmap for the indices in the partition
@@ -372,9 +398,86 @@ class Optimizer(object):
                                     num_feats, num_2wayc, num_3wayc, num_4wayc)
             constraint_mat[i,:] = tmp_arr
         
+        # TEST to check if the constraint matrix being zero gives bad gradient function
+        print("constraint_mat before\n", constraint_mat)
+        # constraint_mat[num_total_vectors-1,:] = np.zeros(len_theta)
+        # print("constraint_mat after\n", constraint_mat)
         return constraint_mat
 
+    def build_constraint_matrix(self, num_feats):
+        """
+        Builds the primal constraint matrix to solve the linprog for detection of zero vectors
+        """
+        A_eq = np.zeros([2**num_feats, 2**num_feats])
+        d = list(itertools.product([0,1], repeat=num_feats))
+        
+        i,j=0,0
+        for dis in d:
+            index_d = [i for i,val in enumerate(dis) if val==1]
+            r = list(itertools.product([0,1], repeat=num_feats))
+            j=0
+            for rvec in r:
+                index_r = [i for i,val in enumerate(rvec) if val==1]
+                if(all(x in index_d for x in index_r)):
+                    A_eq[j][i]=1
+                j+=1
+            i+=1
+        A_eq[0] = np.zeros([2**num_feats])
+        A_eq[0][0]=1
+        return A_eq
 
+    def exact_zero_detection(self):
+        """
+        An exact iterative method for the detection of zero probabilities of the "r" vector of a patient.
+        Considers all vectors to be zero vectors at first, and then after running through the lin prog, 
+        returns all actual zero vectors
+        Args:
+            partition: The set of all diseases present in the partition
+            constraint_mat: Set of constraints to be satisfied 
+        Returns: 
+            all actual zero vectors
+        """
+        parts = self.feats_obj.feat_partitions
+        for i in parts:
+            num_feats = len(parts)
+            all_perms = itertools.product([0, 1], repeat=num_feats)
+
+            #objective function = maximize summation of p(r)
+            f = (-1 *np.array([0, 1, 2, 3]))
+
+            '''
+            Constraints are of the form A_eq @ x == b_eq
+            where A_eq is the matrix including the information for the marginals, 2 way,
+            3 way and 4 way constraints
+            b_eq is the sum of probabilities according to the maximum entropy
+            '''
+            # A_eq = np.zeros([2**num_feats, 2**num_feats])
+            # row_index = itertools.product([0,1], repeat=num_feats)
+            # col_index = itertools.product([0,1], repeat=num_feats)
+            
+
+            A_eq = build_constraint_matrix(num_feats)
+            directory = '../dataset/d25_2/synthetic_data_expt'+str(1)+'.csv'
+            data=pd.read_csv(directory, error_bad_lines=False)
+            a = len(data.values)
+
+            counts = {}
+            options = itertools.product([0,1], repeat=2)
+            for opt in options:
+                counts[opt] = 0
+
+            for item in data.values:
+                for key in counts.keys():
+                    if np.array_equal(item, key):
+                        counts[key]+=1
+
+            b_eq = [x/a for x in counts.values()]
+            print(b_eq)
+
+            res = linprog(f, A_eq=A_eq, b_eq=b_eq)
+            res = {'status': res.message, 'x': res.x if res.success else None}
+            print(res['status'])
+            print('answer', res['x'])
 
 
     # normalization constant Z(theta)
@@ -481,7 +584,8 @@ class Optimizer(object):
                 datavec_partition = self.compute_data_stats(partition)
                 c_matrix_partition = self.util_constraint_matrix(partition)
                 len_theta = datavec_partition.shape[0]
-                initial_val = np.random.rand(len_theta)
+                a = np.random.RandomState(seed=1)
+                initial_val = a.rand(len_theta)
 
 
                 def func_objective(thetas):
@@ -505,7 +609,7 @@ class Optimizer(object):
             
                 optimThetas = spmin_LBFGSB(func_objective, x0=initial_val,
                                         fprime=None, approx_grad=True, 
-                                        disp=True)
+                                        disp=True, epsilon=1e-08)
                 # optimThetas = spmin_tnc(func_objective, x0=initial_val,
                 #                         fprime=None, approx_grad=True, 
                 #                         disp=True)

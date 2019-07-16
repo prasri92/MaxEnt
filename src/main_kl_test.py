@@ -108,7 +108,7 @@ def compute_prob_exact(optobj):
     for tmp in all_perms:
         vec = np.asarray(tmp)
         p_vec = optobj.prob_dist(vec)
-        # print('Vector:', vec, ' Probability: ', p_vec)
+        print('Vector:', vec, ' Probability: ', p_vec)
         j = sum(vec)
         maxent_sum_diseases[j] += p_vec
         total_prob += p_vec
@@ -127,26 +127,28 @@ def compute_prob_exact(optobj):
 def main(file_num=None):
     print("File num: " + str(file_num) + " has started")
 
-    support_data_overlap = {1:0.002, 2:0.002, 3:0.002, 4:0.002, 5:0.002, 6:0.004, \
-        7:0.005, 8:0.004, 9:0.004, 10:0.004, 11:0.012, 12:0.009, 13:0.01, \
-        14:0.01, 15:0.01, 16:0.023, 17:0.022, 18:0.018, 19:0.014, 20:0.014, 21:0.026, \
-        22:0.032, 23:0.034, 24:0.029, 25:0.03}
-    support = support_data_overlap[file_num]
+    # support_data_overlap = {1:0.002, 2:0.002, 3:0.002, 4:0.002, 5:0.002, 6:0.004, \
+    #     7:0.005, 8:0.004, 9:0.004, 10:0.004, 11:0.012, 12:0.009, 13:0.01, \
+    #     14:0.01, 15:0.01, 16:0.023, 17:0.022, 18:0.018, 19:0.014, 20:0.014, 21:0.026, \
+    #     22:0.032, 23:0.034, 24:0.029, 25:0.03}
+    # support = support_data_overlap[file_num]
     
-    #for four diseases
-    # support = 0.01
+    # for four diseases
+    support = 0.001
     
     tic = time.time()
     # real data
     # directory = '../dataset/basket_sets.csv'
     # generating synthetic data 
-    directory = '../dataset/d250_10/synthetic_data_expt'+str(file_num)+'.csv'
+    directory = '../dataset/d25_2/synthetic_data_expt'+str(file_num)+'.csv'
     cleaneddata=pd.read_csv(directory, error_bad_lines=False)
     
-    two_wayc, three_wayc, four_wayc = marketbasket(cleaneddata, support)
-    # two_wayc = {}
-    # three_wayc = {}
-    # four_wayc = {}
+    # two_wayc, three_wayc, four_wayc = marketbasket(cleaneddata, support)
+    # two_wayc = {(0,1):(1,1), (1,2):(1,1), (2,3):(1,1), (3,4):(1,1), (4,5):(1,1), (5,6):(1,1), (6,7):(1,1), (7,8):(1,1),(8,9):(1,1), \
+    # (9,10):(1,1),(10,11):(1,1),(11,12):(1,1),(12,13):(1,1),(13,14):(1,1),(14,15):(1,1),(15,16):(1,1),(16,17):(1,1),(17,18):(1,1), (18,19):(1,1)}
+    two_wayc = {(1,0):(1,1)}
+    three_wayc = {}
+    four_wayc = {}
 
     data_array = load_disease_data(directory)
     # data_array = load_disease_data(cleaneddata.values)
@@ -164,20 +166,21 @@ def main(file_num=None):
     print('four_wayc', four_wayc)
 
     opt = Optimizer(feats) 
+    # opt.exact_zero_detection()
     soln_opt = opt.solver_optimize()
     print("Optimizer is done. Computing probabilities")
 
     maxent, sum_prob_maxent, emp_prob = compute_prob_exact(opt)
     print("Empirical: " +str(emp_prob))
     print("Maxent: " + str(sum_prob_maxent))
-    print("True distribution:" + str(read_prob_dist('../output/d250_10/truedist_expt'+str(file_num)+'.pickle')))
+    print("True distribution:" + str(read_prob_dist('../output/d50_4/truedist_expt'+str(file_num)+'.pickle')))
     
     print("writing to file")
 
     # for real data
     # outfilename = '../output/realdata_maxent.pickle'
     # for synthetic data 
-    outfilename = '../output/d250_10_addzeros/syn_maxent_expt'+str(file_num)+'.pickle'
+    outfilename = '../output/d50_4/syn_maxent_expt'+str(file_num)+'.pickle'
 
     with open(outfilename, "wb") as outfile:
         pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)

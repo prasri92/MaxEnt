@@ -357,6 +357,10 @@ class Optimizer(object):
                                     num_feats, num_2wayc, num_3wayc, num_4wayc)
             constraint_mat[i,:] = tmp_arr
         
+        # TEST to check if the constraint matrix being zero gives bad gradient function
+        print("constraint_mat before\n", constraint_mat)
+        # constraint_mat[num_total_vectors-1,:] = np.zeros(len_theta)
+        # print("constraint_mat after\n", constraint_mat)
         return constraint_mat
 
 

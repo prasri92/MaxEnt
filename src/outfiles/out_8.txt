@@ -1,0 +1,171 @@
+RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =           16     M =           10
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f=  2.73453D+02    |proj g|=  4.27288D+01
+
+At iterate    1    f=  1.57024D+02    |proj g|=  2.55839D+01
+
+At iterate    2    f=  1.13089D+02    |proj g|=  1.46204D+01
+
+At iterate    3    f=  1.03149D+02    |proj g|=  6.92841D+00
+
+At iterate    4    f=  1.00771D+02    |proj g|=  2.33100D+00
+
+At iterate    5    f=  1.00225D+02    |proj g|=  2.28901D+00
+
+At iterate    6    f=  9.80197D+01    |proj g|=  1.97647D+00
+
+At iterate    7    f=  9.73684D+01    |proj g|=  1.82401D+00
+
+At iterate    8    f=  9.67396D+01    |proj g|=  6.38687D-01
+
+At iterate    9    f=  9.65157D+01    |proj g|=  6.92557D-01
+
+At iterate   10    f=  9.64251D+01    |proj g|=  4.08598D-01
+
+At iterate   11    f=  9.63497D+01    |proj g|=  3.00393D-01
+
+At iterate   12    f=  9.62871D+01    |proj g|=  3.58449D-01
+
+At iterate   13    f=  9.61610D+01    |proj g|=  3.58375D-01
+
+At iterate   14    f=  9.60246D+01    |proj g|=  5.40980D-01
+
+At iterate   15    f=  9.59306D+01    |proj g|=  4.52985D-01
+
+At iterate   16    f=  9.58803D+01    |proj g|=  2.67347D-01
+
+At iterate   17    f=  9.58562D+01    |proj g|=  1.83859D-01
+
+At iterate   18    f=  9.58279D+01    |proj g|=  2.40600D-01
+
+At iterate   19    f=  9.57841D+01    |proj g|=  1.69190D-01
+
+At iterate   20    f=  9.57355D+01    |proj g|=  3.87351D-01
+
+At iterate   21    f=  9.56733D+01    |proj g|=  3.79971D-01
+
+At iterate   22    f=  9.55907D+01    |proj g|=  3.68811D-01
+
+At iterate   23    f=  9.54930D+01    |proj g|=  6.45858D-01
+
+At iterate   24    f=  9.54204D+01    |proj g|=  2.50370D-01
+
+At iterate   25    f=  9.53871D+01    |proj g|=  1.18098D-01
+
+At iterate   26    f=  9.53497D+01    |proj g|=  2.57047D-01
+
+At iterate   27    f=  9.53314D+01    |proj g|=  2.20925D-01
+
+At iterate   28    f=  9.53135D+01    |proj g|=  1.30932D-01
+
+At iterate   29    f=  9.52902D+01    |proj g|=  1.28256D-01
+
+At iterate   30    f=  9.52724D+01    |proj g|=  1.10748D-01
+
+At iterate   31    f=  9.52655D+01    |proj g|=  2.87581D-01
+
+At iterate   32    f=  9.52565D+01    |proj g|=  1.14265D-01
+
+At iterate   33    f=  9.52539D+01    |proj g|=  6.85247D-02
+
+At iterate   34    f=  9.52525D+01    |proj g|=  5.58657D-02
+
+At iterate   35    f=  9.52467D+01    |proj g|=  3.97904D-02
+
+At iterate   36    f=  9.52428D+01    |proj g|=  6.38948D-02
+
+At iterate   37    f=  9.52412D+01    |proj g|=  6.94882D-02
+
+At iterate   38    f=  9.52399D+01    |proj g|=  1.87697D-02
+
+At iterate   39    f=  9.52396D+01    |proj g|=  1.41767D-02
+
+At iterate   40    f=  9.52391D+01    |proj g|=  1.75703D-02
+
+At iterate   41    f=  9.52387D+01    |proj g|=  3.29152D-02
+
+At iterate   42    f=  9.52384D+01    |proj g|=  1.16245D-02
+
+At iterate   43    f=  9.52383D+01    |proj g|=  1.20025D-02
+
+At iterate   44    f=  9.52380D+01    |proj g|=  1.36822D-02
+
+At iterate   45    f=  9.52380D+01    |proj g|=  1.49271D-02
+
+At iterate   46    f=  9.52379D+01    |proj g|=  9.81117D-03
+
+At iterate   47    f=  9.52378D+01    |proj g|=  8.99263D-03
+
+At iterate   48    f=  9.52377D+01    |proj g|=  1.25283D-02
+
+At iterate   49    f=  9.52377D+01    |proj g|=  6.21867D-03
+
+At iterate   50    f=  9.52377D+01    |proj g|=  5.79519D-03
+
+At iterate   51    f=  9.52377D+01    |proj g|=  6.50857D-03
+
+At iterate   52    f=  9.52376D+01    |proj g|=  8.11440D-03
+
+At iterate   53    f=  9.52376D+01    |proj g|=  5.19833D-03
+
+At iterate   54    f=  9.52376D+01    |proj g|=  5.84635D-03
+
+At iterate   55    f=  9.52376D+01    |proj g|=  3.46176D-03
+
+At iterate   56    f=  9.52376D+01    |proj g|=  1.49498D-03
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+   16     56     59      1     0     0   1.495D-03   9.524D+01
+  F =   95.2376212334636     
+
+CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH             
+
+ Cauchy                time 0.000E+00 seconds.
+ Subspace minimization time 0.000E+00 seconds.
+ Line search           time 0.000E+00 seconds.
+
+ Total User time 0.000E+00 seconds.
+
+File num: 8 has started
+Loading the data into a dictionary
+Creating the feature graph
+Partioning the feature graph
+Finding the connected components
+[[0, 1, 2, 3]]
+two_wayc {(0, 1): (1, 1), (1, 3): (1, 1), (0, 3): (1, 1), (0, 2): (1, 1), (2, 1): (1, 1), (2, 3): (1, 1)}
+three_wayc {(1, 2, 3): (1, 1, 1), (0, 1, 3): (1, 1, 1), (0, 2, 1): (1, 1, 1), (0, 2, 3): (1, 1, 1)}
+four_wayc {(0, 1, 2, 3): (1, 1, 1, 1)}
+thetas (array([ 3.70032474,  3.98853339,  3.98820853,  3.98841631,  5.7801449 ,
+       -5.08637765, -5.37540709, -5.08630831, -4.3933836 , -5.37504685,
+       -4.68072261, -5.22002765,  6.47251479, -8.05242078, -9.74167441,
+       34.16828133]), 95.23762123346356, {'grad': array([-0.00138698, -0.00075318, -0.00032969,  0.00048033,  0.00058549,
+       -0.00055991, -0.00149498, -0.00061107, -0.00073044, -0.0009635 ,
+        0.0007816 , -0.00059401, -0.00097486, -0.0005997 , -0.00060538,
+       -0.00060538]), 'task': b'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH', 'funcalls': 1003, 'nit': 56, 'warnflag': 0})
+Partition num, Total prob:  0 0.9999999999999999
+Optimizer is done. Computing probabilities
+Total Probability:  0.9999999999999999
+Empirical: [0.48 0.3  0.16 0.02 0.04]
+Maxent: [0.48001178 0.2999848  0.16002269 0.01999287 0.03998786]
+True distribution:[0.48609615 0.26018852 0.13926888 0.07454526 0.0399012 ]
+writing to file
+Computational time for calculating maxent = 0.19081568717956543 seconds
