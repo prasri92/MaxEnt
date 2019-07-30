@@ -1,5 +1,5 @@
-dataset*
-toy_dataset*
+dataset/*
+toy_dataset/*
 misc/*
 figures/*
 *.ipynb

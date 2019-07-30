@@ -105,14 +105,27 @@ def compute_prob_exact(optobj):
     maxent_sum_diseases = np.zeros(num_feats+1)
     all_perms = itertools.product([0, 1], repeat=num_feats)
     total_prob = 0.0    # finally should be very close to 1
+
     for tmp in all_perms:
         vec = np.asarray(tmp)
         p_vec = optobj.prob_dist(vec)
-        print('Vector:', vec, ' Probability: ', p_vec)
+        # print('Vector:', vec, ' Probability: ', p_vec)
         j = sum(vec)
         maxent_sum_diseases[j] += p_vec
         total_prob += p_vec
         maxent_prob.append(p_vec) 
+
+    disease1and3 = {'00':0, '01':0, '10':0, '11':0}
+
+    all_perms = itertools.product([0, 1], repeat=num_feats)
+    #TODO: Compute marginals for D1 and D3 to check, this marginals computation is wrong 
+    for tmp in all_perms:
+        vec = np.asarray(tmp)
+        p_vec = optobj.prob_dist(vec)
+        s = str(vec[1]) + str(vec[3])
+        disease1and3[s] += p_vec
+        
+    print('All Vectors of Disease 1 and 3:', disease1and3)
     
     print('Total Probability: ', total_prob)
 
@@ -134,19 +147,20 @@ def main(file_num=None):
     # support = support_data_overlap[file_num]
     
     # for four diseases
-    support = 0.001
+    support = 0.01
+
+    # for ten diseases
+    # support = 0.005
     
     tic = time.time()
     # real data
     # directory = '../dataset/basket_sets.csv'
     # generating synthetic data 
-    directory = '../dataset/d25_2/synthetic_data_expt'+str(file_num)+'.csv'
+    directory = '../dataset/d50_4/synthetic_data_expt'+str(file_num)+'.csv'
     cleaneddata=pd.read_csv(directory, error_bad_lines=False)
     
     # two_wayc, three_wayc, four_wayc = marketbasket(cleaneddata, support)
-    # two_wayc = {(0,1):(1,1), (1,2):(1,1), (2,3):(1,1), (3,4):(1,1), (4,5):(1,1), (5,6):(1,1), (6,7):(1,1), (7,8):(1,1),(8,9):(1,1), \
-    # (9,10):(1,1),(10,11):(1,1),(11,12):(1,1),(12,13):(1,1),(13,14):(1,1),(14,15):(1,1),(15,16):(1,1),(16,17):(1,1),(17,18):(1,1), (18,19):(1,1)}
-    two_wayc = {(1,0):(1,1)}
+    two_wayc = {(1,3):(1,1)}
     three_wayc = {}
     four_wayc = {}
 
@@ -165,25 +179,27 @@ def main(file_num=None):
     print('three_wayc', three_wayc)
     print('four_wayc', four_wayc)
 
+
     opt = Optimizer(feats) 
-    # opt.exact_zero_detection()
+    opt.exact_zero_detection(cleaneddata)
+    # opt.approximate_zero_detection(cleaneddata)
     soln_opt = opt.solver_optimize()
-    print("Optimizer is done. Computing probabilities")
+    if soln_opt == None:
+        print('Solution does not converge')
+        return 
 
     maxent, sum_prob_maxent, emp_prob = compute_prob_exact(opt)
     print("Empirical: " +str(emp_prob))
     print("Maxent: " + str(sum_prob_maxent))
     print("True distribution:" + str(read_prob_dist('../output/d50_4/truedist_expt'+str(file_num)+'.pickle')))
     
-    print("writing to file")
-
     # for real data
     # outfilename = '../output/realdata_maxent.pickle'
     # for synthetic data 
-    outfilename = '../output/d50_4/syn_maxent_expt'+str(file_num)+'.pickle'
+    # outfilename = '../output/d50_4/syn_maxent_expt'+str(file_num)+'.pickle'
 
-    with open(outfilename, "wb") as outfile:
-        pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)
+    # with open(outfilename, "wb") as outfile:
+    #     pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)
 
     toc = time.time()
     print('Computational time for calculating maxent = {} seconds'.format(toc-tic))

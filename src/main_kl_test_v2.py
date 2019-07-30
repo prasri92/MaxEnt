@@ -17,7 +17,7 @@ path_to_codebase = './codebase/'
 sys.path.insert(0, path_to_codebase)
 from codebase.utils import load_disease_data
 from codebase.extract_features import ExtractFeatures
-from codebase.optimizer_old import Optimizer
+from codebase.optimizer_v2 import Optimizer
 
 def marketbasket(cleaneddata, support):
     frequent_itemsets = apriori(cleaneddata, min_support=support, use_colnames=True)
@@ -106,13 +106,23 @@ def compute_prob_exact(optobj, prob_zeros, size):
     for tmp in all_perms[1:]:
         vec = np.asarray(tmp)
         p_vec = optobj.prob_dist(vec)*(1-prob_zeros)
-        # print('Vector:', vec, ' Probability: ', p_vec)
+        print('Vector:', vec, ' Probability: ', p_vec)
         j = sum(vec)
         maxent_diseases[j] += p_vec 
         total_prob += p_vec
         maxent_prob.append(p_vec) 
 
+    disease1and3 = {'00':0, '01':0, '10':0, '11':0}
 
+    all_perms = itertools.product([0, 1], repeat=num_feats)
+    #Compute marginals for D1 and D3 to check
+    for tmp in all_perms:
+        vec = np.asarray(tmp)
+        p_vec = optobj.prob_dist(vec)
+        s = str(vec[1]) + str(vec[3])
+        disease1and3[s] += p_vec
+
+    print('Disease 1 and 3: ', disease1and3)
     print("Total Probability: " + str(total_prob))
 
     emp_prob = np.zeros(num_feats + 1)
@@ -149,9 +159,9 @@ def main(file_num=None, size=None, support=None, trial=None):
     non_zero_rows = cleaneddata.shape[0]
     prob_zeros = (int(size)-non_zero_rows)/int(size)
 
-    two_wayc, three_wayc, four_wayc = marketbasket(cleaneddata, support)
+    # two_wayc, three_wayc, four_wayc = marketbasket(cleaneddata, support)
     # two_wayc = {}
-    # two_wayc = {(1, 3): (1, 1)} 
+    two_wayc = {(1, 3): (1, 1)} 
 
     # two_wayc = {(1, 0): (1, 1), (0, 3): (1, 1)} 
     # two_wayc = {(1, 0): (1, 1), (0, 3): (1, 1) , (3, 2): (1, 1), (0, 2): (1, 1)}
@@ -178,6 +188,9 @@ def main(file_num=None, size=None, support=None, trial=None):
     print('four_wayc', four_wayc)
 
     opt = Optimizer(feats) 
+    opt.exact_zero_detection(cleaneddata)
+    # opt.approximate_zero_detection(cleaneddata)
+
     soln_opt = opt.solver_optimize()
     print("Optimizer is done. Computing probabilities")
 
@@ -186,15 +199,14 @@ def main(file_num=None, size=None, support=None, trial=None):
     print("Maxent: " + str(sum_prob_maxent))
     print("True distribution:" + str(read_prob_dist('../output/d'+str(size)+'_4/truedist_expt'+str(file_num)+'.pickle')))
     
-    print("writing to file")
 
     # for real data'support_'+str(support)+
     # outfilename = '../output/realdata_maxent.pickle'
     # for synthetic data 
-    outfilename = '../output/d'+str(size)+'_4_nonzeros/syn_maxent_expt'+str(file_num)+'.pickle'#'_constraints_'+str(trial)+'.pickle' #
+    # outfilename = '../output/d'+str(size)+'_4_nonzeros/syn_maxent_expt'+str(file_num)+'.pickle'#'_constraints_'+str(trial)+'.pickle' #
 
-    with open(outfilename, "wb") as outfile:
-        pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)
+    # with open(outfilename, "wb") as outfile:
+    #     pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)
 
     toc = time.time()
     print('Computational time for calculating maxent = {} seconds'.format(toc-tic))
@@ -202,6 +214,4 @@ def main(file_num=None, size=None, support=None, trial=None):
 if __name__ == '__main__':
     file_num = sys.argv[1]
     size = sys.argv[2]
-    # trial = sys.argv[3]
-    main(file_num=int(file_num), size=size)#, trial=trial)
-
+    main(file_num=int(file_num), size=size)

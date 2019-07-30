@@ -3,8 +3,10 @@ import itertools
 from collections import defaultdict
 
 import numpy as np
+import pandas as pd
 from scipy.optimize import fmin_l_bfgs_b as spmin_LBFGSB
 from scipy.optimize import fmin_tnc as spmin_tnc
+from scipy.optimize import linprog
 
 """
 TODO:
@@ -358,12 +360,177 @@ class Optimizer(object):
             constraint_mat[i,:] = tmp_arr
         
         # TEST to check if the constraint matrix being zero gives bad gradient function
-        print("constraint_mat before\n", constraint_mat)
+        # print("constraint_mat before\n", constraint_mat)
         # constraint_mat[num_total_vectors-1,:] = np.zeros(len_theta)
         # print("constraint_mat after\n", constraint_mat)
         return constraint_mat
 
+    def build_constraint_matrix(self, num_feats):
+        """
+        Builds the primal constraint matrix to solve the linprog for detection of zero vectors
+        """
+        A_eq = np.zeros([2**num_feats-1, 2**num_feats-1])
+        d = list(itertools.product([0,1], repeat=num_feats))[1:]
+        
+        i,j=0,0
+        for dis in d:
+            index_d = [i for i,val in enumerate(dis) if val==1]
+            r = list(itertools.product([0,1], repeat=num_feats))[1:]
+            j=0
+            for rvec in r:
+                index_r = [i for i,val in enumerate(rvec) if val==1]
+                if(all(x in index_d for x in index_r)):
+                    A_eq[j][i]=1
+                j+=1
+            i+=1
 
+        return A_eq
+
+    def build_constraint_matrix_approx(self, A_exact):
+        """
+        Builds the primal constraint matrix to solve the linprog for detection of zero vectors (approximate method)
+        """
+        A_eq = np.concatenate((A_exact,A_exact), axis=1)
+        return A_eq
+
+    def exact_zero_detection(self, cleaneddata):
+        """
+        An exact iterative method for the detection of zero probabilities of the "r" vector of a patient.
+        Considers all vectors to be zero vectors at first, and then after running through the lin prog, 
+        returns all actual zero vectors
+        Args:
+            partition: The set of all diseases present in the partition
+            constraint_mat: Set of constraints to be satisfied 
+        Returns: 
+            all actual zero vectors
+        """
+        parts = self.feats_obj.feat_partitions
+        for i in parts:
+            indices = list(i)
+            num_feats = len(i)
+            #objective function = maximize summation of p(r)
+            # f = (-1 *np.arange(1, 2**num_feats))
+            f = (-1 * np.ones((2**num_feats)-1))
+
+            '''
+            Constraints are of the form A_eq @ x == b_eq
+            where A_eq is the matrix including the information for the marginals, 2 way,
+            3 way and 4 way constraints
+            b_eq is the sum of probabilities according to the maximum entropy
+            '''
+            
+            #Build the primal constraint matrix
+            A_eq = self.build_constraint_matrix(num_feats)
+
+            #To count the occurrences of only diseases present in the partition, transform incoming data
+            #accordingly
+
+            indices = [str(i) for i in indices]
+
+            data = cleaneddata[indices]
+            size = data.shape[0]
+            diseases = data.shape[1]
+            cols = np.arange(diseases)
+            data.columns = cols
+
+            b_eq = []
+            
+            all_perms = list(itertools.product([0,1], repeat=diseases))
+
+            ndata = pd.DataFrame()
+
+            for perm in all_perms[1:]:
+                ones = [i for i,x in enumerate(perm) if perm[i]==1]
+                sub_data = data[ones]
+                sub_data['m'] = np.all(sub_data,axis=1)*1
+                t = np.sum(sub_data['m'], axis=0)
+                m = t/size
+                b_eq.append(m)
+
+            print('parts', i, 'b_eq', b_eq)
+
+            #upper bounds on x
+            A_ub = np.identity((2**num_feats)-1)
+            b_ub = np.ones((2**num_feats)-1)
+            
+            res = linprog(f, A_eq=A_eq, b_eq=b_eq, A_ub=A_ub, b_ub=b_ub)#,options = {"presolve":False})
+            res = {'status': res.status, 'message':res.message, 'x': res.x if res.success else None}
+            if res['status']!=0:
+                print('LP to find zero vectors: ',res['message'])
+            else:
+                print('Solving the linear program', res['x'])
+
+    def approximate_zero_detection(self, cleaneddata):
+        """
+        An approximate method for detection of zero atoms. 
+        Maximize v_b which lies between 0 and epsilon, setting epsilon to 0.0001
+        subject to the constraints p(r) = v_b + w_b where w_b + v_b = p(r)
+        Args:
+            partition: The set of all diseases present in the partition
+            constraint_mat: Set of constraints to be satisfied
+        Returns:
+            zero vectors
+        """
+        parts = self.feats_obj.feat_partitions
+        for i in parts:
+            indices = list(i)
+            num_feats = len(i)
+            #objective function - maximize v_b (which lies between 0 and epsilon, epsilon = 0.0001
+            v = np.ones((2**num_feats)-1)
+            w = np.zeros((2**num_feats)-1)
+            c = np.concatenate((v,w), axis=0)
+            f = (-1 * c)
+
+            '''
+            Constraints are of the form A_eq @ x == b_eq
+            where A_eq is the matrix including the information for the marginals, 2 way, 3 way and 4 way constraints
+            b_eq is the sum of probabilities according to maximum entropy
+
+            Upper bound constraints are imposed in the form A_ub @ x == b_ub
+            where now x = v + w 
+            '''
+
+            A_eq = self.build_constraint_matrix_approx(self.build_constraint_matrix(num_feats))
+
+            #To count the occurrences of only diseases present in the partition, transform incoming data
+            #accordingly
+
+            indices = [str(i) for i in indices]
+
+            data = cleaneddata[indices]
+            size = data.shape[0]
+            diseases = data.shape[1]
+            cols = np.arange(diseases)
+            data.columns = cols
+
+            b_eq = []
+            
+            all_perms = list(itertools.product([0,1], repeat=diseases))
+
+            ndata = pd.DataFrame()
+
+            for perm in all_perms[1:]:
+                ones = [i for i,x in enumerate(perm) if perm[i]==1]
+                sub_data = data[ones]
+                sub_data['m'] = np.all(sub_data,axis=1)*1
+                t = np.sum(sub_data['m'], axis=0)
+                m = t/size
+                b_eq.append(m)
+
+            print('parts', i, 'b_eq', b_eq)
+
+            #upper bounds on x
+            A_ub = np.identity(((2**num_feats)-1)*2)
+            v_ub = np.array([0.001]*((2**num_feats)-1))
+            w_ub = np.ones(2**num_feats-1)
+            b_ub = np.concatenate((v_ub,w_ub), axis=0)
+
+            res = linprog(f, A_eq=A_eq, b_eq=b_eq, A_ub=A_ub, b_ub=b_ub, options={"disp": False})
+            res = {'message': res.message, 'status':res.status, 'x': res.x if res.success else None}
+            if res['status']!=0:
+                print('LP to find zero vectors: ', res['message'])
+            else:
+                print('Solving the linear program', res['x'][:2**num_feats])
 
 
     # normalization constant Z(theta)
@@ -465,8 +632,6 @@ class Optimizer(object):
                 # print(partition, mle, 1-mle, theta_opt, norm_sol[i])
             
             else:         
-
-
                 datavec_partition = self.compute_data_stats(partition)
                 c_matrix_partition = self.util_constraint_matrix(partition)
                 len_theta = datavec_partition.shape[0]
@@ -494,7 +659,7 @@ class Optimizer(object):
             
                 optimThetas = spmin_LBFGSB(func_objective, x0=initial_val,
                                         fprime=None, approx_grad=True, 
-                                        disp=True)
+                                        disp=True, epsilon=1e-18)
                 # optimThetas = spmin_tnc(func_objective, x0=initial_val,
                 #                         fprime=None, approx_grad=True, 
                 #                         disp=True)
@@ -507,16 +672,16 @@ class Optimizer(object):
                 norm_sol[i] = np.exp(self.log_norm_Z(optimThetas[0], partition, c_matrix_partition))
                 inn_arr = np.dot(c_matrix_partition, optimThetas[0])
                 inn_arr = np.exp(inn_arr)
-                inn_arr /= norm_sol[i]
+                if norm_sol[i] != 0:
+                    inn_arr /= norm_sol[i]
+                else:
+                    print('Numerical error with exponent')
                 total_prob = np.sum(inn_arr, axis=0)
                 print('thetas', optimThetas)
                 print('Partition num, Total prob: ', i, total_prob)
 
         self.opt_sol = solution
         self.norm_z = norm_sol
-        #prach-edit 
-        # print("Solution:", solution)
-        # print("Normalized solution:", norm_sol)
         return (solution, norm_sol)
 
 
@@ -524,6 +689,7 @@ class Optimizer(object):
         """
         Function to compute the probability for a given input vector
         """        
+        np.seterr(all='raise')
         log_prob = 0.0
         parts = self.feats_obj.feat_partitions
         solution = self.opt_sol
@@ -533,10 +699,18 @@ class Optimizer(object):
         for i, partition in enumerate(parts):
             tmpvec = rvec[partition]
             term_exp = self.compute_constraint_sum(solution[i][0], tmpvec, partition)
-
-            part_logprob = term_exp - np.log(norm_sol[i])
-            log_prob += part_logprob
-            part_prob = np.exp(part_logprob)
+            try:
+                part_logprob = term_exp - np.log(norm_sol[i])
+                log_prob += part_logprob
+                part_prob = np.exp(part_logprob)
+            except:
+                #TODO: CHECK WHAT IS THE CORRECT WAY TO HANDLE THIS EXCEPTION, GIVING INCORRECT RESULTS NOW
+                #TODO: FIX 
+                #Does it happen even for machine precision? 
+                part_logprop = term_exp - 1.0
+                log_prob += part_logprop
+                return 0.0
+                # part_prob = np.exp(part_logprop)
             # print('partition, prob: ', i, part_prob)            
             # prob_product *= (1.0/norm_sol[i]) * np.exp(term_exp)
         

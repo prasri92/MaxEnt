@@ -1,0 +1,138 @@
+File num: 1 has started
+Creating the feature graph
+No 3 way constraints specified
+No 4 way constraints specified
+Partioning the feature graph
+Finding the connected components
+[[0], [1, 3], [2]]
+two_wayc {(1, 3): (1, 1)}
+three_wayc {}
+four_wayc {}
+
+Linear Program Results (with zero vectors removed)
+[0]
+Optimization terminated successfully.
+answer [0.41666667]
+
+[1,3]
+Optimization terminated successfully.
+answer [0.25       0.16666667 0.08333333]
+
+[2]
+Optimization terminated successfully.
+answer [0.25]
+
+RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =            3     M =           10
+ This problem is unconstrained.
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f=  1.69864D+01    |proj g|=  5.53160D+00
+
+At iterate    1    f=  1.11590D+01    |proj g|=  3.66996D+00
+
+At iterate    2    f=  6.09672D+00    |proj g|=  2.85604D+00
+
+At iterate    3    f= -1.30516D+00    |proj g|=  1.78489D+00
+
+At iterate    4    f= -7.64829D+02    |proj g|=  6.99993D+00
+
+At iterate    5    f= -2.88960D+06    |proj g|=  6.70552D+00
+
+At iterate    6    f= -3.13566D+06    |proj g|=  8.19564D+00
+
+At iterate    7    f= -3.04667D+07    |proj g|=  5.96046D+00
+
+ Bad direction in the line search;
+   refresh the lbfgs memory and restart the iteration.
+
+At iterate    8    f= -3.75919D+07    |proj g|=  5.96046D+00
+  ys= 0.000E+00  -gs= 6.134E+06 BFGS update SKIPPED
+
+At iterate    9    f= -3.76103D+07    |proj g|=  4.47035D+00
+
+At iterate   10    f= -3.76106D+07    |proj g|=  4.47035D+00
+
+At iterate   11    f= -3.76106D+07    |proj g|=  2.98023D+00
+
+At iterate   12    f= -3.76106D+07    |proj g|=  1.49012D+00
+
+At iterate   13    f= -3.76106D+07    |proj g|=  4.47035D+00
+
+At iterate   14    f= -3.76106D+07    |proj g|=  5.96046D+00
+
+At iterate   15    f= -3.76106D+07    |proj g|=  2.98023D+00
+
+At iterate   16    f= -3.76106D+07    |proj g|=  4.47035D+00
+
+At iterate   17    f= -3.76106D+07    |proj g|=  7.45058D+00
+
+At iterate   18    f= -3.76106D+07    |proj g|=  4.47035D+00
+
+At iterate   19    f= -3.76109D+07    |proj g|=  8.94070D+00
+
+ Bad direction in the line search;
+   refresh the lbfgs memory and restart the iteration.
+
+At iterate   20    f= -3.76113D+07    |proj g|=  8.94070D+00
+
+At iterate   21    f= -3.76117D+07    |proj g|=  7.45058D+00
+
+At iterate   22    f= -3.76120D+07    |proj g|=  7.45058D+00
+
+At iterate   23    f= -3.76120D+07    |proj g|=  7.45058D+00
+
+At iterate   24    f= -3.76121D+07    |proj g|=  5.96046D+00
+
+At iterate   25    f= -3.76123D+07    |proj g|=  5.96046D+00
+
+At iterate   26    f= -1.35874D+08    |proj g|=  5.96046D+00
+
+At iterate   27    f= -1.35874D+08    |proj g|=  0.00000D+00
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+    3     27    134      4     1     0   0.000D+00  -1.359D+08
+  F =  -135873955.982567
+
+CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL
+
+ Cauchy                time 0.000E+00 seconds.
+ Subspace minimization time 0.000E+00 seconds.
+ Line search           time 0.000E+00 seconds.
+
+ Total User time 0.000E+00 seconds.
+
+C:\Users\prach\OneDrive - University of Massachusetts\UMass\MaxEnt\src\codebase\optimizer_v2.py:580: RuntimeWarning: invalid value encountered in true_divide
+  inn_arr /= norm_sol[i]
+
+thetas (array([-48728803.57808428, -51030770.6594469 ,   1197380.6551278 ]), -135873955.9825675, {'grad': array([0., 0., 0.]), 'task': b'CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL', 'funcalls': 536, 'nit': 27, 'warnflag': 0})
+
+Partition num, Total prob:  1 nan
+
+Probability of zeros =  0.76
+C:\Users\prach\OneDrive - University of Massachusetts\UMass\MaxEnt\src\codebase\optimizer_v2.py:607: RuntimeWarning: divide by zero encountered in log
+  part_logprob = term_exp - np.log(norm_sol[i])
+
+Total Probability: inf
+Empirical: [0.76 0.14 0.1  0.   0.  ]
+Maxent: [0.76  inf  inf  inf  inf]
+True distribution:[0.71487524 0.20481518 0.05868053 0.01681225 0.00481679]
+
+Computational time for calculating maxent = 0.4626286029815674 seconds

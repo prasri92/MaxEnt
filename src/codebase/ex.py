@@ -24,6 +24,8 @@ def build_constraint_matrix(num_feats):
 
 build_constraint_matrix(2)
 
+
+
 """
 A_eq = np.array([[1, 0, 0, 0],[0, 0, 1, 0],[0, 1, 0, 0],[0, 0, 0, 1]])
 print(A_eq)

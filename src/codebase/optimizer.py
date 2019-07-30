@@ -399,7 +399,7 @@ class Optimizer(object):
             constraint_mat[i,:] = tmp_arr
         
         # TEST to check if the constraint matrix being zero gives bad gradient function
-        print("constraint_mat before\n", constraint_mat)
+        # print("constraint_mat before\n", constraint_mat)
         # constraint_mat[num_total_vectors-1,:] = np.zeros(len_theta)
         # print("constraint_mat after\n", constraint_mat)
         return constraint_mat
@@ -424,9 +424,96 @@ class Optimizer(object):
             i+=1
         A_eq[0] = np.zeros([2**num_feats])
         A_eq[0][0]=1
+
         return A_eq
 
-    def exact_zero_detection(self):
+    def build_constraint_matrix_approx(self, A_exact):
+        """
+        Builds the primal constraint matrix to solve the linprog for detection of zero vectors (approximate method)
+        """
+        A_eq = np.concatenate((A_exact,A_exact), axis=1)
+        return A_eq
+
+
+    def approximate_zero_detection(self, cleaneddata):
+        """
+        An approximate method for detection of zero atoms. 
+        Maximize v_b which lies between 0 and epsilon, setting epsilon to 0.0001
+        subject to the constraints p(r) = v_b + w_b where w_b + v_b = p(r)
+        Args:
+            partition: The set of all diseases present in the partition
+            constraint_mat: Set of constraints to be satisfied
+        Returns:
+            zero vectors
+        """
+        parts = self.feats_obj.feat_partitions
+        for i in parts:
+            indices = list(i)
+            num_feats = len(i)
+            #objective function - maximize v_b (which lies between 0 and epsilon, epsilon = 0.0001
+            v = np.ones(2**num_feats)
+            w = np.zeros(2**num_feats)
+            c = np.concatenate((v,w), axis=0)
+            f = (-1 * c)
+
+            '''
+            Constraints are of the form A_eq @ x == b_eq
+            where A_eq is the matrix including the information for the marginals, 2 way, 3 way and 4 way constraints
+            b_eq is the sum of probabilities according to maximum entropy
+
+            Upper bound constraints are imposed in the form A_ub @ x == b_ub
+            where now x = v + w 
+            '''
+            
+            #ignore warnings 
+            pd.options.mode.chained_assignment = None  # default='warn'
+
+            A_eq = self.build_constraint_matrix_approx(self.build_constraint_matrix(num_feats))
+            
+            #To count the occurrences of only diseases present in the partition, transform incoming data
+            #accordingly
+
+            indices = [str(i) for i in indices]
+
+            data = cleaneddata[indices]
+            size = data.shape[0]
+            diseases = data.shape[1]
+            cols = np.arange(diseases)
+            data.columns = cols
+
+            b_eq = []
+            
+            all_perms = list(itertools.product([0,1], repeat=diseases))
+
+            ndata = pd.DataFrame()
+            ndata[all_perms[0]] = np.logical_not(np.any(data, axis=1))*1
+            b_eq.append(np.sum(ndata[all_perms[0]])/size)
+
+            for perm in all_perms[1:]:
+                ones = [i for i,x in enumerate(perm) if perm[i]==1]
+                sub_data = data[ones]
+                sub_data['m'] = np.all(sub_data,axis=1)*1
+                t = np.sum(sub_data['m'], axis=0)
+                m = t/size
+                b_eq.append(m)
+
+            print('parts', i, 'b_eq', b_eq)
+         
+            #upper bounds on x
+            A_ub = np.identity((2**num_feats)*2)
+            v_ub = np.array([0.001]*(2**num_feats))
+            w_ub = np.ones(2**num_feats)
+            b_ub = np.concatenate((v_ub,w_ub), axis=0)
+
+            res = linprog(f, A_eq=A_eq, b_eq=b_eq, A_ub=A_ub, b_ub=b_ub, options={"disp": False})
+            res = {'message': res.message, 'status':res.status, 'x': res.x if res.success else None}
+            if res['status']!=0:
+                print('LP to find zero vectors: ', res['message'])
+            else:
+                print('Solving the linear program', res['x'][:2**num_feats])
+
+
+    def exact_zero_detection(self, cleaneddata):
         """
         An exact iterative method for the detection of zero probabilities of the "r" vector of a patient.
         Considers all vectors to be zero vectors at first, and then after running through the lin prog, 
@@ -439,11 +526,11 @@ class Optimizer(object):
         """
         parts = self.feats_obj.feat_partitions
         for i in parts:
-            num_feats = len(parts)
-            all_perms = itertools.product([0, 1], repeat=num_feats)
-
+            indices = list(i)
+            num_feats = len(i)
             #objective function = maximize summation of p(r)
-            f = (-1 *np.array([0, 1, 2, 3]))
+            f = (-1 * np.ones(2**num_feats)) 
+            # f = (-1 * np.arange(2**num_feats)) 
 
             '''
             Constraints are of the form A_eq @ x == b_eq
@@ -451,33 +538,51 @@ class Optimizer(object):
             3 way and 4 way constraints
             b_eq is the sum of probabilities according to the maximum entropy
             '''
-            # A_eq = np.zeros([2**num_feats, 2**num_feats])
-            # row_index = itertools.product([0,1], repeat=num_feats)
-            # col_index = itertools.product([0,1], repeat=num_feats)
+            #ignore warnings 
+            pd.options.mode.chained_assignment = None  # default='warn'
+
+            #Build the primal constraint matrix
+            A_eq = self.build_constraint_matrix(num_feats)
+
+            #To count the occurrences of only diseases present in the partition, transform incoming data
+            #accordingly
+
+            indices = [str(i) for i in indices]
+
+            data = cleaneddata[indices]
+            size = data.shape[0]
+            diseases = data.shape[1]
+            cols = np.arange(diseases)
+            data.columns = cols
+
+            b_eq = []
             
+            all_perms = list(itertools.product([0,1], repeat=diseases))
 
-            A_eq = build_constraint_matrix(num_feats)
-            directory = '../dataset/d25_2/synthetic_data_expt'+str(1)+'.csv'
-            data=pd.read_csv(directory, error_bad_lines=False)
-            a = len(data.values)
+            ndata = pd.DataFrame()
+            ndata[all_perms[0]] = np.logical_not(np.any(data, axis=1))*1
+            b_eq.append(np.sum(ndata[all_perms[0]])/size)
 
-            counts = {}
-            options = itertools.product([0,1], repeat=2)
-            for opt in options:
-                counts[opt] = 0
+            for perm in all_perms[1:]:
+                ones = [i for i,x in enumerate(perm) if perm[i]==1]
+                sub_data = data[ones]
+                sub_data['m'] = np.all(sub_data,axis=1)*1
+                t = np.sum(sub_data['m'], axis=0)
+                m = t/size
+                b_eq.append(m)
 
-            for item in data.values:
-                for key in counts.keys():
-                    if np.array_equal(item, key):
-                        counts[key]+=1
+            print('parts', i, 'b_eq', b_eq)
 
-            b_eq = [x/a for x in counts.values()]
-            print(b_eq)
+            #upper bounds on x
+            A_ub = np.identity(2**num_feats)
+            b_ub = np.ones(2**num_feats)
 
-            res = linprog(f, A_eq=A_eq, b_eq=b_eq)
-            res = {'status': res.message, 'x': res.x if res.success else None}
-            print(res['status'])
-            print('answer', res['x'])
+            res = linprog(f, A_eq=A_eq, b_eq=b_eq, A_ub=A_ub, b_ub=b_ub, options={"disp": False})
+            res = {'message': res.message, 'status':res.status, 'x': res.x if res.success else None}
+            if res['status']!=0:
+                print('LP to find zero vectors: ',res['message'])
+            else:
+                print('Solving the linear program', res['x'])
 
 
     # normalization constant Z(theta)
@@ -609,7 +714,13 @@ class Optimizer(object):
             
                 optimThetas = spmin_LBFGSB(func_objective, x0=initial_val,
                                         fprime=None, approx_grad=True, 
-                                        disp=True, epsilon=1e-08)
+                                        disp=False, epsilon=1e-08) 
+
+                # Check if the LBFGS-B converges, if doesn't converge, then return error message
+                if optimThetas[2]['warnflag'] != 0:
+                    print('Solution does not converge')
+                    return None
+                
                 # optimThetas = spmin_tnc(func_objective, x0=initial_val,
                 #                         fprime=None, approx_grad=True, 
                 #                         disp=True)
@@ -629,9 +740,6 @@ class Optimizer(object):
 
         self.opt_sol = solution
         self.norm_z = norm_sol
-        #prach-edit 
-        # print("Solution:", solution)
-        # print("Normalized solution:", norm_sol)
         return (solution, norm_sol)
 
 
