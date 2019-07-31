@@ -1,0 +1,118 @@
+File num: 23 has started
+
+Checking constraints
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+[[0, 5, 7, 8, 9, 1, 2, 3], [4], [6]]
+
+The constraints are:
+two_wayc {(7, 2): (1, 1), (5, 1): (1, 1), (5, 7): (1, 1), (5, 9): (1, 1), (7, 8): (1, 1), (7, 3): (1, 1), (5, 2): (1, 1), (0, 5): (1, 1), (1, 9): (1, 1)}
+three_wayc {}
+four_wayc {}
+
+
+Detecting zero vectors
+Diseases [0, 5, 7, 8, 9, 1, 2, 3] Marginal Probabilities [0.292, 0.244, 0.276, 0.112, 0.268, 0.108, 0.136, 0.072, 0.252, 0.104, 0.132, 0.068, 0.144, 0.068, 0.088, 0.052, 0.248, 0.1, 0.132, 0.072, 0.128, 0.064, 0.08, 0.052, 0.128, 0.072, 0.084, 0.06, 0.084, 0.052, 0.056, 0.044, 0.296, 0.14, 0.16, 0.092, 0.124, 0.08, 0.1, 0.064, 0.12, 0.068, 0.088, 0.056, 0.076, 0.052, 0.068, 0.048, 0.14, 0.076, 0.092, 0.056, 0.076, 0.052, 0.06, 0.044, 0.084, 0.056, 0.06, 0.048, 0.052, 0.044, 0.044, 0.04, 0.312, 0.124, 0.168, 0.08, 0.148, 0.08, 0.108, 0.064, 0.14, 0.076, 0.1, 0.06, 0.088, 0.052, 0.072, 0.048, 0.132, 0.064, 0.092, 0.06, 0.084, 0.048, 0.068, 0.048, 0.084, 0.052, 0.068, 0.052, 0.056, 0.04, 0.044, 0.04, 0.16, 0.084, 0.112, 0.068, 0.1, 0.068, 0.084, 0.06, 0.088, 0.056, 0.076, 0.052, 0.064, 0.048, 0.06, 0.048, 0.088, 0.052, 0.068, 0.048, 0.064, 0.044, 0.056, 0.044, 0.06, 0.044, 0.052, 0.044, 0.044, 0.04, 0.04, 0.04, 0.256, 0.12, 0.132, 0.068, 0.104, 0.064, 0.072, 0.044, 0.112, 0.072, 0.084, 0.052, 0.068, 0.052, 0.052, 0.04, 0.12, 0.072, 0.084, 0.056, 0.072, 0.048, 0.056, 0.04, 0.076, 0.056, 0.064, 0.048, 0.048, 0.04, 0.04, 0.036, 0.124, 0.08, 0.092, 0.06, 0.068, 0.052, 0.06, 0.044, 0.072, 0.052, 0.06, 0.044, 0.044, 0.04, 0.044, 0.04, 0.072, 0.056, 0.064, 0.048, 0.052, 0.044, 0.048, 0.04, 0.052, 0.044, 0.048, 0.04, 0.036, 0.036, 0.036, 0.036, 0.144, 0.076, 0.108, 0.056, 0.08, 0.052, 0.068, 0.044, 0.088, 0.056, 0.076, 0.048, 0.06, 0.044, 0.052, 0.04, 0.084, 0.048, 0.076, 0.048, 0.06, 0.04, 0.056, 0.04, 0.064, 0.044, 0.06, 0.044, 0.044, 0.036, 0.04, 0.036, 0.088, 0.056, 0.076, 0.048, 0.06, 0.048, 0.056, 0.044, 0.06, 0.044, 0.056, 0.04, 0.044, 0.04, 0.044, 0.04, 0.056, 0.04, 0.056, 0.04, 0.048, 0.04, 0.048, 0.04, 0.044, 0.036, 0.044, 0.036, 0.036, 0.036, 0.036, 0.036]
+LP to find zero vectors is unsuccessful:  Optimization failed. Unable to find a feasible starting point.
+Diseases [4] Marginal Probabilities [0.768, 0.232]
+Solving the linear program gives us the vector probabilities: 
+ [0.001 0.001]
+Diseases [6] Marginal Probabilities [0.728, 0.272]
+Solving the linear program gives us the vector probabilities: 
+ [0.001 0.001]
+RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =           17     M =           10
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f=  1.89456D+03    |proj g|=  1.49811D+02
+
+At iterate    1    f=  1.50841D+03    |proj g|=  1.04175D+02
+
+At iterate    2    f=  1.22792D+03    |proj g|=  3.81925D+01
+
+At iterate    3    f=  1.18034D+03    |proj g|=  1.68246D+01
+
+At iterate    4    f=  1.14621D+03    |proj g|=  1.93713D+01
+
+At iterate    5    f=  1.11042D+03    |proj g|=  1.79651D+01
+
+At iterate    6    f=  1.06143D+03    |proj g|=  1.36821D+01
+
+At iterate    7    f=  1.06002D+03    |proj g|=  2.30822D+01
+
+At iterate    8    f=  1.04890D+03    |proj g|=  7.21461D+00
+
+At iterate    9    f=  1.04776D+03    |proj g|=  4.24984D+00
+
+At iterate   10    f=  1.04749D+03    |proj g|=  1.91560D+00
+
+At iterate   11    f=  1.04737D+03    |proj g|=  1.79361D+00
+
+At iterate   12    f=  1.04720D+03    |proj g|=  8.99945D-01
+
+At iterate   13    f=  1.04710D+03    |proj g|=  7.36486D-01
+
+At iterate   14    f=  1.04708D+03    |proj g|=  1.44610D+00
+
+At iterate   15    f=  1.04703D+03    |proj g|=  1.12163D-01
+
+At iterate   16    f=  1.04703D+03    |proj g|=  6.01403D-02
+
+At iterate   17    f=  1.04703D+03    |proj g|=  5.05679D-02
+
+At iterate   18    f=  1.04703D+03    |proj g|=  2.32149D-02
+
+At iterate   19    f=  1.04703D+03    |proj g|=  1.15051D-02
+
+At iterate   20    f=  1.04703D+03    |proj g|=  4.86580D-03
+
+At iterate   21    f=  1.04703D+03    |proj g|=  3.72893D-03
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+   17     21     24      1     0     0   3.729D-03   1.047D+03
+  F =   1047.03005553294     
+
+CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH             
+
+ Cauchy                time 0.000E+00 seconds.
+ Subspace minimization time 0.000E+00 seconds.
+ Line search           time 0.000E+00 seconds.
+
+ Total User time 0.000E+00 seconds.
+
+thetas (array([-1.63751796, -2.70335141, -2.66214913, -1.70826066, -2.0570435 ,
+       -1.93987994, -2.08526473, -1.75253144,  1.4459017 ,  1.09368358,
+        0.98208817,  1.04249302,  1.60009199,  1.64431445,  1.51733446,
+        1.48329454,  1.63841236]), 1047.0300555329354, {'grad': array([ 6.82121026e-05, -2.20552465e-03, -3.41060513e-03, -3.72892828e-03,
+        2.04636308e-04,  1.09139364e-03, -3.09228199e-03, -1.00044417e-03,
+       -3.06954462e-03, -9.09494702e-05, -3.43334250e-03, -3.63797881e-04,
+       -7.73070497e-04, -1.65982783e-03, -7.73070497e-04, -2.41016096e-03,
+       -3.68345354e-03]), 'task': b'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH', 'funcalls': 432, 'nit': 21, 'warnflag': 0})
+Partition num, Total prob:  0 0.9999999999999997
+Total Probability:  1.0000000000000002
+
+Empirical: [0.244 0.2   0.132 0.136 0.064 0.052 0.068 0.036 0.028 0.016 0.024]
+Maxent: [0.1213861  0.21331089 0.20258208 0.15843554 0.1192452  0.08566619
+ 0.05564485 0.0297708  0.01125921 0.00247172 0.00022742]
+True distribution:[0.23630574 0.18403509 0.14332667 0.11162293 0.08693202 0.06770273
+ 0.05272694 0.04106378 0.0319805  0.02490644 0.01939716]
+Computational time for calculating maxent = 5.328902006149292 seconds

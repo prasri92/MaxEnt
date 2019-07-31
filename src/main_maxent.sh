@@ -15,4 +15,4 @@ export PATH=~/maxent-py37-pba/bin:$PATH
 cd 
 source ~/maxent-py37-pba/bin/activate
 cd MaxEnt/src
-python -u main_kl_test.py $1 
+python -u main_maxent.py $1 

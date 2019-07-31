@@ -402,14 +402,14 @@ class Optimizer(object):
             partition: The set of all diseases present in the partition
             constraint_mat: Set of constraints to be satisfied 
         Returns: 
-            all actual zero vectors
+            The LP solution to all vectors
         """
+        print("\nDetecting zero vectors")
         parts = self.feats_obj.feat_partitions
         for i in parts:
             indices = list(i)
             num_feats = len(i)
             #objective function = maximize summation of p(r)
-            # f = (-1 *np.arange(1, 2**num_feats))
             f = (-1 * np.ones((2**num_feats)-1))
 
             '''
@@ -417,14 +417,23 @@ class Optimizer(object):
             where A_eq is the matrix including the information for the marginals, 2 way,
             3 way and 4 way constraints
             b_eq is the sum of probabilities according to the maximum entropy
-            '''
             
+            Upper bound constraints are imposed in the form A_ub @ x == b_ub
+            The upper bound constraints say that the bounds of x are [0,1]
+            '''
+            #ignore warnings for pandas dataframe handling 
+            pd.options.mode.chained_assignment = None  # default='warn'
+
+
             #Build the primal constraint matrix
             A_eq = self.build_constraint_matrix(num_feats)
 
-            #To count the occurrences of only diseases present in the partition, transform incoming data
-            #accordingly
-
+            
+            '''
+            To find marginal probabilities and constraint probabilities, the data is transformed
+            into smaller subsets, and their individual probabilities are summed. 
+            Each subset represents the diseases and constraints  
+            '''
             indices = [str(i) for i in indices]
 
             data = cleaneddata[indices]
@@ -433,10 +442,12 @@ class Optimizer(object):
             cols = np.arange(diseases)
             data.columns = cols
 
+            # initialize b_eq
             b_eq = []
             
             all_perms = list(itertools.product([0,1], repeat=diseases))
 
+            #ndata = new data
             ndata = pd.DataFrame()
 
             for perm in all_perms[1:]:
@@ -447,18 +458,34 @@ class Optimizer(object):
                 m = t/size
                 b_eq.append(m)
 
-            print('parts', i, 'b_eq', b_eq)
+            #Print the marginals of every disease + marginals of every constraint
+            print('Diseases', i, 'Marginal Probabilities', b_eq)
 
-            #upper bounds on x
+            #Impose upper bounds on x
             A_ub = np.identity((2**num_feats)-1)
             b_ub = np.ones((2**num_feats)-1)
             
+            #Linear Program using simplex method
             res = linprog(f, A_eq=A_eq, b_eq=b_eq, A_ub=A_ub, b_ub=b_ub)#,options = {"presolve":False})
             res = {'status': res.status, 'message':res.message, 'x': res.x if res.success else None}
+            #Flag to check if there are any zero vectors
+            flag = 0
+            zero_vectors = []
             if res['status']!=0:
-                print('LP to find zero vectors: ',res['message'])
+                print('LP to find zero vectors is unsuccessful: ',res['message'])
             else:
-                print('Solving the linear program', res['x'])
+                print('Solving the linear program gives us the vector probabilities: \n', res['x'])
+                #Check if any of the vectors are zero 
+                for vector, lp_prob in enumerate(res['x']):
+                    if lp_prob == 0:
+                        flag = 1
+                        zero_vectors.append(format(vector,"0"+str(diseases)+"b"))
+
+            if flag==1:
+                print("Eliminate zero vectors\n")
+                print("The zero vectors are:", zero_vectors)
+                print()
+
 
     def approximate_zero_detection(self, cleaneddata):
         """
@@ -469,8 +496,9 @@ class Optimizer(object):
             partition: The set of all diseases present in the partition
             constraint_mat: Set of constraints to be satisfied
         Returns:
-            zero vectors
+            The LP solution vector probabilities 
         """
+        print("\nDetecting zero vectors")
         parts = self.feats_obj.feat_partitions
         for i in parts:
             indices = list(i)
@@ -490,11 +518,16 @@ class Optimizer(object):
             where now x = v + w 
             '''
 
+            #ignore warnings 
+            pd.options.mode.chained_assignment = None  # default='warn'
+
             A_eq = self.build_constraint_matrix_approx(self.build_constraint_matrix(num_feats))
 
-            #To count the occurrences of only diseases present in the partition, transform incoming data
-            #accordingly
-
+            '''
+            To find marginal probabilities and constraint probabilities, the data is transformed
+            into smaller subsets, and their individual probabilities are summed. 
+            Each subset represents the diseases and constraints  
+            '''
             indices = [str(i) for i in indices]
 
             data = cleaneddata[indices]
@@ -503,10 +536,13 @@ class Optimizer(object):
             cols = np.arange(diseases)
             data.columns = cols
 
+                    
+            # initialize b_eq
             b_eq = []
             
             all_perms = list(itertools.product([0,1], repeat=diseases))
 
+            #ndata = new data
             ndata = pd.DataFrame()
 
             for perm in all_perms[1:]:
@@ -517,20 +553,34 @@ class Optimizer(object):
                 m = t/size
                 b_eq.append(m)
 
-            print('parts', i, 'b_eq', b_eq)
+            print('Diseases', i, 'Marginal Probabilities', b_eq)
 
-            #upper bounds on x
+            #Imposing upper bounds on x, where x = v + w
             A_ub = np.identity(((2**num_feats)-1)*2)
             v_ub = np.array([0.001]*((2**num_feats)-1))
             w_ub = np.ones(2**num_feats-1)
             b_ub = np.concatenate((v_ub,w_ub), axis=0)
 
+            #Solving the linear program using simplex method
             res = linprog(f, A_eq=A_eq, b_eq=b_eq, A_ub=A_ub, b_ub=b_ub, options={"disp": False})
             res = {'message': res.message, 'status':res.status, 'x': res.x if res.success else None}
+            #Flag to check if there are any zero vectors
+            flag = 0
+            zero_vectors = []
             if res['status']!=0:
-                print('LP to find zero vectors: ', res['message'])
+                print('LP to find zero vectors is unsuccessful: ',res['message'])
             else:
-                print('Solving the linear program', res['x'][:2**num_feats])
+                print('Solving the linear program gives us the vector probabilities: \n', res['x'][:2**num_feats])
+                #Check if any of the vectors are zero 
+                for vector, lp_prob in enumerate(res['x'][:2**num_feats]):
+                    if lp_prob == 0:
+                        flag = 1
+                        zero_vectors.append(format(vector,"0"+str(diseases)+"b"))
+
+            if flag==1:
+                print("Eliminate zero vectors\n")
+                print("The zero vectors are:", zero_vectors)
+                print()
 
 
     # normalization constant Z(theta)
@@ -659,7 +709,7 @@ class Optimizer(object):
             
                 optimThetas = spmin_LBFGSB(func_objective, x0=initial_val,
                                         fprime=None, approx_grad=True, 
-                                        disp=True, epsilon=1e-18)
+                                        disp=True, epsilon=1e-8)
                 # optimThetas = spmin_tnc(func_objective, x0=initial_val,
                 #                         fprime=None, approx_grad=True, 
                 #                         disp=True)

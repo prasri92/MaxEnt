@@ -100,7 +100,7 @@ class Optimizer(object):
         num_4wayc = len([1 for k,v in fourway_dict.items() if self.check_in_partition(partition, k)]) # num of 4way constraints for the partition
         
         assert len(rvec) == num_feats        
-        assert len(thetas) == num_feats + num_2wayc + num_3wayc + num_4wayc 
+        assert len(thetas) == num_feats + num_2wayc + num_3wayc + num_4wayc + 1
         
        
         # Reverse lookup hashmap for the indices in the partition
@@ -127,10 +127,10 @@ class Optimizer(object):
             constraint_sum += thetas[i] * indicator
 
         # zero vector constraint
-        # j = 0
-        # zero_offset = num_feats
-        # indicator = 1 if sum(rvec) == 0 else 0
-        # constraint_sum += thetas[zero_offset + j] * indicator
+        j = 0
+        zero_offset = num_feats
+        indicator = 1 if sum(rvec) == 0 else 0
+        constraint_sum += thetas[zero_offset + j] * indicator
         # j += 1
         # indicator = 1 if sum(rvec) == 1 else 0
         # constraint_sum += thetas[zero_offset + j] * indicator
@@ -146,7 +146,7 @@ class Optimizer(object):
 
         # 2-way constraints
         j = 0
-        twoway_offset = num_feats 
+        twoway_offset = num_feats + 1 
         for key,val in twoway_dict.items():
             if self.check_in_partition(partition, key):                
                 indicator = 1 if check_condition(key, val) else 0
@@ -207,7 +207,7 @@ class Optimizer(object):
         
         # assert len(rvec) == num_feats        
         # assert len(thetas) == num_feats + num_2wayc + num_3wayc + num_4wayc + 1
-        len_theta = num_feats + num_2wayc + num_3wayc + num_4wayc 
+        len_theta = num_feats + num_2wayc + num_3wayc + num_4wayc + 1
         data_stats_vector = np.zeros(len_theta)
        
         # Reverse lookup hashmap for the indices in the partition
@@ -277,7 +277,7 @@ class Optimizer(object):
                     break
             return flag
 
-        len_theta = len_theta = num_feats + num_2wayc + num_3wayc + num_4wayc 
+        len_theta = len_theta = num_feats + num_2wayc + num_3wayc + num_4wayc + 1
         feat_arr = np.zeros(len_theta)
 
         # CHECKING WITH 1 since BINARY FEATURES
@@ -288,10 +288,10 @@ class Optimizer(object):
             # constraint_sum += thetas[i] * indicator
 
         # zero vector constraint
-        # j = 0
-        # zero_offset = num_feats
-        # indicator = 1 if sum(rvec) == 0 else 0
-        # feat_arr[zero_offset + j] = indicator
+        j = 0
+        zero_offset = num_feats
+        indicator = 1 if sum(rvec) == 0 else 0
+        feat_arr[zero_offset + j] = indicator
         # j += 1
         # indicator = 1 if sum(rvec) == 1 else 0
         # feat_arr[zero_offset + j] = indicator
@@ -308,7 +308,7 @@ class Optimizer(object):
 
         # 2-way constraints
         j = 0
-        twoway_offset = num_feats
+        twoway_offset = num_feats + 1
         for key,val in twoway_dict.items():
             if self.check_in_partition(partition, key):                
                 indicator = 1 if check_condition(key, val) else 0
@@ -369,7 +369,7 @@ class Optimizer(object):
         num_2wayc = len([1 for k,v in twoway_dict.items() if self.check_in_partition(partition, k)])  # num of 2way constraints for the partition
         num_3wayc = len([1 for k,v in threeway_dict.items() if self.check_in_partition(partition, k)]) # num of 3way constraints for the partition
         num_4wayc = len([1 for k,v in fourway_dict.items() if self.check_in_partition(partition, k)]) # num of 4way constraints for the partition
-        len_theta = num_feats + num_2wayc + num_3wayc + num_4wayc
+        len_theta = num_feats + num_2wayc + num_3wayc + num_4wayc + 1
         data_stats_vector = np.zeros(len_theta)
        
         # Reverse lookup hashmap for the indices in the partition
@@ -444,8 +444,9 @@ class Optimizer(object):
             partition: The set of all diseases present in the partition
             constraint_mat: Set of constraints to be satisfied
         Returns:
-            zero vectors
+            The LP solution vector probabilities 
         """
+        print("\nDetecting zero vectors")
         parts = self.feats_obj.feat_partitions
         for i in parts:
             indices = list(i)
@@ -470,9 +471,11 @@ class Optimizer(object):
 
             A_eq = self.build_constraint_matrix_approx(self.build_constraint_matrix(num_feats))
             
-            #To count the occurrences of only diseases present in the partition, transform incoming data
-            #accordingly
-
+            '''
+            To find marginal probabilities and constraint probabilities, the data is transformed
+            into smaller subsets, and their individual probabilities are summed. 
+            Each subset represents the diseases and constraints  
+            '''
             indices = [str(i) for i in indices]
 
             data = cleaneddata[indices]
@@ -481,10 +484,12 @@ class Optimizer(object):
             cols = np.arange(diseases)
             data.columns = cols
 
+            # initialize b_eq
             b_eq = []
             
             all_perms = list(itertools.product([0,1], repeat=diseases))
 
+            #ndata = new data
             ndata = pd.DataFrame()
             ndata[all_perms[0]] = np.logical_not(np.any(data, axis=1))*1
             b_eq.append(np.sum(ndata[all_perms[0]])/size)
@@ -497,20 +502,35 @@ class Optimizer(object):
                 m = t/size
                 b_eq.append(m)
 
-            print('parts', i, 'b_eq', b_eq)
+            print('Diseases', i, 'Marginal Probabilities', b_eq)
          
-            #upper bounds on x
+            #Imposing upper bounds on x, where x = v + w
             A_ub = np.identity((2**num_feats)*2)
-            v_ub = np.array([0.001]*(2**num_feats))
+            v_ub = np.array([0.01]*(2**num_feats))
             w_ub = np.ones(2**num_feats)
             b_ub = np.concatenate((v_ub,w_ub), axis=0)
 
+            #Solving the linear program using simplex method
             res = linprog(f, A_eq=A_eq, b_eq=b_eq, A_ub=A_ub, b_ub=b_ub, options={"disp": False})
             res = {'message': res.message, 'status':res.status, 'x': res.x if res.success else None}
+            #Flag to check if there are any zero vectors
+            flag = 0
+            zero_vectors = []
             if res['status']!=0:
-                print('LP to find zero vectors: ', res['message'])
+                print('LP to find zero vectors is unsuccessful: ',res['message'])
             else:
-                print('Solving the linear program', res['x'][:2**num_feats])
+                print('Solving the linear program gives us the vector probabilities: \n', res['x'][:2**num_feats])
+                #Check if any of the vectors are zero 
+                for vector, lp_prob in enumerate(res['x'][:2**num_feats]):
+                    if lp_prob == 0:
+                        flag = 1
+                        # print("The zero vectors are: " + format(vector, "0"+str(diseases)+"b"))
+                        zero_vectors.append(format(vector,"0"+str(diseases)+"b"))
+
+            if flag==1:
+                print("Eliminate zero vectors\n")
+                print("The zero vectors are:", zero_vectors)
+                print()
 
 
     def exact_zero_detection(self, cleaneddata):
@@ -522,31 +542,38 @@ class Optimizer(object):
             partition: The set of all diseases present in the partition
             constraint_mat: Set of constraints to be satisfied 
         Returns: 
-            all actual zero vectors
+            The LP solution to all vectors
         """
+        print("\nDetecting zero vectors")
         parts = self.feats_obj.feat_partitions
         for i in parts:
             indices = list(i)
             num_feats = len(i)
+
             #objective function = maximize summation of p(r)
             f = (-1 * np.ones(2**num_feats)) 
-            # f = (-1 * np.arange(2**num_feats)) 
 
             '''
             Constraints are of the form A_eq @ x == b_eq
             where A_eq is the matrix including the information for the marginals, 2 way,
             3 way and 4 way constraints
             b_eq is the sum of probabilities according to the maximum entropy
+
+            Upper bound constraints are imposed in the form A_ub @ x == b_ub
+            The upper bound constraints say that the bounds of x are [0,1]
             '''
-            #ignore warnings 
+
+            #ignore warnings for pandas dataframe handling 
             pd.options.mode.chained_assignment = None  # default='warn'
 
             #Build the primal constraint matrix
             A_eq = self.build_constraint_matrix(num_feats)
 
-            #To count the occurrences of only diseases present in the partition, transform incoming data
-            #accordingly
-
+            '''
+            To find marginal probabilities and constraint probabilities, the data is transformed
+            into smaller subsets, and their individual probabilities are summed. 
+            Each subset represents the diseases and constraints  
+            '''
             indices = [str(i) for i in indices]
 
             data = cleaneddata[indices]
@@ -555,10 +582,12 @@ class Optimizer(object):
             cols = np.arange(diseases)
             data.columns = cols
 
+            # initialize b_eq
             b_eq = []
             
             all_perms = list(itertools.product([0,1], repeat=diseases))
 
+            #ndata = new data 
             ndata = pd.DataFrame()
             ndata[all_perms[0]] = np.logical_not(np.any(data, axis=1))*1
             b_eq.append(np.sum(ndata[all_perms[0]])/size)
@@ -571,19 +600,34 @@ class Optimizer(object):
                 m = t/size
                 b_eq.append(m)
 
-            print('parts', i, 'b_eq', b_eq)
+            #Print the marginals of every disease + marginals of every constraint
+            print('Diseases', i, 'Marginal Probabilities', b_eq)
 
-            #upper bounds on x
+            #Impose upper bounds on x
             A_ub = np.identity(2**num_feats)
             b_ub = np.ones(2**num_feats)
 
+            #Linear Program using simplex method 
             res = linprog(f, A_eq=A_eq, b_eq=b_eq, A_ub=A_ub, b_ub=b_ub, options={"disp": False})
             res = {'message': res.message, 'status':res.status, 'x': res.x if res.success else None}
-            if res['status']!=0:
-                print('LP to find zero vectors: ',res['message'])
-            else:
-                print('Solving the linear program', res['x'])
+            #Flag to check if there are any zero vectors
+            zero_vectors = []
+            flag = 0
 
+            if res['status']!=0:
+                print('LP to find zero vectors is unsuccessful: ',res['message'])
+            else:
+                print('Solving the linear program gives us the vector probabilities: \n', res['x'])
+                #Check if any of the vectors are zero 
+                for vector, lp_prob in enumerate(res['x']):
+                    if lp_prob == 0:
+                        flag = 1
+                        zero_vectors.append(format(vector,"0"+str(diseases)+"b"))
+
+            if flag==1:
+                print("Eliminate zero vectors\n")
+                print("The zero vectors are:", zero_vectors)
+                print()
 
     # normalization constant Z(theta)
     # assuming binary features for now.
@@ -714,7 +758,7 @@ class Optimizer(object):
             
                 optimThetas = spmin_LBFGSB(func_objective, x0=initial_val,
                                         fprime=None, approx_grad=True, 
-                                        disp=False, epsilon=1e-08) 
+                                        disp=True, epsilon=1e-08) 
 
                 # Check if the LBFGS-B converges, if doesn't converge, then return error message
                 if optimThetas[2]['warnflag'] != 0:

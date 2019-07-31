@@ -1,4 +1,3 @@
-
 from __future__ import division
 from collections import defaultdict
 import operator
@@ -218,6 +217,7 @@ class ExtractFeatures(object):
         Returns:
             None
         """
+        print("Checking constraints")
         graph = {}  # undirected graph
         num_feats = self.data_arr.shape[1]
 
@@ -225,7 +225,7 @@ class ExtractFeatures(object):
         for i in range(num_feats):
             graph[i] = set()
 
-        print("Creating the feature graph")
+        # print("Creating the feature graph")
         # create adj-list representation of the graph
         
         for tup_2way in self.two_way_dict.keys():
@@ -249,6 +249,7 @@ class ExtractFeatures(object):
         else:
             print("No 4 way constraints specified")            
 
+        print()
         self.feat_graph = graph
         # return graph
     
@@ -271,7 +272,7 @@ class ExtractFeatures(object):
             None
         """
         self.create_partition_graph()
-        print("Partioning the feature graph")
+        print("Partioning the feature graph", end=' ')
 
         def connected_components(neighbors):
             seen = set()
@@ -287,7 +288,7 @@ class ExtractFeatures(object):
                     yield component(node)
 
         partitions = []
-        print("Finding the connected components")
+        print("and Finding the connected components:")
         for comp in connected_components(self.feat_graph):
             partitions.append(list(comp))
         

@@ -29,7 +29,7 @@ def kl_divergence(p, q):
 
 def compute_prob(i, j=None):
 	actual = '../output/d50_4/truedist_expt'+str(i)+'.pickle'
-	synthetic = '../output/d50_4_addzeros/syn_maxent_expt'+str(i)+'.pickle'
+	synthetic = '../output/d50_4/syn_maxent_expt'+str(i)+'.pickle'
 	p = (np.array(read_prob_dist(actual)))
 	q = (np.array(read_prob_dist(synthetic)))
 	maxent_prob, emp_prob = read_prob_sum(synthetic)
@@ -43,7 +43,7 @@ if __name__ == '__main__':
 	kl = []
 	true_prob = []
 
-	for i in range(1, 26):
+	for i in range(3, 24, 10):
 		m, e, k, t = compute_prob(i)
 		maxent_prob.append(m)
 		emp_prob.append(e)
@@ -72,11 +72,11 @@ if __name__ == '__main__':
 		i.legend()
 
 	'''
-	fig, ((ax0,ax1,ax2,ax3,ax4), (ax5, ax6, ax7, ax8, ax9), \
-		(ax10,ax11, ax12, ax13, ax14 ), (ax15,ax16, ax17, ax18, ax19 ), \
-		(ax20,ax21, ax22, ax23, ax24)) = plt.subplots(5,5, figsize=(40, 20))
-	lst = [ax0, ax1, ax2, ax3, ax4, ax5, ax6, ax7, ax8, ax9, ax10, ax11, ax12, ax13, ax14, \
-	ax15, ax16, ax17, ax18, ax19, ax20, ax21, ax22, ax23, ax24]
+	# fig, ((ax0,ax1,ax2,ax3,ax4), (ax5, ax6, ax7, ax8, ax9), \
+	# 	(ax10,ax11, ax12, ax13, ax14 ), (ax15,ax16, ax17, ax18, ax19 ), \
+	# 	(ax20,ax21, ax22, ax23, ax24)) = plt.subplots(5,5, figsize=(40, 20))
+	# lst = [ax0, ax1, ax2, ax3, ax4, ax5, ax6, ax7, ax8, ax9, ax10, ax11, ax12, ax13, ax14, \
+	# ax15, ax16, ax17, ax18, ax19, ax20, ax21, ax22, ax23, ax24]
 	
 
 	# fig, ((ax0,ax1,ax2,ax3,ax4, ax5), (ax6, ax7, ax8, ax9, ax10, ax11), \
@@ -89,14 +89,14 @@ if __name__ == '__main__':
 	# 	(ax10,ax11, ax12, ax13, ax14)) = plt.subplots(3,5, figsize=(40, 20))
 	# lst = [ax0, ax1, ax2, ax3, ax4, ax5, ax6, ax7, ax8, ax9, ax10, ax11, ax12, ax13, ax14]
 
-	# fig, (ax0, ax1, ax2, ax3, ax4) = plt.subplots(1,5, figsize=(40,20))
-	# lst = [ax0, ax1, ax2, ax3, ax4]
+	fig, (ax0, ax1, ax2) = plt.subplots(1,3, figsize=(15,4))
+	lst = [ax0, ax1, ax2]
 
 	data = ["File Number"]
-	for i in range(21):
+	for i in range(3,24,10):
 		data.append(i)
 
-	out = csv.writer(open("../output/prob_dist/4d_size50_addzeros.csv","w"), delimiter=',',quoting=csv.QUOTE_ALL)
+	out = csv.writer(open("../output/prob_dist/4d_size50.csv","w"), delimiter=',',quoting=csv.QUOTE_ALL)
 	out.writerow(data)
 	
 	for num,i in enumerate(lst):
@@ -110,8 +110,18 @@ if __name__ == '__main__':
 		# i.plot(xvec, true_prob[num], 'g', label='True')
 		i.axis(plot_lims)
 		i.set_xticks(x_ticks)
+		# i.xlabel("Number of diseases per patient")
+		# i.ylabel("Prob.")
 		# for xy in zip(xvec, maxent_prob[num]):
 		# 	i.annotate(('%s, %s') %xy, xy=xy, textcoords='offset points')
+		if num==0:
+			i.set_title('KL div = ' + str(kl[num]) + '\nLambda = 1.25, Skew = ' + str(num%5), fontsize=7)
+		elif num==1:
+			i.set_title('KL div = ' + str(kl[num]) + '\nLambda = 0.416, Skew = ' + str(num%5), fontsize=7)
+		elif num==2:
+			i.set_title('KL div = ' + str(kl[num]) + '\nLambda = 0.25, Skew = '+ str(num%5), fontsize=7)
+
+		'''
 		if num//5 == 0:
 			i.set_title('KL div = ' + str(kl[num]) + '\nLambda = 1.25, Skew = ' + str(num%5), fontsize=7)
 		elif num//5 == 1:
@@ -122,9 +132,11 @@ if __name__ == '__main__':
 			i.set_title('KL div = ' + str(kl[num]) + '\nLambda = 0.3125, Skew = ' + str(num%5), fontsize=7)
 		elif num//5 == 4:
 			i.set_title('KL div = ' + str(kl[num]) + '\nLambda = 0.25, Skew = '+ str(num%5), fontsize=7)
+		'''
 		i.legend(fontsize=6)
 		row = []
 
-	fig.suptitle('Diseases = 4\nDataset Size = 50\n0 constraint imposed', fontsize=10)
-	plt.subplots_adjust(hspace = 0.6)
+	fig.suptitle('Diseases = 4, Dataset Size = 50\n', y=0.99, fontsize=10)
+	# plt.subplots_adjust(hspace = 0.6, top=0.85)
+	plt.subplots_adjust(top=0.85)
 	plt.show()

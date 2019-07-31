@@ -1,0 +1,85 @@
+File num: 3 has started
+
+Checking constraints
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+[[0, 1, 2, 3]]
+
+The constraints are:
+two_wayc {(1, 3): (1, 1), (2, 3): (1, 1), (2, 1): (1, 1), (0, 3): (1, 1), (0, 1): (1, 1)}
+three_wayc {}
+four_wayc {}
+
+
+Detecting zero vectors
+Diseases [0, 1, 2, 3] Marginal Probabilities [0.4166666666666667, 0.25, 0.08333333333333333, 0.3333333333333333, 0.08333333333333333, 0.08333333333333333, 0.0, 0.4166666666666667, 0.08333333333333333, 0.0, 0.0, 0.08333333333333333, 0.0, 0.0, 0.0]
+Solving the linear program gives us the vector probabilities: 
+ [0.16666667 0.08333333 0.08333333 0.08333333 0.08333333 0.08333333
+ 0.         0.25       0.08333333 0.         0.         0.08333333
+ 0.         0.         0.        ]
+Eliminate zero vectors
+
+The zero vectors are: ['0110', '1001', '1010', '1100', '1101', '1110']
+
+RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =            9     M =           10
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f=  4.59850D+01    |proj g|=  0.00000D+00
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+    9      0      1      0     0     0   0.000D+00   4.598D+01
+  F =   45.9849869825609     
+
+CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL            
+
+ Cauchy                time 0.000E+00 seconds.
+ Subspace minimization time 0.000E+00 seconds.
+ Line search           time 0.000E+00 seconds.
+
+ Total User time 0.000E+00 seconds.
+
+thetas (array([0.81847377, 0.54046736, 0.74610422, 0.55225535, 0.13966753,
+       0.06812301, 0.0242197 , 0.04143617, 0.75772275]), 45.98498698256093, {'grad': array([0., 0., 0., 0., 0., 0., 0., 0., 0.]), 'task': b'CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL', 'funcalls': 10, 'nit': 0, 'warnflag': 0})
+Partition num, Total prob:  0 1.0
+Optimizer is done. Computing probabilities
+Probability of zeros =  0.76
+Vector: [0 0 0 1]  Probability:  0.003244827809637279
+Vector: [0 0 1 0]  Probability:  0.003938938043306556
+Vector: [0 0 1 1]  Probability:  0.007324973358963906
+Vector: [0 1 0 0]  Probability:  0.00320680239142852
+Vector: [0 1 0 1]  Probability:  0.006405757413236667
+Vector: [0 1 1 0]  Probability:  0.006928187365380979
+Vector: [0 1 1 1]  Probability:  0.014815058226643621
+Vector: [1 0 0 0]  Probability:  0.004234565417610927
+Vector: [1 0 0 1]  Probability:  0.0076673589422683675
+Vector: [1 0 1 0]  Probability:  0.00892971896550635
+Vector: [1 0 1 1]  Probability:  0.017308530153409777
+Vector: [1 1 0 0]  Probability:  0.015509780387709306
+Vector: [1 1 0 1]  Probability:  0.03229233399210508
+Vector: [1 1 1 0]  Probability:  0.033508352372811454
+Vector: [1 1 1 1]  Probability:  0.07468481515998121
+Total Probability: 1.0000000000000002
+Empirical: [0.76 0.14 0.1  0.   0.  ]
+Maxent: [0.76       0.01462513 0.05276578 0.09792427 0.07468482]
+True distribution:[0.71487524 0.20481518 0.05868053 0.01681225 0.00481679]
+Computational time for calculating maxent = 0.08274292945861816 seconds

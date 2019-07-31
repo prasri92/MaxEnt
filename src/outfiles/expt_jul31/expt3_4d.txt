@@ -1,0 +1,126 @@
+File num: 3 has started
+
+Checking constraints
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+[[0, 1, 2, 3]]
+
+The constraints are:
+two_wayc {(1, 2): (1, 1), (3, 2): (1, 1), (1, 0): (1, 1), (3, 0): (1, 1), (1, 3): (1, 1)}
+three_wayc {}
+four_wayc {}
+
+
+Detecting zero vectors
+Diseases [0, 1, 2, 3] Marginal Probabilities [0.76, 0.1, 0.06, 0.02, 0.08, 0.02, 0.02, 0.0, 0.1, 0.02, 0.0, 0.0, 0.02, 0.0, 0.0, 0.0]
+Solving the linear program gives us the vector probabilities: 
+ [0.001 0.001 0.001 0.001 0.001 0.001 0.001 0.    0.001 0.001 0.    0.
+ 0.001 0.    0.    0.   ]
+Eliminate zero vectors
+
+The zero vectors are: ['0111', '1010', '1011', '1101', '1110', '1111']
+
+RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =            9     M =           10
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f=  1.97178D+02    |proj g|=  3.43962D+01
+
+At iterate    1    f=  1.35421D+02    |proj g|=  2.35112D+01
+
+At iterate    2    f=  8.52443D+01    |proj g|=  1.07166D+01
+
+At iterate    3    f=  6.54682D+01    |proj g|=  4.54586D+00
+
+At iterate    4    f=  5.95483D+01    |proj g|=  1.44599D+00
+
+At iterate    5    f=  5.85019D+01    |proj g|=  7.58278D-01
+
+At iterate    6    f=  5.80150D+01    |proj g|=  7.87702D-01
+
+At iterate    7    f=  5.70663D+01    |proj g|=  8.62038D-01
+
+At iterate    8    f=  5.56918D+01    |proj g|=  7.30481D-01
+
+At iterate    9    f=  5.55955D+01    |proj g|=  5.36101D-01
+
+At iterate   10    f=  5.55093D+01    |proj g|=  2.95621D-01
+
+At iterate   11    f=  5.54837D+01    |proj g|=  6.38899D-02
+
+At iterate   12    f=  5.54827D+01    |proj g|=  3.21585D-02
+
+At iterate   13    f=  5.54815D+01    |proj g|=  2.53522D-02
+
+At iterate   14    f=  5.54806D+01    |proj g|=  2.23316D-02
+
+At iterate   15    f=  5.54805D+01    |proj g|=  1.48340D-02
+
+At iterate   16    f=  5.54804D+01    |proj g|=  2.91109D-03
+
+At iterate   17    f=  5.54804D+01    |proj g|=  2.30358D-03
+
+At iterate   18    f=  5.54803D+01    |proj g|=  1.37419D-03
+
+At iterate   19    f=  5.54803D+01    |proj g|=  4.02167D-04
+
+At iterate   20    f=  5.54803D+01    |proj g|=  1.69820D-04
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+    9     20     23      1     0     0   1.698D-04   5.548D+01
+  F =   55.4803407385096     
+
+CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH             
+
+ Cauchy                time 0.000E+00 seconds.
+ Subspace minimization time 0.000E+00 seconds.
+ Line search           time 0.000E+00 seconds.
+
+ Total User time 0.000E+00 seconds.
+
+thetas (array([-2.44027919, -2.95064189, -3.31526094, -2.54610391,  1.77143533,
+        1.43171939,  1.12257497,  0.77020424,  0.78319968]), 55.480340738509604, {'grad': array([ 1.00186526e-04, -7.17648163e-05,  2.84217094e-05,  1.69819714e-04,
+       -7.95807864e-05, -5.54223334e-05,  2.55795385e-05,  1.20792265e-04,
+       -3.62376795e-05]), 'task': b'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH', 'funcalls': 230, 'nit': 20, 'warnflag': 0})
+Partition num, Total prob:  0 1.0
+Vector: [0 0 0 0]  Probability:  0.7455864641262426
+Vector: [0 0 0 1]  Probability:  0.05844389316535065
+Vector: [0 0 1 0]  Probability:  0.027083106848956002
+Vector: [0 0 1 1]  Probability:  0.008886432341548395
+Vector: [0 1 0 0]  Probability:  0.03899873540276426
+Vector: [0 1 0 1]  Probability:  0.006690074373564433
+Vector: [0 1 1 0]  Probability:  0.008328668631443659
+Vector: [0 1 1 1]  Probability:  0.005980587336950301
+Vector: [1 0 0 0]  Probability:  0.06496781025409222
+Vector: [1 0 0 1]  Probability:  0.011001066866733708
+Vector: [1 0 1 0]  Probability:  0.002359927696536554
+Vector: [1 0 1 1]  Probability:  0.001672719442551402
+Vector: [1 1 0 0]  Probability:  0.010441883695259982
+Vector: [1 1 0 1]  Probability:  0.003869498877283122
+Vector: [1 1 1 0]  Probability:  0.00222999510850115
+Vector: [1 1 1 1]  Probability:  0.003459135832221397
+Total Probability:  0.9999999999999999
+
+Empirical: [0.76 0.14 0.1  0.   0.  ]
+Maxent: [0.74558646 0.18949355 0.04770805 0.0137528  0.00345914]
+True distribution:[0.71487524 0.20481518 0.05868053 0.01681225 0.00481679]
+Computational time for calculating maxent = 0.10289406776428223 seconds

@@ -1,0 +1,182 @@
+File num: 13 has started
+
+Checking constraints
+
+Partioning the feature graph and Finding the connected components:
+[[0, 1, 2, 3]]
+
+The constraints are:
+two_wayc {(1, 0): (1, 1), (1, 2): (1, 1), (2, 0): (1, 1), (2, 3): (1, 1), (3, 0): (1, 1), (1, 3): (1, 1)}
+three_wayc {(2, 1, 0): (1, 1, 1), (1, 2, 3): (1, 1, 1), (2, 3, 0): (1, 1, 1), (1, 3, 0): (1, 1, 1)}
+four_wayc {(1, 2, 3, 0): (1, 1, 1, 1)}
+
+
+Detecting zero vectors
+Diseases [0, 1, 2, 3] Marginal Probabilities [0.42, 0.26, 0.3, 0.12, 0.3, 0.1, 0.16, 0.06, 0.3, 0.12, 0.14, 0.06, 0.18, 0.06, 0.1, 0.04]
+Solving the linear program gives us the vector probabilities: 
+ [0.001 0.001 0.001 0.001 0.001 0.001 0.001 0.001 0.001 0.001 0.001 0.001
+ 0.001 0.001 0.001 0.001]
+RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =           15     M =           10
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f=  2.45471D+02    |proj g|=  3.93789D+01
+
+At iterate    1    f=  1.56211D+02    |proj g|=  1.99007D+01
+
+At iterate    2    f=  1.33886D+02    |proj g|=  1.07595D+01
+
+At iterate    3    f=  1.26914D+02    |proj g|=  5.77000D+00
+
+At iterate    4    f=  1.22881D+02    |proj g|=  3.45865D+00
+
+At iterate    5    f=  1.19616D+02    |proj g|=  4.18132D+00
+
+At iterate    6    f=  1.15339D+02    |proj g|=  3.20935D+00
+
+At iterate    7    f=  1.13456D+02    |proj g|=  1.82136D+00
+
+At iterate    8    f=  1.12783D+02    |proj g|=  7.59094D-01
+
+At iterate    9    f=  1.12491D+02    |proj g|=  6.76638D-01
+
+At iterate   10    f=  1.11555D+02    |proj g|=  1.59065D+00
+
+At iterate   11    f=  1.11121D+02    |proj g|=  7.46395D-01
+
+At iterate   12    f=  1.10921D+02    |proj g|=  5.05403D-01
+
+At iterate   13    f=  1.10873D+02    |proj g|=  6.08264D-01
+
+At iterate   14    f=  1.10843D+02    |proj g|=  3.82150D-01
+
+At iterate   15    f=  1.10776D+02    |proj g|=  3.25279D-01
+
+At iterate   16    f=  1.10752D+02    |proj g|=  2.99627D-01
+
+At iterate   17    f=  1.10683D+02    |proj g|=  4.88109D-01
+
+At iterate   18    f=  1.10616D+02    |proj g|=  3.49780D-01
+
+At iterate   19    f=  1.10554D+02    |proj g|=  2.99634D-01
+
+At iterate   20    f=  1.10503D+02    |proj g|=  4.22082D-01
+
+At iterate   21    f=  1.10398D+02    |proj g|=  3.87516D-01
+
+At iterate   22    f=  1.10327D+02    |proj g|=  4.56714D-01
+
+At iterate   23    f=  1.10256D+02    |proj g|=  1.50030D-01
+
+At iterate   24    f=  1.10234D+02    |proj g|=  2.00721D-01
+
+At iterate   25    f=  1.10211D+02    |proj g|=  1.65407D-01
+
+At iterate   26    f=  1.10203D+02    |proj g|=  5.63249D-01
+
+At iterate   27    f=  1.10183D+02    |proj g|=  2.34941D-01
+
+At iterate   28    f=  1.10176D+02    |proj g|=  1.10055D-01
+
+At iterate   29    f=  1.10172D+02    |proj g|=  1.07642D-01
+
+At iterate   30    f=  1.10168D+02    |proj g|=  5.10994D-02
+
+At iterate   31    f=  1.10167D+02    |proj g|=  6.68919D-02
+
+At iterate   32    f=  1.10166D+02    |proj g|=  2.08104D-02
+
+At iterate   33    f=  1.10166D+02    |proj g|=  1.46727D-02
+
+At iterate   34    f=  1.10166D+02    |proj g|=  1.69166D-02
+
+At iterate   35    f=  1.10166D+02    |proj g|=  5.18071D-02
+
+At iterate   36    f=  1.10166D+02    |proj g|=  1.63539D-02
+
+At iterate   37    f=  1.10165D+02    |proj g|=  8.23519D-03
+
+At iterate   38    f=  1.10165D+02    |proj g|=  9.64064D-03
+
+At iterate   39    f=  1.10165D+02    |proj g|=  1.02730D-02
+
+At iterate   40    f=  1.10165D+02    |proj g|=  8.15277D-03
+
+At iterate   41    f=  1.10165D+02    |proj g|=  7.22906D-03
+
+At iterate   42    f=  1.10165D+02    |proj g|=  5.86198D-03
+
+At iterate   43    f=  1.10165D+02    |proj g|=  9.28679D-03
+
+At iterate   44    f=  1.10165D+02    |proj g|=  4.27178D-03
+
+At iterate   45    f=  1.10165D+02    |proj g|=  3.47029D-03
+
+At iterate   46    f=  1.10165D+02    |proj g|=  1.60583D-03
+
+At iterate   47    f=  1.10165D+02    |proj g|=  1.22498D-03
+
+At iterate   48    f=  1.10165D+02    |proj g|=  2.98712D-03
+
+At iterate   49    f=  1.10165D+02    |proj g|=  9.46443D-04
+
+At iterate   50    f=  1.10165D+02    |proj g|=  6.99174D-04
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+   15     50     54      1     0     0   6.992D-04   1.102D+02
+  F =   110.165069428079     
+
+CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH             
+
+ Cauchy                time 0.000E+00 seconds.
+ Subspace minimization time 0.000E+00 seconds.
+ Line search           time 0.000E+00 seconds.
+
+ Total User time 0.000E+00 seconds.
+
+thetas (array([-2.35082549, -2.35085658, -1.94566257, -1.9454516 ,  2.75553125,
+        1.94467251,  1.25132632,  1.53922957,  1.94436192,  1.25090207,
+       -1.24975948, -1.53630174, -1.53641475, -2.34748469,  2.22514743]), 110.16506942807943, {'grad': array([ 3.14059889e-04,  1.15107923e-04,  1.52056145e-04,  1.91846539e-04,
+        1.32160949e-04,  3.14059889e-04,  6.99174052e-04,  4.10693701e-04,
+       -4.26325641e-06,  2.08899564e-04,  3.45323770e-04,  4.90274488e-04,
+        5.21538368e-04,  1.35003120e-04, -5.17275112e-04]), 'task': b'CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH', 'funcalls': 864, 'nit': 50, 'warnflag': 0})
+Partition num, Total prob:  0 1.0
+Vector: [0 0 0 0]  Probability:  0.4199798444629594
+Vector: [0 0 0 1]  Probability:  0.06002463879520692
+Vector: [0 0 1 0]  Probability:  0.060011976750805475
+Vector: [0 0 1 1]  Probability:  0.03997771324649565
+Vector: [0 1 0 0]  Probability:  0.040018831956204766
+Vector: [0 1 0 1]  Probability:  0.019981375484071067
+Vector: [0 1 1 0]  Probability:  0.03997923072386427
+Vector: [0 1 1 1]  Probability:  0.020020132487520558
+Vector: [1 0 0 0]  Probability:  0.04002007602047422
+Vector: [1 0 0 1]  Probability:  0.03997649097570469
+Vector: [1 0 1 0]  Probability:  0.019986258876154683
+Vector: [1 0 1 1]  Probability:  0.02002076797355468
+Vector: [1 1 0 0]  Probability:  0.05998268276866964
+Vector: [1 1 0 1]  Probability:  0.02001303079786831
+Vector: [1 1 1 0]  Probability:  0.060017289677561696
+Vector: [1 1 1 1]  Probability:  0.039989659002883975
+Total Probability:  0.9999999999999999
+
+Empirical: [0.42 0.2  0.22 0.12 0.04]
+Maxent: [0.41997984 0.20007552 0.21988375 0.12007122 0.03998966]
+True distribution:[0.3892233  0.25659182 0.16915575 0.11151434 0.07351479]
+Computational time for calculating maxent = 0.15754342079162598 seconds

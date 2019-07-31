@@ -1,0 +1,89 @@
+File num: 13 has started
+
+Checking constraints
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+[[0, 5, 6, 9, 4], [1], [2], [3], [7], [8]]
+
+The constraints are:
+two_wayc {(6, 5): (1, 1), (6, 4): (1, 1), (0, 5): (1, 1), (6, 9): (1, 1)}
+three_wayc {}
+four_wayc {}
+
+
+Detecting zero vectors
+Diseases [0, 5, 6, 9, 4] Marginal Probabilities [0.2839506172839506, 0.3271604938271605, 0.12345679012345678, 0.32098765432098764, 0.16049382716049382, 0.16049382716049382, 0.10493827160493827, 0.3395061728395062, 0.14814814814814814, 0.12962962962962962, 0.08641975308641975, 0.18518518518518517, 0.12962962962962962, 0.09876543209876543, 0.08641975308641975, 0.3148148148148148, 0.12962962962962962, 0.1111111111111111, 0.08024691358024691, 0.14814814814814814, 0.10493827160493827, 0.08641975308641975, 0.07407407407407407, 0.16049382716049382, 0.08641975308641975, 0.07407407407407407, 0.06172839506172839, 0.11728395061728394, 0.08641975308641975, 0.07407407407407407, 0.06172839506172839]
+Solving the linear program gives us the vector probabilities: 
+ [ 6.79012346e-02  9.87654321e-02  1.23456790e-02  4.93827160e-02
+  6.17283951e-03  4.32098765e-02  6.17283951e-03  6.17283951e-02
+  1.85185185e-02  3.08641975e-02 -6.34994458e-18  2.46913580e-02
+  1.85185185e-02 -1.73472348e-18  2.46913580e-02  8.02469136e-02
+  1.85185185e-02  1.85185185e-02  6.17283951e-03  1.23456790e-02
+  6.17283951e-03 -1.73472348e-18  1.23456790e-02  4.32098765e-02
+ -6.34994458e-18 -1.73472348e-18  6.34994458e-18  1.85185185e-02
+  2.46913580e-02  1.23456790e-02  6.17283951e-02]
+Diseases [1] Marginal Probabilities [0.2654320987654321]
+Solving the linear program gives us the vector probabilities: 
+ [0.2654321]
+Diseases [2] Marginal Probabilities [0.2839506172839506]
+Solving the linear program gives us the vector probabilities: 
+ [0.28395062]
+Diseases [3] Marginal Probabilities [0.24691358024691357]
+Solving the linear program gives us the vector probabilities: 
+ [0.24691358]
+Diseases [7] Marginal Probabilities [0.29012345679012347]
+Solving the linear program gives us the vector probabilities: 
+ [0.29012346]
+Diseases [8] Marginal Probabilities [0.2839506172839506]
+Solving the linear program gives us the vector probabilities: 
+ [0.28395062]
+RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =            9     M =           10
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f=  7.66772D+02    |proj g|=  0.00000D+00
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+    9      0      1      0     0     0   0.000D+00   7.668D+02
+  F =   766.772227534479     
+
+CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL            
+
+ Cauchy                time 0.000E+00 seconds.
+ Subspace minimization time 0.000E+00 seconds.
+ Line search           time 0.000E+00 seconds.
+
+ Total User time 0.000E+00 seconds.
+
+thetas (array([0.76582259, 0.6097567 , 0.37130738, 0.09410892, 0.45661644,
+       0.76820385, 0.91469972, 0.1063845 , 0.21522119]), 766.7722275344788, {'grad': array([0., 0., 0., 0., 0., 0., 0., 0., 0.]), 'task': b'CONVERGENCE: NORM_OF_PROJECTED_GRADIENT_<=_PGTOL', 'funcalls': 10, 'nit': 0, 'warnflag': 0})
+Partition num, Total prob:  0 0.9999999999999992
+Optimizer is done. Computing probabilities
+Probability of zeros =  0.352
+Total Probability: 1.0015643676941073
+Empirical: [0.352 0.228 0.148 0.084 0.056 0.044 0.012 0.02  0.032 0.012 0.012]
+Maxent: [3.52000000e-01 3.94737087e-03 1.97808688e-02 6.40970355e-02
+ 1.36211821e-01 1.81309607e-01 1.47180165e-01 7.24105854e-02
+ 2.10686837e-02 3.33644388e-03 2.21786569e-04]
+True distribution:[0.34427816 0.22696215 0.14962267 0.09863734 0.06502574 0.04286761
+ 0.02826007 0.01863019 0.01228178 0.00809665 0.00533764]
+Computational time for calculating maxent = 0.2243976593017578 seconds
