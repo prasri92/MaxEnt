@@ -65,8 +65,6 @@ def compute_prob_exact(optobj):
     return maxent_prob, maxent_sum_diseases, emp_prob
 
 def main(file_num=None):
-    print("File num: " + str(file_num) + " has started\n")
-
     #Support for marketbasket analysis
     # support_data_overlap = {1:0.002, 2:0.002, 3:0.002, 4:0.002, 5:0.002, 6:0.004, \
     #     7:0.005, 8:0.004, 9:0.004, 10:0.004, 11:0.012, 12:0.009, 13:0.01, \
@@ -75,8 +73,8 @@ def main(file_num=None):
     # support = support_data_overlap[file_num]
     
     # for four diseases
-    # support = 0.04
-    support = 0.08
+    support = 0.02
+    
     # for ten diseases
     # support_dict = {3:0.008, 13:0.09, 23:0.14}
     # support = support_dict[file_num]
@@ -91,19 +89,20 @@ def main(file_num=None):
     
     cleaneddata = clean_preproc_data(directory)
 
-    two_wayc, three_wayc, four_wayc = marketbasket(cleaneddata, support)
+    support_dict, two_wayc, three_wayc, four_wayc = marketbasket(cleaneddata, support)
     # two_wayc = {(1,3):(1,1)}
     # three_wayc = {}
     # four_wayc = {}
 
-    feats = ExtractFeatures(cleaneddata.values)
+    feats = ExtractFeatures(cleaneddata.values, Mu=2)
 
     feats.set_two_way_constraints(two_wayc)
     feats.set_three_way_constraints(three_wayc)
     feats.set_four_way_constraints(four_wayc)
+    feats.set_supports(support_dict)
 
     feats.partition_features()
-    print(feats.feat_partitions)
+    print("The approximated clusters are:\n", feats.feat_partitions)
 
 
     print("\nThe constraints are:")

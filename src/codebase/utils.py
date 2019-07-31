@@ -88,10 +88,10 @@ def clean_preproc_data(filePath):
     to_drop = list(counts[counts==0].index)
     if len(to_drop)!=0:
         print("Disease " + str(to_drop) + " do not occur. Removing them to proceed")
-    data.drop(columns=to_drop, inplace=True)
-    new_index = np.arange(len(data.columns))
-    new_index = [str(i) for i in new_index]
-    data.columns = new_index
+        data.drop(columns=to_drop, inplace=True)
+        new_index = np.arange(len(data.columns))
+        new_index = [str(i) for i in new_index]
+        data.columns = new_index
 
     return data
 

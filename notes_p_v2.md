@@ -12,10 +12,12 @@ List of things to-do
 6. In zero removal case, and otherwise, if there is an error, print correct error messages and do not display probabilities
 7. Run code for many diseases and few constraints and for 20 diseases to print the output of LP 
 8. Add zero constraints for 4, 10 diseases and check
+9. Support value is too large for some cases, write exception handling code
 
 Features added in main_kl_test 
 1. load disease data, clean it
 2. print zero vectors for LP solution(exact, approx)
+3. add constraint for 0 diseases
 
 Features added in main_kl_test_v2
 1. load disease data, clean it 
@@ -26,3 +28,6 @@ Features checked
 2. check non zeros 
 3. run experiments for 4, 10 diseases 
 4. plot them 
+
+Done
+1. Merging approximate maxent

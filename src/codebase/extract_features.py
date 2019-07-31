@@ -37,7 +37,7 @@ class ExtractFeatures(object):
             each partition which have the feature(column) numbers.
     """
 
-    def __init__(self, dataArray, entropy_estimator='JAMES-STEIN', topK=5):
+    def __init__(self, dataArray, entropy_estimator='JAMES-STEIN', topK=5, Mu=None):
         self.data_arr = dataArray
         self.ent_estimator = entropy_estimator
         self.K = topK   # number of feature pairs to extract
@@ -48,7 +48,10 @@ class ExtractFeatures(object):
         self.three_way_dict = {}
         self.four_way_dict = {}
         self.feat_graph = {}             
-        self.feat_partitions = []   
+        self.feat_partitions = [] 
+
+        self.Mu = Mu
+        self.supportdict = {}  
 
 
     def set_two_way_constraints(self, ext_two_way_dict):
@@ -61,6 +64,9 @@ class ExtractFeatures(object):
 
     def set_four_way_constraints(self, ext_four_way_dict):
         self.four_way_dict = ext_four_way_dict
+
+    def set_supports(self, ext_supportdict):
+        self.supportdict=ext_supportdict
 
 
     def compute_discrete_Lmeasure(self):
@@ -202,6 +208,13 @@ class ExtractFeatures(object):
                 if t != t_ot:
                     graph[t].add(t_ot)
 
+    def util_remove_edges(self, graph, edge_tup):
+        for t in edge_tup:
+            for t_ot in edge_tup:
+                if t!=t_ot:
+                    if t_ot in graph[t]:
+                        graph[t].remove(t_ot)
+
    
     def create_partition_graph(self):
         """Function to create a graph out of the feature pairs (constraints)
@@ -217,7 +230,6 @@ class ExtractFeatures(object):
         Returns:
             None
         """
-        print("Checking constraints")
         graph = {}  # undirected graph
         num_feats = self.data_arr.shape[1]
 
@@ -291,6 +303,159 @@ class ExtractFeatures(object):
         print("and Finding the connected components:")
         for comp in connected_components(self.feat_graph):
             partitions.append(list(comp))
+
+        if self.Mu!=None: #if max. cluster size specified
+            self.Mu=int(self.Mu) #makes sure the value of Mu is specified by the user
+            # print("Checking if clusters are smaller than maximum specified size")        
+            approx_clusters=[i for i in partitions if len(i)>self.Mu] #list of clusters that need to be approximated
+            self.feat_partitions=list(filter(lambda x: len(x)<self.Mu, partitions)) 
+            if len(approx_clusters)==0: #checks if all cluster sizes are below th threshold
+                print("All clusters are smaller than the maximum threshold, hence the exact solution holds")
+                self.feat_partitions=partitions
+            else:    
+                print("Approximating the following clusters through forced partitioning:\n", approx_clusters)
+
+                
+                """ This section creates the dictionary 'edgetracker' associating each edge 
+                with a cluster index in approx_clusters"""
+                edgetracker={}
+                for i in self.two_way_dict:
+                    x, y =i
+                    counter=0
+                    for cluster in approx_clusters:
+                        if x in cluster:
+                            edgetracker[(x, y)]=counter                                                    
+                        else:
+                            counter+=1
         
-        self.feat_partitions = partitions
+                for i in self.three_way_dict:
+                    x, y, z =i
+                    counter=0
+                    for cluster in approx_clusters:
+                        if x in cluster:
+                            edgetracker[(x, y, z)]=counter                                                    
+                        else:
+                            counter+=1
+                    
+                for i in self.four_way_dict:
+                    x, y, z, a =i
+                    counter=0
+                    for cluster in approx_clusters:
+                        if x in cluster:
+                            edgetracker[(x, y)]=counter
+                        else:
+                            counter+=1
+                
+                """ Calculate marginal probabilities and load into a dictionary 
+                for each disease in approx_clusters"""
+                marginalsvals=np.sum(self.data_arr, axis=0)
+                size = self.data_arr.shape[0]
+                marginalsvals.tolist()   
+                marginalsvals = marginalsvals/size
+                marginals={} #dict stores all marginal probabilities of diseases in approx_clusters
+                for a in approx_clusters:
+                    for i in a:
+                          marginals[i]=marginalsvals[i]    
+                approximated=[] #list to store the approximated cluster pieces from the original cluster
+                broken_edges=[] #list to store all edges in the graph that were broken
+        
+                """Loop inside approx_clusters with the forced partitioning implementation 
+                for each cluster"""
+                clusterindex=0 #initial value of cluster index
+                while clusterindex in range(len(approx_clusters)):
+                    edges=[k for k, v in edgetracker.items() if v==clusterindex] #all edges associated with a cluster that needs approximation
+                    T=[tuple(e) for e in edges] #convert to tuple               
+                    edge_supportvalues=[self.supportdict[x] for x in T] #get corresponding support values for edges
+                    edge_supportdict=dict(zip(T, edge_supportvalues)) #store these values with corresponding edges in the dictionary
+                    N=[i for i in approx_clusters[clusterindex]] #all nodes in the given cluster, stored in a list. 'N' in the paper
+                    N_n=[frozenset([i]) for i in N] #N_i in the paper, initialized and stored as a sequential list of frozensets N0, N1, N2 etc
+                    T_n=[set([i]) for i in N_n]  #T_i in the paper, initialized stored as a sequential list of set of frozensets T0, T1, T2 etc
+                    """Calculate delta values and store in a dictionary"""
+                    deltadict={} #a dictionary to store delta values, calculated from support and marginal probabilities
+                    
+                    """Delta values are calculated for each edge using supports
+                    from edge_supportdict. as detailed in page 64 section 5.2"""
+                    for e in edge_supportdict:
+                        l=np.empty((1, len(e)))
+                        counter=0
+                        for i in e:                        
+                            l[0, counter]=marginals[i]
+                            counter+=1
+                        product_marginals=np.prod(l)    
+                        delta_e=min(edge_supportdict[e]/product_marginals, product_marginals/edge_supportdict[e])
+                        deltadict[e]=delta_e
+                    T=sorted(deltadict.keys(), key=lambda d:deltadict[d]) #List of edges sorted in ascending value of deltas for sequential processing
+
+        
+                    """ This is the start of the forced partitioning algorithm, Loop inside T to process the edges in descending values of supports, keep track of indices for N_n to perform set unions"""
+                    i=0
+                    while len(T)!=0: #line 5 in figure 5: T!=Phi
+                        X=T[-1]  #this is the edge with the highest delta; Line 5 in figure 5: Select X belong to T
+                        T.pop() #remove X from T, line 7 in figure 5
+                        minX=min(X) #this is the smallest index in edge Xl line 9 in figure 5
+                        nlist=[] #this stores the indices of all elements in N_n that is also in X        
+        
+                        
+                        for x in X:
+                              for n in N_n:
+                                  if x in n:
+                                      nlist.append(N_n.index(n)) 
+        
+                        nsets=[N_n[i] for i in nlist] 
+                        tsets=[T_n[i] for i in nlist]          
+                        Nunion=frozenset().union(*nsets) #line 11, this is union of N_j
+                        Tunion=set().union(*tsets) #line 11, this is the Union of T_j        
+                        #minindex=min(nlist) #this is the smallest element in X intersect N_n
+                        if len(Nunion)<=self.Mu: #line 8, max. size of approx. clusters
+                            for i in X:
+                                if i==minX:
+                                    for n in N_n:
+                                        if i in n:
+                                            indxmin=N_n.index(n) #this is index in N_n corresponding to the smallest disease index                                            
+                                            N_n[indxmin]=Nunion #line 11: assign N_union to the smallest index
+                                            T_n[N_n.index(Nunion)]=set.union(Tunion, set(X)) #line 11: assign T_Union Union X corresponding to indxmin
+                                    
+                                else: 
+                                    for n in N_n:
+                                         if i in n and minX not in n:
+                                             indx=N_n.index(n)
+                                             N_n[indx]=frozenset([]) #line 13: N_i=Phi
+                                             del N_n[indx]
+                        
+                        else:
+                            broken_edges.append(X)
+                                                       
+                    N_n= [list(N) for N in N_n if N!={}] #filter out empty cluster to feed the optimizer
+                    for L in N_n:
+                            approximated.append(L)             
+                    clusterindex+=1
+                self.feat_partitions.extend(approximated)
+#                print("The clusters after approximation are:", self.feat_partitions)
+                
+                """ Remove all edges that were broken from the graph, twowaydict, threewaydict and fourwaydict"""
+                for edge in broken_edges:
+                    self.util_remove_edges(self.feat_graph, edge)
+                    if len(edge)==2:
+                        del self.two_way_dict[edge]
+                    if len(edge)==3:
+                        del self.three_way_dict[edge]
+                    if len(edge)==4:
+                        del self.four_way_dict[edge]
+                
+                """Re-add edges from two way dict, three way dict and four way dict"""
+                for tup_2way in self.two_way_dict.keys():
+                    self.util_add_edges(self.feat_graph, tup_2way)
+
+                if len(self.three_way_dict) != 0:
+                    for tup_3way in self.three_way_dict.keys():
+                        self.util_add_edges(self.feat_graph, tup_3way)
+
+                if len(self.four_way_dict) != 0:
+                    for tup_4way in self.three_way_dict.keys():
+                        self.util_add_edges(self.feat_graph, tup_4way)
+
+
+        else:
+            self.feat_partitions = partitions
+        
         return    
