@@ -503,8 +503,18 @@ class Optimizer(object):
                 m = t/size
                 b_eq.append(m)
 
-            print('Diseases', i, 'Marginal Probabilities', b_eq)
-         
+            print('Remove vectors from the LP with zero marginal probabilities')
+            remove_indices = []
+            for i, val in enumerate(b_eq):
+                if val == 0.0:
+                    remove_indices.append(i) 
+
+            #Delete the rows of A_eq
+            A_eq = np.delete(A_eq, remove_indices, axis=0)
+            b_eq = np.delete(np.array(b_eq), remove_indices, axis=0).reshape(-1, 1)
+
+            print('Diseases', i, 'Marginal Probabilities', b_eq.flatten())
+
             #Imposing upper bounds on x, where x = v + w
             A_ub = np.identity((2**num_feats)*2)
             v_ub = np.array([0.01]*(2**num_feats))
@@ -525,8 +535,11 @@ class Optimizer(object):
                 for vector, lp_prob in enumerate(res['x'][:2**num_feats]):
                     if lp_prob == 0:
                         flag = 1
-                        # print("The zero vectors are: " + format(vector, "0"+str(diseases)+"b"))
-                        zero_vectors.append(format(vector,"0"+str(diseases)+"b"))
+                        #which vector it is will have to be calculated differently
+                        if vector not in remove_indices:
+                            zero_vectors.append(vector)
+            
+            zero_vectors = [format(x, '0'+str(diseases)+'b') for x in zero_vectors]
 
             if flag==1:
                 print("Eliminate zero vectors\n")
@@ -550,9 +563,6 @@ class Optimizer(object):
         for i in parts:
             indices = list(i)
             num_feats = len(i)
-
-            #objective function = maximize summation of p(r)
-            f = (-1 * np.ones(2**num_feats)) 
 
             '''
             Constraints are of the form A_eq @ x == b_eq
@@ -601,20 +611,25 @@ class Optimizer(object):
                 m = t/size
                 b_eq.append(m)
 
-            #Print the marginals of every disease + marginals of every constraint
-            print('Diseases', i, 'Marginal Probabilities', b_eq)
-
             print('Remove vectors from the LP with zero marginal probabilities')
             remove_indices = []
             for i, val in enumerate(b_eq):
                 if val == 0.0:
                     remove_indices.append(i) 
 
-            print('Type of A_eq', A_eq)
+            #Delete the rows of A_eq
+            A_eq = np.delete(A_eq, remove_indices, axis=0)
+            b_eq = np.delete(np.array(b_eq), remove_indices, axis=0).reshape(-1, 1)
+
+            #Print the marginals of every disease + marginals of every constraint
+            print('Diseases', i, 'Marginal Probabilities', b_eq.flatten())
 
             #Impose upper bounds on x
             A_ub = np.identity(2**num_feats)
             b_ub = np.ones(2**num_feats)
+
+            #objective function = maximize summation of p(r)
+            f = (-1 * np.ones(2**num_feats)) 
 
             #Linear Program using simplex method 
             res = linprog(f, A_eq=A_eq, b_eq=b_eq, A_ub=A_ub, b_ub=b_ub, options={"disp": False})
@@ -631,7 +646,11 @@ class Optimizer(object):
                 for vector, lp_prob in enumerate(res['x']):
                     if lp_prob == 0:
                         flag = 1
-                        zero_vectors.append(format(vector,"0"+str(diseases)+"b"))
+                        #which vector it is will have to be calculated differently
+                        if vector not in remove_indices:
+                            zero_vectors.append(vector)
+            
+            zero_vectors = [format(x, '0'+str(diseases)+'b') for x in zero_vectors]
 
             if flag==1:
                 print("Eliminate zero vectors\n")
@@ -764,14 +783,15 @@ class Optimizer(object):
                     return (-1 * objective_sum) # SINCE MINIMIZING IN THE LBFGS SCIPY FUNCTION
 
             
-                # optimThetas = spmin_LBFGSB(func_objective, x0=initial_val,
-                #                         fprime=None, approx_grad=True, 
-                #                         disp=True, epsilon=1e-08) 
-                optimThetas = minimize(func_objective, x0=initial_val, method='L-BFGS-B',
-                    options={'disp':True, 'maxcor':20})
+                optimThetas = spmin_LBFGSB(func_objective, x0=initial_val,
+                                        fprime=None, approx_grad=True, 
+                                        disp=True, epsilon=1e-08) 
+                # optimThetas = minimize(func_objective, x0=initial_val, method='L-BFGS-B',
+                    # options={'disp':False, 'maxcor':20})
 
                 # Check if the LBFGS-B converges, if doesn't converge, then return error message
-                if optimThetas.status != 0:
+                if optimThetas[2]['warnflag']!=0:
+                # if optimThetas.status != 0:
                     print(optimThetas.message)
                     return None
                 
@@ -779,8 +799,10 @@ class Optimizer(object):
                 
                 # norm_sol[i] = self.binary_norm_Z(optimThetas.x, partition)
 
-                norm_sol[i] = np.exp(self.log_norm_Z(optimThetas.x, partition, c_matrix_partition))
-                inn_arr = np.dot(c_matrix_partition, optimThetas.x)
+                # norm_sol[i] = np.exp(self.log_norm_Z(optimThetas.x, partition, c_matrix_partition))
+                # inn_arr = np.dot(c_matrix_partition, optimThetas.x)
+                norm_sol[i] = np.exp(self.log_norm_Z(optimThetas[0], partition, c_matrix_partition))
+                inn_arr = np.dot(c_matrix_partition, optimThetas[0])
                 inn_arr = np.exp(inn_arr)
                 inn_arr /= norm_sol[i]
                 total_prob = np.sum(inn_arr, axis=0)
@@ -804,7 +826,11 @@ class Optimizer(object):
         # partition will be a set of indices in the i-th parition        
         for i, partition in enumerate(parts):
             tmpvec = rvec[partition]
-            term_exp = self.compute_constraint_sum(solution[0]['x'], tmpvec, partition)
+            term_exp = self.compute_constraint_sum(solution[i][0], tmpvec, partition)
+            # try:
+            #     term_exp = self.compute_constraint_sum(solution[0]['x'], tmpvec, partition)
+            # except:
+            #     term_exp = self.compute_constraint_sum(solution[2]['x'], tmpvec, partition)
 
             part_logprob = term_exp - np.log(norm_sol[i])
             log_prob += part_logprob

@@ -28,6 +28,9 @@ def read_prob_dist(filename):
 def compute_prob_exact(optobj):
     maxent_prob = []
     num_feats = optobj.feats_obj.data_arr.shape[1]
+
+    print(optobj.feats_obj.feat_partitions)
+    
     maxent_sum_diseases = np.zeros(num_feats+1)
     all_perms = itertools.product([0, 1], repeat=num_feats)
     total_prob = 0.0    # finally should be very close to 1
@@ -64,7 +67,7 @@ def main(file_num=None):
     # support = sups[file_num]
     
     # for ten diseases
-    sups = {3:0.008, 13:0.09, 23:0.14}
+    sups = {3:0.001, 13:0.09, 23:0.14}
     support = sups[file_num]
     
     #Measure time to compute maxent
@@ -82,7 +85,7 @@ def main(file_num=None):
     # three_wayc = {}
     # four_wayc = {}
 
-    feats = ExtractFeatures(cleaneddata.values)
+    feats = ExtractFeatures(cleaneddata.values, Mu=7)
 
     feats.set_two_way_constraints(two_wayc)
     feats.set_three_way_constraints(three_wayc)
@@ -99,7 +102,7 @@ def main(file_num=None):
     print('four_wayc', four_wayc)
     print()
 
-
+    print(feats.feat_partitions)
     opt = Optimizer(feats) 
     #Use LP to detect zero atoms 
     opt.exact_zero_detection(cleaneddata)
@@ -119,11 +122,11 @@ def main(file_num=None):
     # for real data
     # outfilename = '../output/realdata_maxent.pickle'
     # for synthetic data 
-    # outfilename = '../output/d50_4/syn_maxent_expt'+str(file_num)+'.pickle'
+    outfilename = '../output/d250_10/syn_maxent_expt'+str(file_num)+'.pickle'
 
-    # with open(outfilename, "wb") as outfile:
-    #     pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)
-
+    with open(outfilename, "wb") as outfile:
+        pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)
+    
     toc = time.time()
     print('Computational time for calculating maxent = {} seconds'.format(toc-tic))
 
