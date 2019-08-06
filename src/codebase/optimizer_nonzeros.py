@@ -7,6 +7,7 @@ import pandas as pd
 from scipy.optimize import fmin_l_bfgs_b as spmin_LBFGSB
 from scipy.optimize import fmin_tnc as spmin_tnc
 from scipy.optimize import linprog
+from scipy.optimize import minimize
 
 """
 TODO:
@@ -707,9 +708,11 @@ class Optimizer(object):
                     return (-1 * objective_sum) # SINCE MINIMIZING IN THE LBFGS SCIPY FUNCTION
 
             
-                optimThetas = spmin_LBFGSB(func_objective, x0=initial_val,
-                                        fprime=None, approx_grad=True, 
-                                        disp=True, epsilon=1e-8)
+                # optimThetas = spmin_LBFGSB(func_objective, x0=initial_val,
+                #                         fprime=None, approx_grad=True, 
+                #                         epsilon=1e-8, disp=True)
+                optimThetas = minimize(func_objective, x0=initial_val, method='L-BFGS-B',
+                    options={'disp':True, 'maxcor':20})
                 # optimThetas = spmin_tnc(func_objective, x0=initial_val,
                 #                         fprime=None, approx_grad=True, 
                 #                         disp=True)

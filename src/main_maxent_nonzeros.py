@@ -100,18 +100,18 @@ def main(file_num=None, size=None, support=None, trial=None):
 
     # two_wayc, three_wayc, four_wayc = marketbasket(cleaneddata, support)
     # two_wayc = {}
-    two_wayc = {(1, 3): (1, 1)} 
+    # two_wayc = {(1, 3): (1, 1)} 
 
     # two_wayc = {(1, 0): (1, 1), (0, 3): (1, 1)} 
-    # two_wayc = {(1, 0): (1, 1), (0, 3): (1, 1) , (3, 2): (1, 1), (0, 2): (1, 1)}
+    two_wayc = {(1, 0): (1, 1), (0, 3): (1, 1) , (3, 2): (1, 1), (0, 2): (1, 1)}
     # two_wayc = {(1, 0): (1, 1), (0, 3): (1, 1), (3, 2): (1, 1), (0, 2): (1, 1), (1, 3): (1, 1), (1, 2): (1, 1)}
 
-    three_wayc = {}
-    # three_wayc = {(1, 0, 3): (1, 1, 1), (0, 3, 2): (1, 1, 1)}  
+    # three_wayc = {}
+    three_wayc = {(1, 0, 3): (1, 1, 1), (0, 3, 2): (1, 1, 1)}  
     # three_wayc = {(1, 0, 3): (1, 1, 1), (0, 3, 2): (1, 1, 1), (1, 3, 2): (1, 1, 1), (1, 0, 2): (1, 1, 1)}
     
-    four_wayc = {}
-    # four_wayc = {(1, 0, 3, 2): (1, 1, 1, 1)}
+    # four_wayc = {}
+    four_wayc = {(1, 0, 3, 2): (1, 1, 1, 1)}
     
     feats = ExtractFeatures(cleaneddata.values)
 

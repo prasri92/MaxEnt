@@ -7,6 +7,7 @@ import pandas as pd
 from scipy.optimize import fmin_l_bfgs_b as spmin_LBFGSB
 from scipy.optimize import fmin_tnc as spmin_tnc
 from scipy.optimize import linprog
+from scipy.optimize import minimize
 """
 TODO:
 - documentation
@@ -99,8 +100,8 @@ class Optimizer(object):
         num_3wayc = len([1 for k,v in threeway_dict.items() if self.check_in_partition(partition, k)]) # num of 3way constraints for the partition
         num_4wayc = len([1 for k,v in fourway_dict.items() if self.check_in_partition(partition, k)]) # num of 4way constraints for the partition
         
-        assert len(rvec) == num_feats        
-        assert len(thetas) == num_feats + num_2wayc + num_3wayc + num_4wayc + 1
+        # assert len(rvec) == num_feats        
+        # assert len(thetas) == num_feats + num_2wayc + num_3wayc + num_4wayc + 1
         
        
         # Reverse lookup hashmap for the indices in the partition
@@ -603,6 +604,14 @@ class Optimizer(object):
             #Print the marginals of every disease + marginals of every constraint
             print('Diseases', i, 'Marginal Probabilities', b_eq)
 
+            print('Remove vectors from the LP with zero marginal probabilities')
+            remove_indices = []
+            for i, val in enumerate(b_eq):
+                if val == 0.0:
+                    remove_indices.append(i) 
+
+            print('Type of A_eq', A_eq)
+
             #Impose upper bounds on x
             A_ub = np.identity(2**num_feats)
             b_ub = np.ones(2**num_feats)
@@ -647,7 +656,6 @@ class Optimizer(object):
             norm_sum = 1 + np.exp(thetas[0])
             return np.log(norm_sum)            
         
-        # num_total_vectors = 2**(num_feats)-1
         num_total_vectors = 2**(num_feats)
         inner_array = np.dot(constraint_mat, thetas)
         
@@ -756,26 +764,23 @@ class Optimizer(object):
                     return (-1 * objective_sum) # SINCE MINIMIZING IN THE LBFGS SCIPY FUNCTION
 
             
-                optimThetas = spmin_LBFGSB(func_objective, x0=initial_val,
-                                        fprime=None, approx_grad=True, 
-                                        disp=True, epsilon=1e-08) 
+                # optimThetas = spmin_LBFGSB(func_objective, x0=initial_val,
+                #                         fprime=None, approx_grad=True, 
+                #                         disp=True, epsilon=1e-08) 
+                optimThetas = minimize(func_objective, x0=initial_val, method='L-BFGS-B',
+                    options={'disp':True, 'maxcor':20})
 
                 # Check if the LBFGS-B converges, if doesn't converge, then return error message
-                if optimThetas[2]['warnflag'] != 0:
-                    print('Solution does not converge')
+                if optimThetas.status != 0:
+                    print(optimThetas.message)
                     return None
-                
-                # optimThetas = spmin_tnc(func_objective, x0=initial_val,
-                #                         fprime=None, approx_grad=True, 
-                #                         disp=True)
                 
                 solution[i] = optimThetas
                 
+                # norm_sol[i] = self.binary_norm_Z(optimThetas.x, partition)
 
-                # norm_sol[i] = self.binary_norm_Z(optimThetas[0], partition)
-
-                norm_sol[i] = np.exp(self.log_norm_Z(optimThetas[0], partition, c_matrix_partition))
-                inn_arr = np.dot(c_matrix_partition, optimThetas[0])
+                norm_sol[i] = np.exp(self.log_norm_Z(optimThetas.x, partition, c_matrix_partition))
+                inn_arr = np.dot(c_matrix_partition, optimThetas.x)
                 inn_arr = np.exp(inn_arr)
                 inn_arr /= norm_sol[i]
                 total_prob = np.sum(inn_arr, axis=0)
@@ -799,7 +804,7 @@ class Optimizer(object):
         # partition will be a set of indices in the i-th parition        
         for i, partition in enumerate(parts):
             tmpvec = rvec[partition]
-            term_exp = self.compute_constraint_sum(solution[i][0], tmpvec, partition)
+            term_exp = self.compute_constraint_sum(solution[0]['x'], tmpvec, partition)
 
             part_logprob = term_exp - np.log(norm_sol[i])
             log_prob += part_logprob
