@@ -34,7 +34,7 @@ Done
 
 August 5th, 2019
 ### Current issues
-1. Adding a zero constraint is not making the prob. of zero diseases reach the exact value
+1. Adding a zero constraint is not making the prob. of zero diseases reach the exact value - is it because of the conversion from primal to dual? 
 2. Total probability in the probability calculation might be wrong in approximate maxent
-3. done changing to the newer version of scipy, should stress test to see if there are some issues with the solution[0] for the optimize result object. 
-4. Compute_prob_exact will change with the implementation after partitioning. 
+3. done changing to the newer version of scipy, should stress test to see if there are some issues with the solution[0] for the optimize result object. - (the scipy minimize method is causing this issue, fix it)
+4. Compute_prob_exact will change with the implementation after partitioning. (should not change, this is wrong)

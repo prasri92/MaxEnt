@@ -783,26 +783,27 @@ class Optimizer(object):
                     return (-1 * objective_sum) # SINCE MINIMIZING IN THE LBFGS SCIPY FUNCTION
 
             
-                optimThetas = spmin_LBFGSB(func_objective, x0=initial_val,
-                                        fprime=None, approx_grad=True, 
-                                        disp=True, epsilon=1e-08) 
-                # optimThetas = minimize(func_objective, x0=initial_val, method='L-BFGS-B',
-                    # options={'disp':False, 'maxcor':20})
+                # optimThetas = spmin_LBFGSB(func_objective, x0=initial_val,
+                #                         fprime=None, approx_grad=True, 
+                #                         disp=False, epsilon=1e-08) 
+                optimThetas = minimize(func_objective, x0=initial_val, method='L-BFGS-B',
+                    options={'disp':False, 'maxcor':20})
 
                 # Check if the LBFGS-B converges, if doesn't converge, then return error message
-                if optimThetas[2]['warnflag']!=0:
-                # if optimThetas.status != 0:
+                # if optimThetas[2]['warnflag']!=0:
+                if optimThetas.status != 0:
                     print(optimThetas.message)
+                    # print('Solution does not converge')
                     return None
                 
                 solution[i] = optimThetas
                 
                 # norm_sol[i] = self.binary_norm_Z(optimThetas.x, partition)
 
-                # norm_sol[i] = np.exp(self.log_norm_Z(optimThetas.x, partition, c_matrix_partition))
-                # inn_arr = np.dot(c_matrix_partition, optimThetas.x)
-                norm_sol[i] = np.exp(self.log_norm_Z(optimThetas[0], partition, c_matrix_partition))
-                inn_arr = np.dot(c_matrix_partition, optimThetas[0])
+                norm_sol[i] = np.exp(self.log_norm_Z(optimThetas.x, partition, c_matrix_partition))
+                inn_arr = np.dot(c_matrix_partition, optimThetas.x)
+                # norm_sol[i] = np.exp(self.log_norm_Z(optimThetas[0], partition, c_matrix_partition))
+                # inn_arr = np.dot(c_matrix_partition, optimThetas[0])
                 inn_arr = np.exp(inn_arr)
                 inn_arr /= norm_sol[i]
                 total_prob = np.sum(inn_arr, axis=0)
@@ -826,11 +827,11 @@ class Optimizer(object):
         # partition will be a set of indices in the i-th parition        
         for i, partition in enumerate(parts):
             tmpvec = rvec[partition]
-            term_exp = self.compute_constraint_sum(solution[i][0], tmpvec, partition)
-            # try:
-            #     term_exp = self.compute_constraint_sum(solution[0]['x'], tmpvec, partition)
-            # except:
-            #     term_exp = self.compute_constraint_sum(solution[2]['x'], tmpvec, partition)
+            # term_exp = self.compute_constraint_sum(solution[i][0], tmpvec, partition)
+            if len(partition)==1:
+                term_exp = self.compute_constraint_sum(solution[i][0], tmpvec, partition)
+            else:
+                term_exp = self.compute_constraint_sum(solution[i].get('x'), tmpvec, partition)
 
             part_logprob = term_exp - np.log(norm_sol[i])
             log_prob += part_logprob
