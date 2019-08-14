@@ -755,8 +755,6 @@ class Optimizer(object):
                 # print(partition, mle, 1-mle, theta_opt, norm_sol[i])
             
             else:         
-
-
                 datavec_partition = self.compute_data_stats(partition)
                 c_matrix_partition = self.util_constraint_matrix(partition)
                 len_theta = datavec_partition.shape[0]
@@ -787,7 +785,7 @@ class Optimizer(object):
                 #                         fprime=None, approx_grad=True, 
                 #                         disp=False, epsilon=1e-08) 
                 optimThetas = minimize(func_objective, x0=initial_val, method='L-BFGS-B',
-                    options={'disp':False, 'maxcor':20})
+                    options={'disp':False, 'maxcor':20, 'ftol':2.2e-10})
 
                 # Check if the LBFGS-B converges, if doesn't converge, then return error message
                 # if optimThetas[2]['warnflag']!=0:
