@@ -60,7 +60,7 @@ def main(file_num=None):
     sups = {1:0.002, 2:0.002, 3:0.002, 4:0.002, 5:0.002, 6:0.004, \
         7:0.005, 8:0.004, 9:0.004, 10:0.004, 11:0.012, 12:0.009, 13:0.01, \
         14:0.01, 15:0.01, 16:0.023, 17:0.022, 18:0.018, 19:0.014, 20:0.014, 21:0.026, \
-        22:0.032, 23:0.034, 24:0.029, 25:0.03}
+        22:0.032, 23:0.04, 24:0.029, 25:0.03}
     support = sups[file_num]
     
     # for four diseases
@@ -70,6 +70,7 @@ def main(file_num=None):
     # for ten diseases
     # sups = {3:0.001, 13:0.09, 23:0.14}
     # sups = {3:0.001, 13:0.058, 23:0.085}
+    # sups = {3:0.001, 13:0.03, 23:0.085}
     # support = sups[file_num]
     
     #Measure time to compute maxent
@@ -79,18 +80,16 @@ def main(file_num=None):
     # directory = '../dataset/basket_sets.csv'
     # generating synthetic data 
     # directory = '../dataset/d50_4/synthetic_data_expt'+str(file_num)+'.csv'
+    # directory = '../dataset/d200_4/synthetic_data_expt'+str(file_num)+'.csv'
     # directory = '../dataset/d250_10/synthetic_data_expt'+str(file_num)+'.csv'
     directory = '../dataset/d500_20/synthetic_data_expt'+str(file_num)+'.csv'
     
     cleaneddata = clean_preproc_data(directory)
 
     support_dict, two_wayc, three_wayc, four_wayc = marketbasket(cleaneddata, support)
-    # two_wayc = {(1,3):(1,1)}
-    # three_wayc = {}
-    # four_wayc = {}
 
-    # feats = ExtractFeatures(cleaneddata.values)
-    feats = ExtractFeatures(cleaneddata.values, Mu=10)
+    feats = ExtractFeatures(cleaneddata.values)
+    # feats = ExtractFeatures(cleaneddata.values, Mu=10)
 
     feats.set_two_way_constraints(two_wayc)
     feats.set_three_way_constraints(three_wayc)
@@ -105,6 +104,7 @@ def main(file_num=None):
     print('two_wayc', two_wayc)
     print('three_wayc', three_wayc)
     print('four_wayc', four_wayc)
+    print('The total number of constraints are: ', str(len(two_wayc) + len(three_wayc) + len(four_wayc)))
     print()
 
     print(feats.feat_partitions)
@@ -123,6 +123,7 @@ def main(file_num=None):
     print("Empirical: " +str(emp_prob))
     print("Maxent: " + str(sum_prob_maxent))
     # print("True distribution:" + str(read_prob_dist('../output/d50_4/truedist_expt'+str(file_num)+'.pickle')))
+    # print("True distribution:" + str(read_prob_dist('../output/d200_4/truedist_expt'+str(file_num)+'.pickle')))
     # print("True distribution:" + str(read_prob_dist('../output/d250_10/truedist_expt'+str(file_num)+'.pickle')))
     print("True distribution:" + str(read_prob_dist('../output/d500_20/truedist_expt'+str(file_num)+'.pickle')))
     
@@ -130,11 +131,12 @@ def main(file_num=None):
     # outfilename = '../output/realdata_maxent.pickle'
     # for synthetic data 
     # outfilename = '../output/d50_4/syn_maxent_expt'+str(file_num)+'.pickle'
+    # outfilename = '../output/d200_4/syn_maxent_expt'+str(file_num)+'.pickle'
     # outfilename = '../output/d250_10/syn_maxent_expt'+str(file_num)+'.pickle'
     outfilename = '../output/d500_20/syn_maxent_expt'+str(file_num)+'.pickle'
 
-    with open(outfilename, "wb") as outfile:
-        pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)
+    # with open(outfilename, "wb") as outfile:
+        # pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)
     
     toc = time.time()
     print('Computational time for calculating maxent = {} seconds'.format(toc-tic))

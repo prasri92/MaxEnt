@@ -12,7 +12,7 @@ expon_parameter = [0.8, 1.6, 2.4, 3.2, 4.0]
 zipfian_parameter = [0.0, 1.0, 2.0, 3.0, 4.0]
 
 #Change for each expt 
-size = 50
+size = 200
 
 def generate_tau(z):
 	x = np.arange(1, clusters+1)
