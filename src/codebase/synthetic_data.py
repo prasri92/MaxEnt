@@ -5,14 +5,14 @@ import numpy as np
 import sys
 
 #Define global parameters 
-num_diseases = 4
-clusters = 2
+num_diseases = 15
+clusters = 3
 
 expon_parameter = [0.8, 1.6, 2.4, 3.2, 4.0]
 zipfian_parameter = [0.0, 1.0, 2.0, 3.0, 4.0]
 
 #Change for each expt 
-size = 200
+size = 350
 
 def generate_tau(z):
 	x = np.arange(1, clusters+1)
@@ -21,7 +21,7 @@ def generate_tau(z):
 	return tau
 
 #check what kind of distribution it should be? 
-beta = [0.6, 0.4]
+beta = [0.3, 0.4, 0.3]
 p = 0.6
 q1 = 0.3
 q2 = 0.7
@@ -54,8 +54,8 @@ def main():
 '''
 def main(l, z, file_num):
 	tau = generate_tau(z)
-	file_name_real = '../../output/'+'d'+str(size)+'_4/truedist_expt'+str(file_num)+'.pickle'
-	file_name_synthetic = "../../dataset/"+"d"+str(size)+"_4/synthetic_data_expt"+str(file_num)+".csv"
+	file_name_real = '../../output/'+'d'+str(size)+'_'+str(num_diseases)+'/truedist_expt'+str(file_num)+'.pickle'
+	file_name_synthetic = "../../dataset/"+"d"+str(size)+"_"+str(num_diseases)+"/synthetic_data_expt"+str(file_num)+".csv"
 	p1 = Process(target=get_true_distribution, args=(file_name_real, tau, l))
 	p2 = Process(target=get_synthetic_data, args=(file_name_synthetic, l, z, beta, size))
 	p1.start()

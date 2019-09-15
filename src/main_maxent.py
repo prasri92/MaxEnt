@@ -57,11 +57,12 @@ def compute_prob_exact(optobj):
 def main(file_num=None):
     #Support for marketbasket analysis
     # for 20 diseases
-    sups = {1:0.002, 2:0.002, 3:0.002, 4:0.002, 5:0.002, 6:0.004, \
-        7:0.005, 8:0.004, 9:0.004, 10:0.004, 11:0.012, 12:0.009, 13:0.01, \
-        14:0.01, 15:0.01, 16:0.023, 17:0.022, 18:0.018, 19:0.014, 20:0.014, 21:0.026, \
-        22:0.032, 23:0.04, 24:0.029, 25:0.03}
-    support = sups[file_num]
+    # sups = {1:0.002, 2:0.002, 3:0.002, 4:0.002, 5:0.002, 6:0.004, \
+    #     7:0.005, 8:0.004, 9:0.004, 10:0.004, 11:0.012, 12:0.009, 13:0.01, \
+    #     14:0.01, 15:0.01, 16:0.023, 17:0.022, 18:0.018, 19:0.014, 20:0.014, 21:0.026, \
+    #     22:0.032, 23:0.04, 24:0.029, 25:0.03}
+    # sups = {3:0.002, 13: 0.01, 23: 0.06}
+    # support = sups[file_num]
     
     # for four diseases
     # sups = {3:0.02 , 13:0.08, 23:0.12}
@@ -70,7 +71,11 @@ def main(file_num=None):
     # for ten diseases
     # sups = {3:0.001, 13:0.09, 23:0.14}
     # sups = {3:0.001, 13:0.058, 23:0.085}
-    # sups = {3:0.001, 13:0.03, 23:0.085}
+    sups = {3:0.001, 13:0.05, 23:0.07}
+    support = sups[file_num]
+
+    # for 15 diseases
+    # sups = {3: 0.002, 13: 0.02, 23: 0.06}
     # support = sups[file_num]
     
     #Measure time to compute maxent
@@ -81,15 +86,16 @@ def main(file_num=None):
     # generating synthetic data 
     # directory = '../dataset/d50_4/synthetic_data_expt'+str(file_num)+'.csv'
     # directory = '../dataset/d200_4/synthetic_data_expt'+str(file_num)+'.csv'
-    # directory = '../dataset/d250_10/synthetic_data_expt'+str(file_num)+'.csv'
-    directory = '../dataset/d500_20/synthetic_data_expt'+str(file_num)+'.csv'
+    directory = '../dataset/d250_10/synthetic_data_expt'+str(file_num)+'.csv'
+    # directory = '../dataset/d350_15/synthetic_data_expt'+str(file_num)+'.csv'
+    # directory = '../dataset/d500_20/synthetic_data_expt'+str(file_num)+'.csv'
     
     cleaneddata = clean_preproc_data(directory)
 
     support_dict, two_wayc, three_wayc, four_wayc = marketbasket(cleaneddata, support)
 
-    feats = ExtractFeatures(cleaneddata.values)
-    # feats = ExtractFeatures(cleaneddata.values, Mu=10)
+    # feats = ExtractFeatures(cleaneddata.values)
+    feats = ExtractFeatures(cleaneddata.values, Mu=7)
 
     feats.set_two_way_constraints(two_wayc)
     feats.set_three_way_constraints(three_wayc)
@@ -124,8 +130,9 @@ def main(file_num=None):
     print("Maxent: " + str(sum_prob_maxent))
     # print("True distribution:" + str(read_prob_dist('../output/d50_4/truedist_expt'+str(file_num)+'.pickle')))
     # print("True distribution:" + str(read_prob_dist('../output/d200_4/truedist_expt'+str(file_num)+'.pickle')))
-    # print("True distribution:" + str(read_prob_dist('../output/d250_10/truedist_expt'+str(file_num)+'.pickle')))
-    print("True distribution:" + str(read_prob_dist('../output/d500_20/truedist_expt'+str(file_num)+'.pickle')))
+    print("True distribution:" + str(read_prob_dist('../output/d250_10/truedist_expt'+str(file_num)+'.pickle')))
+    # print("True distribution:" + str(read_prob_dist('../output/d350_15/truedist_expt'+str(file_num)+'.pickle')))
+    # print("True distribution:" + str(read_prob_dist('../output/d500_20/truedist_expt'+str(file_num)+'.pickle')))
     
     # for real data
     # outfilename = '../output/realdata_maxent.pickle'
@@ -133,10 +140,11 @@ def main(file_num=None):
     # outfilename = '../output/d50_4/syn_maxent_expt'+str(file_num)+'.pickle'
     # outfilename = '../output/d200_4/syn_maxent_expt'+str(file_num)+'.pickle'
     # outfilename = '../output/d250_10/syn_maxent_expt'+str(file_num)+'.pickle'
-    outfilename = '../output/d500_20/syn_maxent_expt'+str(file_num)+'.pickle'
+    # outfilename = '../output/d350_15/syn_maxent_expt'+str(file_num)+'.pickle'
+    # outfilename = '../output/d500_20/syn_maxent_expt'+str(file_num)+'.pickle'
 
     # with open(outfilename, "wb") as outfile:
-        # pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)
+    #     pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)
     
     toc = time.time()
     print('Computational time for calculating maxent = {} seconds'.format(toc-tic))

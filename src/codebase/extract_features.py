@@ -1,5 +1,5 @@
 from __future__ import division
-from collections import defaultdict
+from collections import defaultdict, OrderedDict
 import operator
 import numpy as np
 
@@ -43,10 +43,17 @@ class ExtractFeatures(object):
         self.K = topK   # number of feature pairs to extract
         self.N = self.data_arr.shape[0] # Number of training data examples
         
-        self.L_measure_dict = {}  
-        self.two_way_dict = {}  
-        self.three_way_dict = {}
-        self.four_way_dict = {}
+        self.L_measure_dict = {}
+
+        #order the values for use in piecewise likelihood
+        self.two_way_dict = OrderedDict()
+        self.three_way_dict = OrderedDict()
+        self.four_way_dict = OrderedDict() 
+
+        # self.two_way_dict = {}  
+        # self.three_way_dict = {}
+        # self.four_way_dict = {}
+        
         self.feat_graph = {}             
         self.feat_partitions = [] 
 
@@ -254,7 +261,7 @@ class ExtractFeatures(object):
             print("No 3 way constraints specified")
 
         if len(self.four_way_dict) != 0:
-            for tup_4way in self.three_way_dict.keys():
+            for tup_4way in self.four_way_dict.keys():
                 # Here tup_3way is a triplet of feature indices
                 # print("Added edge for:", tup_4way)
                 self.util_add_edges(graph, tup_4way)

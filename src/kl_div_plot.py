@@ -7,6 +7,7 @@ import numpy as np
 import pickle 
 import matplotlib.pyplot as plt
 import csv
+import pandas as pd
 
 def read_prob_dist(filename):
 	with open(filename, "rb") as outfile:
@@ -31,13 +32,15 @@ def compute_prob(i, j=None):
 	# actual = '../output/d50_4/truedist_expt'+str(i)+'.pickle'
 	# actual = '../output/d200_4/truedist_expt'+str(i)+'.pickle'
 	# actual = '../output/d250_10/truedist_expt'+str(i)+'.pickle'
+	# actual = '../output/d350_15/truedist_expt'+str(i)+'.pickle'
 	actual = '../output/d500_20/truedist_expt'+str(i)+'.pickle'
 
 
 	# synthetic = '../output/d50_4/syn_maxent_expt'+str(i)+'.pickle'
 	# synthetic = '../output/d200_4/syn_maxent_expt'+str(i)+'.pickle'
 	# synthetic = '../output/d250_10/syn_maxent_expt'+str(i)+'.pickle'
-	synthetic = '../output/d500_20/syn_maxent_expt'+str(i)+'.pickle'
+	# synthetic = '../output/d350_15/syn_maxent_expt'+str(i)+'.pickle'
+	synthetic = '../output/d500_20_mu15/syn_maxent_expt'+str(i)+'.pickle'
 
 	p = (np.array(read_prob_dist(actual)))
 	q = (np.array(read_prob_dist(synthetic)))
@@ -61,6 +64,7 @@ if __name__ == '__main__':
 
 	# num_feats = 4
 	# num_feats = 10
+	# num_feats = 15
 	num_feats = 20
 	xvec = [i for i in range(num_feats+1)]
 	x_ticks = np.arange(0, num_feats+1, 1.0)
@@ -103,21 +107,19 @@ if __name__ == '__main__':
 	fig, (ax0, ax1, ax2) = plt.subplots(1,3, figsize=(15,4))
 	lst = [ax0, ax1, ax2]
 
-	data = ["File Number"]
-	for i in range(3,24,10):
-		data.append(i)
-
-	# out = csv.writer(open("../output/prob_dist/4d_size50.csv","w"), delimiter=',',quoting=csv.QUOTE_ALL)
-	# out = csv.writer(open("../output/prob_dist/4d_size200.csv","w"), delimiter=',',quoting=csv.QUOTE_ALL)
-	# out = csv.writer(open("../output/prob_dist/10d_size250.csv","w"), delimiter=',',quoting=csv.QUOTE_ALL)
-	out = csv.writer(open("../output/prob_dist/20d_size500.csv","w"), delimiter=',',quoting=csv.QUOTE_ALL)
-	out.writerow(data)
-	
+	start_file_num = 3
 	for num,i in enumerate(lst):
-		row = [num+1]
-		for prob in maxent_prob[num]:
-			row.append(prob)
-		out.writerow(row)
+		emp_prob[num] = np.around(emp_prob[num], decimals=4)
+		maxent_prob[num] = np.around(maxent_prob[num], decimals=4)
+		true_prob[num] = np.around(true_prob[num], decimals=4)
+
+		data = {'Empirical':emp_prob[num], 'Maximum Entropy Prob.':maxent_prob[num], 'True Prob.':true_prob[num]}
+		df = pd.DataFrame(data=data)
+		# df.to_csv('../output/output_dist/4d_size200_'+str(start_file_num)+'.csv')
+		# df.to_csv('../output/output_dist/10d_size250_'+str(start_file_num)+'.csv')
+		# df.to_csv('../output/output_dist/15d_size350_'+str(start_file_num)+'.csv')
+		# df.to_csv('../output/output_dist/20d_size500_mu10_'+str(start_file_num)+'.csv')
+		df.to_csv('../output/output_dist/20d_size500_mu15_'+str(start_file_num)+'.csv')
 		
 		i.plot(xvec, maxent_prob[num], 'r', label='Maxent')
 		i.plot(xvec, emp_prob[num], 'b', label='Empirical')
@@ -149,10 +151,12 @@ if __name__ == '__main__':
 		'''
 		i.legend(fontsize=6)
 		row = []
+		start_file_num += 10
 
 	# fig.suptitle('Diseases = 4, Dataset Size = 200\n', y=0.99, fontsize=10)
 	# fig.suptitle('Diseases = 10, Dataset Size = 250\n', y=0.99, fontsize=10)
-	fig.suptitle('Diseases = 20, Dataset Size = 500\n', y=0.99, fontsize=10)
+	# fig.suptitle('Diseases = 15, Dataset Size = 350\n', y=0.99, fontsize=10)
+	fig.suptitle('Diseases = 20, Dataset Size = 500, Maximum cluster size = 15\n', y=0.99, fontsize=10)
 	# plt.subplots_adjust(hspace = 0.6, top=0.85)
 	plt.subplots_adjust(top=0.85)
 	plt.show()
