@@ -3,7 +3,7 @@ Optimizer for piecewise likelihood method
 '''
 from __future__ import division
 import itertools
-from collections import defaultdict
+from collections import defaultdict, OrderedDict
 
 import numpy as np
 import pandas as pd
@@ -26,13 +26,14 @@ class Optimizer(object):
             graph. Stores the normalization constant for each of partitions (since
             each partition is considered independent of others).
         N_s: Matrix of shape |c| x 1 which contains the likelihood of each constraint 
-            in the original dataset
+            in the original dataset. 
     """
 
     def __init__(self, features_object):
         # Init function for the class object
         
         self.feats_obj = features_object
+        self.N_s = None
         self.opt_sol = None     
         self.norm_z = None
 
@@ -47,17 +48,19 @@ class Optimizer(object):
         return flag
 
     # This function computes the value of N_s to be used in the objective function.
-    # N_s denotes the number of rows satisfying the constraints for each partition
-    def compute_data_stats(self, partition):
+    # N_s denotes the number of rows satisfying the constraints for each partition/ total number of rows
+    def compute_data_stats(self, partition, partition_index):
         """
             partition: a list of feature indices which are present in the constraints. 
             If a diseases is not present in any of the constraints, the marginal probability is taken, 
             and the problem is solved as in the normal case (no piecewise likelihood)
+
+            partition_index: the index of the partition in the final array
             ---------------
-            Returns:
-            -   'N_s': The data stats vector for the given partition
+            Computes
+            -   'p_hat': The data stats vector for the given partition
         """ 
-        #initialize N_s
+        # get constraints for that partition
         twoway_dict = self.feats_obj.two_way_dict
         threeway_dict = self.feats_obj.three_way_dict
         fourway_dict = self.feats_obj.four_way_dict
@@ -67,8 +70,8 @@ class Optimizer(object):
         num_3wayc = len([1 for k,v in threeway_dict.items() if self.check_in_partition(partition, k)]) # num of 3way constraints for the partition
         num_4wayc = len([1 for k,v in fourway_dict.items() if self.check_in_partition(partition, k)]) # num of 4way constraints for the partition
         
-        len_theta = num_2wayc + num_3wayc + num_4wayc
-        N_s = np.zeros(len_theta)
+        len_p_hat = num_2wayc + num_3wayc + num_4wayc
+        p_hat = np.zeros(len_p_hat)
 
         # Reverse lookup hashmap for the indices in the partition
         # Useful to make thetas and the constraint_sum match up consistently
@@ -81,16 +84,15 @@ class Optimizer(object):
         data_arr = self.feats_obj.data_arr        
         for i in range(N):
             dvec = data_arr[i, partition]
-            tmp_arr = self.util_compute_ns(dvec, partition, twoway_dict, 
-                                    threeway_dict, fourway_dict, findpos, len_theta)
+            tmp_arr = self.util_compute_p_hat(dvec, partition, twoway_dict, 
+                                    threeway_dict, fourway_dict, findpos)
             
-            N_s += tmp_arr
+            p_hat += (tmp_arr/N)
 
-        return N_s
+        self.N_s[partition_index] = p_hat
         
-    # This function computes the N_s array for every datavector that satisfies each constraint
-    def util_compute_ns(self, dvec, partition, twoway_dict, threeway_dict, fourway_dict, findpos,
-                    len_theta):
+    # This function computes the N_s (p_hat) array for every datavector that satisfies each constraint
+    def util_compute_p_hat(self, dvec, partition, twoway_dict, threeway_dict, fourway_dict, findpos):
 
         """Function to compute the sum of marginals for a given input vector for all the constraints. 
         Args:
@@ -101,7 +103,7 @@ class Optimizer(object):
             in a single partition and we only need to consider them for now.
         """ 
         
-        #TODO: CHECK
+        #TODO: CHECK WHAT SHOULD BE DONE FOR A SINGLE DISEASE 
         # Just the single feature marginal case --> MLE update
         if len(partition) == 1:
             return dvec[0]  # only the marginal constraint applies here
@@ -121,8 +123,8 @@ class Optimizer(object):
         num_3wayc = len([1 for k,v in threeway_dict.items() if self.check_in_partition(partition, k)]) # num of 3way constraints for the partition
         num_4wayc = len([1 for k,v in fourway_dict.items() if self.check_in_partition(partition, k)]) # num of 4way constraints for the partition
         
-        len_theta = num_2wayc + num_3wayc + num_4wayc
-        feat_arr = np.zeros(len_theta)
+        len_p_hat = num_2wayc + num_3wayc + num_4wayc
+        feat_arr = np.zeros(len_p_hat)
 
         j = 0
         for key,val in twoway_dict.items():
@@ -146,12 +148,63 @@ class Optimizer(object):
         return feat_arr
 
 
-    #Function to compute Theta_c * F_c(s) constraint matrix
-    def util_compute_fcs(self, partition):
-        """ partition: List of feature indices indicating that they all belong
+    # Function to compute Z_c for all constraints
+    def compute_zc(self, partition, partition_index):
+        '''
+        Args:
+            partition: List of feature indices indicating that they all belong
+            in the same feature partition
+        Computes:
+            z_c: The corresponding z value for the constraint
+        '''
+
+        # TODO: if partition length is 1 
+        if len(partition) == 1:
+            pass
+
+        # Get all the constraints
+        twoway_dict = self.feats_obj.two_way_dict
+        threeway_dict = self.feats_obj.three_way_dict
+        fourway_dict = self.feats_obj.four_way_dict
+
+        #sanity check for the constraint to be present in the partition
+        num_2wayc = len([1 for k,v in twoway_dict.items() if self.check_in_partition(partition, k)])  # num of 2way constraints for the partition
+        num_3wayc = len([1 for k,v in threeway_dict.items() if self.check_in_partition(partition, k)]) # num of 3way constraints for the partition
+        num_4wayc = len([1 for k,v in fourway_dict.items() if self.check_in_partition(partition, k)]) # num of 4way constraints for the partition
+        
+        # initialize the z_c vector
+        len_z_c = num_2wayc + num_3wayc + num_4wayc
+        z_c = np.zeros(len_z_c)
+
+        j = 0
+        for i in range(num_2wayc):
+            z_c[j] = 3/(1 - self.N_s[partition_index][j])
+            j += 1
+
+        for i in range(num_3wayc):
+            z_c[j] = 7/(1 - self.N_s[partition_index][j])
+            j += 1
+
+        for i in range(num_4wayc):
+            z_c[j] = 15/(1 - self.N_s[partition_index][j])
+            j += 1
+
+        self.norm_z[partition_index] = z_c
+
+    # Function to analytically compute thetas 
+    def compute_theta(self, partition, partition_index):
+        '''
+        partition: List of feature indices indicating that they all belong
             in the same feature-partition.
-        """
-        #initialize the indicator function matrix
+        Computes:
+            theta: the corresponding thetas for the given partition
+        '''
+
+        # TODO: 
+        if len(partition) == 1:
+            pass
+
+        # get all constraints belonging to that partition
         twoway_dict = self.feats_obj.two_way_dict
         threeway_dict = self.feats_obj.three_way_dict
         fourway_dict = self.feats_obj.four_way_dict
@@ -162,113 +215,47 @@ class Optimizer(object):
         num_4wayc = len([1 for k,v in fourway_dict.items() if self.check_in_partition(partition, k)]) # num of 4way constraints for the partition
         
         len_theta = num_2wayc + num_3wayc + num_4wayc
-        #As we will have a maximum of 4 way constraints, for now the indicator function matrix has been hard-coded to have length 2^4
-        fcs = np.zeros((len_theta, 2**4))
+        theta = np.zeros(len_theta)
 
-        #Indicator matrix is fixed, for 2 way, 3 way and 4 way constraints
         j = 0
         for i in range(num_2wayc):
-            fcs[j][3] = 1
+            theta[j] = np.log(self.N_s[partition_index][j]) + np.log(self.norm_z[partition_index][j])
             j += 1
 
         for i in range(num_3wayc):
-            fcs[j][7] = 1
+            theta[j] = np.log(self.N_s[partition_index][j]) + np.log(self.norm_z[partition_index][j])
             j += 1
 
         for i in range(num_4wayc):
-            fcs[j][15] = 1
+            theta[j] = np.log(self.N_s[partition_index][j]) + np.log(self.norm_z[partition_index][j])
             j += 1
 
-        return fcs
+        self.opt_sol[partition_index] = theta
 
-    # Function to compute the normalization constant Z(theta)
-    def compute_norm_z(self, thetas, partition, fcs):
-        """
-        Computes the normalization constant Z(Theta) for all constraints c.
-        Args:
-            thetas: The parameters for a partition
-            partition: The list of feature indices indicating that these belong to a partition
-        Returns:
-            Z(theta): vector of length thetas 
-        """
-
-
-        twoway_dict = self.feats_obj.two_way_dict
-        threeway_dict = self.feats_obj.three_way_dict
-        fourway_dict = self.feats_obj.four_way_dict
-
-        #sanity check for the constraint to be present in the partition
-        num_2wayc = len([1 for k,v in twoway_dict.items() if self.check_in_partition(partition, k)])  # num of 2way constraints for the partition
-        num_3wayc = len([1 for k,v in threeway_dict.items() if self.check_in_partition(partition, k)]) # num of 3way constraints for the partition
-        num_4wayc = len([1 for k,v in fourway_dict.items() if self.check_in_partition(partition, k)]) # num of 4way constraints for the partition
-        
-        norm_z = np.zeros(len(thetas))
-
-        #Compute Z(theta) for each 2 way, 3 way and 4 way constraint
-        j = 0
-        for i in range(num_2wayc):
-            num_total_vectors = (2**2)-1
-            norm_z[j] = num_total_vectors + np.exp(thetas[i])
-            j += 1
-
-        for i in range(num_3wayc):
-            num_total_vectors = (2**3)-1
-            norm_z[j] = num_total_vectors + np.exp(thetas[i+num_2wayc])
-            j += 1
-
-        for i in range(num_4wayc):
-            num_total_vectors = (2**4)-1
-            norm_z[j] = num_total_vectors + np.exp(thetas[i+num_2wayc+num_3wayc])
-            j += 1
-
-        return norm_z
 
     def solver_optimize(self):
         """Function to perform the optimization
            uses l-bfgsb algorithm from scipy
         """
         parts = self.feats_obj.feat_partitions
-        solution = [None for i in parts]
-        norm_sol = [None for i in parts]
+        self.N_s = [None for i in parts]
+        self.opt_sol = [None for i in parts]
+        self.norm_z = [None for i in parts]
 
         for i, partition in enumerate(parts):
+
+            # TODO: Check if partition is 1, how to process
             if len(partition) == 1:
-                # in every case check what happens if the length of the partition is 1 
-                pass 
+                pass
+
             else:
-                N_s = self.compute_data_stats(partition)
-                constraint_matrix = self.util_compute_fcs(partition)
-                len_theta = N_s.shape[0]
-                a = np.random.RandomState(seed=1)
-                initial_val = a.rand(len_theta)
+                self.compute_data_stats(partition, i)
+                self.compute_zc(partition, i)
+                self.compute_theta(partition, i)
 
-                def func_objective(thetas):
-                    objective_sum = 0.0
-                    theta_fcs = thetas.reshape(-1,1) * constraint_matrix
-                    z = self.compute_norm_z(thetas, partition, constraint_matrix)
-                    log_norm_z = np.log(z).reshape(-1,1)
-
-                    maximize_matrix = N_s.reshape(-1,1) * (theta_fcs - log_norm_z)
-                    objective_sum = maximize_matrix.sum()
-
-                    return (-1 * objective_sum)
-
-                optimThetas = minimize(func_objective, x0 = initial_val, method='L-BFGS-B',
-                    options={'disp':False, 'maxcor':20, 'ftol':2.2e-10, 'maxfun':100000})
-
-                # Check if the LBFGS-B converges, if doesn't converge, then return error message
-                if optimThetas.status != 0:
-                    print(optimThetas.message)
-                    return None
-                
-                solution[i] = optimThetas.x
-                norm_sol[i] = self.compute_norm_z(optimThetas.x, partition, constraint_matrix)
-
-                print('Thetas are: ', optimThetas)
-
-        self.opt_sol = solution
-        self.norm_z = norm_sol
-        return (solution, norm_sol)
+        print('N_s is: ', self.N_s)
+        print('Z_c is: ', self.norm_z)
+        print('Theta is: ', self.opt_sol)
 
     def compute_all_prob(self, num_feats):
         '''
@@ -328,7 +315,11 @@ class Optimizer(object):
             partition = indices[0]
             positions = indices[1:]
             for pos in positions:
-                fc = 1 if set(dis).issubset(set(matrix_constraints[pos][1])) else 0 
+                # fc = 1 if any 1 of diseases in r is present in the constraint
+                # fc = 1 if set(dis).issubset(set(matrix_constraints[pos][1])) else 0 
+
+                # fc = 1 only if both diseases satisfy the constraint 
+                fc = 1 if set(dis) == set(matrix_constraints[pos][1]) else 0
                 fc_r.append(fc)
                 theta.append(self.opt_sol[partition][pos])
                 z_c.append(self.norm_z[partition][pos])
@@ -338,9 +329,9 @@ class Optimizer(object):
         #initialize total_prob
         total_prob = 0
 
-        for i,rvec in enumerate(all_perms):
+        for i, rvec in enumerate(all_perms):
             # find the index of diseases in rvec 
-            dindx = [i for i,val in enumerate(rvec) if val == 1]
+            dindx = [ind for ind,val in enumerate(rvec) if val == 1]
 
             # initialize fc_r, theta, z_c
             fc_r = []
@@ -352,7 +343,7 @@ class Optimizer(object):
             # find the index in the two_way, three_way and four_way
             indices = {}
             for d in dindx:
-                indices[d] = [i for i,val in enumerate(parts) if d in val]
+                indices[d] = [ind for ind,val in enumerate(parts) if d in val]
                 indices[d].extend(check_constraint(d))
 
             for k,v in indices.items():
@@ -366,7 +357,8 @@ class Optimizer(object):
 
             total_prob += p_r[i]
 
-        print('Total probability', total_prob)
+        print('Probabilities are: ', p_r)
+        print('Total probability: ', total_prob)
         return p_r
 
 
@@ -379,4 +371,5 @@ class Optimizer(object):
 
 
             
+
 

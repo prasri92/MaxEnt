@@ -17,7 +17,7 @@ path_to_codebase = './codebase/'
 sys.path.insert(0, path_to_codebase)
 from codebase.utils import clean_preproc_data
 from codebase.extract_features import ExtractFeatures
-from codebase.optimizer_pwl import Optimizer
+from codebase.optimizer_pwl_norm import Optimizer
 from codebase.mba import marketbasket
 
 
@@ -60,12 +60,11 @@ class MaxEnt(object):
         Compute probabilities using the piecewise likelihood method
         '''
         all_perms = itertools.product([0,1], repeat=self.num_feats)
-
+        
         for i, vec in enumerate(all_perms):
             vec = np.asarray(vec)
             j = sum(vec)
             self.maxent_sum_diseases[j] += self.maxent_prob[i]
-
 
     def main(self, file_num=None):
         #Support for marketbasket analysis
@@ -78,6 +77,7 @@ class MaxEnt(object):
         
         # for four diseases
         # sups = {3:0.02 , 13:0.08, 23:0.12}
+        # sups = {3:0.001 , 13:0.08, 23:0.12}
         # support = sups[file_num]
         # 
         # for ten diseases
@@ -101,9 +101,9 @@ class MaxEnt(object):
         cleaneddata = clean_preproc_data(directory)
 
         support_dict, two_wayc, three_wayc, four_wayc = marketbasket(cleaneddata, support)  
-        # two_wayc = {(0,1):(1,1), (3,5):(1,1)}
-        # three_wayc = {}
-        # four_wayc = {}
+        print('Two way constraints:\n', two_wayc)
+        print('Three way constraints:\n', three_wayc)
+        print('Four way constraints:\n', four_wayc)
 
         feats = ExtractFeatures(cleaneddata.values)
         feats.set_two_way_constraints(two_wayc)
@@ -114,17 +114,15 @@ class MaxEnt(object):
         print("The approximated clusters before piecewise partitioning are:\n", feats.feat_partitions)
 
         opt = Optimizer(feats)
-        opt.util_compute_fcs(feats.feat_partitions[0])
         soln_opt = opt.solver_optimize()
-        print("Solution is:", soln_opt)
-
+        
         self.set_probs(opt)
         self.maxent_prob = opt.compute_all_prob(self.num_feats)
 
         self.compute_prob_pwl(opt)
         print('MaxEnt', self.maxent_sum_diseases)
-        
-        # print("Empirical: " +str(emp_prob))
+
+        # print("Empirical: "   +str(emp_prob))
         # print("Maxent: " + str(sum_prob_maxent))
         # print("True distribution:" + str(self.read_prob_dist('../output/d250_10/truedist_expt'+str(file_num)+'.pickle')))
 

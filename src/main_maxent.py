@@ -94,8 +94,8 @@ def main(file_num=None):
 
     support_dict, two_wayc, three_wayc, four_wayc = marketbasket(cleaneddata, support)
 
-    # feats = ExtractFeatures(cleaneddata.values)
-    feats = ExtractFeatures(cleaneddata.values, Mu=7)
+    feats = ExtractFeatures(cleaneddata.values)
+    # feats = ExtractFeatures(cleaneddata.values, Mu=7)
 
     feats.set_two_way_constraints(two_wayc)
     feats.set_three_way_constraints(three_wayc)
@@ -117,7 +117,7 @@ def main(file_num=None):
     opt = Optimizer(feats) 
     #Use LP to detect zero atoms 
     # opt.exact_zero_detection(cleaneddata)
-    # opt.approximate_zero_detection(cleaneddata)
+    opt.approximate_zero_detection(cleaneddata)
     
     soln_opt = opt.solver_optimize()
     if soln_opt == None:
