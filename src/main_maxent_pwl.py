@@ -93,9 +93,9 @@ class MaxEnt(object):
         # real data
         # directory = '../dataset/basket_sets.csv'
         # generating synthetic data 
-        # directory = '../dataset/d50_4/synthetic_data_expt'+str(file_num)+'.csv'
+        directory = '../dataset/d50_4/synthetic_data_expt'+str(file_num)+'.csv'
         # directory = '../dataset/d200_4/synthetic_data_expt'+str(file_num)+'.csv'
-        directory = '../dataset/d250_10/synthetic_data_expt'+str(file_num)+'.csv'
+        # directory = '../dataset/d250_10/synthetic_data_expt'+str(file_num)+'.csv'
         # directory = '../dataset/d500_20/synthetic_data_expt'+str(file_num)+'.csv'
         
         cleaneddata = clean_preproc_data(directory)

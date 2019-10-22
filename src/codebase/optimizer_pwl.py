@@ -35,6 +35,7 @@ class Optimizer(object):
         self.feats_obj = features_object
         self.opt_sol = None     
         self.norm_z = None
+        self.zero_stats = None
 
     # Utility function to check whether a tuple (key from constraint dict)
     # contains all the variables inside the given partition.
@@ -45,6 +46,24 @@ class Optimizer(object):
                 flag = False
                 break
         return flag
+
+    def compute_zero_stats(self):
+        """
+            Computes the normalization constant for all zero vectors
+        """ 
+        #initialize the datasets
+        N = self.feats_obj.N        
+        data_arr = self.feats_obj.data_arr  
+
+        p = 0
+
+        for i in range(N):
+            dvec = data_arr[i]
+            if sum(dvec) == 0:
+                p += 1
+        
+        self.zero_stats = p/N
+        print('Zero vector probability is: ', self.zero_stats)
 
     # This function computes the value of N_s to be used in the objective function.
     # N_s denotes the number of rows satisfying the constraints for each partition
@@ -57,17 +76,21 @@ class Optimizer(object):
             Returns:
             -   'N_s': The data stats vector for the given partition
         """ 
+        N = self.feats_obj.N
+        data_arr = self.feats_obj.data_arr
+
         #initialize N_s
         twoway_dict = self.feats_obj.two_way_dict
         threeway_dict = self.feats_obj.three_way_dict
         fourway_dict = self.feats_obj.four_way_dict
 
         #sanity check for the constraint to be present in the partition
+        num_feats = len(partition)
         num_2wayc = len([1 for k,v in twoway_dict.items() if self.check_in_partition(partition, k)])  # num of 2way constraints for the partition
         num_3wayc = len([1 for k,v in threeway_dict.items() if self.check_in_partition(partition, k)]) # num of 3way constraints for the partition
         num_4wayc = len([1 for k,v in fourway_dict.items() if self.check_in_partition(partition, k)]) # num of 4way constraints for the partition
         
-        len_theta = num_2wayc + num_3wayc + num_4wayc
+        len_theta = num_feats + num_2wayc + num_3wayc + num_4wayc
         N_s = np.zeros(len_theta)
 
         # Reverse lookup hashmap for the indices in the partition
@@ -76,21 +99,21 @@ class Optimizer(object):
         # with respect to the original vector (before cropping it out for the
         # partition)
         findpos = {elem:i for i,elem in enumerate(partition)}
-
-        N = self.feats_obj.N        
-        data_arr = self.feats_obj.data_arr        
+     
         for i in range(N):
             dvec = data_arr[i, partition]
             tmp_arr = self.util_compute_ns(dvec, partition, twoway_dict, 
-                                    threeway_dict, fourway_dict, findpos, len_theta)
+                                    threeway_dict, fourway_dict, findpos, len_theta,
+                                    num_feats, num_2wayc, num_3wayc, num_4wayc)
             
             N_s += tmp_arr
+        N_s /= N
 
         return N_s
         
     # This function computes the N_s array for every datavector that satisfies each constraint
     def util_compute_ns(self, dvec, partition, twoway_dict, threeway_dict, fourway_dict, findpos,
-                    len_theta):
+                    len_theta, num_feats, num_2wayc, num_3wayc, num_4wayc):
 
         """Function to compute the sum of marginals for a given input vector for all the constraints. 
         Args:
@@ -101,7 +124,6 @@ class Optimizer(object):
             in a single partition and we only need to consider them for now.
         """ 
         
-        #TODO: CHECK
         # Just the single feature marginal case --> MLE update
         if len(partition) == 1:
             return dvec[0]  # only the marginal constraint applies here
@@ -116,15 +138,16 @@ class Optimizer(object):
                     break
             return flag
 
-        #sanity check for the constraint to be present in the partition
-        num_2wayc = len([1 for k,v in twoway_dict.items() if self.check_in_partition(partition, k)])  # num of 2way constraints for the partition
-        num_3wayc = len([1 for k,v in threeway_dict.items() if self.check_in_partition(partition, k)]) # num of 3way constraints for the partition
-        num_4wayc = len([1 for k,v in fourway_dict.items() if self.check_in_partition(partition, k)]) # num of 4way constraints for the partition
-        
-        len_theta = num_2wayc + num_3wayc + num_4wayc
+        len_theta = num_feats + num_2wayc + num_3wayc + num_4wayc
         feat_arr = np.zeros(len_theta)
 
         j = 0
+        # Add up constraint_sum for MARGINAL constraints.
+        for i in range(num_feats):
+            indicator = 1 if dvec[i] == 1 else 0
+            feat_arr[j] += indicator
+            j += 1
+        
         for key,val in twoway_dict.items():
             if self.check_in_partition(partition, key):
                 indicator = 1 if check_condition(key,val) else 0
@@ -157,16 +180,21 @@ class Optimizer(object):
         fourway_dict = self.feats_obj.four_way_dict
 
         #sanity check for the constraint to be present in the partition
+        num_feats = len(partition)
         num_2wayc = len([1 for k,v in twoway_dict.items() if self.check_in_partition(partition, k)])  # num of 2way constraints for the partition
         num_3wayc = len([1 for k,v in threeway_dict.items() if self.check_in_partition(partition, k)]) # num of 3way constraints for the partition
         num_4wayc = len([1 for k,v in fourway_dict.items() if self.check_in_partition(partition, k)]) # num of 4way constraints for the partition
         
-        len_theta = num_2wayc + num_3wayc + num_4wayc
+        len_theta = num_feats + num_2wayc + num_3wayc + num_4wayc
         #As we will have a maximum of 4 way constraints, for now the indicator function matrix has been hard-coded to have length 2^4
         fcs = np.zeros((len_theta, 2**4))
 
         #Indicator matrix is fixed, for 2 way, 3 way and 4 way constraints
         j = 0
+        for i in range(num_feats):
+            fcs[j][1] = 1
+            j += 1
+
         for i in range(num_2wayc):
             fcs[j][3] = 1
             j += 1
@@ -192,12 +220,12 @@ class Optimizer(object):
             Z(theta): vector of length thetas 
         """
 
-
         twoway_dict = self.feats_obj.two_way_dict
         threeway_dict = self.feats_obj.three_way_dict
         fourway_dict = self.feats_obj.four_way_dict
 
         #sanity check for the constraint to be present in the partition
+        num_feats = len(partition)
         num_2wayc = len([1 for k,v in twoway_dict.items() if self.check_in_partition(partition, k)])  # num of 2way constraints for the partition
         num_3wayc = len([1 for k,v in threeway_dict.items() if self.check_in_partition(partition, k)]) # num of 3way constraints for the partition
         num_4wayc = len([1 for k,v in fourway_dict.items() if self.check_in_partition(partition, k)]) # num of 4way constraints for the partition
@@ -206,19 +234,28 @@ class Optimizer(object):
 
         #Compute Z(theta) for each 2 way, 3 way and 4 way constraint
         j = 0
+        for i in range(num_feats):
+            num_total_vectors = (2**1)-1
+            # norm_z[j] = num_total_vectors + np.exp(thetas[i])
+            norm_z[j] = num_total_vectors + np.exp(thetas[j])
+            j += 1
+
         for i in range(num_2wayc):
             num_total_vectors = (2**2)-1
-            norm_z[j] = num_total_vectors + np.exp(thetas[i])
+            # norm_z[j] = num_total_vectors + np.exp(thetas[i+num_feats])
+            norm_z[j] = num_total_vectors + np.exp(thetas[j])
             j += 1
 
         for i in range(num_3wayc):
             num_total_vectors = (2**3)-1
-            norm_z[j] = num_total_vectors + np.exp(thetas[i+num_2wayc])
+            # norm_z[j] = num_total_vectors + np.exp(thetas[i+num_feats+num_2wayc])
+            norm_z[j] = num_total_vectors + np.exp(thetas[j])
             j += 1
 
         for i in range(num_4wayc):
             num_total_vectors = (2**4)-1
-            norm_z[j] = num_total_vectors + np.exp(thetas[i+num_2wayc+num_3wayc])
+            # norm_z[j] = num_total_vectors + np.exp(thetas[i+num_feats+num_2wayc+num_3wayc])
+            norm_z[j] = num_total_vectors + np.exp(thetas[j])
             j += 1
 
         return norm_z
@@ -237,6 +274,7 @@ class Optimizer(object):
                 pass 
             else:
                 N_s = self.compute_data_stats(partition)
+                print('N_s: ', N_s)
                 constraint_matrix = self.util_compute_fcs(partition)
                 len_theta = N_s.shape[0]
                 a = np.random.RandomState(seed=1)
@@ -264,11 +302,13 @@ class Optimizer(object):
                 solution[i] = optimThetas.x
                 norm_sol[i] = self.compute_norm_z(optimThetas.x, partition, constraint_matrix)
 
-                print('Thetas are: ', optimThetas)
+                # print('Thetas are: ', optimThetas)
 
         self.opt_sol = solution
         self.norm_z = norm_sol
         return (solution, norm_sol)
+
+    """
 
     def compute_all_prob(self, num_feats):
         '''
@@ -368,6 +408,89 @@ class Optimizer(object):
 
         print('Total probability', total_prob)
         return p_r
+    """
+
+    def compute_all_prob(self, num_feats):
+        '''
+        Function to compute probability of given r vector according to the formula 
+        p(r, theta) = Product of all constraints (exp(theta * f_c(r))/Z(theta))
+        For every r, find the diseases that appear, find all the constraints in which those diseases appear, 
+        and use those datapoints only
+
+        '''
+        #Generate all vectors
+        all_perms = itertools.product([0,1], repeat=num_feats)
+
+        #initialize p(r)
+        p_r = np.ones((2**num_feats))
+
+        # get all constraints
+        twoway_dict = self.feats_obj.two_way_dict
+        threeway_dict = self.feats_obj.three_way_dict
+        fourway_dict = self.feats_obj.four_way_dict
+
+        # get all partitions
+        parts = self.feats_obj.feat_partitions
+
+        #Create matrix of diseases and their positions by parsing once
+        # have to do so for every partition, and have to take in the marginal constraints for that partition 
+        matrix_constraints = []
+
+        for indx, partition in enumerate(parts):
+            feats = partition
+            two_wayc = [k for k,v in twoway_dict.items() if self.check_in_partition(partition, k)]
+            three_wayc = [k for k,v in threeway_dict.items() if self.check_in_partition(partition,k)]
+            four_wayc = [k for k,v in fourway_dict.items() if self.check_in_partition(partition,k)]
+           
+            for key in feats:
+                matrix_constraints.append([key])
+
+            for key in twoway_dict.keys():
+                matrix_constraints.append([i for i in key])
+
+            for key in threeway_dict.keys():
+                matrix_constraints.append([i for i in key])
+
+            for key in fourway_dict.keys():
+                matrix_constraints.append([i for i in key]) 
+
+        def util_compute_indicator(dindx):
+            fc_r = []
+            for c in matrix_constraints:
+                f = 1 if set(dindx).issubset(set(c)) else 0
+                fc_r.append(f)
+
+            return fc_r
+
+
+        #initialize total_prob
+        total_prob = 0
+        theta = np.concatenate(self.opt_sol)
+        z_c = np.concatenate(self.norm_z)
+        self.compute_zero_stats()
+        z = np.prod(z_c)*self.zero_stats
+
+        print('Thetas :', theta)
+        print('Z_c :', z_c)
+
+
+        for i, rvec in enumerate(all_perms):
+            # find the index of diseases in rvec 
+            dindx = [ind for ind,val in enumerate(rvec) if val == 1]
+
+            if len(dindx) == 0:
+                p_r[i] = 1/self.zero_stats
+
+            else:
+                # initialize fc_r, theta, z_c
+                fc_r = util_compute_indicator(dindx)
+                p_r[i] = np.exp(np.dot(theta, fc_r))/z
+                total_prob += p_r[i]
+
+        print('Probabilities are: ', p_r)
+        print('Total probability: ', total_prob)
+        return p_r
+
 
 
 

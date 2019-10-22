@@ -16,6 +16,7 @@ import time
 path_to_codebase = './codebase/'
 sys.path.insert(0, path_to_codebase)
 from codebase.utils import clean_preproc_data
+from codebase.utils import clean_preproc_data_real
 from codebase.extract_features import ExtractFeatures
 from codebase.optimizer import Optimizer
 from codebase.mba import marketbasket
@@ -38,7 +39,7 @@ def compute_prob_exact(optobj):
     for tmp in all_perms:
         vec = np.asarray(tmp)
         p_vec = optobj.prob_dist(vec)
-        # print('Vector:', vec, ' Probability: ', p_vec)
+        print('Vector:', vec, ' Probability: ', p_vec)
         j = sum(vec)
         maxent_sum_diseases[j] += p_vec
         total_prob += p_vec
@@ -54,7 +55,7 @@ def compute_prob_exact(optobj):
     
     return maxent_prob, maxent_sum_diseases, emp_prob
 
-def main(file_num=None):
+def main(file_num=None, support=None):
     #Support for marketbasket analysis
     # for 20 diseases
     # sups = {1:0.002, 2:0.002, 3:0.002, 4:0.002, 5:0.002, 6:0.004, \
@@ -62,20 +63,18 @@ def main(file_num=None):
     #     14:0.01, 15:0.01, 16:0.023, 17:0.022, 18:0.018, 19:0.014, 20:0.014, 21:0.026, \
     #     22:0.032, 23:0.04, 24:0.029, 25:0.03}
     # sups = {3:0.002, 13: 0.01, 23: 0.06}
-    # support = sups[file_num]
     
     # for four diseases
     # sups = {3:0.02 , 13:0.08, 23:0.12}
-    # support = sups[file_num]
     
     # for ten diseases
     # sups = {3:0.001, 13:0.09, 23:0.14}
     # sups = {3:0.001, 13:0.058, 23:0.085}
-    sups = {3:0.001, 13:0.05, 23:0.07}
-    support = sups[file_num]
+    # sups = {3:0.001, 13:0.05, 23:0.07}
 
     # for 15 diseases
     # sups = {3: 0.002, 13: 0.02, 23: 0.06}
+    
     # support = sups[file_num]
     
     #Measure time to compute maxent
@@ -83,19 +82,28 @@ def main(file_num=None):
 
     # real data
     # directory = '../dataset/basket_sets.csv'
+    directory = '../dataset/real_subsets/top_4d.csv'
+    # directory = '../dataset/real_subsets/4d_0.csv'
+
     # generating synthetic data 
     # directory = '../dataset/d50_4/synthetic_data_expt'+str(file_num)+'.csv'
     # directory = '../dataset/d200_4/synthetic_data_expt'+str(file_num)+'.csv'
-    directory = '../dataset/d250_10/synthetic_data_expt'+str(file_num)+'.csv'
+    # directory = '../dataset/d250_10/synthetic_data_expt'+str(file_num)+'.csv'
     # directory = '../dataset/d350_15/synthetic_data_expt'+str(file_num)+'.csv'
     # directory = '../dataset/d500_20/synthetic_data_expt'+str(file_num)+'.csv'
     
-    cleaneddata = clean_preproc_data(directory)
+    # for synthetic data 
+    # cleaneddata = clean_preproc_data(directory)
+    # for real data 
+    cleaneddata = clean_preproc_data_real(directory)
 
     support_dict, two_wayc, three_wayc, four_wayc = marketbasket(cleaneddata, support)
 
-    feats = ExtractFeatures(cleaneddata.values)
-    # feats = ExtractFeatures(cleaneddata.values, Mu=7)
+    total_constraints = len(two_wayc)+len(three_wayc)+len(four_wayc)
+    if total_constraints > 200:
+        feats = ExtractFeatures(cleaneddata.values, Mu=7)
+    else:
+        feats = ExtractFeatures(cleaneddata.values)
 
     feats.set_two_way_constraints(two_wayc)
     feats.set_three_way_constraints(three_wayc)
@@ -103,7 +111,8 @@ def main(file_num=None):
     feats.set_supports(support_dict)
 
     feats.partition_features()
-    print("The approximated clusters are:\n", feats.feat_partitions)
+
+    print("The clusters are:\n", feats.feat_partitions)
 
 
     print("\nThe constraints are:")
@@ -115,9 +124,10 @@ def main(file_num=None):
 
     print(feats.feat_partitions)
     opt = Optimizer(feats) 
+
     #Use LP to detect zero atoms 
-    # opt.exact_zero_detection(cleaneddata)
-    opt.approximate_zero_detection(cleaneddata)
+    opt.exact_zero_detection(cleaneddata)
+    # opt.approximate_zero_detection(cleaneddata)
     
     soln_opt = opt.solver_optimize()
     if soln_opt == None:
@@ -130,12 +140,13 @@ def main(file_num=None):
     print("Maxent: " + str(sum_prob_maxent))
     # print("True distribution:" + str(read_prob_dist('../output/d50_4/truedist_expt'+str(file_num)+'.pickle')))
     # print("True distribution:" + str(read_prob_dist('../output/d200_4/truedist_expt'+str(file_num)+'.pickle')))
-    print("True distribution:" + str(read_prob_dist('../output/d250_10/truedist_expt'+str(file_num)+'.pickle')))
+    # print("True distribution:" + str(read_prob_dist('../output/d250_10/truedist_expt'+str(file_num)+'.pickle')))
     # print("True distribution:" + str(read_prob_dist('../output/d350_15/truedist_expt'+str(file_num)+'.pickle')))
     # print("True distribution:" + str(read_prob_dist('../output/d500_20/truedist_expt'+str(file_num)+'.pickle')))
     
     # for real data
-    # outfilename = '../output/realdata_maxent.pickle'
+    outfilename = '../output/real_subsets/top_4d_'+str(support)+'.pickle'
+    # outfilename = '../output/real_subsets/random_4d_'+str(support)+'.pickle'
     # for synthetic data 
     # outfilename = '../output/d50_4/syn_maxent_expt'+str(file_num)+'.pickle'
     # outfilename = '../output/d200_4/syn_maxent_expt'+str(file_num)+'.pickle'
@@ -143,12 +154,17 @@ def main(file_num=None):
     # outfilename = '../output/d350_15/syn_maxent_expt'+str(file_num)+'.pickle'
     # outfilename = '../output/d500_20/syn_maxent_expt'+str(file_num)+'.pickle'
 
-    # with open(outfilename, "wb") as outfile:
-    #     pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)
+    with open(outfilename, "wb") as outfile:
+        pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)
     
     toc = time.time()
     print('Computational time for calculating maxent = {} seconds'.format(toc-tic))
 
 if __name__ == '__main__':
-    file_num = sys.argv[1]
-    main(int(file_num))
+    # for synthetic data 
+    # file_num = sys.argv[1]
+    # main(int(file_num))
+
+    # for real data
+    support = sys.argv[1]
+    main(support = float(support))

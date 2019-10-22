@@ -231,6 +231,7 @@ class Optimizer(object):
             data_stats_vector += tmp_arr
 
             # objective_sum += inner_constraint_sum
+
         return data_stats_vector
 
 
@@ -390,6 +391,8 @@ class Optimizer(object):
         num_total_vectors = 2**(num_feats)
         constraint_mat = np.zeros((num_total_vectors, len_theta))        
                 
+
+        N = self.feats_obj.N
 
         for i, vec in enumerate(all_perms):
             tmpvec = np.asarray(vec)
@@ -617,12 +620,16 @@ class Optimizer(object):
                 if val == 0.0:
                     remove_indices.append(i) 
 
+            all_perms = list(itertools.product([0,1], repeat=diseases))
+            for ind,perm in enumerate(all_perms):
+                print('Vector: ', perm, ' Empirical Probability: ', b_eq[ind])
+
             #Delete the rows of A_eq
             A_eq = np.delete(A_eq, remove_indices, axis=0)
             b_eq = np.delete(np.array(b_eq), remove_indices, axis=0).reshape(-1, 1)
 
             #Print the marginals of every disease + marginals of every constraint
-            print('Diseases', i, 'Marginal Probabilities', b_eq.flatten())
+            # print('Diseases', i, 'Marginal Probabilities', b_eq.flatten())
 
             #Impose upper bounds on x
             A_ub = np.identity(2**num_feats)

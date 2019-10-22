@@ -15,4 +15,4 @@ export PATH=~/maxent-py37-pba/bin:$PATH
 cd 
 source ~/maxent-py37-pba/bin/activate
 cd MaxEnt/src
-python -u main_maxent_perturb.py $1 $2
+python -u main_maxent_perturb.py $1

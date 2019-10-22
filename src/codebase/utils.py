@@ -63,6 +63,34 @@ def load_disease_data(filePath):
     data_arr[data_arr > 0] = 1
     return data_arr
 
+def clean_preproc_data_real(filePath):
+    """
+    Creates a numpy array of the data given the csv file
+
+    Creates a pandas dataframe from the given csv file and exports it to a numpy ndarray. 
+    Checks to see if any disease has zero marginal probability and removes it from the dataframe. 
+    Readjusts the number of diseases, reindexes the diseases and returns the dataframe. 
+
+    Input Assumption:
+    All data that is fed into the file is the form of 0, 1 with the first row being the header row 
+    stating the number of the disease (indexed from 0)
+
+    Args:
+        filePath: Path to the csv file to load the disease data
+    Returns:
+        A binary (0-1) numpy ndarray with each row corresponding to a particular 
+        person's disease prevalence data. 
+    """
+    data=pd.read_csv(filePath, error_bad_lines=False, index_col=None)
+    data.drop(columns={'Unnamed: 0'}, inplace=True)
+    data.reset_index(drop=True, inplace=True)
+
+    for col in data.columns:
+        data[col] = data[col].apply(lambda x: int(1) if x > 1 else int(0))
+
+        
+    return data
+
 def clean_preproc_data(filePath):
     """
     Creates a numpy array of the data given the csv file
@@ -95,7 +123,47 @@ def clean_preproc_data(filePath):
 
     return data
 
-def clean_prepoc_data_nonzeros(filePath):
+def clean_preproc_data_perturb(filePath, perturb_prob):
+    """
+    Creates a numpy array of the data given the csv file
+
+    Creates a pandas dataframe from the given csv file and exports it to a numpy ndarray. 
+    Checks to see if any disease has zero marginal probability and removes it from the dataframe. 
+    Readjusts the number of diseases, reindexes the diseases and returns the dataframe. 
+
+    Perturbs the data by a probability specified, and flips bits from 0 to 1 
+
+    Input Assumption:
+    All data that is fed into the file is the form of 0, 1 with the first row being the header row 
+    stating the number of the disease (indexed from 0)
+
+    Args:
+        filePath: Path to the csv file to load the disease data
+        perturb_prob: Probability with which to flip the bit 
+    Returns:
+        A binary (0-1) numpy ndarray with each row corresponding to a particular 
+        person's disease prevalence data. 
+    """
+    data=pd.read_csv(filePath, error_bad_lines=False)
+    
+    #Check if any disease does not occur in the dataset at all, if so, that disease has to be removed
+    counts = np.sum(data, axis=0)
+    to_drop = list(counts[counts==0].index)
+    if len(to_drop)!=0:
+        print("Disease " + str(to_drop) + " do not occur. Removing them to proceed")
+        data.drop(columns=to_drop, inplace=True)
+        new_index = np.arange(len(data.columns))
+        new_index = [str(i) for i in new_index]
+        data.columns = new_index
+
+    p_mat = np.random.random(size=data.shape)
+    mask_p_idx = (p_mat < perturb_prob)
+    data[mask_p_idx] = 1 # If there was 1 prev, no problem, but if there was a 0, map it to 1    
+    
+    return data
+
+
+def clean_preproc_data_nonzeros(filePath):
     """
     Creates a numpy array of the data given the csv file
 

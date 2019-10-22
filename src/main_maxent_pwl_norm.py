@@ -35,17 +35,21 @@ class MaxEnt(object):
     of diseases
     emp_prob: Numpy array containing the empirical probabilities for the # of diseases in the dataset. 
     """
-
+    '''
     def __init__(self):
         self.num_feats = None
         self.maxent_prob = None
         self.maxent_sum_diseases = None
+        self.emp_prob = None
         self.total_prob = 0.0
+    '''
 
     def set_probs(self, optobj):
         self.num_feats = optobj.feats_obj.data_arr.shape[1]
         self.maxent_prob = np.ones(2**self.num_feats)
         self.maxent_sum_diseases = np.zeros(self.num_feats+1)
+        self.emp_prob = np.zeros(self.num_feats + 1)
+        self.total_prob = 0.0
 
     def read_prob_dist(self, filename):
         '''
@@ -55,6 +59,7 @@ class MaxEnt(object):
             prob = pickle.load(outfile,encoding='latin1')
         return prob[1]
 
+    
     def compute_prob_pwl(self, optobj):
         '''
         Compute probabilities using the piecewise likelihood method
@@ -69,23 +74,23 @@ class MaxEnt(object):
     def main(self, file_num=None):
         #Support for marketbasket analysis
         # for 20 diseases
-        # sups = {1:0.002, 2:0.002, 3:0.002, 4:0.002, 5:0.002, 6:0.004, \
-        #     7:0.005, 8:0.004, 9:0.004, 10:0.004, 11:0.012, 12:0.009, 13:0.01, \
-        #     14:0.01, 15:0.01, 16:0.023, 17:0.022, 18:0.018, 19:0.014, 20:0.014, 21:0.026, \
-        #     22:0.032, 23:0.04, 24:0.029, 25:0.03}
-        # support = sups[file_num]
+        sups = {1:0.002, 2:0.002, 3:0.002, 4:0.002, 5:0.002, 6:0.004, \
+            7:0.005, 8:0.004, 9:0.004, 10:0.004, 11:0.012, 12:0.009, 13:0.01, \
+            14:0.01, 15:0.01, 16:0.023, 17:0.022, 18:0.018, 19:0.014, 20:0.014, 21:0.026, \
+            22:0.032, 23:0.04, 24:0.029, 25:0.03}
+        support = sups[file_num]
         
         # for four diseases
         # sups = {3:0.02 , 13:0.08, 23:0.12}
-        # sups = {3:0.001 , 13:0.08, 23:0.12}
+        # sups = {3:0.001, 13:0.001, 23:0.12}
         # support = sups[file_num]
         # 
         # for ten diseases
         # sups = {3:0.001, 13:0.09, 23:0.14}
         # sups = {3:0.001, 13:0.058, 23:0.085}
-        sups = {3:0.001, 13:0.03, 23:0.085}
-        # sups = {3:0.008}
-        support = sups[file_num]
+        # sups = {3:0.001, 13:0.03, 23:0.085}
+        # sups = {3:0.008, 13:0.1}
+        # support = sups[file_num]
         
         #Measure time to compute maxent
         tic = time.time()
@@ -93,10 +98,13 @@ class MaxEnt(object):
         # real data
         # directory = '../dataset/basket_sets.csv'
         # generating synthetic data 
+        # directory = '../dataset/d25_2/synthetic_data_expt'+str(file_num)+'.csv'
+
         # directory = '../dataset/d50_4/synthetic_data_expt'+str(file_num)+'.csv'
         # directory = '../dataset/d200_4/synthetic_data_expt'+str(file_num)+'.csv'
-        directory = '../dataset/d250_10/synthetic_data_expt'+str(file_num)+'.csv'
-        # directory = '../dataset/d500_20/synthetic_data_expt'+str(file_num)+'.csv'
+        # directory = '../dataset/d250_10/synthetic_data_expt'+str(file_num)+'.csv'
+        # directory = '../dataset/d350_15/synthetic_data_expt'+str(file_num)+'.csv'
+        directory = '../dataset/d500_20/synthetic_data_expt'+str(file_num)+'.csv'
         
         cleaneddata = clean_preproc_data(directory)
 
@@ -117,18 +125,17 @@ class MaxEnt(object):
         soln_opt = opt.solver_optimize()
         
         self.set_probs(opt)
-        self.maxent_prob = opt.compute_all_prob(self.num_feats)
+        self.maxent_prob, emp_prob, self.total_prob = opt.compute_all_prob(self.num_feats)
 
         self.compute_prob_pwl(opt)
-        print('MaxEnt', self.maxent_sum_diseases)
 
-        # print("Empirical: "   +str(emp_prob))
-        # print("Maxent: " + str(sum_prob_maxent))
-        # print("True distribution:" + str(self.read_prob_dist('../output/d250_10/truedist_expt'+str(file_num)+'.pickle')))
+        print("Empirical: "   +str(emp_prob))
+        print("Maxent: " + str(self.maxent_sum_diseases))
+        print("True distribution:" + str(self.read_prob_dist('../output/d500_20/truedist_expt'+str(file_num)+'.pickle')))
 
-        # outfilename = '../output/d250_10/syn_maxent_expt'+str(file_num)+'.pickle'
-        # with open(outfilename, "wb") as outfile:
-            # pickle.dump((maxent, sum_prob_maxent, emp_prob), outfile)
+        outfilename = '../output/d500_20_pwl/syn_maxent_expt'+str(file_num)+'.pickle'
+        with open(outfilename, "wb") as outfile:
+            pickle.dump((self.maxent_prob, self.maxent_sum_diseases/self.total_prob, emp_prob), outfile)
         
         toc = time.time()
         print('Computational time for calculating maxent = {} seconds'.format(toc-tic))
