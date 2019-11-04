@@ -1,0 +1,323 @@
+Creating the feature graph
+('Added edge for:', (13, 35))
+('Added edge for:', (8, 13))
+('Added edge for:', (30, 32))
+('Added edge for:', (4, 8))
+('Added edge for:', (36, 37))
+('Added edge for:', (13, 32))
+('Added edge for:', (13, 15))
+('Added edge for:', (13, 37))
+('Added edge for:', (8, 31))
+('Added edge for:', (4, 13))
+('Added edge for:', (8, 30))
+('Added edge for:', (4, 15))
+('Added edge for:', (13, 23))
+('Added edge for:', (30, 31))
+('Added edge for:', (13, 29))
+('Added edge for:', (13, 30))
+('Added edge for:', (4, 31))
+('Added edge for:', (13, 31))
+('Added edge for:', (31, 32))
+('Added edge for:', (4, 30))
+('Added edge for:', (8, 15))
+('Added edge for:', (8, 13, 14))
+('Added edge for:', (8, 13, 28))
+('Added edge for:', (4, 13, 15))
+('Added edge for:', (4, 8, 30))
+('Added edge for:', (8, 13, 32))
+('Added edge for:', (13, 30, 31))
+('Added edge for:', (13, 15, 14))
+('Added edge for:', (8, 13, 29))
+('Added edge for:', (4, 13, 30))
+('Added edge for:', (4, 8, 15))
+('Added edge for:', (8, 13, 23))
+('Added edge for:', (8, 13, 30))
+('Added edge for:', (8, 13, 37))
+('Added edge for:', (3, 8, 13))
+('Added edge for:', (4, 13, 35))
+('Added edge for:', (8, 13, 31))
+('Added edge for:', (8, 13, 35))
+('Added edge for:', (4, 8, 13))
+('Added edge for:', (4, 13, 29))
+('Added edge for:', (8, 13, 14))
+('Added edge for:', (8, 13, 28))
+('Added edge for:', (4, 13, 15))
+('Added edge for:', (4, 8, 30))
+('Added edge for:', (8, 13, 32))
+('Added edge for:', (13, 30, 31))
+('Added edge for:', (13, 15, 14))
+('Added edge for:', (8, 13, 29))
+('Added edge for:', (4, 13, 30))
+('Added edge for:', (4, 8, 15))
+('Added edge for:', (8, 13, 23))
+('Added edge for:', (8, 13, 30))
+('Added edge for:', (8, 13, 37))
+('Added edge for:', (3, 8, 13))
+('Added edge for:', (4, 13, 35))
+('Added edge for:', (8, 13, 31))
+('Added edge for:', (8, 13, 35))
+('Added edge for:', (4, 8, 13))
+('Added edge for:', (4, 13, 29))
+Partioning the feature graph
+Finding the connected components
+Starting the optimizer
+RUNNING THE L-BFGS-B CODE
+
+           * * *
+
+Machine precision = 2.220D-16
+ N =           72     M =           10
+
+At X0         0 variables are exactly at the bounds
+
+At iterate    0    f=  2.40545D+06    |proj g|=  6.75066D+04
+
+At iterate    1    f=  6.39668D+05    |proj g|=  3.64230D+04
+
+At iterate    2    f=  4.73734D+05    |proj g|=  2.76551D+04
+
+At iterate    3    f=  2.32151D+05    |proj g|=  1.03638D+04
+
+At iterate    4    f=  1.68429D+05    |proj g|=  4.33780D+03
+
+At iterate    5    f=  1.44253D+05    |proj g|=  1.96700D+03
+
+At iterate    6    f=  1.35590D+05    |proj g|=  1.61703D+03
+
+At iterate    7    f=  1.30335D+05    |proj g|=  9.38748D+02
+
+At iterate    8    f=  1.28869D+05    |proj g|=  1.69182D+03
+
+At iterate    9    f=  1.27719D+05    |proj g|=  4.81644D+02
+
+At iterate   10    f=  1.26946D+05    |proj g|=  4.22352D+02
+
+At iterate   11    f=  1.25284D+05    |proj g|=  9.44777D+02
+
+At iterate   12    f=  1.24584D+05    |proj g|=  1.27448D+03
+
+At iterate   13    f=  1.23862D+05    |proj g|=  1.02761D+03
+
+At iterate   14    f=  1.23476D+05    |proj g|=  4.75156D+02
+
+At iterate   15    f=  1.23209D+05    |proj g|=  1.99121D+02
+
+At iterate   16    f=  1.22955D+05    |proj g|=  3.75714D+02
+
+At iterate   17    f=  1.22752D+05    |proj g|=  3.77925D+02
+
+At iterate   18    f=  1.22590D+05    |proj g|=  4.62956D+02
+
+At iterate   19    f=  1.22445D+05    |proj g|=  1.64942D+02
+
+At iterate   20    f=  1.22359D+05    |proj g|=  1.42847D+02
+
+At iterate   21    f=  1.22280D+05    |proj g|=  2.68764D+02
+
+At iterate   22    f=  1.22234D+05    |proj g|=  8.75618D+01
+
+At iterate   23    f=  1.22197D+05    |proj g|=  1.49252D+02
+
+At iterate   24    f=  1.22182D+05    |proj g|=  1.07705D+02
+
+At iterate   25    f=  1.22173D+05    |proj g|=  7.93894D+01
+
+At iterate   26    f=  1.22158D+05    |proj g|=  3.81493D+01
+
+At iterate   27    f=  1.22141D+05    |proj g|=  6.99307D+01
+
+At iterate   28    f=  1.22128D+05    |proj g|=  1.08048D+02
+
+At iterate   29    f=  1.22116D+05    |proj g|=  8.27291D+01
+
+At iterate   30    f=  1.22088D+05    |proj g|=  4.01822D+01
+
+At iterate   31    f=  1.22074D+05    |proj g|=  8.00093D+01
+
+At iterate   32    f=  1.22061D+05    |proj g|=  3.82614D+01
+
+At iterate   33    f=  1.22050D+05    |proj g|=  4.11659D+01
+
+At iterate   34    f=  1.22044D+05    |proj g|=  1.10727D+02
+
+At iterate   35    f=  1.22037D+05    |proj g|=  1.00837D+02
+
+At iterate   36    f=  1.22032D+05    |proj g|=  6.51344D+01
+
+At iterate   37    f=  1.22025D+05    |proj g|=  2.65514D+01
+
+At iterate   38    f=  1.22022D+05    |proj g|=  3.00264D+01
+
+At iterate   39    f=  1.22015D+05    |proj g|=  4.93048D+01
+
+At iterate   40    f=  1.22012D+05    |proj g|=  6.83111D+01
+
+At iterate   41    f=  1.22008D+05    |proj g|=  1.49521D+01
+
+At iterate   42    f=  1.22007D+05    |proj g|=  1.61104D+01
+
+At iterate   43    f=  1.22005D+05    |proj g|=  1.37690D+01
+
+At iterate   44    f=  1.22003D+05    |proj g|=  4.83124D+01
+
+At iterate   45    f=  1.22001D+05    |proj g|=  1.64626D+01
+
+At iterate   46    f=  1.21999D+05    |proj g|=  4.84739D+01
+
+At iterate   47    f=  1.21998D+05    |proj g|=  1.90004D+01
+
+At iterate   48    f=  1.21998D+05    |proj g|=  1.42725D+01
+
+At iterate   49    f=  1.21996D+05    |proj g|=  1.76486D+01
+
+At iterate   50    f=  1.21995D+05    |proj g|=  1.77664D+01
+
+At iterate   51    f=  1.21995D+05    |proj g|=  5.01968D+01
+
+At iterate   52    f=  1.21993D+05    |proj g|=  8.41974D+00
+
+At iterate   53    f=  1.21993D+05    |proj g|=  1.00044D+01
+
+At iterate   54    f=  1.21992D+05    |proj g|=  9.53878D+00
+
+At iterate   55    f=  1.21992D+05    |proj g|=  9.49221D+00
+
+At iterate   56    f=  1.21991D+05    |proj g|=  2.76661D+01
+
+At iterate   57    f=  1.21991D+05    |proj g|=  8.13307D+00
+
+At iterate   58    f=  1.21990D+05    |proj g|=  1.73080D+01
+
+At iterate   59    f=  1.21990D+05    |proj g|=  1.21479D+01
+
+At iterate   60    f=  1.21990D+05    |proj g|=  4.46598D+00
+
+At iterate   61    f=  1.21990D+05    |proj g|=  7.26577D+00
+
+At iterate   62    f=  1.21990D+05    |proj g|=  8.46776D+00
+
+At iterate   63    f=  1.21989D+05    |proj g|=  1.07990D+01
+Optimization over
+
+At iterate   64    f=  1.21989D+05    |proj g|=  1.55022D+01
+
+At iterate   65    f=  1.21989D+05    |proj g|=  3.78495D+00
+
+At iterate   66    f=  1.21989D+05    |proj g|=  3.37168D+00
+
+At iterate   67    f=  1.21989D+05    |proj g|=  5.99830D+00
+
+At iterate   68    f=  1.21989D+05    |proj g|=  7.59028D+00
+
+At iterate   69    f=  1.21989D+05    |proj g|=  1.17216D+01
+
+At iterate   70    f=  1.21989D+05    |proj g|=  5.03205D+00
+
+At iterate   71    f=  1.21989D+05    |proj g|=  2.52767D+00
+
+At iterate   72    f=  1.21989D+05    |proj g|=  2.59606D+00
+
+At iterate   73    f=  1.21989D+05    |proj g|=  3.21452D+00
+
+At iterate   74    f=  1.21989D+05    |proj g|=  3.41824D+00
+
+At iterate   75    f=  1.21989D+05    |proj g|=  1.53232D+00
+
+At iterate   76    f=  1.21989D+05    |proj g|=  1.87283D+00
+
+At iterate   77    f=  1.21989D+05    |proj g|=  3.26836D+00
+
+At iterate   78    f=  1.21989D+05    |proj g|=  3.09228D+00
+
+At iterate   79    f=  1.21989D+05    |proj g|=  1.92813D+00
+
+At iterate   80    f=  1.21989D+05    |proj g|=  2.85654D+00
+
+At iterate   81    f=  1.21989D+05    |proj g|=  4.40923D+00
+
+At iterate   82    f=  1.21989D+05    |proj g|=  2.38942D+00
+
+At iterate   83    f=  1.21989D+05    |proj g|=  2.65136D+00
+
+At iterate   84    f=  1.21989D+05    |proj g|=  2.09984D+00
+
+At iterate   85    f=  1.21989D+05    |proj g|=  1.53668D+00
+
+At iterate   86    f=  1.21989D+05    |proj g|=  4.18368D+00
+
+At iterate   87    f=  1.21988D+05    |proj g|=  1.98488D+00
+
+At iterate   88    f=  1.21988D+05    |proj g|=  9.93896D-01
+
+At iterate   89    f=  1.21988D+05    |proj g|=  1.46683D+00
+
+At iterate   90    f=  1.21988D+05    |proj g|=  1.58761D+00
+
+At iterate   91    f=  1.21988D+05    |proj g|=  3.10101D+00
+
+At iterate   92    f=  1.21988D+05    |proj g|=  3.01952D+00
+
+At iterate   93    f=  1.21988D+05    |proj g|=  9.77889D-01
+
+At iterate   94    f=  1.21988D+05    |proj g|=  8.96398D-01
+
+At iterate   95    f=  1.21988D+05    |proj g|=  2.41416D+00
+
+At iterate   96    f=  1.21988D+05    |proj g|=  1.13359D+00
+
+At iterate   97    f=  1.21988D+05    |proj g|=  1.03028D+00
+
+At iterate   98    f=  1.21988D+05    |proj g|=  1.12195D+00
+
+At iterate   99    f=  1.21988D+05    |proj g|=  1.62108D+00
+
+At iterate  100    f=  1.21988D+05    |proj g|=  8.10542D-01
+
+At iterate  101    f=  1.21988D+05    |proj g|=  9.90985D-01
+
+At iterate  102    f=  1.21988D+05    |proj g|=  7.24685D-01
+
+At iterate  103    f=  1.21988D+05    |proj g|=  7.55244D-01
+
+At iterate  104    f=  1.21988D+05    |proj g|=  1.22818D+00
+
+At iterate  105    f=  1.21988D+05    |proj g|=  1.39698D+00
+
+At iterate  106    f=  1.21988D+05    |proj g|=  7.61065D-01
+
+At iterate  107    f=  1.21988D+05    |proj g|=  8.03266D-01
+
+At iterate  108    f=  1.21988D+05    |proj g|=  4.26371D-01
+
+At iterate  109    f=  1.21988D+05    |proj g|=  6.95582D-01
+
+At iterate  110    f=  1.21988D+05    |proj g|=  4.38013D-01
+
+At iterate  111    f=  1.21988D+05    |proj g|=  8.04721D-01
+
+At iterate  112    f=  1.21988D+05    |proj g|=  4.01633D-01
+
+           * * *
+
+Tit   = total number of iterations
+Tnf   = total number of function evaluations
+Tnint = total number of segments explored during Cauchy searches
+Skip  = number of BFGS updates skipped
+Nact  = number of active bounds at final generalized Cauchy point
+Projg = norm of the final projected gradient
+F     = final function value
+
+           * * *
+
+   N    Tit     Tnf  Tnint  Skip  Nact     Projg        F
+   72    112    118      1     0     0   4.016D-01   1.220D+05
+  F =   121988.43282521333     
+
+CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH             
+
+ Cauchy                time 0.000E+00 seconds.
+ Subspace minimization time 0.000E+00 seconds.
+ Line search           time 0.000E+00 seconds.
+
+ Total User time 0.000E+00 seconds.
+

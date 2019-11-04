@@ -2,6 +2,7 @@ dataset/*
 toy_dataset/*
 misc/*
 figures/*
+output/*
 *.ipynb
 *.pk
 *.pdf

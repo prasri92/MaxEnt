@@ -13,4 +13,4 @@ module load python/3.7.3
 cd
 source ~/maxent-py37-pba/bin/activate
 cd MaxEnt/src/codebase
-python synthetic_data.py $1 $2 $3
+python synthetic_data.py $1 
