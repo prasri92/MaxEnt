@@ -1,16 +1,13 @@
 #!/bin/bash
-#SBATCH --job-name=maxent_true_dist
-#SBATCH --partition=defq
-#SBATCH --time=03:00:00
-#SBATCH --mem=8192
-#SBATCH --output=res_%j.txt
-
-# Log what we're running and where.
-echo $SLURM_JOBID - `hostname` >> ~/slurm-jobs.txt
-
-module load python/3.7.3
-
-cd
-source ~/maxent-py37-pba/bin/activate
-cd MaxEnt/src/codebase
-python synthetic_data.py $1 
+i=20
+for j in 0.0 2.0 4.0
+do
+	for k in 0.25 0.5 0.75
+	do
+		for l in DISEASES_4 DISEASES_7 DISEASES_10 DISEASES_15
+		do	
+			sbatch synthetic_data_job_2.sh $l $i $k $j 
+		done
+		let "i+=1"
+	done
+done

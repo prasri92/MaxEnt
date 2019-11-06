@@ -3,6 +3,8 @@ toy_dataset/*
 misc/*
 figures/*
 output/*
+dataset_s*
+output_s*
 *.ipynb
 *.pk
 *.pdf

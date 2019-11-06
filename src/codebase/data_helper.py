@@ -13,6 +13,12 @@ import pickle
 np.random.seed(0)
 import time
 
+import random 
+import bisect 
+import math 
+from functools import reduce 
+
+
 class DataHelper:
     
     def __init__(self, num_diseases, num_clusters, alpha, tau, beta, p=None, q1=None, q2=None):
@@ -22,21 +28,21 @@ class DataHelper:
    
         PARAMS
         ------
-        - num_diseases(int, default=10) : the total number of possible diseases
-        - num_clusters(int, default=5) : the number of clusters used for grouping the diseases
+        - num_diseases(int) : the total number of possible diseases
+        - num_clusters(int) : the number of clusters used for grouping the diseases
         - alpha(list of length <num_diseases>+1) : the probability of choosing 'k' diseases 
                                                  in the synthetic generator for all values of k 
                                                  where 0<=k<=N
-        - tau(list, default=[0.2, 0.2, 0.2, 0.2, 0.2]) : the probabilities of choosing each of 
-                                                         the <num_clusters> clusters
-                                                         while generating a disease vector ; 
-                                                         should sum to 1.0, and
-                                                         len(<tau>) should be equal to <num_clusters>
-        - beta(list, default=[0.2, 0.2, 0.2, 0.2, 0.2]) : the probabilities of choosing each of 
-                                                          the <num_clusters> clusters while sampling
-                                                          clusters for grouping diseases ; 
-                                                          should sum to 1.0, and len(<beta>) should be 
-                                                          equal to <num_clusters>
+        - tau(list) : the probabilities of choosing each of 
+                         the <num_clusters> clusters
+                         while generating a disease vector ; 
+                         should sum to 1.0, and
+                         len(<tau>) should be equal to <num_clusters>
+        - beta(list) : the probabilities of choosing each of 
+                          the <num_clusters> clusters while sampling
+                          clusters for grouping diseases ; 
+                          should sum to 1.0, and len(<beta>) should be 
+                          equal to <num_clusters>
         - p(float) : the binomial's 'p' value in the disjoint case
         - q1(float) : the first binomial's 'p' value in the overlapping case
         - q2(float) : the second binomial's 'p' value in the overlapping case
@@ -87,7 +93,7 @@ class DataHelper:
                         low=2
                     else:
                         low=1
-                    # choose 'm', the number of clusters this disease can belong to, randomly
+                    # choose 'm', the number of clusters this disease can belong to uniformly
                     m = np.random.randint(low=low, high=self.K+1)
                 else:
                     # choose only one cluster, since every cluster should be disjoint

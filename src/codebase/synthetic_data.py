@@ -10,24 +10,36 @@ class Synthetic_object(object):
 	'''
 	Class to hold parameters for synthetic data generation
 	'''
-	def __init__(self, section):
+	def __init__(self, opt_dict):
 		config = configparser.ConfigParser()
 		config.read('synthetic_data.ini')
+
+		section = opt_dict['section_name']
+		self.file_num = opt_dict['file_num']
 
 		#Get parameters from config file
 		self.num_diseases = int(config[section]['num_diseases'])
 		self.clusters = int(config[section]['clusters'])
 		self.size = int(config[section]['size'])
-		self.p = float(config[section]['p'])
-		self.q1 = float(config[section]['q1'])
-		self.q2 = float(config[section]['q2'])
-		#set constant for zipfian parameter
+		self.p = float(config['GLOBAL']['p'])
+		self.q1 = float(config['GLOBAL']['q1'])
+		self.q2 = float(config['GLOBAL']['q2'])
+		self.z = float(config['GLOBAL']['z'])
+
+		# Exponent for the exponential distribution 
 		self.expon_parameter = [0.8,1.2,1.6,2.0,2.4]
-		self.z = 2.0
+
+		# choose the probability that each disease belongs a cluster. 
+		# Uniform probability chosen for now. 
 		if self.clusters == 2:
 			self.beta = [0.5, 0.5]
 		elif self.clusters == 3:
-			self.beta = [0.3,0.4,0.3]
+			self.beta = [0.33,0.33,0.34]
+		elif self.clusters == 4:
+			self.beta = [0.25, 0.25, 0.25, 0.25]
+		elif self.clusters == 6:
+			self.beta = [0.17, 0.16, 0.17, 0.16, 0.17, 0.17]
+
 		
 	def generate_tau(self):
 		x = np.arange(1, self.clusters+1)
@@ -47,8 +59,8 @@ class Synthetic_object(object):
 		for num, l in enumerate(self.expon_parameter):
 			file_num = num+1
 			tau = self.generate_tau()
-			file_name_real = '../../output/'+'d'+str(self.num_diseases)+'/truedist_expt'+str(file_num)+'_2.pickle'
-			file_name_synthetic = "../../dataset/"+"d"+str(self.num_diseases)+"/synthetic_data_expt"+str(file_num)+"_2.csv"
+			file_name_real = '../../output_s'+str(self.file_num)+'/d'+str(self.num_diseases)+'/truedist_expt'+str(file_num)+'.pickle'
+			file_name_synthetic = "../../dataset_s"+str(self.file_num)+"/d"+str(self.num_diseases)+"/synthetic_data_expt"+str(file_num)+".csv"
 			p1 = Process(target=self.get_true_distribution, args=(file_name_real, tau, l))
 			p2 = Process(target=self.get_synthetic_data, args=(file_name_synthetic, l, self.z, self.beta, self.size))
 			p1.start()
@@ -57,7 +69,8 @@ class Synthetic_object(object):
 			p2.join()
 
 if __name__ == '__main__':
-	# pass section name in the sys argv
-	section_name = sys.argv[1]
-	obj = Synthetic_object(section_name)
+	# pass all options in the sys argv
+	options = sys.argv
+	opt_dict = {'section_name':str(sys.argv[1]), 'file_num':int(sys.argv[2])}
+	obj = Synthetic_object(opt_dict)
 	obj.main()
