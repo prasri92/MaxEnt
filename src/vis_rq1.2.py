@@ -35,16 +35,16 @@ def read_maxent_prob(filename):
 def kl_divergence(p, q):
 	return (p*np.log(p/q)).sum()
 
-def calc_kl(i,k):
+def calc_kl(i,k,dataset_num):
 	constraints = []
 	sup_metric = []
 	kl = []
 	global df 
 	for j in range(12):
-		true_file = '../output/d'+str(k)+'/truedist_expt'+str(i)+'.pickle'
+		true_file = '../output_s'+dataset_num+'/d'+str(k)+'/truedist_expt'+str(i)+'.pickle'
 		true_dist, true_prob = read_true_prob(true_file)
 
-		maxent_file = '../output/d'+str(k)+'_expt1.1/syn_maxent_expt'+str(i)+'_s'+str(j)+'.pickle'
+		maxent_file = '../output_s'+dataset_num+'/d'+str(k)+'_expt1.2/syn_maxent_expt'+str(i)+'_s'+str(j)+'.pickle'
 		maxent_dist, maxent_prob, emp_prob, num_constraints, support = read_maxent_prob(maxent_file)
 
 		emp_prob = np.around(emp_prob, decimals=4)
@@ -55,8 +55,10 @@ def calc_kl(i,k):
 		p = np.array(true_dist)
 		q = np.array(maxent_dist)
 		try:
-			kl_div = kl_divergence(p, q)
+			kl_div, p_val = power_divergence(f_obs=q, f_exp=p, lambda_="cressie-read")
+			# kl_div = kl_divergence(p, q)
 		except FloatingPointError as e:
+			kl_div = 10
 			print('Infinity')
 
 		kl_div = round(kl_div, 4)
@@ -71,21 +73,22 @@ def calc_kl(i,k):
 	return constraints, sup_metric, kl
 
 
-def plot(dis_num):
+def plot(dis_num, dataset_num):
 	global df
 	plt.style.use('seaborn-darkgrid')
 
 	for ind, l in enumerate(lambdas):
-		cons[l], sups[l], kls[l] = calc_kl(ind+1, dis_num)
+		cons[l], sups[l], kls[l] = calc_kl(ind+1, dis_num, dataset_num)
 		plt.plot(sups[l], kls[l], label='Lambda :'+str(l))
 
 	plt.legend(fontsize=9)
 	plt.title('Maxent vs. Support: '+str(dis_num)+' diseases')
 	plt.xlabel('Support')
 	plt.ylabel('KL Divergence')
-	plt.show()
+	plt.savefig('../figures/syn_data/dataset'+dataset_num+'_dis'+str(dis_num)+'.png', format='png')
 
-	df.to_csv('../output/expt1.1/d'+str(dis_num)+'.csv', index=False)
+	df.to_csv('../output_s'+dataset_num+'/expt1.2/d'+str(dis_num)+'.csv', index=False)
+	print("Dataset", dataset_num, ' Diseases ', dis_num, 'Yes')
 
 # globally accessible variables
 lambdas = [0.42, 0.5, 0.63, 0.83, 1.25]
@@ -95,5 +98,5 @@ kls = {}
 cols = ['Lambda', 'Support', 'Constraints', 'KL Divergence']
 df = pd.DataFrame(columns=cols)
 dis_num = sys.argv[1]
-plot(dis_num)
-
+dataset_num = sys.argv[2]
+plot(dis_num, dataset_num)

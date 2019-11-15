@@ -40,8 +40,10 @@ def calc_kl(k, ds_num):
 		q = np.array(max_d)
 		r = np.array(emp_d)
 		try:
-			kl_1 = distance.jensenshannon(p, q)
-			kl_2 = distance.jensenshannon(p, r)
+			kl_1, p_val_1 = power_divergence(f_obs=q, f_exp=p, lambda_="cressie-read")
+			kl_2, p_val_2 = power_divergence(f_obs=s, f_exp=r, lambda_="cressie-read")
+			# kl_1 = distance.jensenshannon(p, q)
+			# kl_2 = distance.jensenshannon(p, r)
 		except FloatingPointError as e:
 			print('Infinity')
 
@@ -53,18 +55,20 @@ def calc_kl(k, ds_num):
 
 def plot(k, ds_num):
 	kl1, kl2 = calc_kl(k, ds_num)
-	print(kl1)
 	plt.style.use('seaborn-darkgrid')
 	lambdas = [0.42, 0.5, 0.63, 0.83, 1.25]
 
+	y_ticks = np.arange(0, 3, 0.5)
 	plt.plot(lambdas, kl1, marker='o', label='Maxent')
 	plt.plot(lambdas, kl2, marker='d', label='Empirical')
 
 	plt.legend(fontsize=9)
+	plt.yticks(y_ticks)
 	plt.title('Empirical vs. MaxEnt: '+str(k)+' diseases')
 	plt.xlabel('Lambdas')
-	plt.ylabel('KL Divergence')
-	plt.show()
+	plt.ylabel('Power Divergence')
+	plt.savefig('../figures/emp_max/dataset'+str(ds_num)+'_dis'+str(k)+'.png', format='png')
+
 
 num_dis = sys.argv[1]
 ds_num = sys.argv[2]

@@ -47,7 +47,8 @@ def calc_kl(k, file_num):
 		q = np.array(comp_dist)
 
 		try:
-			kl_div = kl_divergence(p, q)
+			kl_div, p_val = power_divergence(f_obs=q, f_exp=p, lambda_="cressie-read")
+			# kl_div = kl_divergence(p, q)
 		except FloatingPointError as e:
 			print('Infinity')
 

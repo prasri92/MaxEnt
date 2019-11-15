@@ -10,6 +10,7 @@ import csv
 import pandas as pd
 import sys
 import os.path 
+from scipy.stats import power_divergence
 
 np.seterr(all='raise')
 
@@ -46,7 +47,10 @@ def calc_kl(k):
 		p = np.array(true_dist)
 		q = np.array(maxent_dist)
 		try:
-			kl_div = kl_divergence(p, q)
+			# kl_div = kl_divergence(p, q)
+			kl_div, p_val = power_divergence(f_obs=q, f_exp=p, lambda_="cressie-read")
+			# print('Power Divergence is: ', kl_div)
+			# print('P value is: ', p_val)
 		except FloatingPointError as e:
 			print('Infinity')
 
@@ -73,7 +77,7 @@ def plot():
 	plt.legend(fontsize=9)
 	plt.title('Maxent vs. Lambda')
 	plt.xlabel('Lambda (Exponential Distribution')
-	plt.ylabel('KL Divergence')
+	plt.ylabel('Power Divergence')
 	plt.show()
 
 	df.to_csv('../output/expt1/d'+str(dis)+'.csv', index=False)

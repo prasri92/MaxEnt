@@ -44,8 +44,10 @@ def calc_kl(k, i=3):
 		r = np.array(maxent_r_up)
 		s = np.array(maxent_r_p)
 		try:
-			kl_1 = kl_divergence(p, q)
-			kl_2 = kl_divergence(r, s)
+			kl_1, p_val_1 = power_divergence(f_obs=q, f_exp=p, lambda_="cressie-read")
+			kl_2, p_val_2 = power_divergence(f_obs=s, f_exp=r, lambda_="cressie-read")
+			# kl_1 = kl_divergence(p, q)
+			# kl_2 = kl_divergence(r, s)
 		except FloatingPointError as e:
 			print('Infinity')
 

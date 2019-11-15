@@ -2,7 +2,7 @@
 
 ## Cluster generation 
 Parameters that are considered are: 
-1. Number of clusters (K): The number of clusters are chosen to reasonably divide diseases into multiple loosely correlated (largely uniform) clusters. 
+1. Number of clusters (C): The number of clusters are chosen to reasonably divide diseases into multiple loosely correlated (largely uniform) clusters. 
 | Diseases | Clusters |
 |----------|----------|
 | 4        | 2        |

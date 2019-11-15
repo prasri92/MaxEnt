@@ -55,7 +55,7 @@ def compute_prob_exact(optobj):
     
     return maxent_prob, maxent_sum_diseases, emp_prob
 
-def main(file_num=None, k=None, support=None, i=None):
+def main(file_num=None, k=None, dataset_num=None, support=None, i=None):
     '''
     file_num: handler for reference to different lambda's
     k: num of diseases
@@ -65,7 +65,7 @@ def main(file_num=None, k=None, support=None, i=None):
     tic = time.time()
 
     # generating synthetic data 
-    directory = '../dataset/d'+str(k)+'/synthetic_data_expt'+str(file_num)+'.csv'
+    directory = '../dataset_s'+str(dataset_num)+'/d'+str(k)+'/synthetic_data_expt'+str(file_num)+'.csv'
     
     # for synthetic data 
     cleaneddata = clean_preproc_data(directory)
@@ -73,7 +73,6 @@ def main(file_num=None, k=None, support=None, i=None):
     # cleaneddata = clean_preproc_data_real(directory)
 
     support_dict, two_wayc, three_wayc, four_wayc = marketbasket(cleaneddata, support)
-    print(len(two_wayc))
     if len(support_dict)==0 and len(two_wayc)==0 and len(three_wayc)==0 and len(four_wayc)==0:
         print("No associations are available with specified value of support, only MLE constraints")
         total_constraints = 0
@@ -118,13 +117,11 @@ def main(file_num=None, k=None, support=None, i=None):
 
     maxent, sum_prob_maxent, emp_prob = compute_prob_exact(opt)
     print()
-    print("Empirical: " +str(emp_prob))
     print("Maxent: " + str(sum_prob_maxent))
-    print("True distribution:" + str(read_prob_dist('../output/d'+str(k)+'/truedist_expt'+str(file_num)+'.pickle')))
+    print("True distribution:" + str(read_prob_dist('../output_s'+str(dataset_num)+'/d'+str(k)+'/truedist_expt'+str(file_num)+'.pickle')))
    
-
     # for synthetic data 
-    outfilename = '../output/d'+str(k)+'_expt1.1/syn_maxent_expt'+str(file_num)+'_s'+str(i)+'.pickle'
+    outfilename = '../output_s'+str(dataset_num)+'/d'+str(k)+'_expt1.2/syn_maxent_expt'+str(file_num)+'_s'+str(i)+'.pickle'
 
     with open(outfilename, "wb") as outfile:
         pickle.dump((maxent, sum_prob_maxent, emp_prob, num_constraints, support), outfile)
@@ -134,19 +131,34 @@ def main(file_num=None, k=None, support=None, i=None):
 
 if __name__ == '__main__':
     # for synthetic data 
-    num_dis = sys.argv[1]
-    file_num = sys.argv[2]
-    # If number of constraints are 0, then what? 
-
+    num_dis = int(sys.argv[1])
+    file_num = int(sys.argv[2])
+    dataset_num = int(sys.argv[3])
     # For all d4, d7, d10, support = [0.001, 0.1]
     # For d=15, l=0.42, support = [0.001 - 0.01], 
     # d=15, l=0.5, support = [0.001 - 0.02],
     # d=15, l=0.62, support = [0.001 - 0.03], 
     # d=15, l=0.83, support = [0.01 - 0.05]
-    # d-15, l=1.25, support = [0.01 - 0.06]
+    # d-15, l=1.25, support = [0.014/5 - 0.06]
+    if num_dis in [4,7,10]:
+        supports = list(np.linspace(0.001, 0.1, num=12))
+        print(supports)
+    elif num_dis == 15:
+        if file_num==1:
+            supports = list(np.linspace(0.001, 0.01, num=12))
+        elif file_num==2:
+            supports = list(np.linspace(0.001, 0.02, num=12))
+        elif file_num==3:
+            supports = list(np.linspace(0.001, 0.03, num=12))
+        elif file_num==4:
+            supports = list(np.linspace(0.01, 0.05, num=12))
+        elif file_num==5:
+            supports = list(np.linspace(0.015, 0.06, num=12))
 
-    supports = list(np.linspace(0.01, 0.06, num=12))
     for i,sup in enumerate(supports):
-        print("Support is now: ", sup)
-        main(int(file_num), int(num_dis), support=sup, i=i)
+        print("Support is now: ", sup)   
+        main(int(file_num), int(num_dis), dataset_num=dataset_num, support=sup, i=i)
 
+    # i=1
+    # sup=0.015
+    # main(int(file_num), int(num_dis), dataset_num=dataset_num, support=sup, i=i)

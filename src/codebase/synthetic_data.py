@@ -23,8 +23,8 @@ class Synthetic_object(object):
 		self.size = int(config[section]['size'])
 		self.p = float(config['GLOBAL']['p'])
 		self.q1 = float(config['GLOBAL']['q1'])
-		self.q2 = float(config['GLOBAL']['q2'])
 		self.z = float(config['GLOBAL']['z'])
+		self.q2 = 0.9
 
 		# Exponent for the exponential distribution 
 		self.expon_parameter = [0.8,1.2,1.6,2.0,2.4]
@@ -59,8 +59,10 @@ class Synthetic_object(object):
 		for num, l in enumerate(self.expon_parameter):
 			file_num = num+1
 			tau = self.generate_tau()
-			file_name_real = '../../output_s'+str(self.file_num)+'/d'+str(self.num_diseases)+'/truedist_expt'+str(file_num)+'.pickle'
-			file_name_synthetic = "../../dataset_s"+str(self.file_num)+"/d"+str(self.num_diseases)+"/synthetic_data_expt"+str(file_num)+".csv"
+			file_name_real = '../../output/d'+str(self.num_diseases)+'/truedist_expt'+str(file_num)+'.pickle'
+			file_name_synthetic = "../../dataset/d"+str(self.num_diseases)+"/synthetic_data_expt"+str(file_num)+".csv"
+			# file_name_real = '../../output_s'+str(self.file_num)+'/d'+str(self.num_diseases)+'/truedist_expt'+str(file_num)+'.pickle'
+			# file_name_synthetic = "../../dataset_s"+str(self.file_num)+"/d"+str(self.num_diseases)+"/synthetic_data_expt"+str(file_num)+".csv"
 			p1 = Process(target=self.get_true_distribution, args=(file_name_real, tau, l))
 			p2 = Process(target=self.get_synthetic_data, args=(file_name_synthetic, l, self.z, self.beta, self.size))
 			p1.start()
