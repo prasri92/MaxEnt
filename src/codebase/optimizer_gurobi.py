@@ -385,13 +385,20 @@ class Optimizer(object):
         # num_total_vectors = 2**(num_feats)-1
         # print('length of all_perms', len(all_perms)==num_total_vectors)
 
+        #Use a generator to yield only non zero vecotrs
+        def non_zero_vectors(self):
+            all_perms = itertools.product([0, 1], repeat=num_feats)
+            for i, vec in enumerate(all_perms):
+                if (i not in self.zero_indices):
+                    yield vec
 
-        all_perms = itertools.product([0, 1], repeat=num_feats)
+
+        #all_perms = itertools.product([0, 1], repeat=num_feats)
         num_total_vectors = 2**(num_feats)
         constraint_mat = np.zeros((num_total_vectors, len_theta))        
                 
 
-        for i, vec in enumerate(all_perms):
+        for i, vec in enumerate(non_zero_vectors(self)):
             tmpvec = np.asarray(vec)
             # tmp = self.compute_constraint_sum(thetas, tmpvec, partition)
             tmp_arr = self.util_compute_array(tmpvec, partition, twoway_dict, 
@@ -640,7 +647,7 @@ class Optimizer(object):
             permdict={} #dictionary for storing permutations and their corresponding number 
 
             for ind,perm in enumerate(all_perms):
-                print('Vector: ', perm, ' Empirical Probability: ', b_eq[ind])
+                #print('Vector: ', perm, ' Empirical Probability: ', b_eq[ind])
                 permdict[ind]=perm
                 J.append(ind)
 
@@ -663,7 +670,7 @@ class Optimizer(object):
             
             x={} #Empty dictionary to store all variables in the model
             l = self.build_constraint_matrix(diseases) #build constraint matrix
-            print('l:', l)
+            #print('l:', l)
             binarystrings={}
             for n in range(len(permdict)):
                 x[n]=model.addVar(ub=1.0, lb=0.0, obj=1.0) #each of the probabilities for all possible vectors
@@ -688,7 +695,7 @@ class Optimizer(object):
             for j in range(len(b_eq)):
                 J_j=J[j]
                 L=l.select('*',J_j)
-                print("J_j, L:", J_j, L)                
+                #print("J_j, L:", J_j, L)                
                 vars=[x[p] for p, q in L] #if i in J]
                 coeffs=[1]*len(vars)
                 expr=gurobipy.LinExpr(coeffs, vars)                
@@ -711,7 +718,7 @@ class Optimizer(object):
                 v.append(vars.x)
             #print('v:', v)    
             zero_indices=[i for i, Vars in enumerate(v) if Vars==0]
-            print('zero indices:', zero_indices)
+            #print('zero indices:', zero_indices)
             non_zero_indices=[i for i, Vars in enumerate(v) if Vars!=0]
             # for ind in zero_indices:
             #     print('Zero vector:', binarystrings[J[ind]])
@@ -721,9 +728,9 @@ class Optimizer(object):
             #Added the iterative method
             it_no=0
             while len(zero_indices)!=0:
-                print("Iteration number:", it_no) #Print iteration number
+                #print("Iteration number:", it_no) #Print iteration number
 
-                print("No. of zero vectors:", len(zero_indices))
+                #print("No. of zero vectors:", len(zero_indices))
                 
                 #for ind in zero_indices: #print zero indices
                     #print('Zero vector:', binarystrings[ind])
@@ -747,14 +754,16 @@ class Optimizer(object):
                 for vars in varslist:
                     v.append(vars.x)
                 prev_zero_indices=zero_indices
-                print("zero indices:", zero_indices)    
+                #print("zero indices:", zero_indices)    
                 zero_indices=[i for i, Vars in enumerate(v) if Vars==0]
                 non_zero_indices=[i for i, Vars in enumerate(v) if Vars!=0]
 
                 it_no+=1
 
                 if prev_zero_indices==zero_indices:
+                    self.zero_indices=zero_indices
                     print("There are zero vectors")
+                    print("Zero indices:", self.zero_indices)
                     break
             
             if len(zero_indices)==0:
