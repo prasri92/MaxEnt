@@ -18,7 +18,7 @@ sys.path.insert(0, path_to_codebase)
 from codebase.utils import clean_preproc_data
 from codebase.utils import clean_preproc_data_real
 from codebase.extract_features import ExtractFeatures
-from codebase.optimizer import Optimizer
+from codebase.optimizer_gurobi import Optimizer
 from codebase.mba import marketbasket
 
 def read_prob_dist(filename):
@@ -107,7 +107,7 @@ def main(file_num=None, k=None, support=None):
     opt = Optimizer(feats) 
 
     #Use LP to detect zero atoms 
-    # opt.exact_zero_detection(cleaneddata)
+    opt.exact_zero_detection(cleaneddata)
     # opt.approximate_zero_detection(cleaneddata)
     
     soln_opt = opt.solver_optimize()
