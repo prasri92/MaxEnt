@@ -18,6 +18,7 @@ sys.path.insert(0, path_to_codebase)
 from codebase.utils import clean_preproc_data
 from codebase.utils import clean_preproc_data_real
 from codebase.extract_features import ExtractFeatures
+# from codebase.optimizer_gurobi import Optimizer
 from codebase.optimizer import Optimizer
 from codebase.mba import marketbasket
 

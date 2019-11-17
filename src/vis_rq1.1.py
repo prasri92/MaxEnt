@@ -26,13 +26,13 @@ def read_maxent_prob(filename):
 		data = pickle.load(outfile,encoding='latin1')
 	return data[0], data[1], data[2]
 
-# Get kl divergence of probability distributions
-def kl_divergence(p, q):
+# Get divergence of probability distributions
+def divergence(p, q):
 	return (p*np.log(p/q)).sum()
 
-def calc_kl(k):
+def calc_div(k):
 	global df 
-	kl = []
+	div = []
 	for ind, l in enumerate(lambdas):
 		true_file = '../output/d'+str(k)+'/truedist_expt'+str(ind+1)+'.pickle'
 		true_dist, true_prob = read_true_prob(true_file)
@@ -48,45 +48,47 @@ def calc_kl(k):
 		q = np.array(maxent_dist)
 		try:
 			# kl_div = kl_divergence(p, q)
-			kl_div, p_val = power_divergence(f_obs=q, f_exp=p, lambda_="cressie-read")
+			pow_div, p_val = power_divergence(f_obs=q, f_exp=p, lambda_="cressie-read")
 			# print('Power Divergence is: ', kl_div)
 			# print('P value is: ', p_val)
 		except FloatingPointError as e:
 			print('Infinity')
 
-		kl_div = round(kl_div, 4)
-		kl.append(kl_div)
+		pow_div = round(pow_div, 4)
+		div.append(pow_div)
 
-		data_dict = {'Lambda':lambdas[ind],'# Diseases':k, 'KL Divergence':kl_div}
+		data_dict = {'Lambda':lambdas[ind],'# Diseases':k, 'Power Divergence':pow_div}
 		df = df.append(data_dict, ignore_index=True)
 
-	return kl
+	return div
 
 
 def plot():
 	global df
-	kls = {}
+	divs = {}
 	plt.style.use('seaborn-darkgrid')
 
 	for ind, dis in enumerate(diseases):
-		kls[dis] = calc_kl(dis)
-		plt.plot(lambdas, kls[dis], label=str(dis)+' diseases')
+		divs[dis] = calc_div(dis)
+		plt.plot(lambdas, divs[dis], label=str(dis)+' diseases')
 
-	y_ticks = np.arange(0, 2, 0.4)
-	plt.yticks(y_ticks)
+	# y_ticks = np.arange(0, 2, 0.4)
+	# plt.yticks(y_ticks)
 	plt.legend(fontsize=9)
-	plt.title('Maxent vs. Lambda')
-	plt.xlabel('Lambda (Exponential Distribution')
+	plt.title('Maximum Entropy for different lambda')
+	plt.xlabel('Lambda (Exponential Distribution)')
 	plt.ylabel('Power Divergence')
 	plt.show()
 
-	df.to_csv('../output/expt1/d'+str(dis)+'.csv', index=False)
+	print('DataFrame is:\n', df)
+
+	# df.to_csv('../output/expt1/d'+str(dis)+'.csv', index=False)
 
 # globally accessible variables
 diseases = [4,7,10,15]
 lambdas = [0.42, 0.5, 0.63, 0.83, 1.25]
 kls = {}
-cols = ['Lambda', '# Diseases', 'KL Divergence']
+cols = ['Lambda', '# Diseases', 'Power Divergence']
 df = pd.DataFrame(columns=cols)
 plot()
 

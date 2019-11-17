@@ -15,7 +15,10 @@ class Synthetic_object(object):
 		config.read('synthetic_data.ini')
 
 		section = opt_dict['section_name']
-		self.file_num = opt_dict['file_num']
+		if 'file' in opt_dict:
+			self.file = opt_dict['file']
+		else:
+			self.file = None
 
 		#Get parameters from config file
 		self.num_diseases = int(config[section]['num_diseases'])
@@ -59,10 +62,12 @@ class Synthetic_object(object):
 		for num, l in enumerate(self.expon_parameter):
 			file_num = num+1
 			tau = self.generate_tau()
-			file_name_real = '../../output/d'+str(self.num_diseases)+'/truedist_expt'+str(file_num)+'.pickle'
-			file_name_synthetic = "../../dataset/d"+str(self.num_diseases)+"/synthetic_data_expt"+str(file_num)+".csv"
-			# file_name_real = '../../output_s'+str(self.file_num)+'/d'+str(self.num_diseases)+'/truedist_expt'+str(file_num)+'.pickle'
-			# file_name_synthetic = "../../dataset_s"+str(self.file_num)+"/d"+str(self.num_diseases)+"/synthetic_data_expt"+str(file_num)+".csv"
+			if self.file==None:
+				file_name_real = '../../output/d'+str(self.num_diseases)+'/truedist_expt'+str(file_num)+'.pickle'
+				file_name_synthetic = "../../dataset/d"+str(self.num_diseases)+"/synthetic_data_expt"+str(file_num)+".csv"
+			else:
+				file_name_real = '../../output_s'+str(self.file)+'/d'+str(self.num_diseases)+'/truedist_expt'+str(file_num)+'.pickle'
+				file_name_synthetic = "../../dataset_s"+str(self.file)+"/d"+str(self.num_diseases)+"/synthetic_data_expt"+str(file_num)+".csv"
 			p1 = Process(target=self.get_true_distribution, args=(file_name_real, tau, l))
 			p2 = Process(target=self.get_synthetic_data, args=(file_name_synthetic, l, self.z, self.beta, self.size))
 			p1.start()
@@ -73,6 +78,9 @@ class Synthetic_object(object):
 if __name__ == '__main__':
 	# pass all options in the sys argv
 	options = sys.argv
-	opt_dict = {'section_name':str(sys.argv[1]), 'file_num':int(sys.argv[2])}
+	if len(sys.argv) > 2:
+		opt_dict = {'section_name':str(sys.argv[1]), 'file':int(sys.argv[2])}
+	else:
+		opt_dict = {'section_name':str(sys.argv[1])}
 	obj = Synthetic_object(opt_dict)
 	obj.main()

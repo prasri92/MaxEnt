@@ -65,7 +65,10 @@ def main(file_num=None, k=None, dataset_num=None, support=None, i=None):
     tic = time.time()
 
     # generating synthetic data 
-    directory = '../dataset_s'+str(dataset_num)+'/d'+str(k)+'/synthetic_data_expt'+str(file_num)+'.csv'
+    if dataset_num == None:
+        directory = '../dataset/d'+str(k)+'/synthetic_data_expt'+str(file_num)+'.csv'
+    else:
+        directory = '../dataset_s'+str(dataset_num)+'/d'+str(k)+'/synthetic_data_expt'+str(file_num)+'.csv'
     
     # for synthetic data 
     cleaneddata = clean_preproc_data(directory)
@@ -118,10 +121,16 @@ def main(file_num=None, k=None, dataset_num=None, support=None, i=None):
     maxent, sum_prob_maxent, emp_prob = compute_prob_exact(opt)
     print()
     print("Maxent: " + str(sum_prob_maxent))
-    print("True distribution:" + str(read_prob_dist('../output_s'+str(dataset_num)+'/d'+str(k)+'/truedist_expt'+str(file_num)+'.pickle')))
+    if dataset_num == None:
+        print("True distribution:" + str(read_prob_dist('../output/d'+str(k)+'/truedist_expt'+str(file_num)+'.pickle')))
+    else:
+        print("True distribution:" + str(read_prob_dist('../output_s'+str(dataset_num)+'/d'+str(k)+'/truedist_expt'+str(file_num)+'.pickle')))
    
     # for synthetic data 
-    outfilename = '../output_s'+str(dataset_num)+'/d'+str(k)+'_expt1.2/syn_maxent_expt'+str(file_num)+'_s'+str(i)+'.pickle'
+    if dataset_num == None:
+        outfilename = '../output/d'+str(k)+'_expt1.2/syn_maxent_expt'+str(file_num)+'_s'+str(i)+'.pickle'
+    else:
+        outfilename = '../output_s'+str(dataset_num)+'/d'+str(k)+'_expt1.2/syn_maxent_expt'+str(file_num)+'_s'+str(i)+'.pickle'
 
     with open(outfilename, "wb") as outfile:
         pickle.dump((maxent, sum_prob_maxent, emp_prob, num_constraints, support), outfile)
@@ -133,7 +142,11 @@ if __name__ == '__main__':
     # for synthetic data 
     num_dis = int(sys.argv[1])
     file_num = int(sys.argv[2])
-    dataset_num = int(sys.argv[3])
+    if len(sys.argv) > 3:
+        dataset_num = int(sys.argv[3])
+    else:
+        dataset_num = None
+
     # For all d4, d7, d10, support = [0.001, 0.1]
     # For d=15, l=0.42, support = [0.001 - 0.01], 
     # d=15, l=0.5, support = [0.001 - 0.02],
@@ -158,7 +171,3 @@ if __name__ == '__main__':
     for i,sup in enumerate(supports):
         print("Support is now: ", sup)   
         main(int(file_num), int(num_dis), dataset_num=dataset_num, support=sup, i=i)
-
-    # i=1
-    # sup=0.015
-    # main(int(file_num), int(num_dis), dataset_num=dataset_num, support=sup, i=i)

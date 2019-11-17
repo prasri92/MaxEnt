@@ -11,6 +11,7 @@ import pandas as pd
 import sys
 import os.path 
 from collections import defaultdict
+from scipy.stats import power_divergence
 
 '''
 TODO: Optimize readingo of the maxent file, it is happening twice
@@ -31,72 +32,92 @@ def read_maxent_prob(filename):
 		data = pickle.load(outfile,encoding='latin1')
 	return data[0], data[1], data[2], data[3], data[4]
 
-# Get kl divergence of probability distributions
-def kl_divergence(p, q):
-	return (p*np.log(p/q)).sum()
+# Get power divergence of probability distributions
+def divergence(p, q):
+	div, _ = power_divergence(f_obs=q, f_exp=p, lambda_="mod-log-likelihood")
+	return div
+	# return (p*np.log(p/q)).sum()
 
-def calc_kl(i,k,dataset_num):
+def calc_div(i,k,dataset_num=None):
 	constraints = []
 	sup_metric = []
-	kl = []
+	divs = []
 	global df 
 	for j in range(12):
-		true_file = '../output_s'+dataset_num+'/d'+str(k)+'/truedist_expt'+str(i)+'.pickle'
-		true_dist, true_prob = read_true_prob(true_file)
-
-		maxent_file = '../output_s'+dataset_num+'/d'+str(k)+'_expt1.2/syn_maxent_expt'+str(i)+'_s'+str(j)+'.pickle'
+		if dataset_num == None:
+			true_file = '../output/d'+str(k)+'/truedist_expt'+str(i)+'.pickle'
+			maxent_file = '../output/d'+str(k)+'_expt1.2/syn_maxent_expt'+str(i)+'_s'+str(j)+'.pickle'
+		else:
+			true_file = '../output_s'+dataset_num+'/d'+str(k)+'/truedist_expt'+str(i)+'.pickle'
+			maxent_file = '../output_s'+dataset_num+'/d'+str(k)+'_expt1.2/syn_maxent_expt'+str(i)+'_s'+str(j)+'.pickle'
+		
 		maxent_dist, maxent_prob, emp_prob, num_constraints, support = read_maxent_prob(maxent_file)
+		true_dist, true_prob = read_true_prob(true_file)
 
 		emp_prob = np.around(emp_prob, decimals=4)
 		maxent_prob = np.around(maxent_prob, decimals=4)
 		true_prob = np.around(true_prob, decimals=4)
 		support = np.around(support, decimals=3)
 
+		np.seterr(all='ignore')
 		p = np.array(true_dist)
 		q = np.array(maxent_dist)
 		try:
-			kl_div, p_val = power_divergence(f_obs=q, f_exp=p, lambda_="cressie-read")
+			div = divergence(p,q)
 			# kl_div = kl_divergence(p, q)
 		except FloatingPointError as e:
-			kl_div = 10
-			print('Infinity')
+			# CHECK IF FIX BY ZERO ATOM DETECTION 
+			# print(q)
+			# print(np.isfinite(q).all())
+			# print(p)
+			print(e)
+			# print(q)
+			# div = 0.0
+			print('Divide by zero encountered')
 
-		kl_div = round(kl_div, 4)
+		div = round(div, 4)
 		constraints.append(num_constraints)
 		sup_metric.append(support)
-		kl.append(kl_div)
+		divs.append(div)
 
 		data_dict = {'Lambda':lambdas[i-1], 'Support':support, 'Constraints':num_constraints, \
-			 'KL Divergence':kl_div}
+			 'Power Divergence':div}
 		df = df.append(data_dict, ignore_index=True)
 
-	return constraints, sup_metric, kl
+	return constraints, sup_metric, divs
 
 
-def plot(dis_num, dataset_num):
+def plot(dis_num, dataset_num=None):
 	global df
 	plt.style.use('seaborn-darkgrid')
 
 	for ind, l in enumerate(lambdas):
-		cons[l], sups[l], kls[l] = calc_kl(ind+1, dis_num, dataset_num)
-		plt.plot(sups[l], kls[l], label='Lambda :'+str(l))
+		cons[l], sups[l], div_vals[l] = calc_div(ind+1, dis_num, dataset_num)
+		plt.plot(sups[l], div_vals[l], label='Lambda :'+str(l))
 
 	plt.legend(fontsize=9)
 	plt.title('Maxent vs. Support: '+str(dis_num)+' diseases')
 	plt.xlabel('Support')
-	plt.ylabel('KL Divergence')
-	plt.savefig('../figures/syn_data/dataset'+dataset_num+'_dis'+str(dis_num)+'.png', format='png')
-
-	df.to_csv('../output_s'+dataset_num+'/expt1.2/d'+str(dis_num)+'.csv', index=False)
-	print("Dataset", dataset_num, ' Diseases ', dis_num, 'Yes')
+	plt.ylabel('Power Divergence')
+	if dataset_num == None:
+		plt.savefig('../figures/expt1.2/main_dis'+str(dis_num)+'.png', format='png')
+		df.to_csv('../output/expt1.2/d'+str(dis_num)+'.csv', index=False)
+	else:
+		plt.savefig('../figures/expt1.2/dataset'+dataset_num+'_dis'+str(dis_num)+'.png', format='png')
+		df.to_csv('../output_s'+dataset_num+'/expt1.2/d'+str(dis_num)+'.csv', index=False)
+		print("Dataset", dataset_num, ' Diseases ', dis_num, 'Yes')
 
 # globally accessible variables
 lambdas = [0.42, 0.5, 0.63, 0.83, 1.25]
 cons = {}
 sups = {}
-kls = {}
-cols = ['Lambda', 'Support', 'Constraints', 'KL Divergence']
+div_vals = {}
+cols = ['Lambda', 'Support', 'Constraints', 'Power Divergence']
 df = pd.DataFrame(columns=cols)
+
 dis_num = sys.argv[1]
-dataset_num = sys.argv[2]
-plot(dis_num, dataset_num)
+if len(sys.argv) > 2:
+	dataset_num = sys.argv[2]
+	plot(dis_num, dataset_num)
+else:
+	plot(dis_num)
