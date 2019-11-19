@@ -11,8 +11,9 @@ import pandas as pd
 import sys
 import os.path 
 from scipy.stats import power_divergence
+from scipy.spatial import distance
 
-np.seterr(all='raise')
+# np.seterr(all='raise')
 
 # Read the true prob. distribution for sum of diseases
 def read_true_prob(filename):
@@ -44,11 +45,13 @@ def calc_div(k):
 		maxent_prob = np.around(maxent_prob, decimals=4)
 		true_prob = np.around(true_prob, decimals=4)
 
+		np.seterr(all='ignore')
 		p = np.array(true_dist)
 		q = np.array(maxent_dist)
 		try:
 			# kl_div = kl_divergence(p, q)
-			pow_div, p_val = power_divergence(f_obs=q, f_exp=p, lambda_="cressie-read")
+			# pow_div = distance.jensenshannon(p, q)
+			pow_div, p_val = power_divergence(f_obs=q, f_exp=p, lambda_="freeman-tukey")
 			# print('Power Divergence is: ', kl_div)
 			# print('P value is: ', p_val)
 		except FloatingPointError as e:
@@ -72,8 +75,8 @@ def plot():
 		divs[dis] = calc_div(dis)
 		plt.plot(lambdas, divs[dis], label=str(dis)+' diseases')
 
-	# y_ticks = np.arange(0, 2, 0.4)
-	# plt.yticks(y_ticks)
+	y_ticks = np.arange(0, 2.4, 0.4)
+	plt.yticks(y_ticks)
 	plt.legend(fontsize=9)
 	plt.title('Maximum Entropy for different lambda')
 	plt.xlabel('Lambda (Exponential Distribution)')
@@ -82,11 +85,11 @@ def plot():
 
 	print('DataFrame is:\n', df)
 
-	# df.to_csv('../output/expt1/d'+str(dis)+'.csv', index=False)
+	df.to_csv('../output/expt1.1/d'+str(dis)+'.csv', index=False)
 
 # globally accessible variables
 diseases = [4,7,10,15]
-lambdas = [0.42, 0.5, 0.63, 0.83, 1.25]
+lambdas = [1.25,0.83,0.63,0.5,0.42]
 kls = {}
 cols = ['Lambda', '# Diseases', 'Power Divergence']
 df = pd.DataFrame(columns=cols)

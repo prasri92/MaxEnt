@@ -12,6 +12,7 @@ import sys
 import os.path 
 from collections import defaultdict
 from scipy.stats import power_divergence
+from scipy.spatial import distance
 
 '''
 TODO: Optimize readingo of the maxent file, it is happening twice
@@ -34,7 +35,8 @@ def read_maxent_prob(filename):
 
 # Get power divergence of probability distributions
 def divergence(p, q):
-	div, _ = power_divergence(f_obs=q, f_exp=p, lambda_="mod-log-likelihood")
+	# div = distance.jensenshannon(p,q)
+	div, _ = power_divergence(f_obs=q, f_exp=p, lambda_="freeman-tukey")
 	return div
 	# return (p*np.log(p/q)).sum()
 
@@ -59,7 +61,9 @@ def calc_div(i,k,dataset_num=None):
 		true_prob = np.around(true_prob, decimals=4)
 		support = np.around(support, decimals=3)
 
-		np.seterr(all='ignore')
+		# While using the Jensen Shannon divergence allows us to ignore the divergence 
+		# where the probabilities are zero. 
+		# np.seterr(all='ignore')
 		p = np.array(true_dist)
 		q = np.array(maxent_dist)
 		try:
@@ -67,8 +71,8 @@ def calc_div(i,k,dataset_num=None):
 			# kl_div = kl_divergence(p, q)
 		except FloatingPointError as e:
 			# CHECK IF FIX BY ZERO ATOM DETECTION 
-			# print(q)
-			# print(np.isfinite(q).all())
+			print(q)
+			print(np.isfinite(q).all())
 			# print(p)
 			print(e)
 			# print(q)
@@ -99,16 +103,18 @@ def plot(dis_num, dataset_num=None):
 	plt.title('Maxent vs. Support: '+str(dis_num)+' diseases')
 	plt.xlabel('Support')
 	plt.ylabel('Power Divergence')
+	y_ticks = np.arange(0,0.5,0.1)
+	plt.yticks(y_ticks)
 	if dataset_num == None:
-		plt.savefig('../figures/expt1.2/main_dis'+str(dis_num)+'.png', format='png')
-		df.to_csv('../output/expt1.2/d'+str(dis_num)+'.csv', index=False)
+		plt.savefig('../figures/expt1.2/main_dis'+str(dis_num)+'_powdiv.png', format='png')
+		df.to_csv('../output/expt1.2/d'+str(dis_num)+'_powdiv.csv', index=False)
 	else:
 		plt.savefig('../figures/expt1.2/dataset'+dataset_num+'_dis'+str(dis_num)+'.png', format='png')
 		df.to_csv('../output_s'+dataset_num+'/expt1.2/d'+str(dis_num)+'.csv', index=False)
 		print("Dataset", dataset_num, ' Diseases ', dis_num, 'Yes')
 
 # globally accessible variables
-lambdas = [0.42, 0.5, 0.63, 0.83, 1.25]
+lambdas = [1.25,0.83,0.63,0.5,0.42]
 cons = {}
 sups = {}
 div_vals = {}
