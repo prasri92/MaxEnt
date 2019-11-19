@@ -89,9 +89,9 @@ def main(file_num=None, support=None):
     # directory = '../dataset/real_subsets/4d_0.csv'
 
     # generating synthetic data 
-    directory = '../dataset/d50_4/synthetic_data_expt'+str(file_num)+'.csv'
+    # directory = '../dataset/d50_4/synthetic_data_expt'+str(file_num)+'.csv'
     # directory = '../dataset/d200_4/synthetic_data_expt'+str(file_num)+'.csv'
-    # directory = '../dataset/d250_10/synthetic_data_expt'+str(file_num)+'.csv'
+    directory = '../dataset/d250_10/synthetic_data_expt'+str(file_num)+'.csv'
     # directory = '../dataset/d350_15/synthetic_data_expt'+str(file_num)+'.csv'
     # directory = '../dataset/d500_20/synthetic_data_expt'+str(file_num)+'.csv'
     

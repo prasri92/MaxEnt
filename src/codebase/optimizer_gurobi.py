@@ -40,6 +40,7 @@ class Optimizer(object):
         self.feats_obj = features_object
         self.opt_sol = None     
         self.norm_z = None
+        self.zero_indices=[] #used to keep track of zero indices
         
 
     # Utility function to check whether a tuple (key from constraint dict)
@@ -558,7 +559,10 @@ class Optimizer(object):
         """
         An exact iterative method for the detection of zero probabilities of the "r" vector of a patient.
         Considers all vectors to be zero vectors at first, and then after running through the lin prog, 
-        returns all actual zero vectors
+        gets the zero vectors. The zero vectors obtained from the solution are exclusively used in the objective
+        function of the next iteration until the linear program returns the exact same zero vectors or no zero
+        vectors  
+        
         Args:
             partition: The set of all diseases present in the partition
             constraint_mat: Set of constraints to be satisfied 
@@ -575,11 +579,11 @@ class Optimizer(object):
         '''
 
         parts = self.feats_obj.feat_partitions
-        non_single_parts=[p for p in parts if len(p)!=1]
+        non_single_parts=[p for p in parts if len(p)!=1] #non single parts is a list of list containing only those clusters with multiple diseases
         
-        for i in non_single_parts:
-            indices = list(i)
-            num_feats = len(i)
+        for nsp in non_single_parts: #i in non_single_parts:
+            indices = list(nsp)
+            num_feats = len(nsp)
             print("indices:", indices)
             print("num_feats:", num_feats)
 
@@ -636,28 +640,27 @@ class Optimizer(object):
             print('Remove vectors from the b_eq matrix with zero marginal probabilities: Done before first iteration of zero atom detection')
             remove_indices = []
             
-            for i, val in enumerate(b_eq):
+            for i_beq, val in enumerate(b_eq):
                 if val == 0.0:
-                    remove_indices.append(i)
+                    remove_indices.append(i_beq)
 
-            J=[]
+            J=[] #J is a list used to keep track of all associated vector indices
 
             all_perms = list(itertools.product([0,1], repeat=diseases))
             
-            permdict={} #dictionary for storing permutations and their corresponding number 
 
-            for ind,perm in enumerate(all_perms):
+
+            for i_perms,perm in enumerate(all_perms):
                 #print('Vector: ', perm, ' Empirical Probability: ', b_eq[ind])
-                permdict[ind]=perm
-                J.append(ind)
+                J.append(i_perms)
 
-            #print('Permdict:', permdict)
+
     
 
             #Delete rows of A_eq
-            b_eq = np.delete(np.array(b_eq), remove_indices, axis=0)
+            b_eq = np.delete(np.array(b_eq), remove_indices, axis=0) #Remove b_eq with zero values
 
-            J=sorted(list(np.delete(np.array(J), remove_indices, axis=0))) #J is the list of all vectors
+            J=sorted(list(np.delete(np.array(J), remove_indices, axis=0))) #Remove J with zero values
 
 
 
@@ -672,7 +675,7 @@ class Optimizer(object):
             l = self.build_constraint_matrix(diseases) #build constraint matrix
             #print('l:', l)
             binarystrings={}
-            for n in range(len(permdict)):
+            for n in range(len(J)):
                 x[n]=model.addVar(ub=1.0, lb=0.0, obj=1.0) #each of the probabilities for all possible vectors
                 binarystrings[n]=format(n, '0'+str(diseases)+'b')
                         #Linear Program using simplex method
@@ -714,8 +717,8 @@ class Optimizer(object):
             varslist=model.getVars()
             #print('varslist:', varslist)
             v=[]
-            for vars in varslist:
-                v.append(vars.x)
+            for vrbls in varslist:
+                v.append(vrbls.x)
             #print('v:', v)    
             zero_indices=[i for i, Vars in enumerate(v) if Vars==0]
             #print('zero indices:', zero_indices)
@@ -725,7 +728,10 @@ class Optimizer(object):
             
             #print('solution:', v)
 
-            #Added the iterative method
+            """After solving the linear program for all possible vectors, we recursively change the objective function
+            to in include only those vectors that have zero probabilities"""
+
+        
             it_no=0
             while len(zero_indices)!=0:
                 #print("Iteration number:", it_no) #Print iteration number
@@ -751,8 +757,8 @@ class Optimizer(object):
                 model.optimize()
                 varslist=model.getVars()
                 v=[]
-                for vars in varslist:
-                    v.append(vars.x)
+                for vrbls in varslist:
+                    vrbls.append(vars.x)
                 prev_zero_indices=zero_indices
                 #print("zero indices:", zero_indices)    
                 zero_indices=[i for i, Vars in enumerate(v) if Vars==0]
@@ -931,10 +937,14 @@ class Optimizer(object):
         solution = self.opt_sol
         norm_sol = self.norm_z
 
-        # partition will be a set of indices in the i-th parition        
+        # partition will be a set of indices n the i-th parition        
         for i, partition in enumerate(parts):
             tmpvec = rvec[partition]
-            term_exp = self.compute_constraint_sum(solution[0]['x'], tmpvec, partition)
+            #@print("What is this solution:", solution)
+            if len(partition)>1:
+                term_exp = self.compute_constraint_sum(solution[i].get('x'), tmpvec, partition)
+            else:
+                term_exp = self.compute_constraint_sum(solution[i][0], tmpvec, partition)    
 
             part_logprob = term_exp - np.log(norm_sol[i])
             log_prob += part_logprob
