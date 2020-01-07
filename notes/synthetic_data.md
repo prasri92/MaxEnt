@@ -29,14 +29,13 @@ We can test how increasing the number of clusters change the true disease distri
 ## Patient Generation 
 The parameters for generating a patient vector are:
 1. Number of diseases a patient has (n): The number of diseases a patient vector has is chosen according to a truncated exponential distribution (with an exponential value of [0.8,1.2,1.6,2.0,2.4]. Note that this translates to a $\lambda$ of [0.42, 0.5, 0.62, 0.83, 1.25]). (Choice of $\lambda$ is motivated by observation of exponent in real-dataset) 
-2. Choice of disease cluster for 'in-cluster' diseases (k): The choice of cluster depends on a truncated zipfian distribution (Current choice of 2.0 for generating zipfian distribution). 
-3. Number of 'in-cluster' diseases (C): According to binomial(n,q1) (currently q1=0.5)
-4. Number of exclusive diseases from chosen cluster (A): According to binomial distribution(n, q2) (currently q2=0.5). 
+2. Choice of disease cluster for 'in-cluster' diseases (k): The choice of cluster depends on a truncated zipfian distribution (Current choice of 0.0 for generating zipfian distribution). 
+3. Number of 'in-cluster' diseases (C): According to binomial(n,q1) (currently q1=0.75)
+
 
 ### Possible variations
 1. Vary the distribution from which choice of cluster for 'in-cluster' diseases are picked. (zipf value can be in the range [0.0, 2.0, 4.0])
 2. q1 = 0.25, 0.5, 0.75
-3. q2 = 0.25, 0.5, 0.75
 
 ## Experimental evaluation
 ### Experiment 1
@@ -93,4 +92,9 @@ Final conclusions can be drawn by averaging over these variations.
 3. Plot of all 9 different combinations 
 4. Same parameters repeated multiple times will have the same true distribution but different synthetic data.  
 
+Combinations - 
+1. Cluster size (config 1, config 2)
+2. z = [0.0, 2.0, 4.0]
+3. q1 = [0.25, 0.5, 0.75]
 
+18 possible combinations, 2 of each as there is variance in the cluster? 

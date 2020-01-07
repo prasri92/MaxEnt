@@ -4,15 +4,18 @@ from multiprocessing import Process
 import numpy as np
 import sys
 import configparser
+import json
 
-
+'''
+Used for multiple configurations 
+'''
 class Synthetic_object(object):
 	'''
 	Class to hold parameters for synthetic data generation
 	'''
 	def __init__(self, opt_dict):
-		config = configparser.ConfigParser()
-		config.read('synthetic_data.ini')
+		with open('syn_config.json') as config_file:
+			data = json.load(config_file)
 
 		section = opt_dict['section_name']
 		if 'file' in opt_dict:
@@ -20,6 +23,9 @@ class Synthetic_object(object):
 		else:
 			self.file = None
 
+		config_number = opt_dict['config_number']
+		config = data['config'+str(config_number)]
+		
 		#Get parameters from config file
 		self.num_diseases = int(config[section]['num_diseases'])
 		self.clusters = int(config[section]['clusters'])
@@ -78,9 +84,9 @@ class Synthetic_object(object):
 if __name__ == '__main__':
 	# pass all options in the sys argv
 	options = sys.argv
-	if len(sys.argv) > 2:
-		opt_dict = {'section_name':str(sys.argv[1]), 'file':int(sys.argv[2])}
+	if len(sys.argv) > 3:
+		opt_dict = {'section_name':str(sys.argv[1]), 'config_number':sys.argv[2], 'file':int(sys.argv[3])}
 	else:
-		opt_dict = {'section_name':str(sys.argv[1])}
+		opt_dict = {'section_name':str(sys.argv[1]), 'config_number':sys.argv[2]}
 	obj = Synthetic_object(opt_dict)
 	obj.main()

@@ -18,7 +18,7 @@ sys.path.insert(0, path_to_codebase)
 from codebase.utils import clean_preproc_data
 from codebase.utils import clean_preproc_data_real
 from codebase.extract_features import ExtractFeatures
-from codebase.optimizer_gurobi import Optimizer
+from codebase.optimizer_gurobi_v2 import Optimizer
 # from codebase.optimizer import Optimizer
 from codebase.mba import marketbasket
 
@@ -40,7 +40,7 @@ def compute_prob_exact(optobj):
     for tmp in all_perms:
         vec = np.asarray(tmp)
         p_vec = optobj.prob_dist(vec)
-        # print('Vector:', vec, ' Probability: ', p_vec)
+        print('Vector:', vec, ' Probability: ', p_vec)
         j = sum(vec)
         maxent_sum_diseases[j] += p_vec
         total_prob += p_vec
@@ -63,10 +63,10 @@ def main(file_num=None, k=None, support=None):
     support: input different support values
     '''
     #Support for marketbasket analysis
-    support_vals = {4:{1:0.045, 2:0.063, 3:0.063, 4:0.081, 5:0.082}, 
-                    7:{1:0.018, 2:0.036, 3:0.063, 4:0.063, 5:0.1},
-                    10:{1:0.009, 2:0.018, 3:0.027, 4:0.036, 5:0.054},
-                    15:{1:0.003, 2:0.006, 3:0.011, 4:0.020, 5:0.027}}
+    support_vals = {4:{1:0.072, 2:0.0763, 3:0.0751, 4:0.0792, 5:0.0751}, 
+                    7:{1:0.06, 2:0.0375, 3:0.0452, 4:0.0686, 5:0.848},
+                    10:{1:0.0632, 2:0.0298, 3:0.0267, 4:0.0378, 5:0.0545},
+                    15:{1:0.0086, 2:0.0106, 3:0.0127, 4:0.0205, 5:0.0295}}
     support = support_vals[k][file_num]
     
     #Measure time to compute maxent
@@ -122,7 +122,7 @@ def main(file_num=None, k=None, support=None):
     print("Maxent: " + str(sum_prob_maxent))
     print("True distribution:" + str(read_prob_dist('../output/d'+str(k)+'/truedist_expt'+str(file_num)+'.pickle')))
    
-    # for synthetic data 
+    # # for synthetic data 
     # outfilename = '../output/d'+str(k)+'/syn_maxent_expt'+str(file_num)+'.pickle'
 
     # with open(outfilename, "wb") as outfile:

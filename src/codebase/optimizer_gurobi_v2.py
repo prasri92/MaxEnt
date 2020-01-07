@@ -40,7 +40,7 @@ class Optimizer(object):
         self.feats_obj = features_object
         self.opt_sol = None     
         self.norm_z = None
-        self.zero_indices = []
+        self.zero_indices = {}
         
 
     # Utility function to check whether a tuple (key from constraint dict)
@@ -360,7 +360,9 @@ class Optimizer(object):
         # (1) all the marginal constraints
         # (2) all the two-way constraints
         # (3) all the three-way constraints
-        # (4) all the four-way constraints       
+        # (4) all the four-way constraints
+        print("\n")
+        print('partition for calculation:', partition)       
 
         twoway_dict = self.feats_obj.two_way_dict
         threeway_dict = self.feats_obj.three_way_dict
@@ -386,21 +388,22 @@ class Optimizer(object):
         # print('length of all_perms', len(all_perms)==num_total_vectors)
 
         all_perms = itertools.product([0, 1], repeat=num_feats)
+        
         #Use a generator to yield only non zero vecotrs
-        def non_zero_vectors(self):
+        def non_zero_vectors(self, partition):
             for i, vec in enumerate(all_perms):
-                if (i not in self.zero_indices):
+                if (i not in self.zero_indices[tuple(partition)]):
                     yield vec
 
         N = self.feats_obj.N
 
         #all_perms = itertools.product([0, 1], repeat=num_feats)
         num_total_vectors = 2**(num_feats)
-        if len(self.zero_indices)!=0:
-            num_total_vectors -= len(self.zero_indices)
+        if len(self.zero_indices)!=0 and tuple(partition) in self.zero_indices.keys():
+            num_total_vectors -= len(self.zero_indices[tuple(partition)])
         constraint_mat = np.zeros((num_total_vectors, len_theta))        
                 
-        for i, vec in enumerate(non_zero_vectors(self)):
+        for i, vec in enumerate(non_zero_vectors(self, partition)):
             tmpvec = np.asarray(vec)
             # tmp = self.compute_constraint_sum(thetas, tmpvec, partition)
             tmp_arr = self.util_compute_array(tmpvec, partition, twoway_dict, 
@@ -497,9 +500,9 @@ class Optimizer(object):
             into smaller subsets, and their individual probabilities are summed. 
             Each subset represents the diseases and constraints  
             '''
-            indices = [str(i) for i in indices]
+            indices_str = [str(i) for i in indices]
 
-            data = cleaneddata[indices]
+            data = cleaneddata[indices_str]
             size = data.shape[0]
             diseases = data.shape[1]
             cols = np.arange(diseases)
@@ -577,10 +580,11 @@ class Optimizer(object):
 
         parts = self.feats_obj.feat_partitions
         non_single_parts=[p for p in parts if len(p)!=1]
-        
+
         for nsp in non_single_parts:
             indices = list(nsp)
             num_feats = len(nsp)
+            print("\n")
             print("Diseases:", indices)
             print("Number of diseases:", num_feats)
 
@@ -601,10 +605,12 @@ class Optimizer(object):
             into smaller subsets, and their individual probabilities are summed. 
             Each subset represents the diseases and constraints  
             '''
-            indices = [str(i) for i in indices]
+            indices_str = [str(i) for i in indices]
+            #print("indices:", indices)
+            #print("indices_str", indices_str)
 
 
-            data = cleaneddata[indices]
+            data = cleaneddata[indices_str]
             size = data.shape[0]
             diseases = data.shape[1]
             cols = np.arange(diseases)
@@ -631,32 +637,33 @@ class Optimizer(object):
                 b_eq.append(m)
 
  
-            print('Remove vectors from the b_eq matrix with zero marginal probabilities: Done before first iteration of zero atom detection')
-            remove_indices = []
+            # print('Remove vectors from the b_eq matrix with zero marginal probabilities: Done before first iteration of zero atom detection')
+            # remove_indices = []
             
-            for i_beq, val in enumerate(b_eq):
-                if val == 0.0:
-                    remove_indices.append(i_beq)
+            # for i_beq, val in enumerate(b_eq):
+            #     if val == 0.0:
+            #         remove_indices.append(i_beq)
 
             J=[]
 
             all_perms = list(itertools.product([0,1], repeat=diseases))
             
-            # permdict={} #dictionary for storing permutations and their corresponding number 
+            permdict={} #dictionary for storing permutations and their corresponding number 
 
             for i_perms,perm in enumerate(all_perms):
-                #print('Vector: ', perm, ' Empirical Probability: ', b_eq[ind])
-                # permdict[ind]=perm
-                J.append(i_perms)
+                 # print('Vctor: ', perm, ' Empirical Probability: ', b_eq[ind])
+                 # permdict[ind]=perm
+                 J.append(i_perms)
 
-            #print('Permdict:', permdict)
+            # #print('length of all perms:', len(all_perms))
+
     
 
-            #Delete rows of A_eq
-            b_eq = np.delete(np.array(b_eq), remove_indices, axis=0)
+            # #Delete rows of A_eq
+            # b_eq = np.delete(np.array(b_eq), remove_indices, axis=0)
 
-            J=sorted(list(np.delete(np.array(J), remove_indices, axis=0))) #J is the list of all vectors
-
+            # J=sorted(list(np.delete(np.array(J), remove_indices, axis=0))) #J is the list of all vectors
+            # #print('length of J:', len(J))
             
             """Build the primal constraint matrix and objective function in Gurobi"""
             
@@ -664,7 +671,7 @@ class Optimizer(object):
             l = self.build_constraint_matrix(diseases) #build constraint matrix
             #print('l:', l)
             binarystrings={}
-            for n in range(len(J)):
+            for n in range(len(all_perms)):
                 x[n]=model.addVar(ub=1.0, lb=0.0, obj=1.0) #each of the probabilities for all possible vectors
                 binarystrings[n]=format(n, '0'+str(diseases)+'b')
                         #Linear Program using simplex method
@@ -678,37 +685,41 @@ class Optimizer(object):
             #print('l:', l[0:100])
 
             #Initialize constraint dictionary
-
+            #print("Variable dictionary:", x)
             #Add all respective marginal constraints
             for j in range(len(b_eq)):
                 J_j=J[j]
                 L=l.select('*',J_j)
                 #print("J_j, L:", J_j, L)                
-                vars=[x[p] for p, q in L] #if i in J]
-                coeffs=[1]*len(vars)
-                expr=gurobipy.LinExpr(coeffs, vars)                
+                variables=[x[p] for p, q in L] #if i in J]
+                coeffs=[1]*len(variables)
+                expr=gurobipy.LinExpr(coeffs, variables)                
                 model.addConstr(lhs=expr, sense=gurobipy.GRB.EQUAL, rhs=b_eq[j]) 
             
             #Add probability sum constraint
             coeffs=[1]*len(x)
-            vars=[x[i] for i in x.keys()]
-            expr=gurobipy.LinExpr(coeffs, vars)
+            sum_vars=[x[i] for i in x.keys()]
+            expr=gurobipy.LinExpr(coeffs, sum_vars)
             model.addConstr(lhs=expr, sense=gurobipy.GRB.EQUAL, rhs=1.0)
 
-            # model.write("LP.lp")
+            model.write("LP.lp")
             model.optimize()
             varslist=model.getVars()
             #print('varslist:', varslist)
             v=[]
             for vrbls in varslist:
                 v.append(vrbls.x)
-            #print('v:', v)    
+            #print('v:', v)   
             zero_indices=[i for i, Vars in enumerate(v) if Vars==0]
             #print('zero indices:', zero_indices)
             non_zero_indices=[i for i, Vars in enumerate(v) if Vars!=0]
             # for ind in zero_indices:
             #     print('Zero vector:', binarystrings[J[ind]])
             
+            """If no zero vectors in the first iteration itself, break the loop and keep a note"""
+            if zero_indices==[]:
+                self.zero_indices[tuple(indices)]=zero_indices
+                continue            
             #print('solution:', v)
 
             #Added the iterative method
@@ -733,27 +744,41 @@ class Optimizer(object):
                 #Solve the model
                 model.update()
                 model.Modelsense=GRB.MAXIMIZE
-                # model.write("LP.lp")
-                model.optimize()
+                model.write("LP.lp")
+                model.optimize()                
                 varslist=model.getVars()
                 v=[]
                 for vrbls in varslist:
                     v.append(vrbls.x)
-                prev_zero_indices=zero_indices
-                #print("zero indices:", zero_indices)    
+                prev_zero_indices=zero_indices    
+                #print("Vars list:", v)
                 zero_indices=[i for i, Vars in enumerate(v) if Vars==0]
+                #print("zero indices:", zero_indices)                
                 non_zero_indices=[i for i, Vars in enumerate(v) if Vars!=0]
 
                 it_no+=1
 
                 if prev_zero_indices==zero_indices:
-                    self.zero_indices=zero_indices
-                    print("There are zero vectors")
-                    print("Zero indices:", self.zero_indices)
+                    self.zero_indices[tuple(indices)]=zero_indices
+                    zero_indices=[]
+                    print("There are zero vectors in cluster")
+                    #print("Cluster:", tuple(indices))
+                    print("Zero vectors:", self.zero_indices[tuple(indices)])
                     break
             
-            if len(zero_indices)==0:
-                print("There are no zero vectors")
+            if len(self.zero_indices.values())==0:
+                zero_indices=[]
+                print("There are no zero vectors in the entire model")
+
+            #it_no+=1    
+
+            '''Reset the Gurobi model for use in the next cluster iteration if required'''
+            model.setObjective(0.0) #reset the objective function to zero
+            model.remove(model.getConstrs()) #remove all constraints            
+            model.remove(model.getVars()) #remove all variables
+        
+        print("All zero indices:", self.zero_indices)
+                
 
     # normalization constant Z(theta)       
     # assuming binary features for now.
@@ -812,6 +837,9 @@ class Optimizer(object):
         
         return norm_sum
 
+
+
+
     def solver_optimize(self):
         """Function to perform the optimization
            uses l-bfgsb algorithm from scipy
@@ -851,8 +879,9 @@ class Optimizer(object):
             
             else:         
                 datavec_partition = self.compute_data_stats(partition) 
+                # print("DATAVECTOR PARTITION", datavec_partition)
                 c_matrix_partition = self.util_constraint_matrix(partition)
-                # print('Constraint matrix', c_matrix_partition)
+                # print("CONSTRAINT MATRIX PARTITION", c_matrix_partition)
                 len_theta = datavec_partition.shape[0] 
                 a = np.random.RandomState(seed=1)
                 initial_val = a.rand(len_theta)
@@ -917,14 +946,26 @@ class Optimizer(object):
         # partition will be a set of indices in the i-th parition        
         for i, partition in enumerate(parts):
             tmpvec = rvec[partition]
-            if len(partition)==1:       
-                term_exp = self.compute_constraint_sum(solution[i][0], tmpvec, partition)       
-            else:       
-                term_exp = self.compute_constraint_sum(solution[i].get('x'), tmpvec, partition)
+
+            if len(partition) == 1:
+                term_exp = self.compute_constraint_sum(solution[i][0], tmpvec, partition)
+            else:
+                #convert zero indices to list of binary
+                zeros_list = []
+                for zero_atom in self.zero_indices[tuple(partition)]:
+                    zeros_list.append(format(zero_atom, '0'+str(len(partition))+'b'))
+
+                zero_vec = tmpvec.tolist()
+                zero_vec = ''.join(map(str,zero_vec))
+
+                if zero_vec in zeros_list:
+                    return 0
+                else:       
+                    term_exp = self.compute_constraint_sum(solution[i].get('x'), tmpvec, partition)
                 
             part_logprob = term_exp - np.log(norm_sol[i])
             log_prob += part_logprob
-            part_prob = np.exp(part_logprob)
+            # part_prob = np.exp(part_logprob)
             # print('partition, prob: ', i, part_prob)            
             # prob_product *= (1.0/norm_sol[i]) * np.exp(term_exp)
         

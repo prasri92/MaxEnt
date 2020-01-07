@@ -16,7 +16,7 @@
 #done
 
 # generate synthetic data 
-for d in DISEASES_4 DISEASES_7 DISEASES_10 DISEASES_15
-do
-	python synthetic_data.py $d
-done
+# for d in DISEASES_4 DISEASES_7 DISEASES_10 DISEASES_15
+# do
+# 	python synthetic_data.py $d
+# done

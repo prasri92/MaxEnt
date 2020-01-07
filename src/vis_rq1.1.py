@@ -51,7 +51,7 @@ def calc_div(k):
 		try:
 			# kl_div = kl_divergence(p, q)
 			# pow_div = distance.jensenshannon(p, q)
-			pow_div, p_val = power_divergence(f_obs=q, f_exp=p, lambda_="freeman-tukey")
+			pow_div, p_val = power_divergence(f_obs=q, f_exp=p, lambda_="cressie-read")
 			# print('Power Divergence is: ', kl_div)
 			# print('P value is: ', p_val)
 		except FloatingPointError as e:
@@ -60,7 +60,7 @@ def calc_div(k):
 		pow_div = round(pow_div, 4)
 		div.append(pow_div)
 
-		data_dict = {'Lambda':lambdas[ind],'# Diseases':k, 'Power Divergence':pow_div}
+		data_dict = {'Exponent':lambdas[ind],'# Diseases':k, 'Power Divergence':pow_div}
 		df = df.append(data_dict, ignore_index=True)
 
 	return div
@@ -78,9 +78,9 @@ def plot():
 	y_ticks = np.arange(0, 2.4, 0.4)
 	plt.yticks(y_ticks)
 	plt.legend(fontsize=9)
-	plt.title('Maximum Entropy for different lambda')
-	plt.xlabel('Lambda (Exponential Distribution)')
-	plt.ylabel('Power Divergence')
+	plt.title('Power Divergence curves for maximum entropy fitted \n disease distributions of varying exponents')
+	plt.xlabel(r'Exponent ($\alpha$) of the exponential distribution')
+	plt.ylabel(r'Power Divergence ($\lambda$ = 2/3)')
 	plt.show()
 
 	print('DataFrame is:\n', df)
@@ -91,7 +91,7 @@ def plot():
 diseases = [4,7,10,15]
 lambdas = [1.25,0.83,0.63,0.5,0.42]
 kls = {}
-cols = ['Lambda', '# Diseases', 'Power Divergence']
+cols = ['Exponent', '# Diseases', 'Power Divergence']
 df = pd.DataFrame(columns=cols)
 plot()
 

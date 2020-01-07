@@ -792,7 +792,7 @@ class Optimizer(object):
                 #                         fprime=None, approx_grad=True, 
                 #                         disp=False, epsilon=1e-08) 
                 optimThetas = minimize(func_objective, x0=initial_val, method='L-BFGS-B',
-                    options={'disp':False, 'maxcor':20, 'ftol':2.2e-10, 'maxfun':100000})
+                    options={'disp':False, 'maxcor':20, 'ftol':2.2e-10, 'maxfun':500000})
 
                 # Check if the LBFGS-B converges, if doesn't converge, then return error message
                 # if optimThetas[2]['warnflag']!=0:

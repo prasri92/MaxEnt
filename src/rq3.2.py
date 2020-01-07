@@ -64,7 +64,7 @@ def get_mle_prob(cleaneddata):
             mle_sum[j] += prob[0]
             total_prob += prob[0]
 
-    print('Total Probability, Emp:', total_prob)
+    # print('Total Probability, Emp:', total_prob)
     return mle, mle_sum
 
 
@@ -87,7 +87,7 @@ def compute_prob_exact(optobj):
         total_prob += p_vec
         maxent_prob.append(p_vec) 
     
-    print('Total Probability: ', total_prob)
+    # print('Total Probability: ', total_prob)
 
     # emp_prob = np.zeros(num_feats + 1)
     # for vec in optobj.feats_obj.data_arr:
@@ -110,17 +110,21 @@ def main(file_num=None, dataset_num=None, k=None, support=None):
     #                 15:{1:0.003, 2:0.006, 3:0.011, 4:0.020, 5:0.027}}
     # support = support_vals[k][file_num]
 
-    support_vals = {4:{1:0.046, 2:0.072 , 3:0.072 , 4:0.082 , 5:0.082}, 
-                    7:{1:0.0793, 2:0.0343, 3:0.0536, 4:0.0622, 5:0.08695},
-                    10:{1:0.0711, 2:0.0302, 3:0.0298, 4:0.0392, 5:0.0505},
-                    15:{1:0.009, 2:0.0096, 3:0.0145, 4:0.0187, 5:0.0315}}
+    #tested for lambda = 2/3
+    support_vals = {4:{1:0.0792, 2:0.063, 3:0.0671, 4:0.0799, 5:0.0671}, 
+                    7:{1:0.0725, 2:0.0558, 3:0.0529, 4:0.0661, 5:0.0835},
+                    10:{1:0.083, 2:0.0555, 3:0.0496, 4:0.0414, 5:0.0571},
+                    15:{1:0.0091, 2:0.0171, 3:0.0263, 4:0.0375, 5:0.0417}}
     support = support_vals[k][file_num]
     
     #Measure time to compute maxent
     tic = time.time()
 
     # generating synthetic data 
-    directory = '../dataset_s'+str(dataset_num)+'/d'+str(k)+'/synthetic_data_expt'+str(file_num)+'.csv'
+    if dataset_num == None:
+        directory = '../dataset/d'+str(k)+'/synthetic_data_expt'+str(file_num)+'.csv'
+    else:
+        directory = '../dataset_s'+str(dataset_num)+'/d'+str(k)+'/synthetic_data_expt'+str(file_num)+'.csv'
     
     # for synthetic data 
     cleaneddata = clean_preproc_data(directory)
@@ -169,10 +173,16 @@ def main(file_num=None, dataset_num=None, k=None, support=None):
     print()
     print('Empirical:', mle_sum)
     print("Maxent: " + str(sum_prob_maxent))
-    print("True distribution:" + str(read_prob_dist('../output_s'+str(dataset_num)+'/d'+str(k)+'/truedist_expt'+str(file_num)+'.pickle')))
+    if dataset_num == None:
+        print("True distribution:" + str(read_prob_dist('../output/d'+str(k)+'/truedist_expt'+str(file_num)+'.pickle')))
+    else:
+        print("True distribution:" + str(read_prob_dist('../output_s'+str(dataset_num)+'/d'+str(k)+'/truedist_expt'+str(file_num)+'.pickle')))
    
     # for synthetic data 
-    outfilename = '../output_s'+str(dataset_num)+'/d'+str(k)+'/syn_maxent_expt'+str(file_num)+'.pickle'
+    if dataset_num == None:
+        outfilename = '../output/d'+str(k)+'/syn_maxent_expt'+str(file_num)+'.pickle'
+    else:        
+        outfilename = '../output_s'+str(dataset_num)+'/d'+str(k)+'/syn_maxent_expt'+str(file_num)+'.pickle'
 
     with open(outfilename, "wb") as outfile:
         pickle.dump((maxent, sum_prob_maxent, mle, mle_sum), outfile)
@@ -184,6 +194,10 @@ if __name__ == '__main__':
     # for synthetic data 
     num_dis = sys.argv[1]
     file_num = sys.argv[2]
-    dataset_num = sys.argv[3]
-    main(file_num=int(file_num), dataset_num=int(dataset_num), k=int(num_dis))
+    if len(sys.argv) > 3:
+        dataset_num = sys.argv[3]
+        main(file_num=int(file_num), dataset_num=int(dataset_num), k=int(num_dis))
+    else:
+        main(file_num=int(file_num), k=int(num_dis))
+
 

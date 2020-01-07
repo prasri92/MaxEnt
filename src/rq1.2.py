@@ -98,10 +98,10 @@ def main(file_num=None, k=None, dataset_num=None, support=None, i=None):
 
     print("The clusters are:\n", feats.feat_partitions)
 
-    print("\nThe constraints are:")
-    print('two_wayc', two_wayc)
-    print('three_wayc', three_wayc)
-    print('four_wayc', four_wayc)
+    # print("\nThe constraints are:")
+    # print('two_wayc', two_wayc)
+    # print('three_wayc', three_wayc)
+    # print('four_wayc', four_wayc)
     print('The total number of constraints are: ', str(len(two_wayc) + len(three_wayc) + len(four_wayc)))
     num_constraints = len(two_wayc) + len(three_wayc) + len(four_wayc) 
     print()

@@ -10,7 +10,7 @@ from scipy.special import comb
 import scipy.stats as stats
 import numpy as np
 import pickle
-np.random.seed(0)
+# np.random.seed(0)
 import time
 
 import random 

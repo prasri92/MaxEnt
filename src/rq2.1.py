@@ -68,10 +68,17 @@ def calc_maxent_unperturbed(file_num, directory, k, width=None):
     """
     Calculate maximum entropy for each perturbation and width and return results
     """
-    support_vals = {4:{1:0.045, 2:0.063, 3:0.063, 4:0.081, 5:0.082}, 
-                    7:{1:0.018, 2:0.036, 3:0.063, 4:0.063, 5:0.1},
-                    10:{1:0.009, 2:0.018, 3:0.027, 4:0.036, 5:0.054},
-                    15:{1:0.003, 2:0.005, 3:0.011, 4:0.020, 5:0.027}}
+    #old ones
+    # support_vals = {4:{1:0.045, 2:0.063, 3:0.063, 4:0.081, 5:0.082}, 
+    #                 7:{1:0.018, 2:0.036, 3:0.063, 4:0.063, 5:0.1},
+    #                 10:{1:0.009, 2:0.018, 3:0.027, 4:0.036, 5:0.054},
+    #                 15:{1:0.003, 2:0.005, 3:0.011, 4:0.020, 5:0.027}}
+
+    #tested for lambda = 2/3
+    support_vals = {4:{1:0.0792, 2:0.063, 3:0.0671, 4:0.0799, 5:0.0671}, 
+                    7:{1:0.0725, 2:0.0558, 3:0.0529, 4:0.0661, 5:0.0835},
+                    10:{1:0.083, 2:0.0555, 3:0.0496, 4:0.0414, 5:0.0571},
+                    15:{1:0.0091, 2:0.0171, 3:0.0263, 4:0.0375, 5:0.0417}}
     support = support_vals[k][file_num]
     
     #Measure time to compute maxent
@@ -124,7 +131,7 @@ def calc_maxent_unperturbed(file_num, directory, k, width=None):
     print
 
     # Use regularization methods of exponential prior 
-    # lambdas = {1:0.42, 2:0.5, 3:0.62, 4:0.83, 5:1.25}
+    # lambdas = {1:1.25, 2:0.83, 3:0.62, 4:0.5, 5:0.42}
     # opt_r_up = Optimizer_exp(feats, lambdas[file_num])
 
     # Use regularization methods of box constraints
@@ -153,10 +160,11 @@ def calc_maxent_perturbed(file_num, directory, perturb_prob, k, width=None):
     """
     Calculate maximum entropy for each perturbation and width and return results
     """
-    support_vals = {4:{1:0.045, 2:0.063, 3:0.063, 4:0.081, 5:0.082}, 
-                    7:{1:0.018, 2:0.036, 3:0.063, 4:0.063, 5:0.1},
-                    10:{1:0.009, 2:0.018, 3:0.027, 4:0.036, 5:0.054},
-                    15:{1:0.003, 2:0.005, 3:0.011, 4:0.020, 5:0.027}}
+    #tested for lambda = 2/3
+    support_vals = {4:{1:0.0792, 2:0.063, 3:0.0671, 4:0.0799, 5:0.0671}, 
+                    7:{1:0.0725, 2:0.0558, 3:0.0529, 4:0.0661, 5:0.0835},
+                    10:{1:0.083, 2:0.0555, 3:0.0496, 4:0.0414, 5:0.0571},
+                    15:{1:0.0091, 2:0.0171, 3:0.0263, 4:0.0375, 5:0.0417}}
     support = support_vals[k][file_num]
     
     #Measure time to compute maxent
@@ -210,7 +218,7 @@ def calc_maxent_perturbed(file_num, directory, perturb_prob, k, width=None):
     print
 
     # Use regularization methods of exponential prior 
-    # lambdas = {1:0.42, 2:0.5, 3:0.62, 4:0.83, 5:1.25}
+    # lambdas = {1:1.25, 2:0.83, 3:0.62, 4:0.5, 5:0.42}
     # opt_r_p = Optimizer_exp(feats, lambdas[file_num])
 
     # Use regularization methods of box constraints
@@ -283,7 +291,7 @@ if __name__ == '__main__':
     num_dis = sys.argv[1]
     file_num = sys.argv[2]
     pert_flag = sys.argv[3]
-    if pert_flag == str(0):
+    if pert_flag == str(1):
         main_p(file_num=int(file_num), k=int(num_dis))
-    elif pert_flag == str(1):
+    elif pert_flag == str(0):
         main_up(file_num=int(file_num), k=int(num_dis))

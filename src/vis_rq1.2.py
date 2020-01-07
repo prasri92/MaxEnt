@@ -36,7 +36,7 @@ def read_maxent_prob(filename):
 # Get power divergence of probability distributions
 def divergence(p, q):
 	# div = distance.jensenshannon(p,q)
-	div, _ = power_divergence(f_obs=q, f_exp=p, lambda_="freeman-tukey")
+	div, _ = power_divergence(f_obs=q, f_exp=p, lambda_="cressie-read")
 	return div
 	# return (p*np.log(p/q)).sum()
 
@@ -61,30 +61,36 @@ def calc_div(i,k,dataset_num=None):
 		true_prob = np.around(true_prob, decimals=4)
 		support = np.around(support, decimals=3)
 
-		# While using the Jensen Shannon divergence allows us to ignore the divergence 
-		# where the probabilities are zero. 
-		# np.seterr(all='ignore')
+		np.seterr(under='ignore', over='ignore', divide='ignore', invalid='ignore')
 		p = np.array(true_dist)
 		q = np.array(maxent_dist)
 		try:
 			div = divergence(p,q)
+			# print(q)
+			# print('Divergence is: ', div)
 			# kl_div = kl_divergence(p, q)
 		except FloatingPointError as e:
-			# CHECK IF FIX BY ZERO ATOM DETECTION 
-			print(q)
-			print(np.isfinite(q).all())
+			# CHECK IF FIX BY ZERO ATOM DETECTION
+			# print(np.isfinite(q).all())
 			# print(p)
-			print(e)
-			# print(q)
-			# div = 0.0
-			print('Divide by zero encountered')
+			print('If error, caused by - ', e)
+			# div = np.nan
+			# print('Compromise - ')
+			# div = distance.jensenshannon(p,q)
+			# print('Divergence is: ', div)
+		except ValueError as e:
+			print('Disease does not appear')
+			# print("p", p)
+			# print("q", q)
+			# div = np.nan
+			# print('Divergence is: ', div)
 
-		div = round(div, 4)
+		# div = round(div, 4)
 		constraints.append(num_constraints)
 		sup_metric.append(support)
 		divs.append(div)
 
-		data_dict = {'Lambda':lambdas[i-1], 'Support':support, 'Constraints':num_constraints, \
+		data_dict = {'Exponent':lambdas[i-1], 'Support':support, 'Constraints':num_constraints, \
 			 'Power Divergence':div}
 		df = df.append(data_dict, ignore_index=True)
 
@@ -97,28 +103,28 @@ def plot(dis_num, dataset_num=None):
 
 	for ind, l in enumerate(lambdas):
 		cons[l], sups[l], div_vals[l] = calc_div(ind+1, dis_num, dataset_num)
-		plt.plot(sups[l], div_vals[l], label='Lambda :'+str(l))
+		plt.plot(sups[l], div_vals[l], label='Exponent :'+str(l))
 
 	plt.legend(fontsize=9)
-	plt.title('Maxent vs. Support: '+str(dis_num)+' diseases')
+	plt.title('Power Divergence for varying support values for '+str(dis_num)+' diseases')
 	plt.xlabel('Support')
-	plt.ylabel('Power Divergence')
-	y_ticks = np.arange(0,0.5,0.1)
-	plt.yticks(y_ticks)
+	plt.ylabel(r'Power Divergence: $\lambda$ (-2/3)')
+	# y_ticks = np.arange(0,2.4,0.3)
+	# plt.yticks(y_ticks)
 	if dataset_num == None:
-		plt.savefig('../figures/expt1.2/main_dis'+str(dis_num)+'_powdiv.png', format='png')
-		df.to_csv('../output/expt1.2/d'+str(dis_num)+'_powdiv.csv', index=False)
+		plt.savefig('../figures/expt1.2/main_dis'+str(dis_num)+'.png', format='png')
+		df.to_csv('../output/expt1.2/d'+str(dis_num)+'.csv', index=False)
 	else:
 		plt.savefig('../figures/expt1.2/dataset'+dataset_num+'_dis'+str(dis_num)+'.png', format='png')
 		df.to_csv('../output_s'+dataset_num+'/expt1.2/d'+str(dis_num)+'.csv', index=False)
-		print("Dataset", dataset_num, ' Diseases ', dis_num, 'Yes')
+		print("Dataset", dataset_num, ' Diseases ', dis_num, 'Success')
 
 # globally accessible variables
 lambdas = [1.25,0.83,0.63,0.5,0.42]
 cons = {}
 sups = {}
 div_vals = {}
-cols = ['Lambda', 'Support', 'Constraints', 'Power Divergence']
+cols = ['Exponent', 'Support', 'Constraints', 'Power Divergence']
 df = pd.DataFrame(columns=cols)
 
 dis_num = sys.argv[1]

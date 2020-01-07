@@ -9,6 +9,8 @@ import matplotlib.pyplot as plt
 import csv
 import pandas as pd
 import sys
+from scipy.stats import power_divergence
+
 
 np.seterr(all='raise')
 perturb_prob = [0.01, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21]
@@ -71,7 +73,7 @@ def plot(k):
 	plt.legend(fontsize=9)
 	plt.title('Regularization for different Perturbations: '+str(k)+' diseases')
 	plt.xlabel('Perturbed Probability')
-	plt.ylabel('KL Divergence')
+	plt.ylabel('Power Divergence')
 	plt.show()
 
 num_dis = sys.argv[1]
