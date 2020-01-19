@@ -39,10 +39,10 @@
 # 	done
 # done
 
-for i in 4 7 10 15
+for i in 4 7 10 
 do
 	for j in {1..5}
 	do
-		python rq3.2.py $i $j 
+		python rq1.2.py $i $j 
 	done
 done

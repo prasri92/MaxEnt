@@ -37,10 +37,10 @@ def calc_kl(k, ds_num=None):
 	for i in range(1,6):
 		if ds_num == None:
 			true_d, true_p = read_true_prob('../output/d'+str(k)+'/truedist_expt'+str(i)+'.pickle')
-			max_d, max_p, emp_d, emp_p = read_max_prob('../output/d'+str(k)+'/syn_maxent_expt'+str(i)+'.pickle')
+			max_d, max_p, emp_d, emp_p = read_max_prob('../output/d'+str(k)+'/syn_emp_expt'+str(i)+'.pickle')
 		else:
 			true_d, true_p = read_true_prob('../output_s'+str(ds_num)+'/d'+str(k)+'/truedist_expt'+str(i)+'.pickle')
-			max_d, max_p, emp_d, emp_p = read_max_prob('../output_s'+str(ds_num)+'/d'+str(k)+'/syn_maxent_expt'+str(i)+'.pickle')
+			max_d, max_p, emp_d, emp_p = read_max_prob('../output_s'+str(ds_num)+'/d'+str(k)+'/syn_emp_expt'+str(i)+'.pickle')
 
 		p = np.array(true_d)
 		q = np.array(max_d)

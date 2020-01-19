@@ -362,7 +362,7 @@ class Optimizer(object):
         # (3) all the three-way constraints
         # (4) all the four-way constraints
         print("\n")
-        print('partition for calculation:', partition)       
+        print('Partition for calculation:', partition)       
 
         twoway_dict = self.feats_obj.two_way_dict
         threeway_dict = self.feats_obj.three_way_dict
@@ -449,7 +449,7 @@ class Optimizer(object):
         #A_eq[0][0]=1
         #print('A_eq', A_eq)
         l.append((0,0))
-
+        print('THE CONSTRAINT MATRIX IS: ', l)
         return l
 
     def build_constraint_matrix_approx(self, A_exact):
@@ -606,11 +606,13 @@ class Optimizer(object):
             Each subset represents the diseases and constraints  
             '''
             indices_str = [str(i) for i in indices]
-            #print("indices:", indices)
-            #print("indices_str", indices_str)
+            # print("indices:", indices)
+            # print("indices_str", indices_str)
 
-
+            #TODO: check why the error is present? 
             data = cleaneddata[indices_str]
+            # data = cleaneddata[indices]
+
             size = data.shape[0]
             diseases = data.shape[1]
             cols = np.arange(diseases)
@@ -626,7 +628,6 @@ class Optimizer(object):
             ndata[all_perms[0]] = np.logical_not(np.any(data, axis=1))*1            
             b_eq.append(np.sum(ndata[all_perms[0]])/size)
 
-
             for perm in all_perms[1:]:
                 ones = [i for i,x in enumerate(perm) if perm[i]==1]
                 sub_data = data[ones]
@@ -637,7 +638,8 @@ class Optimizer(object):
                 b_eq.append(m)
 
  
-            # print('Remove vectors from the b_eq matrix with zero marginal probabilities: Done before first iteration of zero atom detection')
+            # print('Remove vectors from the b_eq matrix with zero marginal probabilities: 
+            #Done before first iteration of zero atom detection')
             # remove_indices = []
             
             # for i_beq, val in enumerate(b_eq):
@@ -651,7 +653,7 @@ class Optimizer(object):
             permdict={} #dictionary for storing permutations and their corresponding number 
 
             for i_perms,perm in enumerate(all_perms):
-                 # print('Vctor: ', perm, ' Empirical Probability: ', b_eq[ind])
+                 # print('Vector: ', perm, ' Empirical Probability: ', b_eq[ind])
                  # permdict[ind]=perm
                  J.append(i_perms)
 
@@ -669,7 +671,7 @@ class Optimizer(object):
             
             x={} #Empty dictionary to store all variables in the model
             l = self.build_constraint_matrix(diseases) #build constraint matrix
-            #print('l:', l)
+            # print('SHAPE OF CONSTRAINT MATRIX:', l)
             binarystrings={}
             for n in range(len(all_perms)):
                 x[n]=model.addVar(ub=1.0, lb=0.0, obj=1.0) #each of the probabilities for all possible vectors
@@ -677,8 +679,7 @@ class Optimizer(object):
                         #Linear Program using simplex method
 
             model.Modelsense=GRB.MAXIMIZE #maximize the objective
-            #print("Binary strings:", binarystrings)
-            #print('binarystrings:', binarystrings)   
+            # print('BINARY STRINGS:', binarystrings)   
             #print('l:', l)
             #print('J:', J)
 
@@ -690,7 +691,7 @@ class Optimizer(object):
             for j in range(len(b_eq)):
                 J_j=J[j]
                 L=l.select('*',J_j)
-                #print("J_j, L:", J_j, L)                
+                # print("J_j, L:", J_j, L)                
                 variables=[x[p] for p, q in L] #if i in J]
                 coeffs=[1]*len(variables)
                 expr=gurobipy.LinExpr(coeffs, variables)                
@@ -705,13 +706,13 @@ class Optimizer(object):
             model.write("LP.lp")
             model.optimize()
             varslist=model.getVars()
-            #print('varslist:', varslist)
+            # print('varslist:', varslist)
             v=[]
             for vrbls in varslist:
                 v.append(vrbls.x)
-            #print('v:', v)   
+            # print('FINAL VARIABLES:', v)   
             zero_indices=[i for i, Vars in enumerate(v) if Vars==0]
-            #print('zero indices:', zero_indices)
+            # print('ZERO INDICES:', zero_indices)
             non_zero_indices=[i for i, Vars in enumerate(v) if Vars!=0]
             # for ind in zero_indices:
             #     print('Zero vector:', binarystrings[J[ind]])
@@ -719,18 +720,21 @@ class Optimizer(object):
             """If no zero vectors in the first iteration itself, break the loop and keep a note"""
             if zero_indices==[]:
                 self.zero_indices[tuple(indices)]=zero_indices
+                model.setObjective(0.0) #reset the objective function to zero
+                model.remove(model.getConstrs()) #remove all constraints            
+                model.remove(model.getVars()) #remove all variables
                 continue            
             #print('solution:', v)
 
             #Added the iterative method
             it_no=0
             while len(zero_indices)!=0:
-                #print("Iteration number:", it_no) #Print iteration number
+                # print("Iteration number:", it_no) #Print iteration number
 
-                #print("No. of zero vectors:", len(zero_indices))
+                # print("No. of zero vectors:", len(zero_indices))
                 
-                #for ind in zero_indices: #print zero indices
-                    #print('Zero vector:', binarystrings[ind])
+                # for ind in zero_indices: #print zero indices
+                #     print('Zero vector:', binarystrings[ind])
                 
                 model.reset() #reset the solved model to an unsolved state
                 
@@ -763,7 +767,7 @@ class Optimizer(object):
                     zero_indices=[]
                     print("There are zero vectors in cluster")
                     #print("Cluster:", tuple(indices))
-                    print("Zero vectors:", self.zero_indices[tuple(indices)])
+                    # print("Zero vectors:", self.zero_indices[tuple(indices)])
                     break
             
             if len(self.zero_indices.values())==0:

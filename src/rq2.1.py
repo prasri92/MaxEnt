@@ -18,7 +18,8 @@ sys.path.insert(0, path_to_codebase)
 from codebase.utils import clean_preproc_data_perturb, clean_preproc_data
 from codebase.extract_features import ExtractFeatures
 from codebase.mba import marketbasket
-from codebase.optimizer import Optimizer
+# from codebase.optimizer import Optimizer
+from codebase.optimizer_gurobi_v2 import Optimizer
 
 # for exponential prior contstraints
 from codebase.robust_optimizer_exp import Optimizer as Optimizer_exp
@@ -114,12 +115,11 @@ def calc_maxent_unperturbed(file_num, directory, k, width=None):
     print()
 
     print(feats.feat_partitions)
-
-    #Use LP to detect zero atoms 
-    # opt.exact_zero_detection(cleaneddata)
-    # opt.approximate_zero_detection(cleaneddata)
     
     opt_ur_up = Optimizer(feats)
+    #Use LP to detect zero atoms 
+    opt_ur_up.exact_zero_detection(cleaneddata_up)
+
     soln_opt_ur_up = opt_ur_up.solver_optimize()
     if soln_opt_ur_up == None:
         print('Solution does not converge')
@@ -137,6 +137,8 @@ def calc_maxent_unperturbed(file_num, directory, k, width=None):
     # Use regularization methods of box constraints
     width = {4:90, 7:175, 10:450, 15:630}
     opt_r_up = Optimizer_box(feats, width[k]) 
+    #Use LP to detect zero atoms 
+    opt_r_up.exact_zero_detection(cleaneddata_up)
 
     # for testing different widths 
     # opt_r_p = Optimizer_box(feats, width)
@@ -201,12 +203,11 @@ def calc_maxent_perturbed(file_num, directory, perturb_prob, k, width=None):
     print()
 
     print(feats.feat_partitions)
-
-    #Use LP to detect zero atoms 
-    # opt.exact_zero_detection(cleaneddata)
-    # opt.approximate_zero_detection(cleaneddata)
     
     opt_ur_p = Optimizer(feats)
+    #Use LP to detect zero atoms 
+    opt_ur_p.exact_zero_detection(cleaneddata_p)
+
     soln_opt_ur_p = opt_ur_p.solver_optimize()
     if soln_opt_ur_p == None:
         print('Solution does not converge')
@@ -224,6 +225,8 @@ def calc_maxent_perturbed(file_num, directory, perturb_prob, k, width=None):
     # Use regularization methods of box constraints
     width = {4:90, 7:175, 10:450, 15:630}
     opt_r_p = Optimizer_box(feats, width[k]) 
+    #Use LP to detect zero atoms 
+    opt_r_p.exact_zero_detection(cleaneddata_p)
 
     # for testing different widths 
     # opt_r_p = Optimizer_box(feats, width)
@@ -254,7 +257,7 @@ def main_up(file_num, k):
     output = calc_maxent_unperturbed(file_num, directory, k=k)
     
     # for synthetic data 
-    outfilename = '../output/d'+str(k)+'_expt2.1/syn_maxent_up'+str(file_num)+'.pickle'
+    outfilename = '../output/d'+str(k)+'_expt2.1_zero/syn_maxent_up'+str(file_num)+'.pickle'
 
     with open(outfilename, "wb") as outfile:
         pickle.dump(output, outfile)
@@ -281,7 +284,7 @@ def main_p(file_num, k):
         output = calc_maxent_perturbed(file_num, directory, perturb_prob=p, k=k)
 
         # for synthetic data 
-        outfilename = '../output/d'+str(k)+'_expt2.1/syn_maxent_p'+str(file_num)+'_'+str(p)+'.pickle'
+        outfilename = '../output/d'+str(k)+'_expt2.1_zero/syn_maxent_p'+str(file_num)+'_'+str(p)+'.pickle'
 
         with open(outfilename, "wb") as outfile:
             pickle.dump(output, outfile)

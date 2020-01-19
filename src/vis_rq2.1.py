@@ -10,6 +10,7 @@ import csv
 import pandas as pd
 import sys
 from scipy.stats import power_divergence
+from scipy.spatial import distance
 
 
 np.seterr(all='raise')
@@ -35,10 +36,10 @@ def calc_kl(k, i=3):
 	kl_ur_p = []
 	kl_r_p = []
 
-	maxent_ur_up, maxent_r_up = read_up_prob('../output/d'+str(k)+'_expt2.1/syn_maxent_up'+str(i)+'.pickle')
+	maxent_ur_up, maxent_r_up = read_up_prob('../output/d'+str(k)+'_expt2.1_zero/syn_maxent_up'+str(i)+'.pickle')
 
 	for p in perturb_prob:
-		maxent_file = '../output/d'+str(k)+'_expt2.1/syn_maxent_p'+str(i)+'_'+str(p)+'.pickle'
+		maxent_file = '../output/d'+str(k)+'_expt2.1_zero/syn_maxent_p'+str(i)+'_'+str(p)+'.pickle'
 		maxent_ur_p, maxent_r_p = read_p_prob(maxent_file)
 
 		p = np.array(maxent_ur_up)
@@ -46,12 +47,18 @@ def calc_kl(k, i=3):
 		r = np.array(maxent_r_up)
 		s = np.array(maxent_r_p)
 		try:
-			kl_1, p_val_1 = power_divergence(f_obs=q, f_exp=p, lambda_="cressie-read")
-			kl_2, p_val_2 = power_divergence(f_obs=s, f_exp=r, lambda_="cressie-read")
+			# kl_1, p_val_1 = power_divergence(f_obs=q, f_exp=p, lambda_="cressie-read")
+			# kl_2, p_val_2 = power_divergence(f_obs=s, f_exp=r, lambda_="cressie-read")
+			kl_1 = distance.jensenshannon(p, q)
+			kl_2 = distance.jensenshannon(r, s)
 			# kl_1 = kl_divergence(p, q)
 			# kl_2 = kl_divergence(r, s)
-		except FloatingPointError as e:
-			print('Infinity')
+		except:
+			print('P:', p)
+			print('Q:', q)
+			print('R:', r)
+			print('S:', s)
+			
 
 		kl_ur_p.append(kl_1)
 		kl_r_p.append(kl_2)
@@ -73,7 +80,7 @@ def plot(k):
 	plt.legend(fontsize=9)
 	plt.title('Regularization for different Perturbations: '+str(k)+' diseases')
 	plt.xlabel('Perturbed Probability')
-	plt.ylabel('Power Divergence')
+	plt.ylabel('Jensen-Shannon Divergence')
 	plt.show()
 
 num_dis = sys.argv[1]

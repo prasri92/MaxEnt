@@ -108,14 +108,14 @@ def plot(dis_num, dataset_num=None):
 	plt.legend(fontsize=9)
 	plt.title('Power Divergence for varying support values for '+str(dis_num)+' diseases')
 	plt.xlabel('Support')
-	plt.ylabel(r'Power Divergence: $\lambda$ (-2/3)')
+	plt.ylabel(r'Power Divergence: $\lambda$ (2/3)')
 	# y_ticks = np.arange(0,2.4,0.3)
 	# plt.yticks(y_ticks)
 	if dataset_num == None:
-		plt.savefig('../figures/expt1.2/main_dis'+str(dis_num)+'.png', format='png')
+		plt.savefig('../figures/expt1.2_zero/main_dis'+str(dis_num)+'.png', format='png')
 		df.to_csv('../output/expt1.2/d'+str(dis_num)+'.csv', index=False)
 	else:
-		plt.savefig('../figures/expt1.2/dataset'+dataset_num+'_dis'+str(dis_num)+'.png', format='png')
+		plt.savefig('../figures/expt1.2_zero/dataset'+dataset_num+'_dis'+str(dis_num)+'.png', format='png')
 		df.to_csv('../output_s'+dataset_num+'/expt1.2/d'+str(dis_num)+'.csv', index=False)
 		print("Dataset", dataset_num, ' Diseases ', dis_num, 'Success')
 

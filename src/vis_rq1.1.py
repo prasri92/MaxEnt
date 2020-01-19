@@ -76,7 +76,7 @@ def plot():
 		plt.plot(lambdas, divs[dis], label=str(dis)+' diseases')
 
 	y_ticks = np.arange(0, 2.4, 0.4)
-	plt.yticks(y_ticks)
+	# plt.yticks(y_ticks)
 	plt.legend(fontsize=9)
 	plt.title('Power Divergence curves for maximum entropy fitted \n disease distributions of varying exponents')
 	plt.xlabel(r'Exponent ($\alpha$) of the exponential distribution')
@@ -85,7 +85,7 @@ def plot():
 
 	print('DataFrame is:\n', df)
 
-	df.to_csv('../output/expt1.1/d'+str(dis)+'.csv', index=False)
+	df.to_csv('../output/expt1.1_zero/main_dis.csv', index=False)
 
 # globally accessible variables
 diseases = [4,7,10,15]

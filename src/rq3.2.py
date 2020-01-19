@@ -18,7 +18,8 @@ sys.path.insert(0, path_to_codebase)
 from codebase.utils import clean_preproc_data
 from codebase.utils import clean_preproc_data_real
 from codebase.extract_features import ExtractFeatures
-from codebase.optimizer import Optimizer
+# from codebase.optimizer import Optimizer
+from codebase.optimizer_gurobi_v2 import Optimizer
 from codebase.mba import marketbasket
 
 def read_prob_dist(filename):
@@ -117,6 +118,13 @@ def main(file_num=None, dataset_num=None, k=None, support=None):
                     15:{1:0.0091, 2:0.0171, 3:0.0263, 4:0.0375, 5:0.0417}}
     support = support_vals[k][file_num]
     
+
+    #support after zero detection 
+    # support_vals = {4:{1:0.064, 2:0.001, 3:0.046, 4:0.001, 5:0.082}, 
+    #                 7:{1:0.028, 2:0.073, 3:0.1, 4:0.1, 5:0.091},
+    #                 10:{1:0.019, 2:0.037, 3:0.055, 4:0.082, 5:0.091},
+    #                 15:{1:0.019, 2:0.037, 3:0.055, 4:0.082, 5:0.091}}
+    # support = support_vals[k][file_num]
     #Measure time to compute maxent
     tic = time.time()
 
@@ -161,7 +169,7 @@ def main(file_num=None, dataset_num=None, k=None, support=None):
     opt = Optimizer(feats) 
 
     #Use LP to detect zero atoms 
-    # opt.exact_zero_detection(cleaneddata)
+    opt.exact_zero_detection(cleaneddata)
     # opt.approximate_zero_detection(cleaneddata)
     
     soln_opt = opt.solver_optimize()
@@ -180,9 +188,9 @@ def main(file_num=None, dataset_num=None, k=None, support=None):
    
     # for synthetic data 
     if dataset_num == None:
-        outfilename = '../output/d'+str(k)+'/syn_maxent_expt'+str(file_num)+'.pickle'
+        outfilename = '../output/d'+str(k)+'/syn_emp_expt'+str(file_num)+'.pickle'
     else:        
-        outfilename = '../output_s'+str(dataset_num)+'/d'+str(k)+'/syn_maxent_expt'+str(file_num)+'.pickle'
+        outfilename = '../output_s'+str(dataset_num)+'/d'+str(k)+'/syn_emp_expt'+str(file_num)+'.pickle'
 
     with open(outfilename, "wb") as outfile:
         pickle.dump((maxent, sum_prob_maxent, mle, mle_sum), outfile)
