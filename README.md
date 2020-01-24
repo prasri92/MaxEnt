@@ -1,13 +1,17 @@
 # maxEnt
 
-## Sparse Data -- Maximum Entropy
+## Requirements
 
-Code is in Python2 as some of libraries used do not support Python3.
+Setup environment as described in ```requirements.txt```
 
-### Python libs used:
+## Experiments
+1. Generating data - 
+2. Expt 1.1 
+3. Expt 2.2 
+4. 
 
-- `numpy`, `scipy` (for the L-BFGS-B optimization module)
-- `pyitlib` for discrete random vairable entropy calculations
+
+
 
 ### Notes
 
