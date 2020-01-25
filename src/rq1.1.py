@@ -63,7 +63,8 @@ def main(file_num=None, k=None, support=None):
     support: input different support values
     '''
     #Support for marketbasket analysis
-    support_vals = {4:{1:0.072, 2:0.0763, 3:0.0751, 4:0.0792, 5:0.0751}, 
+    support_vals = {3:{1:0.06, 2:0.06, 3:0.0751, 4:0.0792, 5:0.0751},
+                    4:{1:0.072, 2:0.0763, 3:0.0751, 4:0.0792, 5:0.0751}, 
                     7:{1:0.06, 2:0.0375, 3:0.0452, 4:0.0686, 5:0.848},
                     10:{1:0.0632, 2:0.0298, 3:0.0267, 4:0.0378, 5:0.0545},
                     15:{1:0.0086, 2:0.0106, 3:0.0127, 4:0.0205, 5:0.0295}}
@@ -117,6 +118,7 @@ def main(file_num=None, k=None, support=None):
 
     #Use LP to detect zero atoms 
     opt.exact_zero_detection(cleaneddata)
+    opt.analyze_zero_atoms(cleaneddata)
     # opt.approximate_zero_detection(cleaneddata)
     
     soln_opt = opt.solver_optimize()

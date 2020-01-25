@@ -742,11 +742,17 @@ class Optimizer(object):
             model.write("LP.lp")
             model.optimize()
             zero_vectors = set({k for k,v in x.items() if v.X==0})
-            #print("it_no, Zero vectors:", '0:' , zero_vectors)
+            non_zero_vectors = set({k for k,v in x.items() if v.X!=0})
 
-            #Iterative verification
-            it_no=0
+            # if after the first iteration, there are no zero vectors move on to the next cluster
+            if len(zero_vectors) == 0:
+                print('No zero vectors in this cluster')
+                continue
+
+            # Else, use the iterative method to check for more zero vectors 
+            it_no = 0
             while len(zero_vectors)!=0:
+                it_no += 1
                 prev_zero_vectors=zero_vectors#Take note of the zero vectors
                 model.reset() #reset the solved model to an unsolved state
                 
@@ -760,38 +766,54 @@ class Optimizer(object):
                 model.Modelsense=GRB.MAXIMIZE
                 model.write("LP.lp")
                 model.optimize()
-                zero_vectors = set({ k for k,v in x.items() if v.X==0})
                 non_zero_vectors = set({ k for k,v in x.items() if v.X!=0})                
                 
-                it_no+=1
-                # print('it_no:', it_no)
-                # print('Zero vectors outputted:', zero_vectors)
                 zero_set=prev_zero_vectors-non_zero_vectors
-                #print('Non zero vectors:', non_zero_vectors)
-                #print('zero_set:', zero_set)
-
+                print('ZERO SET for iteration: ', it_no, ' : ', len(zero_set))
+               
                 #Stopping condition
                 if zero_set==set():
                     print("There are no zero vectors in cluster")
                     break
                 
-                elif zero_set==zero_vectors:
-                    print("There are zero vectors:", zero_vectors)
-                    self.zero_indices[tuple(indices)] = list(zero_vectors)
-                    print("Gurobi variable number:", {v for k,v in x.items() if v.X==0})
+                elif zero_set==prev_zero_vectors:
+                    print("There are zero vectors")
+                    self.zero_indices[tuple(indices)] = list(zero_set)
+                    # print("Gurobi variable number:", {v for k,v in x.items() if v.X==0})
                     break
 
                 zero_vectors=zero_set
 
-            #if len(self.zero_indices.values())==0:
-                #print("There are no zero vectors in the entire model")
-
-            #it_no+=1    
             '''Reset the same Gurobi model for use in the next cluster iteration if required'''
             model.setObjective(0.0) #reset the objective function to zero
             model.remove(model.getConstrs()) #remove all constraints            
             model.remove(model.getVars()) #remove all variables
         print('Zero vectors are:', self.zero_indices)
+
+
+    def analyze_zero_atoms(self, cleaneddata):
+        '''
+        Check empirical dataset vs. zero atoms as assigned by the LP
+        '''
+        for indices in self.feats_obj.feat_partitions:
+            zero_vectors = self.zero_indices[tuple(indices)]
+
+            indices_str = [str(i) for i in indices]
+            data = cleaneddata[indices_str]
+
+            def convert_to_int(p_row):
+                string = p_row.tolist()
+                string = [str(i) for i in string]
+                string = ''.join(string)
+                string = int(string)
+                return int(string, base=2)
+
+            data['Number'] = data.apply(convert_to_int, axis=1)
+
+            print(data)                
+            
+
+
     """
     #old method
     def exact_zero_detection(self, cleaneddata): 
