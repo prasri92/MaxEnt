@@ -118,7 +118,12 @@ def main(file_num=None, k=None, support=None):
 
     #Use LP to detect zero atoms 
     opt.exact_zero_detection(cleaneddata)
-    opt.analyze_zero_atoms(cleaneddata)
+
+    #Analyze the results: 
+    #zv_nzemp: Zero vectors with non zero empirical probabilities
+    #nzv_zemp: Non zero vectors with zero empirical probabilities
+    zv_nzemp, nzv_zemp=opt.analyze_zero_atoms(cleaneddata)
+    
     # opt.approximate_zero_detection(cleaneddata)
     
     soln_opt = opt.solver_optimize()

@@ -796,6 +796,9 @@ class Optimizer(object):
         Check empirical dataset vs. zero atoms as assigned by the LP
         '''
         for indices in self.feats_obj.feat_partitions:
+            
+            if len(indices)==1:
+                continue
             zero_vectors = self.zero_indices[tuple(indices)]
 
             indices_str = [str(i) for i in indices]
@@ -805,12 +808,63 @@ class Optimizer(object):
                 string = p_row.tolist()
                 string = [str(i) for i in string]
                 string = ''.join(string)
-                string = int(string)
+                #string = int(string)
                 return int(string, base=2)
+    
 
             data['Number'] = data.apply(convert_to_int, axis=1)
+            counts=dict(data['Number'].value_counts(normalize=True))
+            print('Analyzing zero vectors:', zero_vectors)
 
-            print(data)                
+            #Create a dictionary and inverse dictionary for vector lookup
+            all_perms = list(itertools.product([0,1], repeat=len(indices)))
+            permdict={}  
+            for i_perms,perm in enumerate(all_perms):
+                 permdict[perm]=i_perms
+            
+            inv_permdict={v:k for k, v in permdict.items()}
+
+            #Analyze zero vectors
+            print("Check if any zero vectors have positive empirical probabilities:")
+
+            zv_nzemp=[]
+            for vec in zero_vectors:
+                vec_no=permdict[vec]
+                if vec_no in counts:
+                    #print('Zero vector:', vec, 'Empirical probability:', counts[vec_no])
+                    zv_nzemp.append(vec)
+
+            if len(zv_nzemp)==0:
+                print("\n")
+                print("There are no such cases")
+
+            else:
+                print("Some of these are present")            
+            
+            #Analyze non zero vectors
+            print("\n")
+            print("Check if any non-zero vectors have zero empirical probabilities:")
+            nzv_zemp=[]
+            non_zero_vectors=set(all_perms)-set(zero_vectors)
+            for vec in non_zero_vectors:
+                vec_no=permdict[vec]
+                if vec_no not in counts:
+                    nzv_zemp.append(vec)
+                    #print('Non zero vector:', '%s', vec)
+            
+            if len(nzv_zemp)==0:
+                print("\n")
+                print("There are no such cases")
+
+            else:
+                print("Some of these are present")    
+            
+            #print("zv_nzemp:", zv_nzemp)
+            #print("nzv_zemp:", nzv_zemp)
+            return zv_nzemp, nzv_zemp    
+
+
+
             
 
 
