@@ -2,9 +2,8 @@
 import subprocess	
 
 for i in ['4','7','10']:
-	for j in ['1', '2', '3', '4', '5']:
-		# for k in ['0', '1']:
+	for j in range(30,62):
 		print("###################################################")
-		print("PROCESSING: ", i, j)
+		print("PROCESSING: ", i, str(j))
 		print("###################################################")
-		subprocess.call(['python', 'rq3.2.py', i, j], shell=True)
+		subprocess.call(['python', 'rq1.1.1.py', i, str(j)], shell=True)

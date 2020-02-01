@@ -74915,3 +74915,5241 @@ Iteration    Objective       Primal Inf.    Dual Inf.      Time
 
 Solved in 99 iterations and 0.04 seconds
 Optimal objective  1.200000000e-02
+
+Gurobi 8.1.1 (win64, Python) logging started 01/27/20 17:29:56
+
+Academic license - for non-commercial use only
+Optimize a model with 14 rows, 16 columns and 77 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e-02, 1e+00]
+Presolve removed 14 rows and 16 columns
+Presolve time: 0.09s
+Presolve: All rows and columns removed
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 0 iterations and 0.16 seconds
+Optimal objective  1.000000000e+00
+Optimize a model with 14 rows, 16 columns and 77 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e-02, 1e+00]
+Presolve removed 14 rows and 16 columns
+Presolve time: 0.14s
+Presolve: All rows and columns removed
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0   -0.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 0 iterations and 0.19 seconds
+Optimal objective -0.000000000e+00
+
+Gurobi 8.1.1 (win64, Python) logging started 01/27/20 17:31:14
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/27/20 17:31:19
+
+Academic license - for non-commercial use only
+Optimize a model with 14 rows, 64 columns and 353 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [4e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.07s
+Presolved: 13 rows, 63 columns, 351 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.0262960e+00   1.794393e+01   0.000000e+00      0s
+      22    1.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 22 iterations and 0.14 seconds
+Optimal objective  1.000000000e+00
+Optimize a model with 14 rows, 64 columns and 353 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [4e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 13 rows, 63 columns, 351 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.4643760e+00   1.042776e+01   0.000000e+00      0s
+      20    2.8000000e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 20 iterations and 0.19 seconds
+Optimal objective  2.800000000e-01
+Optimize a model with 14 rows, 64 columns and 353 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [4e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 13 rows, 63 columns, 351 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.0489680e+00   7.755928e+00   0.000000e+00      0s
+      23    1.8400000e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 23 iterations and 0.17 seconds
+Optimal objective  1.840000000e-01
+Optimize a model with 14 rows, 64 columns and 353 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [4e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.07s
+Presolved: 13 rows, 63 columns, 351 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.6675920e+00   6.974168e+00   0.000000e+00      0s
+      19    1.7600000e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 19 iterations and 0.16 seconds
+Optimal objective  1.760000000e-01
+Optimize a model with 14 rows, 64 columns and 353 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [4e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 13 rows, 63 columns, 351 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.3672960e+00   6.108320e+00   0.000000e+00      0s
+      27    1.3600000e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 27 iterations and 0.20 seconds
+Optimal objective  1.360000000e-01
+Optimize a model with 14 rows, 64 columns and 353 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [4e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 13 rows, 63 columns, 351 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.0910240e+00   4.847088e+00   0.000000e+00      0s
+      22    1.2533333e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 22 iterations and 0.20 seconds
+Optimal objective  1.253333333e-01
+Optimize a model with 14 rows, 64 columns and 353 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [4e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 13 rows, 63 columns, 351 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    8.6980800e-01   2.716896e+00   0.000000e+00      0s
+      15    1.1200000e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 15 iterations and 0.17 seconds
+Optimal objective  1.120000000e-01
+Optimize a model with 14 rows, 64 columns and 353 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [4e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 13 rows, 63 columns, 351 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    7.0764800e-01   2.199632e+00   0.000000e+00      0s
+      16    9.6000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 16 iterations and 0.22 seconds
+Optimal objective  9.600000000e-02
+Optimize a model with 14 rows, 64 columns and 353 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [4e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.12s
+Presolved: 13 rows, 63 columns, 351 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    5.8452800e-01   1.837232e+00   0.000000e+00      0s
+      13    8.8000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 13 iterations and 0.23 seconds
+Optimal objective  8.800000000e-02
+Optimize a model with 14 rows, 64 columns and 353 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [4e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 13 rows, 63 columns, 351 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.5440000e-01   1.386640e+00   0.000000e+00      0s
+      14    6.1333333e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 14 iterations and 0.17 seconds
+Optimal objective  6.133333333e-02
+Optimize a model with 14 rows, 64 columns and 353 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [4e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.16s
+Presolved: 13 rows, 63 columns, 351 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.7627200e-01   6.408640e-01   0.000000e+00      0s
+       9    6.1333333e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 9 iterations and 0.26 seconds
+Optimal objective  6.133333333e-02
+Optimize a model with 14 rows, 64 columns and 353 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [4e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.13s
+Presolved: 13 rows, 63 columns, 351 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    8.9088000e-02   2.363520e-01   0.000000e+00      0s
+       6    4.8000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 6 iterations and 0.22 seconds
+Optimal objective  4.800000000e-02
+
+Gurobi 8.1.1 (win64, Python) logging started 01/27/20 17:31:50
+
+Academic license - for non-commercial use only
+Optimize a model with 28 rows, 64 columns and 521 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [5e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.12s
+Presolved: 27 rows, 63 columns, 519 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.5308800e+00   2.408794e+01   0.000000e+00      0s
+      44    1.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 44 iterations and 0.22 seconds
+Optimal objective  1.000000000e+00
+Optimize a model with 28 rows, 64 columns and 521 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [5e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 27 rows, 63 columns, 519 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.1650800e+00   1.265498e+01   0.000000e+00      0s
+      37    2.2880000e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 37 iterations and 0.17 seconds
+Optimal objective  2.288000000e-01
+Optimize a model with 28 rows, 64 columns and 521 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [5e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 27 rows, 63 columns, 519 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.1320640e+00   5.046056e+00   0.000000e+00      0s
+      43    8.4000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 43 iterations and 0.20 seconds
+Optimal objective  8.400000000e-02
+Optimize a model with 28 rows, 64 columns and 521 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [5e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.06s
+Presolved: 27 rows, 63 columns, 519 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    5.7051200e-01   2.447008e+00   0.000000e+00      0s
+      31    3.6000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 31 iterations and 0.16 seconds
+Optimal objective  3.600000000e-02
+Optimize a model with 28 rows, 64 columns and 521 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [5e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 27 rows, 63 columns, 519 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.1030400e-01   1.471856e+00   0.000000e+00      0s
+      29    3.2000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 29 iterations and 0.16 seconds
+Optimal objective  3.200000000e-02
+Optimize a model with 28 rows, 64 columns and 521 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [5e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 27 rows, 63 columns, 519 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.1411200e-01   9.589520e-01   0.000000e+00      0s
+      30    1.6000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 30 iterations and 0.19 seconds
+Optimal objective  1.600000000e-02
+
+Gurobi 8.1.1 (win64, Python) logging started 01/27/20 17:32:04
+
+Academic license - for non-commercial use only
+Optimize a model with 11 rows, 32 columns and 145 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [7e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.07s
+Presolved: 10 rows, 31 columns, 143 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.5058960e+00   1.101034e+01   0.000000e+00      0s
+      13    1.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 13 iterations and 0.17 seconds
+Optimal objective  1.000000000e+00
+Optimize a model with 11 rows, 32 columns and 145 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [7e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.12s
+Presolved: 10 rows, 31 columns, 143 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.8817840e+00   6.180952e+00   0.000000e+00      0s
+      11    3.0400000e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 11 iterations and 0.22 seconds
+Optimal objective  3.040000000e-01
+Optimize a model with 11 rows, 32 columns and 145 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [7e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.12s
+Presolved: 10 rows, 31 columns, 143 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.4293360e+00   3.011800e+00   0.000000e+00      0s
+      15    2.2400000e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 15 iterations and 0.20 seconds
+Optimal objective  2.240000000e-01
+Optimize a model with 11 rows, 32 columns and 145 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [7e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.11s
+Presolved: 10 rows, 31 columns, 143 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.2031120e+00   2.639272e+00   0.000000e+00      0s
+      11    1.5200000e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 11 iterations and 0.20 seconds
+Optimal objective  1.520000000e-01
+Optimize a model with 11 rows, 32 columns and 145 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [7e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.12s
+Presolved: 10 rows, 31 columns, 143 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.0259360e+00   2.260816e+00   0.000000e+00      0s
+      11    1.5200000e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 11 iterations and 0.22 seconds
+Optimal objective  1.520000000e-01
+Optimize a model with 11 rows, 32 columns and 145 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [7e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 10 rows, 31 columns, 143 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    5.9851200e-01   1.207168e+00   0.000000e+00      0s
+      11    1.1200000e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 11 iterations and 0.19 seconds
+Optimal objective  1.120000000e-01
+Optimize a model with 11 rows, 32 columns and 145 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [7e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.11s
+Presolved: 10 rows, 31 columns, 143 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.7228800e-01   7.456480e-01   0.000000e+00      0s
+       9    8.0000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 9 iterations and 0.23 seconds
+Optimal objective  8.000000000e-02
+Optimize a model with 11 rows, 32 columns and 145 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [7e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.13s
+Presolved: 10 rows, 31 columns, 143 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.1921600e-01   4.592160e-01   0.000000e+00      0s
+      10    8.0000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 10 iterations and 0.21 seconds
+Optimal objective  8.000000000e-02
+Optimize a model with 11 rows, 32 columns and 145 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [7e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.13s
+Presolved: 10 rows, 31 columns, 143 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    7.3072000e-02   3.989280e-01   0.000000e+00      0s
+       7    4.0000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 7 iterations and 0.22 seconds
+Optimal objective  4.000000000e-02
+
+Gurobi 8.1.1 (win64, Python) logging started 01/27/20 17:32:16
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/27/20 17:32:29
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/27/20 17:32:34
+
+Academic license - for non-commercial use only
+Optimize a model with 5 rows, 4 columns and 10 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 5 rows and 4 columns
+Presolve time: 0.12s
+Presolve: All rows and columns removed
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 0 iterations and 0.23 seconds
+Optimal objective  1.000000000e+00
+
+Gurobi 8.1.1 (win64, Python) logging started 01/27/20 17:32:43
+
+Academic license - for non-commercial use only
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.11s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.9334920e+01   4.345684e+02   0.000000e+00      0s
+     150    1.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 150 iterations and 0.22 seconds
+Optimal objective  1.000000000e+00
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.07s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.6813904e+01   4.133827e+02   0.000000e+00      0s
+     205    5.4000000e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 205 iterations and 0.17 seconds
+Optimal objective  5.400000000e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.4943076e+01   5.509956e+02   0.000000e+00      0s
+     156    3.0247059e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 156 iterations and 0.17 seconds
+Optimal objective  3.024705882e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.07s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.3662832e+01   6.156464e+02   0.000000e+00      0s
+     187    2.5499213e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 187 iterations and 0.17 seconds
+Optimal objective  2.549921260e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.13s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.2352556e+01   5.857245e+02   0.000000e+00      0s
+     199    2.3538998e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 199 iterations and 0.22 seconds
+Optimal objective  2.353899782e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.07s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.1255492e+01   5.771464e+02   0.000000e+00      0s
+     196    2.1389170e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 196 iterations and 0.15 seconds
+Optimal objective  2.138916968e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.0091364e+01   5.668725e+02   0.000000e+00      0s
+     194    1.9165164e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 194 iterations and 0.20 seconds
+Optimal objective  1.916516437e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.9105412e+01   5.423689e+02   0.000000e+00      0s
+     154    1.7331097e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 154 iterations and 0.18 seconds
+Optimal objective  1.733109677e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.8026368e+01   5.172547e+02   0.000000e+00      0s
+     172    1.6161345e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 172 iterations and 0.21 seconds
+Optimal objective  1.616134454e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.7135508e+01   4.983264e+02   0.000000e+00      0s
+     178    1.5033275e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 178 iterations and 0.19 seconds
+Optimal objective  1.503327454e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.6285688e+01   4.732462e+02   0.000000e+00      0s
+     151    1.4149970e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 151 iterations and 0.17 seconds
+Optimal objective  1.414996979e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.13s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.5551980e+01   4.472341e+02   0.000000e+00      0s
+     210    1.3204624e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 210 iterations and 0.22 seconds
+Optimal objective  1.320462428e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.06s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.4736192e+01   4.248585e+02   0.000000e+00      0s
+     170    1.2418848e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 170 iterations and 0.13 seconds
+Optimal objective  1.241884817e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.07s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.3984464e+01   3.965993e+02   0.000000e+00      0s
+     190    1.1626703e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 190 iterations and 0.15 seconds
+Optimal objective  1.162670325e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.3310812e+01   3.708755e+02   0.000000e+00      0s
+     172    1.0628125e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 172 iterations and 0.15 seconds
+Optimal objective  1.062812500e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.2664188e+01   3.546668e+02   0.000000e+00      0s
+     178    9.9200000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 178 iterations and 0.17 seconds
+Optimal objective  9.920000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.2141684e+01   2.923132e+02   0.000000e+00      0s
+     209    9.7478788e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 209 iterations and 0.16 seconds
+Optimal objective  9.747878788e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.07s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.1590152e+01   2.795699e+02   0.000000e+00      0s
+     201    9.3304965e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 201 iterations and 0.14 seconds
+Optimal objective  9.330496454e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.1026608e+01   2.769065e+02   0.000000e+00      0s
+     155    8.8647815e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 155 iterations and 0.18 seconds
+Optimal objective  8.864781491e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.07s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.0496096e+01   2.632313e+02   0.000000e+00      0s
+     182    8.1905292e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 182 iterations and 0.16 seconds
+Optimal objective  8.190529248e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.07s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    9.9405600e+00   2.497563e+02   0.000000e+00      0s
+     159    7.7556757e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 159 iterations and 0.14 seconds
+Optimal objective  7.755675676e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    9.4140520e+00   2.385625e+02   0.000000e+00      0s
+     189    7.3800000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 189 iterations and 0.19 seconds
+Optimal objective  7.380000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    8.9496040e+00   2.275899e+02   0.000000e+00      0s
+     219    6.9263158e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 219 iterations and 0.16 seconds
+Optimal objective  6.926315789e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    8.5722400e+00   2.166514e+02   0.000000e+00      0s
+     177    6.6560000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 177 iterations and 0.16 seconds
+Optimal objective  6.656000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    8.1077920e+00   1.898503e+02   0.000000e+00      0s
+     226    6.3333333e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 226 iterations and 0.17 seconds
+Optimal objective  6.333333333e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.11s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    7.6933920e+00   1.598541e+02   0.000000e+00      0s
+     231    6.0683168e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 231 iterations and 0.19 seconds
+Optimal objective  6.068316832e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    7.2579720e+00   1.494621e+02   0.000000e+00      0s
+     201    5.7085271e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 201 iterations and 0.18 seconds
+Optimal objective  5.708527132e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.07s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    6.6774120e+00   1.390410e+02   0.000000e+00      0s
+     233    5.3910448e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 233 iterations and 0.15 seconds
+Optimal objective  5.391044776e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    6.2419920e+00   1.292065e+02   0.000000e+00      0s
+     232    5.0461538e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 232 iterations and 0.17 seconds
+Optimal objective  5.046153846e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    5.9517120e+00   1.245039e+02   0.000000e+00      0s
+     180    4.9114754e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 180 iterations and 0.18 seconds
+Optimal objective  4.911475410e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    5.6614320e+00   1.189015e+02   0.000000e+00      0s
+     222    4.4000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 222 iterations and 0.20 seconds
+Optimal objective  4.400000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    5.4582360e+00   1.146344e+02   0.000000e+00      0s
+     195    3.2000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 195 iterations and 0.21 seconds
+Optimal objective  3.200000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.13s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    5.2510360e+00   1.105965e+02   0.000000e+00      0s
+     186    3.2000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 186 iterations and 0.21 seconds
+Optimal objective  3.200000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.9607560e+00   1.042394e+02   0.000000e+00      0s
+     197    3.2000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 197 iterations and 0.21 seconds
+Optimal objective  3.200000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.11s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.8406400e+00   1.011491e+02   0.000000e+00      0s
+     194    3.2000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 194 iterations and 0.23 seconds
+Optimal objective  3.200000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.6084160e+00   9.008716e+01   0.000000e+00      0s
+     239    3.2000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 239 iterations and 0.19 seconds
+Optimal objective  3.200000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.4342480e+00   8.536154e+01   0.000000e+00      0s
+     145    2.0000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 145 iterations and 0.20 seconds
+Optimal objective  2.000000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.13s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.3111600e+00   1.155569e+02   0.000000e+00      0s
+     195    2.0000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 195 iterations and 0.25 seconds
+Optimal objective  2.000000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.07s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.1660200e+00   1.103958e+02   0.000000e+00      0s
+     263    2.0000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 263 iterations and 0.16 seconds
+Optimal objective  2.000000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.12s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.0168760e+00   1.058529e+02   0.000000e+00      0s
+     207    8.0000000e-03   0.000000e+00   0.000000e+00      0s
+
+Solved in 207 iterations and 0.22 seconds
+Optimal objective  8.000000000e-03
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.9878480e+00   1.050111e+02   0.000000e+00      0s
+     220    8.0000000e-03   0.000000e+00   0.000000e+00      0s
+
+Solved in 220 iterations and 0.18 seconds
+Optimal objective  8.000000000e-03
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.9588200e+00   1.038500e+02   0.000000e+00      0s
+     223    8.0000000e-03   0.000000e+00   0.000000e+00      0s
+
+Solved in 223 iterations and 0.22 seconds
+Optimal objective  8.000000000e-03
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.9297920e+00   1.032114e+02   0.000000e+00      0s
+     219    8.0000000e-03   0.000000e+00   0.000000e+00      0s
+
+Solved in 219 iterations and 0.18 seconds
+Optimal objective  8.000000000e-03
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.9007640e+00   1.023695e+02   0.000000e+00      0s
+     188    8.0000000e-03   0.000000e+00   0.000000e+00      0s
+
+Solved in 188 iterations and 0.18 seconds
+Optimal objective  8.000000000e-03
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.8717360e+00   1.015277e+02   0.000000e+00      0s
+     239    8.0000000e-03   0.000000e+00   0.000000e+00      0s
+
+Solved in 239 iterations and 0.22 seconds
+Optimal objective  8.000000000e-03
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.8427080e+00   1.008891e+02   0.000000e+00      0s
+     200    8.0000000e-03   0.000000e+00   0.000000e+00      0s
+
+Solved in 200 iterations and 0.18 seconds
+Optimal objective  8.000000000e-03
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.7556240e+00   9.874105e+01   0.000000e+00      0s
+     217   -0.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 217 iterations and 0.20 seconds
+Optimal objective -0.000000000e+00
+
+Gurobi 8.1.1 (win64, Python) logging started 01/27/20 17:34:10
+
+Academic license - for non-commercial use only
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.06s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.9334920e+01   4.345684e+02   0.000000e+00      0s
+     150    1.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 150 iterations and 0.15 seconds
+Optimal objective  1.000000000e+00
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.6813904e+01   4.133827e+02   0.000000e+00      0s
+     205    5.4000000e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 205 iterations and 0.17 seconds
+Optimal objective  5.400000000e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.4943076e+01   5.509956e+02   0.000000e+00      0s
+     156    3.0247059e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 156 iterations and 0.20 seconds
+Optimal objective  3.024705882e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.3662832e+01   6.156464e+02   0.000000e+00      0s
+     187    2.5499213e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 187 iterations and 0.18 seconds
+Optimal objective  2.549921260e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.2352556e+01   5.857245e+02   0.000000e+00      0s
+     199    2.3538998e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 199 iterations and 0.16 seconds
+Optimal objective  2.353899782e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.1255492e+01   5.771464e+02   0.000000e+00      0s
+     196    2.1389170e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 196 iterations and 0.19 seconds
+Optimal objective  2.138916968e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.0091364e+01   5.668725e+02   0.000000e+00      0s
+     194    1.9165164e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 194 iterations and 0.20 seconds
+Optimal objective  1.916516437e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.11s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.9105412e+01   5.423689e+02   0.000000e+00      0s
+     154    1.7331097e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 154 iterations and 0.21 seconds
+Optimal objective  1.733109677e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.8026368e+01   5.172547e+02   0.000000e+00      0s
+     172    1.6161345e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 172 iterations and 0.18 seconds
+Optimal objective  1.616134454e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.7135508e+01   4.983264e+02   0.000000e+00      0s
+     178    1.5033275e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 178 iterations and 0.20 seconds
+Optimal objective  1.503327454e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.06s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.6285688e+01   4.732462e+02   0.000000e+00      0s
+     151    1.4149970e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 151 iterations and 0.17 seconds
+Optimal objective  1.414996979e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.5551980e+01   4.472341e+02   0.000000e+00      0s
+     210    1.3204624e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 210 iterations and 0.19 seconds
+Optimal objective  1.320462428e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.4736192e+01   4.248585e+02   0.000000e+00      0s
+     170    1.2418848e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 170 iterations and 0.18 seconds
+Optimal objective  1.241884817e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.3984464e+01   3.965993e+02   0.000000e+00      0s
+     190    1.1626703e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 190 iterations and 0.19 seconds
+Optimal objective  1.162670325e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.3310812e+01   3.708755e+02   0.000000e+00      0s
+     172    1.0628125e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 172 iterations and 0.18 seconds
+Optimal objective  1.062812500e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.12s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.2664188e+01   3.546668e+02   0.000000e+00      0s
+     178    9.9200000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 178 iterations and 0.22 seconds
+Optimal objective  9.920000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.11s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.2141684e+01   2.923132e+02   0.000000e+00      0s
+     209    9.7478788e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 209 iterations and 0.19 seconds
+Optimal objective  9.747878788e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.1590152e+01   2.795699e+02   0.000000e+00      0s
+     201    9.3304965e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 201 iterations and 0.19 seconds
+Optimal objective  9.330496454e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.1026608e+01   2.769065e+02   0.000000e+00      0s
+     155    8.8647815e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 155 iterations and 0.20 seconds
+Optimal objective  8.864781491e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.0496096e+01   2.632313e+02   0.000000e+00      0s
+     182    8.1905292e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 182 iterations and 0.19 seconds
+Optimal objective  8.190529248e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    9.9405600e+00   2.497563e+02   0.000000e+00      0s
+     159    7.7556757e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 159 iterations and 0.20 seconds
+Optimal objective  7.755675676e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.13s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    9.4140520e+00   2.385625e+02   0.000000e+00      0s
+     189    7.3800000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 189 iterations and 0.22 seconds
+Optimal objective  7.380000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    8.9496040e+00   2.275899e+02   0.000000e+00      0s
+     219    6.9263158e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 219 iterations and 0.21 seconds
+Optimal objective  6.926315789e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    8.5722400e+00   2.166514e+02   0.000000e+00      0s
+     177    6.6560000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 177 iterations and 0.23 seconds
+Optimal objective  6.656000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.12s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    8.1077920e+00   1.898503e+02   0.000000e+00      0s
+     226    6.3333333e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 226 iterations and 0.24 seconds
+Optimal objective  6.333333333e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    7.6933920e+00   1.598541e+02   0.000000e+00      0s
+     231    6.0683168e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 231 iterations and 0.20 seconds
+Optimal objective  6.068316832e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    7.2579720e+00   1.494621e+02   0.000000e+00      0s
+     201    5.7085271e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 201 iterations and 0.21 seconds
+Optimal objective  5.708527132e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.13s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    6.6774120e+00   1.390410e+02   0.000000e+00      0s
+     233    5.3910448e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 233 iterations and 0.24 seconds
+Optimal objective  5.391044776e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.12s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    6.2419920e+00   1.292065e+02   0.000000e+00      0s
+     232    5.0461538e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 232 iterations and 0.23 seconds
+Optimal objective  5.046153846e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.12s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    5.9517120e+00   1.245039e+02   0.000000e+00      0s
+     180    4.9114754e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 180 iterations and 0.21 seconds
+Optimal objective  4.911475410e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    5.6614320e+00   1.189015e+02   0.000000e+00      0s
+     222    4.4000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 222 iterations and 0.18 seconds
+Optimal objective  4.400000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    5.4582360e+00   1.146344e+02   0.000000e+00      0s
+     195    3.2000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 195 iterations and 0.16 seconds
+Optimal objective  3.200000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    5.2510360e+00   1.105965e+02   0.000000e+00      0s
+     186    3.2000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 186 iterations and 0.21 seconds
+Optimal objective  3.200000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.9607560e+00   1.042394e+02   0.000000e+00      0s
+     197    3.2000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 197 iterations and 0.17 seconds
+Optimal objective  3.200000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.8406400e+00   1.011491e+02   0.000000e+00      0s
+     194    3.2000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 194 iterations and 0.17 seconds
+Optimal objective  3.200000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.6084160e+00   9.008716e+01   0.000000e+00      0s
+     239    3.2000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 239 iterations and 0.19 seconds
+Optimal objective  3.200000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.4342480e+00   8.536154e+01   0.000000e+00      0s
+     145    2.0000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 145 iterations and 0.18 seconds
+Optimal objective  2.000000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.3111600e+00   1.155569e+02   0.000000e+00      0s
+     195    2.0000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 195 iterations and 0.19 seconds
+Optimal objective  2.000000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.1660200e+00   1.103958e+02   0.000000e+00      0s
+     263    2.0000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 263 iterations and 0.20 seconds
+Optimal objective  2.000000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.0168760e+00   1.058529e+02   0.000000e+00      0s
+     207    8.0000000e-03   0.000000e+00   0.000000e+00      0s
+
+Solved in 207 iterations and 0.17 seconds
+Optimal objective  8.000000000e-03
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.9878480e+00   1.050111e+02   0.000000e+00      0s
+     220    8.0000000e-03   0.000000e+00   0.000000e+00      0s
+
+Solved in 220 iterations and 0.21 seconds
+Optimal objective  8.000000000e-03
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.9588200e+00   1.038500e+02   0.000000e+00      0s
+     223    8.0000000e-03   0.000000e+00   0.000000e+00      0s
+
+Solved in 223 iterations and 0.17 seconds
+Optimal objective  8.000000000e-03
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.06s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.9297920e+00   1.032114e+02   0.000000e+00      0s
+     219    8.0000000e-03   0.000000e+00   0.000000e+00      0s
+
+Solved in 219 iterations and 0.17 seconds
+Optimal objective  8.000000000e-03
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.9007640e+00   1.023695e+02   0.000000e+00      0s
+     188    8.0000000e-03   0.000000e+00   0.000000e+00      0s
+
+Solved in 188 iterations and 0.17 seconds
+Optimal objective  8.000000000e-03
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.8717360e+00   1.015277e+02   0.000000e+00      0s
+     239    8.0000000e-03   0.000000e+00   0.000000e+00      0s
+
+Solved in 239 iterations and 0.20 seconds
+Optimal objective  8.000000000e-03
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.8427080e+00   1.008891e+02   0.000000e+00      0s
+     200    8.0000000e-03   0.000000e+00   0.000000e+00      0s
+
+Solved in 200 iterations and 0.21 seconds
+Optimal objective  8.000000000e-03
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.11s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.7556240e+00   9.874105e+01   0.000000e+00      0s
+     217   -0.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 217 iterations and 0.22 seconds
+Optimal objective -0.000000000e+00
+
+Gurobi 8.1.1 (win64, Python) logging started 01/27/20 17:35:37
+
+Academic license - for non-commercial use only
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.9334920e+01   4.345684e+02   0.000000e+00      0s
+     150    1.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 150 iterations and 0.20 seconds
+Optimal objective  1.000000000e+00
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.07s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.6813904e+01   4.133827e+02   0.000000e+00      0s
+     205    5.4000000e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 205 iterations and 0.18 seconds
+Optimal objective  5.400000000e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.4943076e+01   5.509956e+02   0.000000e+00      0s
+     156    3.0247059e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 156 iterations and 0.19 seconds
+Optimal objective  3.024705882e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.13s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.3662832e+01   6.156464e+02   0.000000e+00      0s
+     187    2.5499213e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 187 iterations and 0.23 seconds
+Optimal objective  2.549921260e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.2352556e+01   5.857245e+02   0.000000e+00      0s
+     199    2.3538998e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 199 iterations and 0.21 seconds
+Optimal objective  2.353899782e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.1255492e+01   5.771464e+02   0.000000e+00      0s
+     196    2.1389170e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 196 iterations and 0.22 seconds
+Optimal objective  2.138916968e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    2.0091364e+01   5.668725e+02   0.000000e+00      0s
+     194    1.9165164e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 194 iterations and 0.19 seconds
+Optimal objective  1.916516437e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.11s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.9105412e+01   5.423689e+02   0.000000e+00      0s
+     154    1.7331097e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 154 iterations and 0.22 seconds
+Optimal objective  1.733109677e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.11s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.8026368e+01   5.172547e+02   0.000000e+00      0s
+     172    1.6161345e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 172 iterations and 0.22 seconds
+Optimal objective  1.616134454e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.7135508e+01   4.983264e+02   0.000000e+00      0s
+     178    1.5033275e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 178 iterations and 0.22 seconds
+Optimal objective  1.503327454e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.6285688e+01   4.732462e+02   0.000000e+00      0s
+     151    1.4149970e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 151 iterations and 0.17 seconds
+Optimal objective  1.414996979e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.5551980e+01   4.472341e+02   0.000000e+00      0s
+     210    1.3204624e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 210 iterations and 0.23 seconds
+Optimal objective  1.320462428e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.14s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.4736192e+01   4.248585e+02   0.000000e+00      0s
+     170    1.2418848e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 170 iterations and 0.24 seconds
+Optimal objective  1.241884817e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.3984464e+01   3.965993e+02   0.000000e+00      0s
+     190    1.1626703e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 190 iterations and 0.19 seconds
+Optimal objective  1.162670325e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.11s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.3310812e+01   3.708755e+02   0.000000e+00      0s
+     172    1.0628125e-01   0.000000e+00   0.000000e+00      0s
+
+Solved in 172 iterations and 0.21 seconds
+Optimal objective  1.062812500e-01
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.2664188e+01   3.546668e+02   0.000000e+00      0s
+     178    9.9200000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 178 iterations and 0.19 seconds
+Optimal objective  9.920000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.2141684e+01   2.923132e+02   0.000000e+00      0s
+     209    9.7478788e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 209 iterations and 0.23 seconds
+Optimal objective  9.747878788e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.07s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.1590152e+01   2.795699e+02   0.000000e+00      0s
+     201    9.3304965e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 201 iterations and 0.17 seconds
+Optimal objective  9.330496454e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.11s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.1026608e+01   2.769065e+02   0.000000e+00      0s
+     155    8.8647815e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 155 iterations and 0.20 seconds
+Optimal objective  8.864781491e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.0496096e+01   2.632313e+02   0.000000e+00      0s
+     182    8.1905292e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 182 iterations and 0.21 seconds
+Optimal objective  8.190529248e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    9.9405600e+00   2.497563e+02   0.000000e+00      0s
+     159    7.7556757e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 159 iterations and 0.20 seconds
+Optimal objective  7.755675676e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    9.4140520e+00   2.385625e+02   0.000000e+00      0s
+     189    7.3800000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 189 iterations and 0.25 seconds
+Optimal objective  7.380000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.11s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    8.9496040e+00   2.275899e+02   0.000000e+00      0s
+     219    6.9263158e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 219 iterations and 0.21 seconds
+Optimal objective  6.926315789e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    8.5722400e+00   2.166514e+02   0.000000e+00      0s
+     177    6.6560000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 177 iterations and 0.20 seconds
+Optimal objective  6.656000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.11s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    8.1077920e+00   1.898503e+02   0.000000e+00      0s
+     226    6.3333333e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 226 iterations and 0.21 seconds
+Optimal objective  6.333333333e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    7.6933920e+00   1.598541e+02   0.000000e+00      0s
+     231    6.0683168e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 231 iterations and 0.20 seconds
+Optimal objective  6.068316832e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.14s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    7.2579720e+00   1.494621e+02   0.000000e+00      0s
+     201    5.7085271e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 201 iterations and 0.25 seconds
+Optimal objective  5.708527132e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    6.6774120e+00   1.390410e+02   0.000000e+00      0s
+     233    5.3910448e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 233 iterations and 0.19 seconds
+Optimal objective  5.391044776e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.13s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    6.2419920e+00   1.292065e+02   0.000000e+00      0s
+     232    5.0461538e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 232 iterations and 0.23 seconds
+Optimal objective  5.046153846e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.12s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    5.9517120e+00   1.245039e+02   0.000000e+00      0s
+     180    4.9114754e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 180 iterations and 0.23 seconds
+Optimal objective  4.911475410e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    5.6614320e+00   1.189015e+02   0.000000e+00      0s
+     222    4.4000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 222 iterations and 0.20 seconds
+Optimal objective  4.400000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.11s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    5.4582360e+00   1.146344e+02   0.000000e+00      0s
+     195    3.2000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 195 iterations and 0.22 seconds
+Optimal objective  3.200000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.11s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    5.2510360e+00   1.105965e+02   0.000000e+00      0s
+     186    3.2000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 186 iterations and 0.20 seconds
+Optimal objective  3.200000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.9607560e+00   1.042394e+02   0.000000e+00      0s
+     197    3.2000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 197 iterations and 0.21 seconds
+Optimal objective  3.200000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.8406400e+00   1.011491e+02   0.000000e+00      0s
+     194    3.2000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 194 iterations and 0.20 seconds
+Optimal objective  3.200000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.6084160e+00   9.008716e+01   0.000000e+00      0s
+     239    3.2000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 239 iterations and 0.21 seconds
+Optimal objective  3.200000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.14s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.4342480e+00   8.536154e+01   0.000000e+00      0s
+     145    2.0000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 145 iterations and 0.23 seconds
+Optimal objective  2.000000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.3111600e+00   1.155569e+02   0.000000e+00      0s
+     195    2.0000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 195 iterations and 0.21 seconds
+Optimal objective  2.000000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.11s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.1660200e+00   1.103958e+02   0.000000e+00      0s
+     263    2.0000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 263 iterations and 0.23 seconds
+Optimal objective  2.000000000e-02
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    4.0168760e+00   1.058529e+02   0.000000e+00      0s
+     207    8.0000000e-03   0.000000e+00   0.000000e+00      0s
+
+Solved in 207 iterations and 0.21 seconds
+Optimal objective  8.000000000e-03
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.9878480e+00   1.050111e+02   0.000000e+00      0s
+     220    8.0000000e-03   0.000000e+00   0.000000e+00      0s
+
+Solved in 220 iterations and 0.21 seconds
+Optimal objective  8.000000000e-03
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.11s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.9588200e+00   1.038500e+02   0.000000e+00      0s
+     223    8.0000000e-03   0.000000e+00   0.000000e+00      0s
+
+Solved in 223 iterations and 0.22 seconds
+Optimal objective  8.000000000e-03
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.9297920e+00   1.032114e+02   0.000000e+00      0s
+     219    8.0000000e-03   0.000000e+00   0.000000e+00      0s
+
+Solved in 219 iterations and 0.23 seconds
+Optimal objective  8.000000000e-03
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.9007640e+00   1.023695e+02   0.000000e+00      0s
+     188    8.0000000e-03   0.000000e+00   0.000000e+00      0s
+
+Solved in 188 iterations and 0.17 seconds
+Optimal objective  8.000000000e-03
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.8717360e+00   1.015277e+02   0.000000e+00      0s
+     239    8.0000000e-03   0.000000e+00   0.000000e+00      0s
+
+Solved in 239 iterations and 0.19 seconds
+Optimal objective  8.000000000e-03
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.09s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.8427080e+00   1.008891e+02   0.000000e+00      0s
+     200    8.0000000e-03   0.000000e+00   0.000000e+00      0s
+
+Solved in 200 iterations and 0.21 seconds
+Optimal objective  8.000000000e-03
+Optimize a model with 53 rows, 1024 columns and 15617 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [3e-02, 1e+00]
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.10s
+Presolved: 52 rows, 1023 columns, 15615 nonzeros
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    3.7556240e+00   9.874105e+01   0.000000e+00      0s
+     217   -0.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 217 iterations and 0.19 seconds
+Optimal objective -0.000000000e+00
+
+Gurobi 8.1.1 (win64, Python) logging started 01/27/20 17:36:20
+
+Academic license - for non-commercial use only
+Optimize a model with 14 rows, 16 columns and 77 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e-02, 1e+00]
+Presolve removed 14 rows and 16 columns
+Presolve time: 0.09s
+Presolve: All rows and columns removed
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 0 iterations and 0.14 seconds
+Optimal objective  1.000000000e+00
+Optimize a model with 14 rows, 16 columns and 77 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e-02, 1e+00]
+Presolve removed 14 rows and 16 columns
+Presolve time: 0.12s
+Presolve: All rows and columns removed
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0   -0.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 0 iterations and 0.19 seconds
+Optimal objective -0.000000000e+00
+
+Gurobi 8.1.1 (win64, Python) logging started 01/27/20 17:37:02
+
+Academic license - for non-commercial use only
+Optimize a model with 9 rows, 8 columns and 28 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [6e-02, 1e+00]
+Presolve removed 9 rows and 8 columns
+Presolve time: 0.10s
+Presolve: All rows and columns removed
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 0 iterations and 0.23 seconds
+Optimal objective  1.000000000e+00
+
+Gurobi 8.1.1 (win64, Python) logging started 01/27/20 17:37:10
+
+Academic license - for non-commercial use only
+Optimize a model with 8 rows, 8 columns and 27 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e-01, 1e+00]
+Presolve removed 8 rows and 8 columns
+Presolve time: 0.11s
+Presolve: All rows and columns removed
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 0 iterations and 0.18 seconds
+Optimal objective  1.000000000e+00
+
+Gurobi 8.1.1 (win64, Python) logging started 01/27/20 17:37:17
+
+Academic license - for non-commercial use only
+Optimize a model with 7 rows, 8 columns and 25 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [6e-02, 1e+00]
+Presolve removed 7 rows and 8 columns
+Presolve time: 0.08s
+Presolve: All rows and columns removed
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 0 iterations and 0.15 seconds
+Optimal objective  1.000000000e+00
+Optimize a model with 7 rows, 8 columns and 25 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [6e-02, 1e+00]
+Presolve removed 7 rows and 8 columns
+Presolve time: 0.13s
+Presolve: All rows and columns removed
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    6.0000000e-02   0.000000e+00   0.000000e+00      0s
+
+Solved in 0 iterations and 0.19 seconds
+Optimal objective  6.000000000e-02
+Optimize a model with 7 rows, 8 columns and 25 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [6e-02, 1e+00]
+Presolve removed 7 rows and 8 columns
+Presolve time: 0.11s
+Presolve: All rows and columns removed
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0   -0.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 0 iterations and 0.18 seconds
+Optimal objective -0.000000000e+00
+
+Gurobi 8.1.1 (win64, Python) logging started 01/27/20 17:38:13
+
+Academic license - for non-commercial use only
+Optimize a model with 9 rows, 8 columns and 28 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [8e-02, 1e+00]
+Presolve removed 9 rows and 8 columns
+Presolve time: 0.09s
+Presolve: All rows and columns removed
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+       0    1.0000000e+00   0.000000e+00   0.000000e+00      0s
+
+Solved in 0 iterations and 0.16 seconds
+Optimal objective  1.000000000e+00
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:18:48
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:19:57
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:20:28
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:22:11
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:22:30
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:23:02
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:23:07
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:23:39
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:23:51
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:27:55
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:28:05
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:28:16
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:29:12
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:34:31
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:35:16
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:35:39
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:36:08
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:41:50
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:41:58
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:42:09
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:42:15
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:43:12
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:44:14
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:45:25
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:45:52
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:47:57
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:48:14
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:48:27
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 11:48:33
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:08:33
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:08:42
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:09:21
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:12:33
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:12:38
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:12:44
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:12:49
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:12:56
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:13:17
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:14:45
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:22:35
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:22:41
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:22:46
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:22:52
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:22:58
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:23:03
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:23:09
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:23:14
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:23:19
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:23:26
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:23:32
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:23:39
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:23:48
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:23:55
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:24:02
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:24:10
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:24:18
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:24:25
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:24:32
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:24:41
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:24:48
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:24:57
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:25:05
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:25:12
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:25:19
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:25:25
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:25:32
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:25:38
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:25:45
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:25:51
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:25:58
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:26:04
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:26:11
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:26:17
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:26:25
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:26:32
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:26:39
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:27:11
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:27:32
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:27:58
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:28:20
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:28:44
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:29:08
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:29:36
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:29:53
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:30:06
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:30:20
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:30:39
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:31:03
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:31:19
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:31:37
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:31:52
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:32:08
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:32:16
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:34:07
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:34:11
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:34:14
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:34:18
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:34:21
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:34:25
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:34:30
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:34:34
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:34:38
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:34:43
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:34:47
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:34:51
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:34:55
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:35:00
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:35:04
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:35:08
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:35:12
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:35:17
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:35:21
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:35:25
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:35:30
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:35:34
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:35:39
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:35:44
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:35:49
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:35:53
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:35:58
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:36:02
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:36:06
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:36:10
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:36:14
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:36:19
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:36:25
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:36:30
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:36:34
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:36:39
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:36:43
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:36:48
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:36:52
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:36:57
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:37:02
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:37:18
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:37:31
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:37:45
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:38:03
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:38:17
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:38:35
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:38:50
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:39:05
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:39:23
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:39:42
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:39:53
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:40:06
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:40:19
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:40:38
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:40:53
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:41:13
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:41:32
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:41:47
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:42:04
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:42:39
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:42:43
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:42:46
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:42:50
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:42:53
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:42:56
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:43:00
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:43:03
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:43:07
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:43:11
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:43:14
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:43:18
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:43:21
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:43:25
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:43:28
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:43:32
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:43:35
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:43:39
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:43:42
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:43:45
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:43:49
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:43:53
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:43:57
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:44:01
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:44:05
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:44:09
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:44:14
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:44:18
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:44:24
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:44:30
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:44:33
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:44:38
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:44:42
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:44:46
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:44:51
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:44:55
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:44:59
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:45:04
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:45:10
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:45:15
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:45:21
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:45:25
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:45:30
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:45:44
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:46:01
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:46:16
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:46:38
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:46:56
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:47:12
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:47:25
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:47:33
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:47:50
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:48:08
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:48:23
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:48:41
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:49:01
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:49:15
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:49:30
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:49:44
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:49:59
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:50:10
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:50:32
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 12:50:59
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 14:59:40
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:00:54
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:00:58
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:01:02
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:01:06
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:01:11
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:01:16
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:01:22
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:01:28
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:01:33
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:01:37
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:01:42
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:01:48
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:01:53
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:01:58
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:02:03
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:02:08
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:02:14
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:14:53
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:14:57
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:15:08
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:15:13
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:15:24
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:15:36
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:15:49
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:15:58
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:16:09
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:30:35
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:34:11
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:34:57
+
+Academic license - for non-commercial use only
+Optimize a model with 31 rows, 4096 columns and 46081 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e-02, 1e+00]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.34s
+Presolved: 30 rows, 4095 columns, 46079 nonzeros
+
+Ordering time: 0.00s
+
+Barrier performed 0 iterations in 0.43 seconds
+Barrier solve interrupted - model solved by another algorithm
+
+
+Solved with dual simplex
+Solved in 82 iterations and 0.51 seconds
+Optimal objective  1.000000000e+00
+Optimize a model with 31 rows, 4096 columns and 46081 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e-02, 1e+00]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.33s
+Presolved: 30 rows, 4095 columns, 46079 nonzeros
+
+Ordering time: 0.00s
+
+Barrier performed 0 iterations in 0.43 seconds
+Barrier solve interrupted - model solved by another algorithm
+
+
+Solved with dual simplex
+Solved in 109 iterations and 0.60 seconds
+Optimal objective  3.628571429e-01
+Optimize a model with 31 rows, 4096 columns and 46081 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e-02, 1e+00]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.29s
+Presolved: 30 rows, 4095 columns, 46079 nonzeros
+
+Ordering time: 0.00s
+
+Barrier performed 0 iterations in 0.39 seconds
+Barrier solve interrupted - model solved by another algorithm
+
+
+Solved with dual simplex
+Solved in 63 iterations and 0.50 seconds
+Optimal objective  2.371428571e-01
+Optimize a model with 31 rows, 4096 columns and 46081 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e-02, 1e+00]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.15s
+Presolved: 30 rows, 4095 columns, 46079 nonzeros
+
+Ordering time: 0.00s
+
+Barrier performed 0 iterations in 0.23 seconds
+Barrier solve interrupted - model solved by another algorithm
+
+
+Solved with dual simplex
+Solved in 71 iterations and 0.34 seconds
+Optimal objective  1.900000000e-01
+Optimize a model with 31 rows, 4096 columns and 46081 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e-02, 1e+00]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.35s
+Presolved: 30 rows, 4095 columns, 46079 nonzeros
+
+Ordering time: 0.00s
+
+Barrier performed 0 iterations in 0.43 seconds
+Barrier solve interrupted - model solved by another algorithm
+
+
+Solved with dual simplex
+Solved in 124 iterations and 0.55 seconds
+Optimal objective  1.728571429e-01
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:37:25
+
+Academic license - for non-commercial use only
+Optimize a model with 35 rows, 4096 columns and 49665 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e-02, 1e+00]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.08s
+Presolved: 34 rows, 4095 columns, 49663 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 5.610e+02
+ Factor NZ  : 5.950e+02 (roughly 2 MBytes of memory)
+ Factor Ops : 1.369e+04 (less than 1 second per iteration)
+ Threads    : 1
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   4.10500000e+02  1.00000000e+00  4.10e+02 0.00e+00  2.50e-03     0s
+
+Barrier performed 0 iterations in 0.18 seconds
+Barrier solve interrupted - model solved by another algorithm
+
+
+Solved with dual simplex
+Solved in 128 iterations and 0.33 seconds
+Optimal objective  1.000000000e+00
+Optimize a model with 35 rows, 4096 columns and 49665 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e-02, 1e+00]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.16s
+Presolved: 34 rows, 4095 columns, 49663 nonzeros
+
+Ordering time: 0.00s
+
+Barrier performed 0 iterations in 0.24 seconds
+Barrier solve interrupted - model solved by another algorithm
+
+
+Solved with dual simplex
+Solved in 129 iterations and 0.36 seconds
+Optimal objective  3.457142857e-01
+Optimize a model with 35 rows, 4096 columns and 49665 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e-02, 1e+00]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.23s
+Presolved: 34 rows, 4095 columns, 49663 nonzeros
+
+Ordering time: 0.00s
+
+Barrier performed 0 iterations in 0.31 seconds
+Barrier solve interrupted - model solved by another algorithm
+
+
+Solved with dual simplex
+Solved in 91 iterations and 0.33 seconds
+Optimal objective  1.728571429e-01
+Optimize a model with 35 rows, 4096 columns and 49665 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e-02, 1e+00]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.16s
+Presolved: 34 rows, 4095 columns, 49663 nonzeros
+
+Ordering time: 0.00s
+
+Barrier performed 0 iterations in 0.23 seconds
+Barrier solve interrupted - model solved by another algorithm
+
+
+Solved with dual simplex
+Solved in 116 iterations and 0.29 seconds
+Optimal objective  1.485714286e-01
+Optimize a model with 35 rows, 4096 columns and 49665 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e-02, 1e+00]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.18s
+Presolved: 34 rows, 4095 columns, 49663 nonzeros
+
+Ordering time: 0.00s
+
+Barrier performed 0 iterations in 0.21 seconds
+Barrier solve interrupted - model solved by another algorithm
+
+
+Solved with dual simplex
+Solved in 134 iterations and 0.24 seconds
+Optimal objective  1.435714286e-01
+Optimize a model with 35 rows, 4096 columns and 49665 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e-02, 1e+00]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.25s
+Presolved: 34 rows, 4095 columns, 49663 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 5.610e+02
+ Factor NZ  : 5.950e+02 (roughly 2 MBytes of memory)
+ Factor Ops : 1.369e+04 (less than 1 second per iteration)
+ Threads    : 1
+
+Barrier performed 0 iterations in 0.31 seconds
+Barrier solve interrupted - model solved by another algorithm
+
+
+Solved with dual simplex
+Solved in 150 iterations and 0.46 seconds
+Optimal objective  1.357142857e-01
+Optimize a model with 35 rows, 4096 columns and 49665 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e-02, 1e+00]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.14s
+Presolved: 34 rows, 4095 columns, 49663 nonzeros
+
+Ordering time: 0.00s
+
+Barrier performed 0 iterations in 0.20 seconds
+Barrier solve interrupted - model solved by another algorithm
+
+
+Solved with dual simplex
+Solved in 126 iterations and 0.20 seconds
+Optimal objective  1.328571429e-01
+Optimize a model with 35 rows, 4096 columns and 49665 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e-02, 1e+00]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.18s
+Presolved: 34 rows, 4095 columns, 49663 nonzeros
+
+Ordering time: 0.00s
+
+Barrier performed 0 iterations in 0.24 seconds
+Barrier solve interrupted - model solved by another algorithm
+
+
+Solved with dual simplex
+Solved in 139 iterations and 0.30 seconds
+Optimal objective  1.312244898e-01
+Optimize a model with 35 rows, 4096 columns and 49665 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e-02, 1e+00]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.26s
+Presolved: 34 rows, 4095 columns, 49663 nonzeros
+
+Ordering time: 0.00s
+
+Barrier performed 0 iterations in 0.32 seconds
+Barrier solve interrupted - model solved by another algorithm
+
+
+Solved with dual simplex
+Solved in 142 iterations and 0.35 seconds
+Optimal objective  1.286666667e-01
+Optimize a model with 35 rows, 4096 columns and 49665 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e-02, 1e+00]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.18s
+Presolved: 34 rows, 4095 columns, 49663 nonzeros
+
+Ordering time: 0.00s
+
+Barrier performed 0 iterations in 0.27 seconds
+Barrier solve interrupted - model solved by another algorithm
+
+
+Solved with dual simplex
+Solved in 117 iterations and 0.32 seconds
+Optimal objective  1.263265306e-01
+Optimize a model with 35 rows, 4096 columns and 49665 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e-02, 1e+00]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve removed 1 rows and 1 columns
+Presolve time: 0.23s
+Presolved: 34 rows, 4095 columns, 49663 nonzeros
+
+Ordering time: 0.00s
+
+Barrier statistics:
+ AA' NZ     : 5.610e+02
+ Factor NZ  : 5.950e+02 (roughly 2 MBytes of memory)
+ Factor Ops : 1.369e+04 (less than 1 second per iteration)
+ Threads    : 1
+
+                  Objective                Residual
+Iter       Primal          Dual         Primal    Dual     Compl     Time
+   0   3.88336168e+02  2.36168497e-01  4.10e+02 3.58e-01  2.32e-02     0s
+
+Barrier performed 0 iterations in 0.31 seconds
+Barrier solve interrupted - model solved by another algorithm
+
+
+Solved with dual simplex
+Solved in 108 iterations and 0.33 seconds
+Optimal objective  1.178571429e-01
+Optimize a model with 35 rows, 4096 columns and 49665 nonzeros
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [1e+00, 1e+00]
+  Bounds range     [1e+00, 1e+00]
+  RHS range        [1e-02, 1e+00]
+
+Concurrent LP optimizer: dual simplex and barrier
+Showing barrier log only...
+
+Presolve time: 0.12s
+
+Stopped in 0 iterations and 0.16 seconds
+Solve interrupted
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:38:47
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:43:13
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 15:50:56
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 22:16:38
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 22:17:19
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 22:18:25
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 22:22:28
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/29/20 22:23:32
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:29:16
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:29:24
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:29:31
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:29:38
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:29:44
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:29:50
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:29:56
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:30:01
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:30:08
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:30:14
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:30:20
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:30:27
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:30:35
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:31:00
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:31:09
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:31:18
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:31:27
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:31:36
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:31:46
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:32:06
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:32:27
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:32:53
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:33:28
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:33:41
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:33:51
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:33:56
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:34:03
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:34:10
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:34:17
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:34:24
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:34:29
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:34:36
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:34:43
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:34:50
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:34:59
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:35:14
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:35:24
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:35:45
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:36:04
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:36:40
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:37:08
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:37:47
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:38:38
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:39:16
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:40:08
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:40:58
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:41:46
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:42:00
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:42:24
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:42:48
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:43:27
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:43:31
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:43:35
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:43:39
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:43:42
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:43:46
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:43:49
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:43:52
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:43:56
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:44:00
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:44:05
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:44:11
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:44:16
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:44:21
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:44:25
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:44:30
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:44:34
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:44:39
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:44:43
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:44:47
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:44:51
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:44:54
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:44:58
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:45:01
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:45:04
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:45:08
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:45:11
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:45:15
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:45:18
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:45:21
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:45:25
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:45:28
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:45:32
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:45:36
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:45:39
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:45:42
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:45:46
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:45:49
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:45:53
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:45:57
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:46:00
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:46:04
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:46:07
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:46:11
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:46:14
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:46:17
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:46:23
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:46:28
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:46:32
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:46:35
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:46:39
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:46:42
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:46:46
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:46:51
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:46:55
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:46:59
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:47:03
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:47:06
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:47:09
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:47:15
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:47:19
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:47:23
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:47:28
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:47:34
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:47:39
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:47:44
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:47:49
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:47:53
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:47:57
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:48:01
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:48:06
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:48:11
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:48:16
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:48:22
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:48:26
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:48:32
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:48:37
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:48:42
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:49:17
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:49:22
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:49:27
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:49:32
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:49:37
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:49:41
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:49:46
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:49:51
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:49:57
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:50:03
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:50:08
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:50:13
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:50:19
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:50:25
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:50:29
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:50:36
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:50:46
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:50:51
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:50:57
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:51:04
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:51:11
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:51:17
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:51:23
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:51:29
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:51:36
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:51:42
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:51:48
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:51:55
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:52:01
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:52:07
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:52:13
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:52:19
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:52:24
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:52:29
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:52:30
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:52:35
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:52:41
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:52:47
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:52:54
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:53:00
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:53:06
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:53:13
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:53:19
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:53:26
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:53:33
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:53:40
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:53:46
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:53:52
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:53:58
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:54:04
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:54:10
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:54:16
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:54:22
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:54:27
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:54:33
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:54:39
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:54:45
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:54:51
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:54:57
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:55:03
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:55:09
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:55:15
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:55:21
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:55:28
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:55:33
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:55:38
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:55:48
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:55:57
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:56:06
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:56:15
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:56:24
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:56:34
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:56:45
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:56:55
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:57:04
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:57:15
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:57:23
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:57:33
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:57:45
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:57:55
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:58:05
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:58:16
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:58:27
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:58:37
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:58:45
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:59:00
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:59:13
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:59:25
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:59:37
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:59:49
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 10:59:57
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 11:00:06
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 11:00:16
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 11:00:25
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 11:00:33
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 11:00:43
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 11:00:53
+
+Academic license - for non-commercial use only
+
+Gurobi 8.1.1 (win64, Python) logging started 01/31/20 11:14:48
+
+Academic license - for non-commercial use only

@@ -12,6 +12,7 @@ from mlxtend.frequent_patterns import apriori
 from mlxtend.frequent_patterns import association_rules
 import sys
 import time
+import csv
 
 path_to_codebase = './codebase/'
 sys.path.insert(0, path_to_codebase)
@@ -82,9 +83,9 @@ def main(file_num=None, k=None, support=None, dataset_num=None):
     tic = time.time()
 
     # generating synthetic data 
-    directory = '../dataset/d'+str(k)+'/synthetic_data_expt'+str(file_num)+'.csv'
-    # alternate use on cluster
-    # directory = '../data/dataset_s'+str(dataset_num)+'/d'+str(k)+'/synthetic_data_expt'+str(file_num)+'.csv'
+    # directory = '../dataset/d'+str(k)+'/synthetic_data_expt'+str(file_num)+'.csv'
+    # with dataset number
+    directory = '../dataset_s'+str(dataset_num)+'/d'+str(k)+'/synthetic_data_expt'+str(file_num)+'.csv'
     
     # for synthetic data 
     cleaneddata = clean_preproc_data(directory)
@@ -109,10 +110,11 @@ def main(file_num=None, k=None, support=None, dataset_num=None):
     print("The clusters are:\n", feats.feat_partitions)
 
     print("\nThe constraints are:")
+    print('marginals',list(range(k)))
     print('two_wayc', two_wayc)
     print('three_wayc', three_wayc)
     print('four_wayc', four_wayc)
-    print('The total number of constraints are: ', str(len(two_wayc) + len(three_wayc) + len(four_wayc)))
+    print('The total number of constraints are: ', str(len(two_wayc) + len(three_wayc) + len(four_wayc) + k))
     print()
 
     # print(feats.feat_partitions)
@@ -120,6 +122,8 @@ def main(file_num=None, k=None, support=None, dataset_num=None):
 
     #Use LP to detect zero atoms 
     opt.exact_zero_detection(cleaneddata)
+    # opt.approximate_zero_detection(cleaneddata)
+
 
     #Analyze the results: 
     #zv_nzemp: Zero vectors with non zero empirical probabilities
@@ -130,22 +134,21 @@ def main(file_num=None, k=None, support=None, dataset_num=None):
     print("Zero vectors, NON ZERO empirical probabilities:", zv_nzemp)
     print("Zero vectors, ZERO empirical probabilities:", zv_zemp)
     print("Zero empirical probability, assigned non zero by LP:", nzv_zemp)
-    # opt.analyze_zero_atoms(cleaneddata)
-    # opt.approximate_zero_detection(cleaneddata)
     
-    soln_opt = opt.solver_optimize()
-    if soln_opt == None:
-        print('Solution does not converge')
-        return 
+    # soln_opt = opt.solver_optimize()
+    # if soln_opt == None:
+        # print('Solution does not converge')
+        # return 
 
-    maxent, sum_prob_maxent, emp_prob = compute_prob_exact(opt)
-    print()
-    print("Empirical: " +str(emp_prob))
-    print("Maxent: " + str(sum_prob_maxent))
+
+    # maxent, sum_prob_maxent, emp_prob = compute_prob_exact(opt)
+    # print()
+    # print("Empirical: " +str(emp_prob))
+    # print("Maxent: " + str(sum_prob_maxent))
     #without dataset
-    print("True distribution:" + str(read_prob_dist('../output/d'+str(k)+'/truedist_expt'+str(file_num)+'.pickle')))
+    # print("True distribution:" + str(read_prob_dist('../output/d'+str(k)+'/truedist_expt'+str(file_num)+'.pickle')))
     #with dataset 
-    # print("True distribution:" + str(read_prob_dist('../output/output_s'+str(dataset_num)+'/d'+str(k)+'/truedist_expt'+str(file_num)+'.pickle')))
+    # print("True distribution:" + str(read_prob_dist('../output_s'+str(dataset_num)+'/d'+str(k)+'/truedist_expt'+str(file_num)+'.pickle')))
    
     # for synthetic data 
     # outfilename = '../output/d'+str(k)+'/syn_maxent_expt'+str(file_num)+'.pickle'
@@ -155,11 +158,12 @@ def main(file_num=None, k=None, support=None, dataset_num=None):
     
     toc = time.time()
     print('Computational time for calculating maxent = {} seconds'.format(toc-tic))
+    return tot_zeros, zv_nzemp, zv_zemp, nzv_zemp
 
 if __name__ == '__main__':
     # for synthetic data 
     '''
-    # with dataset 
+    # with dataset and support 
     num_dis = sys.argv[1]
     dataset_num = sys.argv[2]
     file_num = sys.argv[3]
@@ -168,6 +172,19 @@ if __name__ == '__main__':
 
     '''
     # without dataset
+    # num_dis = sys.argv[1]
+    # file_num = sys.argv[2]
+    # main(int(file_num), int(num_dis))
+
+    # with dataset and automatic support
     num_dis = sys.argv[1]
-    file_num = sys.argv[2]
-    main(int(file_num), int(num_dis))
+    dataset_num = sys.argv[2]
+    zeros_file = '../zero_analysis/dataset_s'+str(dataset_num)+'_d'+str(num_dis)+'.csv'
+    with open(zeros_file, "w") as csvFile: 
+        first_row = ['#_diseases','file_num','tot_zeros','zv_nzemp','zv_zemp','nzv_zemp']
+        csv.writer(csvFile).writerow(first_row)
+        for file_num in range(5):
+            tot_zeros, zv_nzemp, zv_zemp, nzv_zemp = main(file_num = file_num+1, k=int(num_dis), dataset_num=int(dataset_num))
+            second_row = [int(num_dis), file_num+1, tot_zeros, zv_nzemp, zv_zemp, nzv_zemp]
+            csv.writer(csvFile).writerow(second_row)
+    csvFile.close()
