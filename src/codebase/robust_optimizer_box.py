@@ -34,7 +34,7 @@ class Optimizer(object):
         norm_z: List with length equal to the number of partitions in the feature
             graph. Stores the normalization constant for each of partitions (since
             each partition is considered independent of others).
-        width:  width for robust optimizer
+        width:  width for robust optimizer w = 1 
     """
 
     def __init__(self, features_object, width):
@@ -44,7 +44,6 @@ class Optimizer(object):
         self.opt_sol = None     
         self.norm_z = None
         self.width = width
-        self.zero_indices = {}
 
     # Utility function to check whether a tuple (key from constraint dict)
     # contains all the variables inside the given partition.
@@ -390,21 +389,13 @@ class Optimizer(object):
         # print('length of all_perms', len(all_perms)==num_total_vectors)
 
         all_perms = itertools.product([0, 1], repeat=num_feats)
-        
-        #Use a generator to yield only non zero vecotrs
-        def non_zero_vectors(self, partition):
-            for i, vec in enumerate(all_perms):
-                if (i not in self.zero_indices[tuple(partition)]):
-                    yield vec
+        num_total_vectors = 2**(num_feats)
+        constraint_mat = np.zeros((num_total_vectors, len_theta))        
+                
 
         N = self.feats_obj.N
 
-        num_total_vectors = 2**(num_feats)
-        if len(self.zero_indices)!=0 and tuple(partition) in self.zero_indices.keys():
-            num_total_vectors -= len(self.zero_indices[tuple(partition)])
-        constraint_mat = np.zeros((num_total_vectors, len_theta))        
-                
-        for i, vec in enumerate(non_zero_vectors(self, partition)):
+        for i, vec in enumerate(all_perms):
             tmpvec = np.asarray(vec)
             # tmp = self.compute_constraint_sum(thetas, tmpvec, partition)
             tmp_arr = self.util_compute_array(tmpvec, partition, twoway_dict, 
@@ -916,8 +907,14 @@ class Optimizer(object):
                 len_theta = datavec_partition.shape[0]*2
                 a = np.random.RandomState(seed=1)
                 initial_val = a.rand(len_theta)
-                A_term = self.width/self.feats_obj.N
-                B_term = self.width/self.feats_obj.N
+                # calc f 
+                f = datavec_partition/self.feats_obj.N 
+                f = np.sqrt(f*(1-f)/self.feats_obj.N)*1.96
+                
+                # A_term = f
+                # B_term = f
+                A_term = (self.width*self.feats_obj.N)/self.feats_obj.N
+                B_term = (self.width*self.feats_obj.N)/self.feats_obj.N
 
                 def func_objective(thetas):
                     objective_sum = 0.0
@@ -933,8 +930,14 @@ class Optimizer(object):
                     thetas_a, thetas_b = np.split(thetas, 2)
                     theta_term_a = np.dot(datavec_partition, thetas_a)
                     theta_term_b = np.dot(datavec_partition, thetas_b)
+                    
+                    # If A_term is a vector then np.sum is not required. 
                     alpha_term = np.sum(np.dot(thetas_a, A_term))
                     beta_term = np.sum(np.dot(thetas_b, B_term))
+
+                    # alpha_term = np.dot(thetas_a, A_term)
+                    # beta_term = np.dot(thetas_a, B_term)
+
                     # norm_term = -1 * N * np.log(self.binary_norm_Z(thetas, partition))                    
                     norm_term = -1 * N * self.log_norm_Z((thetas_a-thetas_b), partition, c_matrix_partition)
                     objective_sum = theta_term_a - theta_term_b + norm_term - alpha_term - beta_term
@@ -974,8 +977,8 @@ class Optimizer(object):
                         inn_arr = np.exp(inn_arr)
                         inn_arr /= norm_sol[i]
                         total_prob = np.sum(inn_arr, axis=0)
-                        print('thetas', optimThetas)
-                        print('Partition num, Total prob: ', i, total_prob)
+                        # print('thetas', optimThetas)
+                        # print('Partition num, Total prob: ', i, total_prob)
                     except:   
                         print("Function not well defined.")
                         print('Solution: ', solution[i])
@@ -999,30 +1002,21 @@ class Optimizer(object):
         # partition will be a set of indices in the i-th parition        
         for i, partition in enumerate(parts):
             tmpvec = rvec[partition]
-
-            if len(partition) == 1:
+            # term_exp = self.compute_constraint_sum(solution[i][0], tmpvec, partition)
+            if len(partition)==1:
                 term_exp = self.compute_constraint_sum(solution[i][0], tmpvec, partition)
             else:
-                #convert zero indices to list of binary
-                zeros_list = []
-                for zero_atom in self.zero_indices[tuple(partition)]:
-                    zeros_list.append(format(zero_atom, '0'+str(len(partition))+'b'))
+                term_exp = self.compute_constraint_sum(solution[i], tmpvec, partition)
 
-                zero_vec = tmpvec.tolist()
-                zero_vec = ''.join(map(str,zero_vec))
-
-                if zero_vec in zeros_list:
-                    return 0
-                else:       
-                    term_exp = self.compute_constraint_sum(solution[i], tmpvec, partition)
-                
             part_logprob = term_exp - np.log(norm_sol[i])
             log_prob += part_logprob
-            # part_prob = np.exp(part_logprob)
+            part_prob = np.exp(part_logprob)
             # print('partition, prob: ', i, part_prob)            
             # prob_product *= (1.0/norm_sol[i]) * np.exp(term_exp)
         
-        return np.exp(log_prob)    
+        return np.exp(log_prob)
+        # return prob_product
+
     '''
     #OLD PROB DIST
     def prob_dist(self, rvec):

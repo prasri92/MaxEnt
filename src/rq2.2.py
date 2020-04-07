@@ -74,6 +74,18 @@ def calc_maxent_unperturbed(file_num, directory, k, width=None):
                     15:{1:0.003, 2:0.005, 3:0.011, 4:0.020, 5:0.027}}
     support = support_vals[k][file_num]
     
+    # exp = {1:0.8 , 2:1.2 , 3:1.6 , 4:2.0 , 5:2.4}
+    # size = {4: 50, 7: 125, 10: 250, 15:350}
+    # e = exp[file_num]
+    # d_size = size[k]
+    # real_k = (k-4)/(20-4)
+    # real_e = (e - 0.8)/(2.4-0.8)
+    # real_d = (d_size - 51)/(1000-51)
+    # # support = -0.037*real_k + 0.032*real_e + 0.034*(real_k*real_k) - 0.081*(real_k*real_e) + 0.030*(real_e*real_e) - 0.04
+    # support = -0.040*real_k + 0.032*real_e - 0.054*real_d + 0.035*(real_k**2) - 0.083*(real_k*real_e) + \
+    # 0.007*(real_k*real_d) + 0.029*(real_e**2) + 0.003*(real_e*real_d) + 0.032*(real_d**2) + 0.05
+    # print("The support is: ", support)
+    
     #Measure time to compute maxent
     tic = time.time()
 
@@ -158,6 +170,18 @@ def calc_maxent_perturbed(file_num, directory, perturb_prob, k, width=None):
                     10:{1:0.009, 2:0.018, 3:0.027, 4:0.036, 5:0.054},
                     15:{1:0.003, 2:0.005, 3:0.011, 4:0.020, 5:0.027}}
     support = support_vals[k][file_num]
+
+    # exp = {1:0.8 , 2:1.2 , 3:1.6 , 4:2.0 , 5:2.4}
+    # size = {4: 50, 7: 125, 10: 250, 15:350}
+    # e = exp[file_num]
+    # d_size = size[k]
+    # real_k = (k-4)/(20-4)
+    # real_e = (e - 0.8)/(2.4-0.8)
+    # real_d = (d_size - 51)/(1000-51)
+    # # support = -0.037*real_k + 0.032*real_e + 0.034*(real_k*real_k) - 0.081*(real_k*real_e) + 0.030*(real_e*real_e) - 0.04
+    # support = -0.040*real_k + 0.032*real_e - 0.054*real_d + 0.035*(real_k**2) - 0.083*(real_k*real_e) + \
+    # 0.007*(real_k*real_d) + 0.029*(real_e**2) + 0.003*(real_e*real_d) + 0.032*(real_d**2) + 0.05
+    # print("The support is: ", support)
     
     #Measure time to compute maxent
     tic = time.time()
@@ -236,48 +260,91 @@ def calc_maxent_perturbed(file_num, directory, perturb_prob, k, width=None):
     return (maxent_ur_p, maxent_r_p)
 
 
-def main_up(file_num, k):
+def main_up(file_num, k, dataset=None):
     '''
     Function to store multiple perturbation and width maximum entropy distributions in a single file
     '''
     # generating synthetic data 
-    directory = '../dataset/d'+str(k)+'/synthetic_data_expt'+str(file_num)+'.csv'
-
+    if dataset==None:
+        directory = '../dataset/d'+str(k)+'/synthetic_data_expt'+str(file_num)+'.csv'
+    else:
+        directory = '../dataset_s'+str(dataset)+'/d'+str(k)+'/synthetic_data_expt'+str(file_num)+'.csv'
+    '''
     if k == 15:
-        widths = [70, 210, 350, 490, 630]
+        # widths = [70, 210, 350, 490, 630]
+        # widths = [0.0001, 0.001, 0.01, 1, 350, 3500]
+        # widths = [0.01, 1, 350, 600, 800, 950]
+        widths = [1, 70, 175, 350]
     elif k == 10:
-        widths = [50, 150, 250, 350, 450]
+        # widths = [50, 150, 250, 350, 450]
+        # widths = [0.0001, 0.001, 0.01, 1, 250, 2500]
+        # widths = [1, 50, 250, 500, 5000, 10000000]
+        # widths = [0.01, 1, 250, 450, 600, 800]   
+        widths = [1, 50, 125, 250]
     elif k == 7:
-        widths = [25, 75, 125, 175, 225]
+        # widths = [25, 75, 125, 175, 225]
+        # widths = [0.0001, 0.001, 0.01, 1, 125, 1250]
+        # widths = [1, 50, 250, 500, 5000, 10000000]
+        # widths = [0.01, 1, 125, 300, 450, 600]
+        widths = [1, 25, 62.5, 125]
     elif k == 4:
-        widths = [10,30,50,70,90]
-
-    file_width = [0.2, 0.6, 1.0, 1.4, 1.8]
+        # widths = [10,30,50,70,90]
+        # widths = [0.0001, 0.001, 0.01, 1, 50, 500]
+        # widths = [1, 50, 250, 500, 5000, 10000000]
+        # widths = [0.01, 1, 50, 120, 250, 400]
+        widths = [1, 10, 25, 50]
+    '''
+    widths = [0.002, 0.2, 0.5, 1]
+    # file_width = file_width = [1,2,3,4,5,6]
+    file_width = [1,2,3,4]
     # IF testing for different widths (also change file name)
     for ind, w in enumerate(widths):
         output = calc_maxent_unperturbed(file_num, directory, k=k, width=w)
     
         # for synthetic data 
-        outfilename = '../output/d'+str(k)+'_expt2.2/syn_maxent_up'+str(file_num)+'_w'+str(file_width[ind])+'.pickle'
+        if dataset==None:
+            outfilename = '../output/d'+str(k)+'_expt2.2/syn_maxent_up'+str(file_num)+'_w'+str(file_width[ind])+'.pickle'
+        else:
+            outfilename = '../output_s'+str(dataset)+'/d'+str(k)+'_expt2.2/syn_maxent_up'+str(file_num)+'_w'+str(file_width[ind])+'.pickle'
 
         with open(outfilename, "wb") as outfile:
             pickle.dump(output, outfile)
 
 
-def main_p(file_num, k):
+def main_p(file_num, k, dataset=None):
     # generating synthetic data 
-    directory = '../dataset/d'+str(k)+'/synthetic_data_expt'+str(file_num)+'.csv'
-
+    if dataset==None:
+        directory = '../dataset/d'+str(k)+'/synthetic_data_expt'+str(file_num)+'.csv'
+    else:
+        directory = '../dataset_s'+str(dataset)+'/d'+str(k)+'/synthetic_data_expt'+str(file_num)+'.csv'
+    '''
     if k == 15:
-        widths = [70, 210, 350, 490, 630]
+        # widths = [70, 210, 350, 490, 630]
+        # widths = [0.0001, 0.001, 0.01, 1, 350, 3500]
+        # widths = [0.01, 1, 350, 600, 800, 950]
+        widths = [1, 70, 175, 350]
     elif k == 10:
-        widths = [50, 150, 250, 350, 450]
+        # widths = [50, 150, 250, 350, 450]
+        # widths = [0.0001, 0.001, 0.01, 1, 250, 2500]
+        # widths = [1, 50, 250, 500, 5000, 10000000]  
+        # widths = [0.01, 1, 250, 450, 600, 800]    
+        widths = [1, 50, 125, 250]
     elif k == 7:
-        widths = [25, 75, 125, 175, 225]
+        # widths = [25, 75, 125, 175, 225]
+        # widths = [0.0001, 0.001, 0.01, 1, 125, 1250]
+        # widths = [1, 50, 250, 500, 5000, 10000000]        
+        # widths = [0.01, 1, 125, 300, 450, 600]
+        widths = [1, 25, 62.5, 125]
     elif k == 4:
-        widths = [10,30,50,70,90]
-
-    file_width = [0.2, 0.6, 1.0, 1.4, 1.8]
+        # widths = [10,30,50,70,90]
+        # widths = [0.0001, 0.001, 0.01, 1, 50, 500]
+        # widths = [1, 50, 250, 500, 5000, 10000000]
+        # widths = [0.01, 1, 50, 120, 250, 400]
+        widths = [1, 10, 25, 50]
+    '''
+    widths = [0.002, 0.2, 0.5, 1]
+    # file_width = [1,2,3,4,5,6]
+    file_width = [1,2,3,4]
     # IF testing for different widths (also change file name)
     for ind,w in enumerate(widths):
         perturb_prob = [0.01, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21]
@@ -285,8 +352,11 @@ def main_p(file_num, k):
             output = calc_maxent_perturbed(file_num, directory, perturb_prob=p, k=k, width=w)
 
             # for synthetic data 
-            outfilename = '../output/d'+str(k)+'_expt2.2/syn_maxent_p'+str(file_num)+'_p'+str(p)+'_w'+str(file_width[ind])+'.pickle'
-
+            if dataset==None:
+                outfilename = '../output/d'+str(k)+'_expt2.2/syn_maxent_p'+str(file_num)+'_p'+str(p)+'_w'+str(file_width[ind])+'.pickle'
+            else:
+                outfilename = '../output_s'+str(dataset)+'/d'+str(k)+'_expt2.2/syn_maxent_p'+str(file_num)+'_p'+str(p)+'_w'+str(file_width[ind])+'.pickle'
+            
             with open(outfilename, "wb") as outfile:
                 pickle.dump(output, outfile)
 
@@ -295,7 +365,14 @@ if __name__ == '__main__':
     num_dis = sys.argv[1]
     file_num = sys.argv[2]
     pert_flag = sys.argv[3]
-    if pert_flag == str(0):
-        main_p(file_num=int(file_num), k=int(num_dis))
-    elif pert_flag == str(1):
-        main_up(file_num=int(file_num), k=int(num_dis))
+    if len(sys.argv) <= 4:
+        if pert_flag == str(0):
+            main_p(file_num=int(file_num), k=int(num_dis))
+        elif pert_flag == str(1):
+            main_up(file_num=int(file_num), k=int(num_dis))
+    else:
+        dataset = sys.argv[4]
+        if pert_flag == str(0):
+            main_p(file_num=int(file_num), k=int(num_dis), dataset=int(dataset))
+        elif pert_flag == str(1):
+            main_up(file_num=int(file_num), k=int(num_dis), dataset=int(dataset))

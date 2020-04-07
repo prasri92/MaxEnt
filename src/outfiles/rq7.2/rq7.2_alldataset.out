@@ -1,0 +1,2602 @@
+Comparing Zero Atom Probabilities in the robust vs. non-robust case
+###################################################
+PROCESSING DATASET: 10 DISEASES: 4 FILE NUMBER: 1
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  4
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.017996788024902344 seconds
+###################################################
+PROCESSING DATASET: 10 DISEASES: 4 FILE NUMBER: 2
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 2], [1], [3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(0, 2): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  5
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 2]
+Number of diseases: 2
+Number of constraints: 4
+No zero vectors in this cluster
+
+
+Partition for calculation: [0, 2]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.04799699783325195 seconds
+###################################################
+PROCESSING DATASET: 10 DISEASES: 4 FILE NUMBER: 3
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 3], [1], [2]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(0, 3): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  5
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 3]
+Number of diseases: 2
+Number of constraints: 4
+No zero vectors in this cluster
+
+
+Partition for calculation: [0, 3]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.04999065399169922 seconds
+###################################################
+PROCESSING DATASET: 10 DISEASES: 4 FILE NUMBER: 4
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 3, 2]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(0, 1): (1, 1), (0, 3): (1, 1), (2, 3): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  7
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 3, 2]
+Number of diseases: 4
+Number of constraints: 8
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 3, 2]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.07999062538146973 seconds
+###################################################
+PROCESSING DATASET: 10 DISEASES: 4 FILE NUMBER: 5
+###################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (2, 3): (1, 1)}
+Three_wayc {(0, 1, 2): (1, 1, 1), (0, 1, 3): (1, 1, 1), (0, 2, 3): (1, 1, 1), (1, 2, 3): (1, 1, 1)}
+Four_wayc {(0, 1, 2, 3): (1, 1, 1, 1)}
+The total number of constraints are:  15
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3]
+Number of diseases: 4
+Number of constraints: 16
+Zero vectors present for cluster:  (0, 1, 2, 3)  ; Number:  4
+
+
+Partition for calculation: [0, 1, 2, 3]
+Number of zero vectors in total:  4
+Zero atoms in three cases
+
+Computational time for calculating maxent = 0.32698988914489746 seconds
+###################################################
+PROCESSING DATASET: 10 DISEASES: 7 FILE NUMBER: 1
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  7
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.022998332977294922 seconds
+###################################################
+PROCESSING DATASET: 10 DISEASES: 7 FILE NUMBER: 2
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 2, 3, 5, 1, 4], [6]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {(0, 2): (1, 1), (0, 3): (1, 1), (0, 5): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (1, 4): (1, 1), (1, 5): (1, 1), (2, 5): (1, 1), (3, 5): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  16
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 2, 3, 5, 1, 4]
+Number of diseases: 6
+Number of constraints: 16
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 2, 3, 5, 1, 4]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.13500118255615234 seconds
+###################################################
+PROCESSING DATASET: 10 DISEASES: 7 FILE NUMBER: 3
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (0, 4): (1, 1), (0, 5): (1, 1), (0, 6): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (1, 4): (1, 1), (1, 5): (1, 1), (1, 6): (1, 1), (2, 3): (1, 1), (2, 4): (1, 1), (2, 5): (1, 1), (2, 6): (1, 1), (3, 4): (1, 1), (3, 5): (1, 1), (3, 6): (1, 1), (4, 5): (1, 1), (4, 6): (1, 1), (5, 6): (1, 1)}
+Three_wayc {(0, 2, 4): (1, 1, 1), (1, 2, 3): (1, 1, 1), (1, 2, 5): (1, 1, 1), (1, 3, 5): (1, 1, 1), (1, 5, 6): (1, 1, 1), (2, 3, 5): (1, 1, 1), (2, 4, 5): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  35
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3, 4, 5, 6]
+Number of diseases: 7
+Number of constraints: 36
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 2, 3, 4, 5, 6]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.34200048446655273 seconds
+###################################################
+PROCESSING DATASET: 10 DISEASES: 7 FILE NUMBER: 4
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 2, 3, 4, 5, 6, 1]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {(0, 2): (1, 1), (0, 4): (1, 1), (0, 6): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (1, 4): (1, 1), (1, 5): (1, 1), (1, 6): (1, 1), (2, 3): (1, 1), (2, 4): (1, 1), (2, 5): (1, 1), (2, 6): (1, 1), (3, 4): (1, 1), (3, 5): (1, 1), (3, 6): (1, 1), (4, 5): (1, 1), (4, 6): (1, 1), (5, 6): (1, 1)}
+Three_wayc {(1, 2, 3): (1, 1, 1), (1, 2, 4): (1, 1, 1), (1, 2, 5): (1, 1, 1), (1, 2, 6): (1, 1, 1), (1, 4, 5): (1, 1, 1), (1, 4, 6): (1, 1, 1), (2, 4, 6): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  32
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 2, 3, 4, 5, 6, 1]
+Number of diseases: 7
+Number of constraints: 33
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 2, 3, 4, 5, 6, 1]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.31699156761169434 seconds
+###################################################
+PROCESSING DATASET: 10 DISEASES: 7 FILE NUMBER: 5
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  7
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.03124237060546875 seconds
+###################################################
+PROCESSING DATASET: 10 DISEASES: 10 FILE NUMBER: 1
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  10
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.08600139617919922 seconds
+###################################################
+PROCESSING DATASET: 10 DISEASES: 10 FILE NUMBER: 2
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  10
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.09199404716491699 seconds
+###################################################
+PROCESSING DATASET: 10 DISEASES: 10 FILE NUMBER: 3
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 9, 8]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 4): (1, 1), (0, 6): (1, 1), (0, 7): (1, 1), (0, 9): (1, 1), (1, 2): (1, 1), (1, 4): (1, 1), (1, 7): (1, 1), (1, 9): (1, 1), (2, 3): (1, 1), (2, 6): (1, 1), (2, 7): (1, 1), (3, 4): (1, 1), (3, 5): (1, 1), (3, 7): (1, 1), (3, 9): (1, 1), (4, 5): (1, 1), (4, 7): (1, 1), (5, 7): (1, 1), (5, 9): (1, 1), (6, 9): (1, 1), (7, 9): (1, 1), (8, 9): (1, 1)}
+Three_wayc {(1, 4, 7): (1, 1, 1), (3, 4, 7): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  36
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3, 4, 5, 6, 7, 9, 8]
+Number of diseases: 10
+Number of constraints: 37
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 2, 3, 4, 5, 6, 7, 9, 8]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 3.605551242828369 seconds
+###################################################
+PROCESSING DATASET: 10 DISEASES: 10 FILE NUMBER: 4
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {(0, 1): (1, 1), (0, 4): (1, 1), (0, 8): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (1, 4): (1, 1), (1, 5): (1, 1), (1, 6): (1, 1), (1, 8): (1, 1), (1, 9): (1, 1), (2, 4): (1, 1), (2, 7): (1, 1), (3, 5): (1, 1), (3, 8): (1, 1), (4, 9): (1, 1), (5, 6): (1, 1), (5, 7): (1, 1), (5, 9): (1, 1), (6, 7): (1, 1), (6, 9): (1, 1), (7, 8): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  31
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Number of diseases: 10
+Number of constraints: 32
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 3.610034227371216 seconds
+###################################################
+PROCESSING DATASET: 10 DISEASES: 10 FILE NUMBER: 5
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (0, 4): (1, 1), (0, 5): (1, 1), (0, 6): (1, 1), (0, 7): (1, 1), (0, 8): (1, 1), (0, 9): (1, 1), (1, 3): (1, 1), (1, 4): (1, 1), (1, 5): (1, 1), (1, 6): (1, 1), (1, 8): (1, 1), (1, 9): (1, 1), (2, 3): (1, 1), (2, 4): (1, 1), (2, 6): (1, 1), (2, 8): (1, 1), (2, 9): (1, 1), (3, 4): (1, 1), (3, 5): (1, 1), (3, 6): (1, 1), (3, 7): (1, 1), (3, 8): (1, 1), (3, 9): (1, 1), (4, 5): (1, 1), (4, 6): (1, 1), (4, 7): (1, 1), (4, 8): (1, 1), (4, 9): (1, 1), (5, 6): (1, 1), (5, 7): (1, 1), (5, 8): (1, 1), (5, 9): (1, 1), (7, 8): (1, 1), (8, 9): (1, 1)}
+Three_wayc {(1, 3, 5): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  48
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Number of diseases: 10
+Number of constraints: 49
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 4.030059099197388 seconds
+###################################################
+PROCESSING DATASET: 20 DISEASES: 4 FILE NUMBER: 1
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  4
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.026999711990356445 seconds
+###################################################
+PROCESSING DATASET: 20 DISEASES: 4 FILE NUMBER: 2
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (2, 3): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  9
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3]
+Number of diseases: 4
+Number of constraints: 10
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 2, 3]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.0870058536529541 seconds
+###################################################
+PROCESSING DATASET: 20 DISEASES: 4 FILE NUMBER: 3
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (1, 3): (1, 1), (2, 3): (1, 1)}
+Three_wayc {(0, 1, 3): (1, 1, 1), (0, 2, 3): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  11
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3]
+Number of diseases: 4
+Number of constraints: 12
+Zero vectors present for cluster:  (0, 1, 2, 3)  ; Number:  4
+
+
+Partition for calculation: [0, 1, 2, 3]
+Number of zero vectors in total:  4
+Zero atoms in three cases
+
+Computational time for calculating maxent = 0.2905154228210449 seconds
+###################################################
+PROCESSING DATASET: 20 DISEASES: 4 FILE NUMBER: 4
+###################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (2, 3): (1, 1)}
+Three_wayc {(0, 1, 2): (1, 1, 1), (0, 1, 3): (1, 1, 1), (0, 2, 3): (1, 1, 1), (1, 2, 3): (1, 1, 1)}
+Four_wayc {(0, 1, 2, 3): (1, 1, 1, 1)}
+The total number of constraints are:  15
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3]
+Number of diseases: 4
+Number of constraints: 16
+Zero vectors present for cluster:  (0, 1, 2, 3)  ; Number:  3
+
+
+Partition for calculation: [0, 1, 2, 3]
+Number of zero vectors in total:  3
+Zero atoms in three cases
+
+Computational time for calculating maxent = 0.30099987983703613 seconds
+###################################################
+PROCESSING DATASET: 20 DISEASES: 4 FILE NUMBER: 5
+###################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (2, 3): (1, 1)}
+Three_wayc {(0, 1, 2): (1, 1, 1), (0, 1, 3): (1, 1, 1), (0, 2, 3): (1, 1, 1), (1, 2, 3): (1, 1, 1)}
+Four_wayc {(0, 1, 2, 3): (1, 1, 1, 1)}
+The total number of constraints are:  15
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3]
+Number of diseases: 4
+Number of constraints: 16
+Zero vectors present for cluster:  (0, 1, 2, 3)  ; Number:  3
+
+
+Partition for calculation: [0, 1, 2, 3]
+Number of zero vectors in total:  3
+Zero atoms in three cases
+
+Computational time for calculating maxent = 0.32500123977661133 seconds
+###################################################
+PROCESSING DATASET: 20 DISEASES: 7 FILE NUMBER: 1
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  7
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.023996829986572266 seconds
+###################################################
+PROCESSING DATASET: 20 DISEASES: 7 FILE NUMBER: 2
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2, 5], [3], [4], [6]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {(2, 5): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  8
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [2, 5]
+Number of diseases: 2
+Number of constraints: 4
+No zero vectors in this cluster
+
+
+Partition for calculation: [2, 5]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.0629889965057373 seconds
+###################################################
+PROCESSING DATASET: 20 DISEASES: 7 FILE NUMBER: 3
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 2, 3, 4, 5, 6, 1]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {(0, 2): (1, 1), (0, 5): (1, 1), (1, 3): (1, 1), (2, 3): (1, 1), (2, 4): (1, 1), (2, 5): (1, 1), (2, 6): (1, 1), (3, 5): (1, 1), (3, 6): (1, 1), (5, 6): (1, 1)}
+Three_wayc {(2, 3, 5): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  18
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 2, 3, 4, 5, 6, 1]
+Number of diseases: 7
+Number of constraints: 19
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 2, 3, 4, 5, 6, 1]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.1889955997467041 seconds
+###################################################
+PROCESSING DATASET: 20 DISEASES: 7 FILE NUMBER: 4
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (0, 5): (1, 1), (0, 6): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (1, 4): (1, 1), (1, 5): (1, 1), (1, 6): (1, 1), (2, 3): (1, 1), (2, 4): (1, 1), (2, 5): (1, 1), (2, 6): (1, 1), (3, 4): (1, 1), (3, 5): (1, 1), (3, 6): (1, 1), (4, 5): (1, 1), (5, 6): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  26
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3, 4, 5, 6]
+Number of diseases: 7
+Number of constraints: 27
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 2, 3, 4, 5, 6]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.20352482795715332 seconds
+###################################################
+PROCESSING DATASET: 20 DISEASES: 7 FILE NUMBER: 5
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  7
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.018989086151123047 seconds
+###################################################
+PROCESSING DATASET: 20 DISEASES: 10 FILE NUMBER: 1
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  10
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.13199687004089355 seconds
+###################################################
+PROCESSING DATASET: 20 DISEASES: 10 FILE NUMBER: 2
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  10
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.13100123405456543 seconds
+###################################################
+PROCESSING DATASET: 20 DISEASES: 10 FILE NUMBER: 3
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 2, 3, 5, 6, 7, 9], [1, 4, 8]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {(0, 2): (1, 1), (0, 3): (1, 1), (0, 5): (1, 1), (0, 6): (1, 1), (1, 4): (1, 1), (1, 8): (1, 1), (2, 6): (1, 1), (2, 7): (1, 1), (2, 9): (1, 1), (3, 6): (1, 1), (3, 7): (1, 1), (5, 6): (1, 1), (5, 9): (1, 1), (6, 9): (1, 1), (7, 9): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  25
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 2, 3, 5, 6, 7, 9]
+Number of diseases: 7
+Number of constraints: 21
+There are no zero vectors in cluster
+
+
+Diseases: [1, 4, 8]
+Number of diseases: 3
+Number of constraints: 6
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 2, 3, 5, 6, 7, 9]
+
+
+Partition for calculation: [1, 4, 8]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.46599841117858887 seconds
+###################################################
+PROCESSING DATASET: 20 DISEASES: 10 FILE NUMBER: 4
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (0, 4): (1, 1), (0, 6): (1, 1), (0, 7): (1, 1), (0, 9): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (1, 4): (1, 1), (1, 6): (1, 1), (1, 7): (1, 1), (1, 8): (1, 1), (1, 9): (1, 1), (2, 3): (1, 1), (2, 4): (1, 1), (2, 5): (1, 1), (2, 6): (1, 1), (2, 9): (1, 1), (3, 4): (1, 1), (3, 5): (1, 1), (3, 6): (1, 1), (3, 7): (1, 1), (3, 8): (1, 1), (3, 9): (1, 1), (4, 5): (1, 1), (4, 6): (1, 1), (4, 7): (1, 1), (4, 8): (1, 1), (4, 9): (1, 1), (5, 6): (1, 1), (5, 7): (1, 1), (5, 8): (1, 1), (5, 9): (1, 1), (6, 7): (1, 1), (6, 8): (1, 1), (6, 9): (1, 1), (7, 8): (1, 1), (7, 9): (1, 1), (8, 9): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  50
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Number of diseases: 10
+Number of constraints: 51
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 3.153096914291382 seconds
+###################################################
+PROCESSING DATASET: 20 DISEASES: 10 FILE NUMBER: 5
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (0, 4): (1, 1), (0, 5): (1, 1), (0, 6): (1, 1), (0, 7): (1, 1), (0, 9): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (1, 4): (1, 1), (1, 5): (1, 1), (1, 6): (1, 1), (1, 7): (1, 1), (1, 8): (1, 1), (1, 9): (1, 1), (2, 3): (1, 1), (2, 5): (1, 1), (2, 6): (1, 1), (2, 9): (1, 1), (3, 4): (1, 1), (3, 5): (1, 1), (3, 6): (1, 1), (3, 7): (1, 1), (3, 8): (1, 1), (3, 9): (1, 1), (4, 5): (1, 1), (4, 6): (1, 1), (4, 7): (1, 1), (4, 8): (1, 1), (4, 9): (1, 1), (5, 6): (1, 1), (5, 7): (1, 1), (5, 9): (1, 1), (6, 7): (1, 1), (6, 8): (1, 1), (6, 9): (1, 1), (7, 8): (1, 1), (7, 9): (1, 1), (8, 9): (1, 1)}
+Three_wayc {(1, 3, 5): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  51
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Number of diseases: 10
+Number of constraints: 52
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 3.026040554046631 seconds
+###################################################
+PROCESSING DATASET: 30 DISEASES: 4 FILE NUMBER: 1
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  4
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.018999576568603516 seconds
+###################################################
+PROCESSING DATASET: 30 DISEASES: 4 FILE NUMBER: 2
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1, 2], [3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(1, 2): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  5
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [1, 2]
+Number of diseases: 2
+Number of constraints: 4
+No zero vectors in this cluster
+
+
+Partition for calculation: [1, 2]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.04799938201904297 seconds
+###################################################
+PROCESSING DATASET: 30 DISEASES: 4 FILE NUMBER: 3
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(0, 1): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (2, 3): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  8
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3]
+Number of diseases: 4
+Number of constraints: 9
+Zero vectors present for cluster:  (0, 1, 2, 3)  ; Number:  4
+
+
+Partition for calculation: [0, 1, 2, 3]
+Number of zero vectors in total:  4
+Zero atoms in three cases
+
+Computational time for calculating maxent = 0.16452693939208984 seconds
+###################################################
+PROCESSING DATASET: 30 DISEASES: 4 FILE NUMBER: 4
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (2, 3): (1, 1)}
+Three_wayc {(0, 2, 3): (1, 1, 1), (1, 2, 3): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  12
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3]
+Number of diseases: 4
+Number of constraints: 13
+Zero vectors present for cluster:  (0, 1, 2, 3)  ; Number:  2
+
+
+Partition for calculation: [0, 1, 2, 3]
+Number of zero vectors in total:  2
+Zero atoms in three cases
+
+Computational time for calculating maxent = 0.25899505615234375 seconds
+###################################################
+PROCESSING DATASET: 30 DISEASES: 4 FILE NUMBER: 5
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (2, 3): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  9
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3]
+Number of diseases: 4
+Number of constraints: 10
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 2, 3]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.0929863452911377 seconds
+###################################################
+PROCESSING DATASET: 30 DISEASES: 7 FILE NUMBER: 1
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  7
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.0249936580657959 seconds
+###################################################
+PROCESSING DATASET: 30 DISEASES: 7 FILE NUMBER: 2
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  7
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.02599787712097168 seconds
+###################################################
+PROCESSING DATASET: 30 DISEASES: 7 FILE NUMBER: 3
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (0, 4): (1, 1), (0, 5): (1, 1), (0, 6): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (1, 4): (1, 1), (1, 5): (1, 1), (2, 3): (1, 1), (2, 4): (1, 1), (2, 5): (1, 1), (2, 6): (1, 1), (3, 4): (1, 1), (3, 5): (1, 1), (3, 6): (1, 1), (4, 5): (1, 1)}
+Three_wayc {(0, 3, 4): (1, 1, 1), (0, 3, 5): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  27
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3, 4, 5, 6]
+Number of diseases: 7
+Number of constraints: 28
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 2, 3, 4, 5, 6]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.22499585151672363 seconds
+###################################################
+PROCESSING DATASET: 30 DISEASES: 7 FILE NUMBER: 4
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (0, 4): (1, 1), (1, 4): (1, 1), (1, 5): (1, 1), (2, 3): (1, 1), (2, 4): (1, 1), (2, 5): (1, 1), (2, 6): (1, 1), (3, 4): (1, 1), (3, 5): (1, 1), (3, 6): (1, 1), (4, 5): (1, 1), (4, 6): (1, 1), (5, 6): (1, 1)}
+Three_wayc {(0, 2, 3): (1, 1, 1), (2, 3, 5): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  25
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3, 4, 5, 6]
+Number of diseases: 7
+Number of constraints: 26
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 2, 3, 4, 5, 6]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.24599766731262207 seconds
+###################################################
+PROCESSING DATASET: 30 DISEASES: 7 FILE NUMBER: 5
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  7
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.02400064468383789 seconds
+###################################################
+PROCESSING DATASET: 30 DISEASES: 10 FILE NUMBER: 1
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  10
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.09600114822387695 seconds
+###################################################
+PROCESSING DATASET: 30 DISEASES: 10 FILE NUMBER: 2
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1, 2, 3, 8], [4], [5, 7], [6], [9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {(1, 2): (1, 1), (1, 3): (1, 1), (2, 3): (1, 1), (2, 8): (1, 1), (5, 7): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  15
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [1, 2, 3, 8]
+Number of diseases: 4
+Number of constraints: 9
+There are no zero vectors in cluster
+
+
+Diseases: [5, 7]
+Number of diseases: 2
+Number of constraints: 4
+No zero vectors in this cluster
+
+
+Partition for calculation: [1, 2, 3, 8]
+
+
+Partition for calculation: [5, 7]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.18399786949157715 seconds
+###################################################
+PROCESSING DATASET: 30 DISEASES: 10 FILE NUMBER: 3
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (0, 5): (1, 1), (0, 6): (1, 1), (0, 7): (1, 1), (0, 8): (1, 1), (0, 9): (1, 1), (1, 3): (1, 1), (1, 4): (1, 1), (1, 5): (1, 1), (1, 6): (1, 1), (1, 7): (1, 1), (1, 8): (1, 1), (1, 9): (1, 1), (2, 4): (1, 1), (2, 5): (1, 1), (2, 6): (1, 1), (2, 7): (1, 1), (2, 8): (1, 1), (2, 9): (1, 1), (3, 4): (1, 1), (3, 5): (1, 1), (3, 6): (1, 1), (3, 7): (1, 1), (3, 8): (1, 1), (3, 9): (1, 1), (4, 5): (1, 1), (4, 6): (1, 1), (4, 7): (1, 1), (4, 8): (1, 1), (4, 9): (1, 1), (5, 6): (1, 1), (5, 7): (1, 1), (5, 8): (1, 1), (5, 9): (1, 1), (6, 7): (1, 1), (6, 8): (1, 1), (6, 9): (1, 1), (7, 8): (1, 1), (7, 9): (1, 1), (8, 9): (1, 1)}
+Three_wayc {(0, 3, 7): (1, 1, 1), (0, 6, 7): (1, 1, 1), (1, 5, 6): (1, 1, 1), (1, 5, 7): (1, 1, 1), (1, 6, 7): (1, 1, 1), (3, 5, 7): (1, 1, 1), (3, 5, 9): (1, 1, 1), (3, 6, 7): (1, 1, 1), (4, 5, 7): (1, 1, 1), (4, 5, 9): (1, 1, 1), (4, 6, 7): (1, 1, 1), (4, 7, 9): (1, 1, 1), (5, 6, 7): (1, 1, 1), (5, 6, 9): (1, 1, 1), (5, 7, 9): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  67
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Number of diseases: 10
+Number of constraints: 68
+Zero vectors present for cluster:  (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)  ; Number:  128
+
+
+Partition for calculation: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Number of zero vectors in total:  128
+Zero atoms in three cases
+
+Computational time for calculating maxent = 10.225647687911987 seconds
+###################################################
+PROCESSING DATASET: 30 DISEASES: 10 FILE NUMBER: 4
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 5): (1, 1), (0, 6): (1, 1), (0, 7): (1, 1), (0, 9): (1, 1), (1, 2): (1, 1), (1, 4): (1, 1), (1, 5): (1, 1), (1, 6): (1, 1), (1, 7): (1, 1), (1, 8): (1, 1), (1, 9): (1, 1), (2, 3): (1, 1), (2, 4): (1, 1), (2, 5): (1, 1), (2, 6): (1, 1), (2, 7): (1, 1), (2, 8): (1, 1), (2, 9): (1, 1), (3, 4): (1, 1), (3, 5): (1, 1), (3, 6): (1, 1), (3, 7): (1, 1), (3, 8): (1, 1), (3, 9): (1, 1), (4, 5): (1, 1), (4, 6): (1, 1), (4, 7): (1, 1), (4, 9): (1, 1), (5, 6): (1, 1), (5, 7): (1, 1), (5, 8): (1, 1), (5, 9): (1, 1), (6, 7): (1, 1), (6, 8): (1, 1), (6, 9): (1, 1), (7, 8): (1, 1), (7, 9): (1, 1), (8, 9): (1, 1)}
+Three_wayc {(0, 6, 7): (1, 1, 1), (2, 3, 6): (1, 1, 1), (2, 3, 7): (1, 1, 1), (2, 6, 7): (1, 1, 1), (3, 4, 7): (1, 1, 1), (3, 4, 9): (1, 1, 1), (3, 5, 7): (1, 1, 1), (3, 5, 9): (1, 1, 1), (3, 6, 7): (1, 1, 1), (3, 6, 9): (1, 1, 1), (3, 7, 9): (1, 1, 1), (4, 5, 9): (1, 1, 1), (5, 6, 7): (1, 1, 1), (5, 6, 9): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  64
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Number of diseases: 10
+Number of constraints: 65
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 4.4425575733184814 seconds
+###################################################
+PROCESSING DATASET: 30 DISEASES: 10 FILE NUMBER: 5
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (0, 4): (1, 1), (0, 5): (1, 1), (0, 6): (1, 1), (0, 7): (1, 1), (0, 8): (1, 1), (0, 9): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (1, 4): (1, 1), (1, 5): (1, 1), (1, 6): (1, 1), (1, 7): (1, 1), (1, 8): (1, 1), (1, 9): (1, 1), (2, 3): (1, 1), (2, 4): (1, 1), (2, 5): (1, 1), (2, 6): (1, 1), (2, 7): (1, 1), (2, 8): (1, 1), (2, 9): (1, 1), (3, 4): (1, 1), (3, 5): (1, 1), (3, 6): (1, 1), (3, 7): (1, 1), (3, 8): (1, 1), (3, 9): (1, 1), (4, 5): (1, 1), (4, 6): (1, 1), (4, 7): (1, 1), (4, 8): (1, 1), (4, 9): (1, 1), (5, 6): (1, 1), (5, 7): (1, 1), (5, 8): (1, 1), (5, 9): (1, 1), (6, 7): (1, 1), (6, 8): (1, 1), (6, 9): (1, 1), (7, 8): (1, 1), (7, 9): (1, 1), (8, 9): (1, 1)}
+Three_wayc {(1, 2, 7): (1, 1, 1), (1, 3, 5): (1, 1, 1), (1, 5, 7): (1, 1, 1), (1, 6, 7): (1, 1, 1), (2, 3, 5): (1, 1, 1), (2, 6, 7): (1, 1, 1), (3, 4, 5): (1, 1, 1), (3, 5, 6): (1, 1, 1), (3, 5, 7): (1, 1, 1), (3, 5, 9): (1, 1, 1), (5, 6, 7): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  66
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Number of diseases: 10
+Number of constraints: 67
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 4.425558805465698 seconds
+###################################################
+PROCESSING DATASET: 40 DISEASES: 4 FILE NUMBER: 1
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  4
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.018993377685546875 seconds
+###################################################
+PROCESSING DATASET: 40 DISEASES: 4 FILE NUMBER: 2
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1, 3], [2]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(1, 3): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  5
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [1, 3]
+Number of diseases: 2
+Number of constraints: 4
+No zero vectors in this cluster
+
+
+Partition for calculation: [1, 3]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.04599714279174805 seconds
+###################################################
+PROCESSING DATASET: 40 DISEASES: 4 FILE NUMBER: 3
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2], [3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (1, 2): (1, 1)}
+Three_wayc {(0, 1, 2): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  8
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2]
+Number of diseases: 3
+Number of constraints: 8
+No zero vectors in this cluster
+
+
+Partition for calculation: [0, 1, 2]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.0659949779510498 seconds
+###################################################
+PROCESSING DATASET: 40 DISEASES: 4 FILE NUMBER: 4
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1)}
+Three_wayc {(0, 1, 2): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  9
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3]
+Number of diseases: 4
+Number of constraints: 10
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 2, 3]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.07499933242797852 seconds
+###################################################
+PROCESSING DATASET: 40 DISEASES: 4 FILE NUMBER: 5
+###################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (2, 3): (1, 1)}
+Three_wayc {(0, 1, 2): (1, 1, 1), (0, 1, 3): (1, 1, 1), (0, 2, 3): (1, 1, 1), (1, 2, 3): (1, 1, 1)}
+Four_wayc {(0, 1, 2, 3): (1, 1, 1, 1)}
+The total number of constraints are:  15
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3]
+Number of diseases: 4
+Number of constraints: 16
+Zero vectors present for cluster:  (0, 1, 2, 3)  ; Number:  4
+
+
+Partition for calculation: [0, 1, 2, 3]
+Number of zero vectors in total:  4
+Zero atoms in three cases
+
+Computational time for calculating maxent = 0.278001070022583 seconds
+###################################################
+PROCESSING DATASET: 40 DISEASES: 7 FILE NUMBER: 1
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  7
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.02399420738220215 seconds
+###################################################
+PROCESSING DATASET: 40 DISEASES: 7 FILE NUMBER: 2
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1, 2, 3, 5, 6], [4]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {(1, 2): (1, 1), (2, 3): (1, 1), (2, 5): (1, 1), (5, 6): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  11
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [1, 2, 3, 5, 6]
+Number of diseases: 5
+Number of constraints: 10
+There are no zero vectors in cluster
+
+
+Partition for calculation: [1, 2, 3, 5, 6]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.09399890899658203 seconds
+###################################################
+PROCESSING DATASET: 40 DISEASES: 7 FILE NUMBER: 3
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 4, 5, 6, 1, 2, 3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {(0, 4): (1, 1), (0, 5): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (1, 4): (1, 1), (1, 5): (1, 1), (1, 6): (1, 1), (2, 3): (1, 1), (2, 5): (1, 1), (2, 6): (1, 1), (3, 5): (1, 1), (4, 5): (1, 1), (5, 6): (1, 1)}
+Three_wayc {(2, 3, 5): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  21
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 4, 5, 6, 1, 2, 3]
+Number of diseases: 7
+Number of constraints: 22
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 4, 5, 6, 1, 2, 3]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.25899744033813477 seconds
+###################################################
+PROCESSING DATASET: 40 DISEASES: 7 FILE NUMBER: 4
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 2, 3, 4, 5, 6, 1]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {(0, 2): (1, 1), (0, 4): (1, 1), (0, 6): (1, 1), (1, 2): (1, 1), (1, 4): (1, 1), (2, 3): (1, 1), (2, 4): (1, 1), (2, 5): (1, 1), (2, 6): (1, 1), (3, 5): (1, 1), (4, 5): (1, 1), (4, 6): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  19
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 2, 3, 4, 5, 6, 1]
+Number of diseases: 7
+Number of constraints: 20
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 2, 3, 4, 5, 6, 1]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.19899892807006836 seconds
+###################################################
+PROCESSING DATASET: 40 DISEASES: 7 FILE NUMBER: 5
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  7
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.02000141143798828 seconds
+###################################################
+PROCESSING DATASET: 40 DISEASES: 10 FILE NUMBER: 1
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  10
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.22600126266479492 seconds
+###################################################
+PROCESSING DATASET: 40 DISEASES: 10 FILE NUMBER: 2
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  10
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.10999369621276855 seconds
+###################################################
+PROCESSING DATASET: 40 DISEASES: 10 FILE NUMBER: 3
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3, 4, 5, 7, 8], [6], [9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (0, 4): (1, 1), (0, 5): (1, 1), (0, 7): (1, 1), (0, 8): (1, 1), (1, 2): (1, 1), (2, 3): (1, 1), (2, 4): (1, 1), (2, 5): (1, 1), (2, 7): (1, 1), (2, 8): (1, 1), (4, 5): (1, 1), (7, 8): (1, 1)}
+Three_wayc {(0, 1, 2): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  26
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3, 4, 5, 7, 8]
+Number of diseases: 8
+Number of constraints: 25
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 2, 3, 4, 5, 7, 8]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.5679888725280762 seconds
+###################################################
+PROCESSING DATASET: 40 DISEASES: 10 FILE NUMBER: 4
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 2, 3, 4, 5, 6, 7, 8, 9, 1]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {(0, 2): (1, 1), (0, 3): (1, 1), (0, 4): (1, 1), (0, 5): (1, 1), (0, 6): (1, 1), (0, 8): (1, 1), (1, 2): (1, 1), (1, 5): (1, 1), (1, 6): (1, 1), (1, 7): (1, 1), (1, 8): (1, 1), (1, 9): (1, 1), (2, 3): (1, 1), (2, 4): (1, 1), (2, 6): (1, 1), (2, 7): (1, 1), (2, 8): (1, 1), (2, 9): (1, 1), (3, 5): (1, 1), (3, 8): (1, 1), (4, 5): (1, 1), (4, 7): (1, 1), (5, 6): (1, 1), (5, 7): (1, 1), (5, 8): (1, 1), (5, 9): (1, 1), (6, 7): (1, 1), (6, 8): (1, 1), (6, 9): (1, 1), (7, 8): (1, 1), (8, 9): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  41
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 2, 3, 4, 5, 6, 7, 8, 9, 1]
+Number of diseases: 10
+Number of constraints: 42
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 2, 3, 4, 5, 6, 7, 8, 9, 1]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 2.9940507411956787 seconds
+###################################################
+PROCESSING DATASET: 40 DISEASES: 10 FILE NUMBER: 5
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (0, 4): (1, 1), (0, 5): (1, 1), (0, 6): (1, 1), (0, 9): (1, 1), (1, 2): (1, 1), (1, 4): (1, 1), (1, 5): (1, 1), (1, 6): (1, 1), (1, 7): (1, 1), (1, 8): (1, 1), (1, 9): (1, 1), (2, 3): (1, 1), (2, 4): (1, 1), (2, 5): (1, 1), (2, 6): (1, 1), (2, 7): (1, 1), (2, 8): (1, 1), (2, 9): (1, 1), (3, 5): (1, 1), (3, 6): (1, 1), (3, 9): (1, 1), (4, 5): (1, 1), (4, 6): (1, 1), (4, 7): (1, 1), (4, 8): (1, 1), (4, 9): (1, 1), (5, 6): (1, 1), (5, 7): (1, 1), (5, 8): (1, 1), (5, 9): (1, 1), (6, 8): (1, 1), (6, 9): (1, 1), (7, 9): (1, 1), (8, 9): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  47
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Number of diseases: 10
+Number of constraints: 48
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 2.900031805038452 seconds
+###################################################
+PROCESSING DATASET: 50 DISEASES: 4 FILE NUMBER: 1
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  4
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.019994258880615234 seconds
+###################################################
+PROCESSING DATASET: 50 DISEASES: 4 FILE NUMBER: 2
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1], [2], [3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(0, 1): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  5
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1]
+Number of diseases: 2
+Number of constraints: 4
+No zero vectors in this cluster
+
+
+Partition for calculation: [0, 1]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.04300069808959961 seconds
+###################################################
+PROCESSING DATASET: 50 DISEASES: 4 FILE NUMBER: 3
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1, 2], [3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(1, 2): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  5
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [1, 2]
+Number of diseases: 2
+Number of constraints: 4
+No zero vectors in this cluster
+
+
+Partition for calculation: [1, 2]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.04399824142456055 seconds
+###################################################
+PROCESSING DATASET: 50 DISEASES: 4 FILE NUMBER: 4
+###################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (2, 3): (1, 1)}
+Three_wayc {(0, 1, 2): (1, 1, 1), (0, 1, 3): (1, 1, 1), (0, 2, 3): (1, 1, 1), (1, 2, 3): (1, 1, 1)}
+Four_wayc {(0, 1, 2, 3): (1, 1, 1, 1)}
+The total number of constraints are:  15
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3]
+Number of diseases: 4
+Number of constraints: 16
+Zero vectors present for cluster:  (0, 1, 2, 3)  ; Number:  3
+
+
+Partition for calculation: [0, 1, 2, 3]
+Number of zero vectors in total:  3
+Zero atoms in three cases
+
+Computational time for calculating maxent = 0.4120028018951416 seconds
+###################################################
+PROCESSING DATASET: 50 DISEASES: 4 FILE NUMBER: 5
+###################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (2, 3): (1, 1)}
+Three_wayc {(0, 1, 2): (1, 1, 1), (0, 1, 3): (1, 1, 1), (0, 2, 3): (1, 1, 1), (1, 2, 3): (1, 1, 1)}
+Four_wayc {(0, 1, 2, 3): (1, 1, 1, 1)}
+The total number of constraints are:  15
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3]
+Number of diseases: 4
+Number of constraints: 16
+Zero vectors present for cluster:  (0, 1, 2, 3)  ; Number:  2
+
+
+Partition for calculation: [0, 1, 2, 3]
+Number of zero vectors in total:  2
+Zero atoms in three cases
+
+Computational time for calculating maxent = 0.33100056648254395 seconds
+###################################################
+PROCESSING DATASET: 50 DISEASES: 7 FILE NUMBER: 1
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  7
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.02299642562866211 seconds
+###################################################
+PROCESSING DATASET: 50 DISEASES: 7 FILE NUMBER: 2
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  7
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.02899026870727539 seconds
+###################################################
+PROCESSING DATASET: 50 DISEASES: 7 FILE NUMBER: 3
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 4], [1], [2], [3], [5], [6]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {(0, 4): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  8
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 4]
+Number of diseases: 2
+Number of constraints: 4
+No zero vectors in this cluster
+
+
+Partition for calculation: [0, 4]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.06299543380737305 seconds
+###################################################
+PROCESSING DATASET: 50 DISEASES: 7 FILE NUMBER: 4
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1, 5, 4, 6], [2], [3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {(1, 5): (1, 1), (4, 5): (1, 1), (4, 6): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  10
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [1, 5, 4, 6]
+Number of diseases: 4
+Number of constraints: 8
+There are no zero vectors in cluster
+
+
+Partition for calculation: [1, 5, 4, 6]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.0749971866607666 seconds
+###################################################
+PROCESSING DATASET: 50 DISEASES: 7 FILE NUMBER: 5
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  7
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.027996301651000977 seconds
+###################################################
+PROCESSING DATASET: 50 DISEASES: 10 FILE NUMBER: 1
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  10
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.0948333740234375 seconds
+###################################################
+PROCESSING DATASET: 50 DISEASES: 10 FILE NUMBER: 2
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 2], [1], [3], [4], [5], [6], [7], [8], [9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {(0, 2): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  11
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 2]
+Number of diseases: 2
+Number of constraints: 4
+No zero vectors in this cluster
+
+
+Partition for calculation: [0, 2]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.14400053024291992 seconds
+###################################################
+PROCESSING DATASET: 50 DISEASES: 10 FILE NUMBER: 3
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (0, 5): (1, 1), (0, 6): (1, 1), (0, 7): (1, 1), (0, 8): (1, 1), (0, 9): (1, 1), (1, 3): (1, 1), (1, 4): (1, 1), (1, 5): (1, 1), (1, 7): (1, 1), (2, 3): (1, 1), (2, 5): (1, 1), (2, 6): (1, 1), (2, 7): (1, 1), (2, 8): (1, 1), (2, 9): (1, 1), (3, 4): (1, 1), (3, 5): (1, 1), (3, 6): (1, 1), (4, 5): (1, 1), (4, 6): (1, 1), (4, 7): (1, 1), (4, 8): (1, 1), (5, 6): (1, 1), (5, 7): (1, 1), (5, 8): (1, 1), (6, 7): (1, 1), (6, 8): (1, 1), (7, 9): (1, 1), (8, 9): (1, 1)}
+Three_wayc {(4, 5, 6): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  43
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Number of diseases: 10
+Number of constraints: 44
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 4.699543714523315 seconds
+###################################################
+PROCESSING DATASET: 50 DISEASES: 10 FILE NUMBER: 4
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (0, 5): (1, 1), (0, 6): (1, 1), (0, 7): (1, 1), (0, 8): (1, 1), (0, 9): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (1, 4): (1, 1), (1, 5): (1, 1), (1, 6): (1, 1), (1, 7): (1, 1), (1, 8): (1, 1), (1, 9): (1, 1), (2, 3): (1, 1), (2, 4): (1, 1), (2, 5): (1, 1), (2, 6): (1, 1), (2, 7): (1, 1), (2, 8): (1, 1), (2, 9): (1, 1), (3, 4): (1, 1), (3, 5): (1, 1), (3, 6): (1, 1), (3, 7): (1, 1), (3, 8): (1, 1), (3, 9): (1, 1), (4, 5): (1, 1), (4, 6): (1, 1), (4, 7): (1, 1), (4, 8): (1, 1), (5, 6): (1, 1), (5, 7): (1, 1), (5, 8): (1, 1), (5, 9): (1, 1), (6, 7): (1, 1), (6, 8): (1, 1), (6, 9): (1, 1), (7, 8): (1, 1), (7, 9): (1, 1), (8, 9): (1, 1)}
+Three_wayc {(2, 3, 8): (1, 1, 1), (3, 5, 6): (1, 1, 1), (3, 5, 8): (1, 1, 1), (3, 8, 9): (1, 1, 1), (4, 5, 6): (1, 1, 1), (5, 6, 7): (1, 1, 1), (5, 6, 8): (1, 1, 1), (5, 7, 8): (1, 1, 1), (5, 8, 9): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  62
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Number of diseases: 10
+Number of constraints: 63
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 4.5465521812438965 seconds
+###################################################
+PROCESSING DATASET: 50 DISEASES: 10 FILE NUMBER: 5
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 3, 4, 5, 6, 7, 8, 9, 2]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {(0, 1): (1, 1), (0, 3): (1, 1), (0, 4): (1, 1), (0, 5): (1, 1), (0, 8): (1, 1), (0, 9): (1, 1), (1, 3): (1, 1), (1, 4): (1, 1), (1, 5): (1, 1), (1, 6): (1, 1), (1, 7): (1, 1), (1, 8): (1, 1), (2, 3): (1, 1), (2, 4): (1, 1), (2, 5): (1, 1), (2, 8): (1, 1), (2, 9): (1, 1), (3, 4): (1, 1), (3, 5): (1, 1), (3, 8): (1, 1), (3, 9): (1, 1), (4, 5): (1, 1), (4, 6): (1, 1), (4, 7): (1, 1), (4, 8): (1, 1), (4, 9): (1, 1), (5, 7): (1, 1), (5, 8): (1, 1), (5, 9): (1, 1), (6, 8): (1, 1), (7, 8): (1, 1), (8, 9): (1, 1)}
+Three_wayc {(5, 8, 9): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  43
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 3, 4, 5, 6, 7, 8, 9, 2]
+Number of diseases: 10
+Number of constraints: 44
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 3, 4, 5, 6, 7, 8, 9, 2]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 3.357048749923706 seconds
+###################################################
+PROCESSING DATASET: 60 DISEASES: 4 FILE NUMBER: 1
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  4
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.03099370002746582 seconds
+###################################################
+PROCESSING DATASET: 60 DISEASES: 4 FILE NUMBER: 2
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2, 3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(2, 3): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  5
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [2, 3]
+Number of diseases: 2
+Number of constraints: 4
+No zero vectors in this cluster
+
+
+Partition for calculation: [2, 3]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.05699753761291504 seconds
+###################################################
+PROCESSING DATASET: 60 DISEASES: 4 FILE NUMBER: 3
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (2, 3): (1, 1)}
+Three_wayc {(0, 1, 3): (1, 1, 1), (0, 2, 3): (1, 1, 1), (1, 2, 3): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  13
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3]
+Number of diseases: 4
+Number of constraints: 14
+Zero vectors present for cluster:  (0, 1, 2, 3)  ; Number:  3
+
+
+Partition for calculation: [0, 1, 2, 3]
+Number of zero vectors in total:  3
+Zero atoms in three cases
+
+Computational time for calculating maxent = 0.24799847602844238 seconds
+###################################################
+PROCESSING DATASET: 60 DISEASES: 4 FILE NUMBER: 4
+###################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (2, 3): (1, 1)}
+Three_wayc {(0, 1, 2): (1, 1, 1), (0, 1, 3): (1, 1, 1), (0, 2, 3): (1, 1, 1), (1, 2, 3): (1, 1, 1)}
+Four_wayc {(0, 1, 2, 3): (1, 1, 1, 1)}
+The total number of constraints are:  15
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3]
+Number of diseases: 4
+Number of constraints: 16
+Zero vectors present for cluster:  (0, 1, 2, 3)  ; Number:  2
+
+
+Partition for calculation: [0, 1, 2, 3]
+Number of zero vectors in total:  2
+Zero atoms in three cases
+
+Computational time for calculating maxent = 0.26900219917297363 seconds
+###################################################
+PROCESSING DATASET: 60 DISEASES: 4 FILE NUMBER: 5
+###################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (2, 3): (1, 1)}
+Three_wayc {(0, 1, 2): (1, 1, 1), (0, 1, 3): (1, 1, 1), (0, 2, 3): (1, 1, 1), (1, 2, 3): (1, 1, 1)}
+Four_wayc {(0, 1, 2, 3): (1, 1, 1, 1)}
+The total number of constraints are:  15
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3]
+Number of diseases: 4
+Number of constraints: 16
+Zero vectors present for cluster:  (0, 1, 2, 3)  ; Number:  2
+
+
+Partition for calculation: [0, 1, 2, 3]
+Number of zero vectors in total:  2
+Zero atoms in three cases
+
+Computational time for calculating maxent = 0.3245224952697754 seconds
+###################################################
+PROCESSING DATASET: 60 DISEASES: 7 FILE NUMBER: 1
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  7
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.022993803024291992 seconds
+###################################################
+PROCESSING DATASET: 60 DISEASES: 7 FILE NUMBER: 2
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  7
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.02600240707397461 seconds
+###################################################
+PROCESSING DATASET: 60 DISEASES: 7 FILE NUMBER: 3
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 3, 6, 1, 2, 5], [4]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {(0, 3): (1, 1), (0, 6): (1, 1), (1, 2): (1, 1), (1, 6): (1, 1), (2, 6): (1, 1), (5, 6): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  13
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 3, 6, 1, 2, 5]
+Number of diseases: 6
+Number of constraints: 13
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 3, 6, 1, 2, 5]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.11398863792419434 seconds
+###################################################
+PROCESSING DATASET: 60 DISEASES: 7 FILE NUMBER: 4
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (0, 5): (1, 1), (0, 6): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (1, 4): (1, 1), (1, 5): (1, 1), (1, 6): (1, 1), (2, 4): (1, 1), (2, 5): (1, 1), (2, 6): (1, 1), (3, 4): (1, 1), (3, 6): (1, 1), (5, 6): (1, 1)}
+Three_wayc {(1, 2, 4): (1, 1, 1), (1, 2, 6): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  25
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3, 4, 5, 6]
+Number of diseases: 7
+Number of constraints: 26
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 2, 3, 4, 5, 6]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.18599557876586914 seconds
+###################################################
+PROCESSING DATASET: 60 DISEASES: 7 FILE NUMBER: 5
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  7
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.02699756622314453 seconds
+###################################################
+PROCESSING DATASET: 60 DISEASES: 10 FILE NUMBER: 1
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  10
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.1829996109008789 seconds
+###################################################
+PROCESSING DATASET: 60 DISEASES: 10 FILE NUMBER: 2
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 3, 4], [2], [5], [6], [7], [8], [9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {(0, 1): (1, 1), (0, 3): (1, 1), (0, 4): (1, 1), (1, 4): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  14
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 3, 4]
+Number of diseases: 4
+Number of constraints: 9
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 3, 4]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 0.16199803352355957 seconds
+###################################################
+PROCESSING DATASET: 60 DISEASES: 10 FILE NUMBER: 3
+###################################################
+No 3 way constraints specified
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 4, 5, 6, 7, 8, 9, 3]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {(0, 1): (1, 1), (0, 4): (1, 1), (1, 2): (1, 1), (1, 4): (1, 1), (2, 4): (1, 1), (3, 4): (1, 1), (3, 6): (1, 1), (3, 7): (1, 1), (3, 8): (1, 1), (4, 5): (1, 1), (4, 6): (1, 1), (4, 7): (1, 1), (4, 9): (1, 1), (7, 8): (1, 1)}
+Three_wayc {}
+Four_wayc {}
+The total number of constraints are:  24
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 4, 5, 6, 7, 8, 9, 3]
+Number of diseases: 10
+Number of constraints: 25
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 2, 4, 5, 6, 7, 8, 9, 3]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 3.7350385189056396 seconds
+###################################################
+PROCESSING DATASET: 60 DISEASES: 10 FILE NUMBER: 4
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 2, 3, 4, 5, 6, 7, 8, 9, 1]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {(0, 2): (1, 1), (0, 4): (1, 1), (0, 5): (1, 1), (0, 7): (1, 1), (0, 8): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (1, 4): (1, 1), (1, 5): (1, 1), (1, 6): (1, 1), (1, 7): (1, 1), (1, 8): (1, 1), (2, 3): (1, 1), (2, 4): (1, 1), (2, 5): (1, 1), (2, 6): (1, 1), (2, 7): (1, 1), (2, 8): (1, 1), (2, 9): (1, 1), (3, 4): (1, 1), (3, 5): (1, 1), (3, 6): (1, 1), (3, 8): (1, 1), (4, 5): (1, 1), (4, 6): (1, 1), (4, 7): (1, 1), (4, 8): (1, 1), (5, 6): (1, 1), (5, 7): (1, 1), (5, 8): (1, 1), (5, 9): (1, 1), (6, 8): (1, 1), (6, 9): (1, 1), (7, 8): (1, 1), (8, 9): (1, 1)}
+Three_wayc {(1, 2, 4): (1, 1, 1), (2, 4, 6): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  47
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 2, 3, 4, 5, 6, 7, 8, 9, 1]
+Number of diseases: 10
+Number of constraints: 48
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 2, 3, 4, 5, 6, 7, 8, 9, 1]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 3.842578649520874 seconds
+###################################################
+PROCESSING DATASET: 60 DISEASES: 10 FILE NUMBER: 5
+###################################################
+No 4 way constraints specified
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+
+The constraints are:
+Marginals [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Two_wayc {(0, 1): (1, 1), (0, 2): (1, 1), (0, 3): (1, 1), (0, 4): (1, 1), (0, 5): (1, 1), (0, 6): (1, 1), (0, 7): (1, 1), (0, 8): (1, 1), (1, 2): (1, 1), (1, 3): (1, 1), (1, 4): (1, 1), (1, 5): (1, 1), (1, 6): (1, 1), (1, 7): (1, 1), (1, 8): (1, 1), (2, 3): (1, 1), (2, 4): (1, 1), (2, 5): (1, 1), (2, 6): (1, 1), (2, 7): (1, 1), (2, 8): (1, 1), (2, 9): (1, 1), (3, 4): (1, 1), (3, 5): (1, 1), (3, 6): (1, 1), (3, 7): (1, 1), (3, 8): (1, 1), (3, 9): (1, 1), (4, 5): (1, 1), (4, 6): (1, 1), (4, 7): (1, 1), (4, 8): (1, 1), (4, 9): (1, 1), (5, 6): (1, 1), (5, 7): (1, 1), (5, 8): (1, 1), (5, 9): (1, 1), (6, 7): (1, 1), (6, 8): (1, 1), (7, 8): (1, 1), (7, 9): (1, 1), (8, 9): (1, 1)}
+Three_wayc {(0, 2, 4): (1, 1, 1), (0, 4, 8): (1, 1, 1), (1, 2, 3): (1, 1, 1), (1, 2, 4): (1, 1, 1), (1, 2, 5): (1, 1, 1), (1, 2, 7): (1, 1, 1), (1, 3, 4): (1, 1, 1), (1, 3, 5): (1, 1, 1), (1, 4, 6): (1, 1, 1), (1, 4, 7): (1, 1, 1), (2, 3, 4): (1, 1, 1), (2, 4, 6): (1, 1, 1)}
+Four_wayc {}
+The total number of constraints are:  64
+
+
+Detecting zero vectors
+Academic license - for non-commercial use only
+
+
+Diseases: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Number of diseases: 10
+Number of constraints: 65
+There are no zero vectors in cluster
+
+
+Partition for calculation: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+Number of zero vectors in total:  0
+No zeros!
+Computational time for calculating maxent = 4.513564825057983 seconds

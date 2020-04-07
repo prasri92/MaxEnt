@@ -1,6 +1,8 @@
 """
 mlxtend version = 0.15.0
 python = 3.7.3
+
+Experiment to compare/constrast chosen/learned support with robust optimizer with width = 1 and see the effect of regularization
 """
 from __future__ import division
 import pickle
@@ -13,13 +15,16 @@ from mlxtend.frequent_patterns import association_rules
 import sys
 import time
 
+import warnings
+warnings.filterwarnings("ignore")
+
 path_to_codebase = './codebase/'
 sys.path.insert(0, path_to_codebase)
 from codebase.utils import clean_preproc_data_perturb, clean_preproc_data
 from codebase.extract_features import ExtractFeatures
 from codebase.mba import marketbasket
-# from codebase.optimizer import Optimizer
-from codebase.optimizer_gurobi_v2 import Optimizer
+from codebase.optimizer import Optimizer
+# from codebase.optimizer_zeros import Optimizer
 
 # for exponential prior contstraints
 from codebase.robust_optimizer_exp import Optimizer as Optimizer_exp
@@ -32,11 +37,16 @@ def read_prob_dist(filename):
         prob = pickle.load(outfile,encoding='latin1')
     return prob[1]
 
+def read_model(filename):
+    with open(filename,"rb") as outfile:
+        sup_model = pickle.load(outfile)
+    return sup_model
+
 def compute_prob_exact(optobj):
     maxent_prob = []
     num_feats = optobj.feats_obj.data_arr.shape[1]
 
-    print(optobj.feats_obj.feat_partitions)
+    # print(optobj.feats_obj.feat_partitions)
     
     maxent_sum_diseases = np.zeros(num_feats+1)
     all_perms = itertools.product([0, 1], repeat=num_feats)
@@ -69,18 +79,27 @@ def calc_maxent_unperturbed(file_num, directory, k, width=None):
     """
     Calculate maximum entropy for each perturbation and width and return results
     """
-    #old ones
-    # support_vals = {4:{1:0.045, 2:0.063, 3:0.063, 4:0.081, 5:0.082}, 
-    #                 7:{1:0.018, 2:0.036, 3:0.063, 4:0.063, 5:0.1},
-    #                 10:{1:0.009, 2:0.018, 3:0.027, 4:0.036, 5:0.054},
-    #                 15:{1:0.003, 2:0.005, 3:0.011, 4:0.020, 5:0.027}}
-
     #tested for lambda = 2/3
-    support_vals = {4:{1:0.0792, 2:0.063, 3:0.0671, 4:0.0799, 5:0.0671}, 
-                    7:{1:0.0725, 2:0.0558, 3:0.0529, 4:0.0661, 5:0.0835},
-                    10:{1:0.083, 2:0.0555, 3:0.0496, 4:0.0414, 5:0.0571},
-                    15:{1:0.0091, 2:0.0171, 3:0.0263, 4:0.0375, 5:0.0417}}
-    support = support_vals[k][file_num]
+    # support_vals = {4:{1:0.0792, 2:0.063, 3:0.0671, 4:0.0799, 5:0.0671}, 
+    #                 7:{1:0.0725, 2:0.0558, 3:0.0529, 4:0.0661, 5:0.0835},
+    #                 10:{1:0.083, 2:0.0555, 3:0.0496, 4:0.0414, 5:0.0571},
+    #                 15:{1:0.0091, 2:0.0171, 3:0.0263, 4:0.0375, 5:0.0417}}
+    # support = support_vals[k][file_num]
+
+    exp = {1:0.8 , 2:1.2 , 3:1.6 , 4:2.0 , 5:2.4}
+    size = {4: 50, 7: 125, 10: 250, 15:350}
+    e = exp[file_num]
+    d_size = size[k]
+    real_k = (k-4)/(20-4)
+    real_e = (e - 0.8)/(2.4-0.8)
+    real_d = (d_size - 51)/(1000-51)
+    
+    # Random Forest Regression
+    sup_model = read_model('../support_analysis/rfregr_model.pickle')
+    covariates = np.array([real_k, real_e, real_d]).reshape(1,-1)
+    support = sup_model.predict(covariates)[0]
+
+    print("The support is: ", support)
     
     #Measure time to compute maxent
     tic = time.time()
@@ -107,18 +126,18 @@ def calc_maxent_unperturbed(file_num, directory, k, width=None):
     feats.partition_features()
     print("The approximated clusters are:\n", feats.feat_partitions)
 
-    print("\nThe constraints are:")
-    print('two_wayc', two_wayc)
-    print('three_wayc', three_wayc)
-    print('four_wayc', four_wayc)
-    print('The total number of constraints are: ', str(len(two_wayc) + len(three_wayc) + len(four_wayc)))
+    # print("\nThe constraints are:")
+    # print('two_wayc', two_wayc)
+    # print('three_wayc', three_wayc)
+    # print('four_wayc', four_wayc)
+    print('The total number of MBA constraints are: ', str(len(two_wayc) + len(three_wayc) + len(four_wayc)))
     print()
 
-    print(feats.feat_partitions)
+    # print(feats.feat_partitions)
     
     opt_ur_up = Optimizer(feats)
     #Use LP to detect zero atoms 
-    opt_ur_up.exact_zero_detection(cleaneddata_up)
+    # opt_ur_up.exact_zero_detection(cleaneddata_up)
 
     soln_opt_ur_up = opt_ur_up.solver_optimize()
     if soln_opt_ur_up == None:
@@ -135,13 +154,14 @@ def calc_maxent_unperturbed(file_num, directory, k, width=None):
     # opt_r_up = Optimizer_exp(feats, lambdas[file_num])
 
     # Use regularization methods of box constraints
-    width = {4:90, 7:175, 10:450, 15:630}
-    opt_r_up = Optimizer_box(feats, width[k]) 
+    # width = {4:90, 7:175, 10:450, 15:630}
+    # width = {4:50, 7:125, 10:250, 15:350}
+    # width = {4:100, 7:250, 10:500, 15:700}
+    # width = {4:10, 7:25, 10:50, 15:70}
+    width = 1
+    opt_r_up = Optimizer_box(feats, width) 
     #Use LP to detect zero atoms 
-    opt_r_up.exact_zero_detection(cleaneddata_up)
-
-    # for testing different widths 
-    # opt_r_p = Optimizer_box(feats, width)
+    # opt_r_up.exact_zero_detection(cleaneddata_up)
     
     soln_opt_r_up = opt_r_up.solver_optimize()
     if soln_opt_r_up == None:
@@ -155,7 +175,7 @@ def calc_maxent_unperturbed(file_num, directory, k, width=None):
 
     toc = time.time()
     print('Computational time for calculating maxent = {} seconds'.format(toc-tic))
-
+    print()
     return (maxent_ur_up, maxent_r_up)
 
 def calc_maxent_perturbed(file_num, directory, perturb_prob, k, width=None):
@@ -163,12 +183,27 @@ def calc_maxent_perturbed(file_num, directory, perturb_prob, k, width=None):
     Calculate maximum entropy for each perturbation and width and return results
     """
     #tested for lambda = 2/3
-    support_vals = {4:{1:0.0792, 2:0.063, 3:0.0671, 4:0.0799, 5:0.0671}, 
-                    7:{1:0.0725, 2:0.0558, 3:0.0529, 4:0.0661, 5:0.0835},
-                    10:{1:0.083, 2:0.0555, 3:0.0496, 4:0.0414, 5:0.0571},
-                    15:{1:0.0091, 2:0.0171, 3:0.0263, 4:0.0375, 5:0.0417}}
-    support = support_vals[k][file_num]
+    # support_vals = {4:{1:0.0792, 2:0.063, 3:0.0671, 4:0.0799, 5:0.0671}, 
+    #                 7:{1:0.0725, 2:0.0558, 3:0.0529, 4:0.0661, 5:0.0835},
+    #                 10:{1:0.083, 2:0.0555, 3:0.0496, 4:0.0414, 5:0.0571},
+    #                 15:{1:0.0091, 2:0.0171, 3:0.0263, 4:0.0375, 5:0.0417}}
+    # support = support_vals[k][file_num]
     
+    exp = {1:0.8 , 2:1.2 , 3:1.6 , 4:2.0 , 5:2.4}
+    size = {4: 50, 7: 125, 10: 250, 15:350}
+    e = exp[file_num]
+    d_size = size[k]
+    real_k = (k-4)/(20-4)
+    real_e = (e - 0.8)/(2.4-0.8)
+    real_d = (d_size - 51)/(1000-51)
+    
+    # Random Forest Regression
+    sup_model = read_model('../support_analysis/rfregr_model.pickle')
+    covariates = np.array([real_k, real_e, real_d]).reshape(1,-1)
+    support = sup_model.predict(covariates)[0]
+
+    print("The support is: ", support)
+
     #Measure time to compute maxent
     tic = time.time()
 
@@ -195,18 +230,16 @@ def calc_maxent_perturbed(file_num, directory, perturb_prob, k, width=None):
     print("The approximated clusters are:\n", feats.feat_partitions)
 
 
-    print("\nThe constraints are:")
-    print('two_wayc', two_wayc)
-    print('three_wayc', three_wayc)
-    print('four_wayc', four_wayc)
-    print('The total number of constraints are: ', str(len(two_wayc) + len(three_wayc) + len(four_wayc)))
+    # print("\nThe constraints are:")
+    # print('two_wayc', two_wayc)
+    # print('three_wayc', three_wayc)
+    # print('four_wayc', four_wayc)
+    print('The total number of MBA constraints are: ', str(len(two_wayc) + len(three_wayc) + len(four_wayc)))
     print()
-
-    print(feats.feat_partitions)
     
     opt_ur_p = Optimizer(feats)
     #Use LP to detect zero atoms 
-    opt_ur_p.exact_zero_detection(cleaneddata_p)
+    # opt_ur_p.exact_zero_detection(cleaneddata_p)
 
     soln_opt_ur_p = opt_ur_p.solver_optimize()
     if soln_opt_ur_p == None:
@@ -216,20 +249,21 @@ def calc_maxent_perturbed(file_num, directory, perturb_prob, k, width=None):
     maxent_ur_p, sum_prob_maxent_ur_p = compute_prob_exact(opt_ur_p)
 
     print("Maxent Prob: (Unregularized, Perturbed)", sum_prob_maxent_ur_p)
-    print
+    print()
 
     # Use regularization methods of exponential prior 
     # lambdas = {1:1.25, 2:0.83, 3:0.62, 4:0.5, 5:0.42}
     # opt_r_p = Optimizer_exp(feats, lambdas[file_num])
 
     # Use regularization methods of box constraints
-    width = {4:90, 7:175, 10:450, 15:630}
-    opt_r_p = Optimizer_box(feats, width[k]) 
+    # width = {4:90, 7:175, 10:450, 15:630}
+    # width = {4:50, 7:125, 10:250, 15:350}
+    # width = {4:100, 7:250, 10:500, 15:700}
+    # width = {4:10, 7:25, 10:50, 15:70}
+    width = 1
+    opt_r_p = Optimizer_box(feats, width) 
     #Use LP to detect zero atoms 
-    opt_r_p.exact_zero_detection(cleaneddata_p)
-
-    # for testing different widths 
-    # opt_r_p = Optimizer_box(feats, width)
+    # opt_r_p.exact_zero_detection(cleaneddata_p)
     
     soln_opt_r_p = opt_r_p.solver_optimize()
     if soln_opt_r_p == None:
@@ -239,11 +273,11 @@ def calc_maxent_perturbed(file_num, directory, perturb_prob, k, width=None):
     maxent_r_p, sum_prob_maxent_r_p = compute_prob_exact(opt_r_p)
 
     print("Maxent Prob: (Regularized, Perturbed)", sum_prob_maxent_r_p)
-    print
+    print()
     ############################################################################
     toc = time.time()
     print('Computational time for calculating maxent = {} seconds'.format(toc-tic))
-
+    print()
     return (maxent_ur_p, maxent_r_p)
 
 
@@ -257,7 +291,7 @@ def main_up(file_num, k):
     output = calc_maxent_unperturbed(file_num, directory, k=k)
     
     # for synthetic data 
-    outfilename = '../output/d'+str(k)+'_expt2.1_zero/syn_maxent_up'+str(file_num)+'.pickle'
+    outfilename = '../output/d'+str(k)+'_expt2.1_w1_ls/syn_maxent_up'+str(file_num)+'.pickle'
 
     with open(outfilename, "wb") as outfile:
         pickle.dump(output, outfile)
@@ -267,24 +301,12 @@ def main_p(file_num, k):
     # generating synthetic data 
     directory = '../dataset/d'+str(k)+'/synthetic_data_expt'+str(file_num)+'.csv'
 
-    # for 10 diseases
-    # widths = [50, 150, 250, 350, 450]
-
-    # for 7 diseases 
-    # widths = [25, 75, 125, 175, 225]
-
-    # for 4 diseases
-    # widths = [10,30,50,70,90]
-
-    # IF testing for different widths (also change file name)
-    # for w in width:
-
     perturb_prob = [0.01, 0.03, 0.06, 0.09, 0.12, 0.15, 0.18, 0.21]
     for p in perturb_prob:
         output = calc_maxent_perturbed(file_num, directory, perturb_prob=p, k=k)
 
         # for synthetic data 
-        outfilename = '../output/d'+str(k)+'_expt2.1_zero/syn_maxent_p'+str(file_num)+'_'+str(p)+'.pickle'
+        outfilename = '../output/d'+str(k)+'_expt2.1_w1_ls/syn_maxent_p'+str(file_num)+'_'+str(p)+'.pickle'
 
         with open(outfilename, "wb") as outfile:
             pickle.dump(output, outfile)

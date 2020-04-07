@@ -1,0 +1,389 @@
+Robust optimizer with width = 1 and Chosen support compared to Empirical Probabilities
+########################################################################
+PROCESSING DISEASES: 4 FILE NUMBER: 1
+########################################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3]]
+The total number of MBA constraints are:  0
+
+Total Probability:  1.0
+
+Empirical: [0.68 0.18 0.06 0.06 0.02]
+Maxent: [5.458248e-01 3.581728e-01 8.653280e-02 9.116800e-03 3.528000e-04]
+True distribution:[0.71487524 0.20481518 0.05868053 0.01681225 0.00481679]
+Computational time for calculating maxent = 0.0429997444152832 seconds
+
+########################################################################
+PROCESSING DISEASES: 4 FILE NUMBER: 2
+########################################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2], [3]]
+The total number of MBA constraints are:  3
+
+Total Probability:  1.0
+
+Empirical: [0.56 0.28 0.08 0.04 0.04]
+Maxent: [0.52080023 0.25293989 0.15860374 0.06077234 0.0068838 ]
+True distribution:[0.57430574 0.24959225 0.10847234 0.04714189 0.02048778]
+Computational time for calculating maxent = 0.11535024642944336 seconds
+
+########################################################################
+PROCESSING DISEASES: 4 FILE NUMBER: 3
+########################################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  5
+
+Total Probability:  1.0
+
+Empirical: [0.48 0.3  0.16 0.02 0.04]
+Maxent: [0.4600004  0.25281977 0.20418043 0.07317875 0.00982065]
+True distribution:[0.48609615 0.26018852 0.13926888 0.07454526 0.0399012 ]
+Computational time for calculating maxent = 0.16944527626037598 seconds
+
+########################################################################
+PROCESSING DISEASES: 4 FILE NUMBER: 4
+########################################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  8
+
+Total Probability:  1.0000000000000004
+
+Empirical: [0.52 0.24 0.12 0.06 0.06]
+Maxent: [0.50000031 0.1926865  0.17106441 0.09981059 0.03643818]
+True distribution:[0.42865553 0.25999272 0.15769356 0.09564598 0.05801222]
+Computational time for calculating maxent = 0.32915425300598145 seconds
+
+########################################################################
+PROCESSING DISEASES: 4 FILE NUMBER: 5
+########################################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  8
+
+Total Probability:  0.9999999999999996
+
+Empirical: [0.4  0.26 0.2  0.1  0.04]
+Maxent: [0.38000046 0.24076676 0.23377967 0.11383115 0.03162196]
+True distribution:[0.3892233  0.25659182 0.16915575 0.11151434 0.07351479]
+Computational time for calculating maxent = 0.269667387008667 seconds
+
+########################################################################
+PROCESSING DISEASES: 7 FILE NUMBER: 1
+########################################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6]]
+The total number of MBA constraints are:  0
+
+Total Probability:  1.0000000000000004
+
+Empirical: [0.712 0.192 0.072 0.024 0.    0.    0.    0.   ]
+Maxent: [6.55903291e-01 2.86090891e-01 5.24401567e-02 5.24506375e-03
+ 3.09592991e-04 1.07966401e-05 2.06180765e-07 1.66471926e-09]
+True distribution:[7.13527597e-01 2.04429079e-01 5.85699118e-02 1.67805607e-02
+ 4.80771113e-03 1.37743230e-03 3.94640962e-04 1.13066529e-04]
+Computational time for calculating maxent = 0.3204019069671631 seconds
+
+########################################################################
+PROCESSING DISEASES: 7 FILE NUMBER: 2
+########################################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 4, 6], [1], [2], [3], [5]]
+The total number of MBA constraints are:  2
+
+Total Probability:  1.0000000000000002
+
+Empirical: [0.6   0.176 0.08  0.112 0.024 0.008 0.    0.   ]
+Maxent: [4.68942027e-01 3.16225346e-01 1.47295302e-01 5.38988698e-02
+ 1.20560670e-02 1.48674553e-03 9.33097844e-05 2.33320274e-06]
+True distribution:[0.56612226 0.24603572 0.10692668 0.04647014 0.02019584 0.00877708
+ 0.0038145  0.00165778]
+Computational time for calculating maxent = 0.42781639099121094 seconds
+
+########################################################################
+PROCESSING DISEASES: 7 FILE NUMBER: 3
+########################################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3, 4, 6], [5]]
+The total number of MBA constraints are:  13
+
+Total Probability:  1.0000000000000002
+
+Empirical: [0.52  0.224 0.112 0.024 0.08  0.032 0.008 0.   ]
+Maxent: [4.84542998e-01 2.12362120e-01 1.42552224e-01 8.19643326e-02
+ 4.75571480e-02 2.41655326e-02 6.40026770e-03 4.55376624e-04]
+True distribution:[0.4678912  0.25044411 0.13405307 0.07175344 0.03840685 0.0205577
+ 0.01100375 0.00588988]
+Computational time for calculating maxent = 0.5699982643127441 seconds
+
+########################################################################
+PROCESSING DISEASES: 7 FILE NUMBER: 4
+########################################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 5, 2, 3, 1], [4], [6]]
+The total number of MBA constraints are:  4
+
+Total Probability:  0.9999999999999998
+
+Empirical: [0.384 0.328 0.144 0.056 0.032 0.048 0.008 0.   ]
+Maxent: [3.49981179e-01 2.90626190e-01 1.95477134e-01 1.10178781e-01
+ 4.22694764e-02 1.00784909e-02 1.31796905e-03 7.07786069e-05]
+True distribution:[0.40081044 0.24310382 0.14744992 0.0894329  0.05424379 0.03290052
+ 0.01995518 0.01210343]
+Computational time for calculating maxent = 0.5644187927246094 seconds
+
+########################################################################
+PROCESSING DISEASES: 7 FILE NUMBER: 5
+########################################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 5], [3], [4], [6]]
+The total number of MBA constraints are:  4
+
+Total Probability:  0.9999999999999999
+
+Empirical: [0.408 0.248 0.144 0.088 0.04  0.056 0.016 0.   ]
+Maxent: [3.07845682e-01 2.90445643e-01 2.07802249e-01 1.28590446e-01
+ 5.19332764e-02 1.19157508e-02 1.40168458e-03 6.52681053e-05]
+True distribution:[0.35336532 0.23295278 0.15357194 0.10124086 0.06674209 0.0439991
+ 0.02900599 0.01912193]
+Computational time for calculating maxent = 0.42400050163269043 seconds
+
+########################################################################
+PROCESSING DISEASES: 10 FILE NUMBER: 1
+########################################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9]]
+The total number of MBA constraints are:  0
+
+Total Probability:  1.0000000000000027
+
+Empirical: [0.704 0.2   0.068 0.016 0.004 0.    0.004 0.    0.004 0.    0.   ]
+Maxent: [6.26689362e-01 3.00184179e-01 6.43094334e-02 8.11144820e-03
+ 6.66791558e-04 3.73089921e-05 1.43819951e-06 3.76901813e-08
+ 6.42145574e-10 6.41695590e-12 2.85303074e-14]
+True distribution:[7.13495965e-01 2.04420016e-01 5.85673153e-02 1.67798168e-02
+ 4.80749800e-03 1.37737124e-03 3.94623466e-04 1.13061516e-04
+ 3.23926667e-05 9.28065439e-06 2.65895200e-06]
+Computational time for calculating maxent = 1.7151398658752441 seconds
+
+########################################################################
+PROCESSING DISEASES: 10 FILE NUMBER: 2
+########################################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9]]
+The total number of MBA constraints are:  0
+
+Total Probability:  0.9999999999999999
+
+Empirical: [0.548 0.276 0.104 0.036 0.02  0.008 0.004 0.    0.    0.004 0.   ]
+Maxent: [4.46763288e-01 3.75993643e-01 1.41161891e-01 3.11419091e-02
+ 4.47170832e-03 4.36778140e-04 2.93953605e-05 1.34618576e-06
+ 4.01546045e-08 7.04572834e-10 5.52335205e-12]
+True distribution:[5.65460862e-01 2.45748278e-01 1.06801761e-01 4.64158541e-02
+ 2.01722470e-02 8.76682242e-03 3.81004532e-03 1.65583887e-03
+ 7.19624606e-04 3.12747565e-04 1.35919531e-04]
+Computational time for calculating maxent = 1.3460009098052979 seconds
+
+########################################################################
+PROCESSING DISEASES: 10 FILE NUMBER: 3
+########################################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2, 5, 6, 7, 8, 9], [3], [4]]
+The total number of MBA constraints are:  5
+
+Total Probability:  0.9999999999999997
+
+Empirical: [0.46  0.252 0.144 0.052 0.028 0.036 0.004 0.02  0.    0.    0.004]
+Maxent: [3.65290648e-01 2.98080350e-01 1.77257584e-01 9.72797180e-02
+ 4.35394242e-02 1.45459020e-02 3.41953083e-03 5.32665667e-04
+ 5.13661547e-05 2.75008878e-06 6.21982437e-08]
+True distribution:[0.46521928 0.24901394 0.13328756 0.07134369 0.03818752 0.02044031
+ 0.01094091 0.00585625 0.00313462 0.00167784 0.00089808]
+Computational time for calculating maxent = 3.3799970149993896 seconds
+
+########################################################################
+PROCESSING DISEASES: 10 FILE NUMBER: 4
+########################################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  36
+
+Total Probability:  1.0000000000000004
+
+Empirical: [0.38  0.288 0.144 0.08  0.016 0.04  0.024 0.008 0.008 0.008 0.004]
+Maxent: [0.37599984 0.24036598 0.16921085 0.09372579 0.0489228  0.02834212
+ 0.01946854 0.01342192 0.00744487 0.00267021 0.00042707]
+True distribution:[0.39508396 0.23963053 0.14534327 0.08815515 0.0534688  0.03243047
+ 0.01967007 0.0119305  0.00723622 0.00438899 0.00266205]
+Computational time for calculating maxent = 4.027587652206421 seconds
+
+########################################################################
+PROCESSING DISEASES: 10 FILE NUMBER: 5
+########################################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  32
+
+Total Probability:  1.0000000000000013
+
+Empirical: [0.372 0.236 0.16  0.068 0.052 0.032 0.028 0.028 0.008 0.012 0.004]
+Maxent: [0.36779437 0.19623977 0.15590512 0.10602382 0.06850319 0.04385986
+ 0.0280432  0.01751253 0.01009142 0.0047345  0.00129223]
+True distribution:[0.34427816 0.22696215 0.14962267 0.09863734 0.06502574 0.04286761
+ 0.02826007 0.01863019 0.01228178 0.00809665 0.00533764]
+Computational time for calculating maxent = 4.065535306930542 seconds
+
+########################################################################
+PROCESSING DISEASES: 15 FILE NUMBER: 1
+########################################################################
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14]]
+The total number of MBA constraints are:  0
+
+Total Probability:  0.9999999999999616
+
+Empirical: [0.77142857 0.15714286 0.05714286 0.00857143 0.00571429 0.
+ 0.         0.         0.         0.         0.         0.
+ 0.         0.         0.         0.        ]
+Maxent: [7.23435572e-01 2.36962052e-01 3.60074624e-02 3.36756146e-03
+ 2.16804077e-04 1.01785012e-05 3.60008396e-07 9.76871835e-09
+ 2.05033117e-10 3.32865755e-12 4.14574080e-14 3.88986266e-16
+ 2.66141845e-18 1.25342951e-20 3.63306460e-23 4.88493308e-26]
+True distribution:[7.13495205e-01 2.04419799e-01 5.85672529e-02 1.67797989e-02
+ 4.80749287e-03 1.37736977e-03 3.94623046e-04 1.13061396e-04
+ 3.23926322e-05 9.28064450e-06 2.65894917e-06 7.61801691e-07
+ 2.18259839e-07 6.25324908e-08 1.79158586e-08 5.13297942e-09]
+Computational time for calculating maxent = 69.00783181190491 seconds
+
+########################################################################
+PROCESSING DISEASES: 15 FILE NUMBER: 2
+########################################################################
+The support is:  0.0171
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14]]
+The total number of MBA constraints are:  0
+
+Total Probability:  0.9999999999999982
+
+Empirical: [0.56       0.24857143 0.09428571 0.05714286 0.02857143 0.00857143
+ 0.         0.00285714 0.         0.         0.         0.
+ 0.         0.         0.         0.        ]
+Maxent: [4.45866112e-01 3.70342511e-01 1.43207329e-01 3.41974821e-02
+ 5.63962555e-03 6.80327958e-04 6.20158307e-05 4.34960022e-06
+ 2.36642047e-07 9.98619849e-09 3.24175635e-10 7.94921843e-12
+ 1.42516284e-13 1.76339464e-15 1.34632335e-17 4.78062385e-20]
+True distribution:[5.65402707e-01 2.45723004e-01 1.06790777e-01 4.64110804e-02
+ 2.01701724e-02 8.76592080e-03 3.80965347e-03 1.65566857e-03
+ 7.19550597e-04 3.12715400e-04 1.35905553e-04 5.90643097e-05
+ 2.56692432e-05 1.11558071e-05 4.84829378e-06 2.10705979e-06]
+Computational time for calculating maxent = 81.27569794654846 seconds
+
+########################################################################
+PROCESSING DISEASES: 15 FILE NUMBER: 3
+########################################################################
+The support is:  0.0263
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1, 8], [2], [3], [4], [5], [6], [7], [9], [10], [11], [12], [13], [14]]
+The total number of MBA constraints are:  1
+
+Total Probability:  1.0000000000000129
+
+Empirical: [0.46571429 0.28       0.11714286 0.05428571 0.04       0.02285714
+ 0.01142857 0.00285714 0.         0.         0.00571429 0.
+ 0.         0.         0.         0.        ]
+Maxent: [3.27151701e-01 3.69690382e-01 2.05247809e-01 7.41457349e-02
+ 1.93181232e-02 3.79736916e-03 5.74717985e-04 6.75322449e-05
+ 6.16940056e-06 4.36272820e-07 2.36257474e-08 9.60864432e-10
+ 2.83919082e-11 5.75316590e-13 7.14927212e-15 4.10808989e-17]
+True distribution:[4.64759672e-01 2.48767926e-01 1.33155875e-01 7.12732040e-02
+ 3.81497970e-02 2.04201148e-02 1.09300998e-02 5.85046085e-03
+ 3.13152603e-03 1.67618510e-03 8.97197230e-04 4.80235071e-04
+ 2.57051310e-04 1.37589652e-04 7.36464334e-05 3.94200952e-05]
+Computational time for calculating maxent = 81.99066138267517 seconds
+
+########################################################################
+PROCESSING DISEASES: 15 FILE NUMBER: 4
+########################################################################
+The support is:  0.0375
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14]]
+The total number of MBA constraints are:  0
+
+Total Probability:  0.9999999999999871
+
+Empirical: [0.43142857 0.20857143 0.16285714 0.07714286 0.03428571 0.04571429
+ 0.00857143 0.01428571 0.01142857 0.00285714 0.         0.
+ 0.00285714 0.         0.         0.        ]
+Maxent: [2.20870280e-01 3.51557368e-01 2.60434247e-01 1.19107462e-01
+ 3.76071738e-02 8.68300535e-03 1.51437624e-03 2.03142500e-04
+ 2.11298828e-05 1.70406194e-06 1.05673141e-07 4.94788346e-09
+ 1.69306831e-10 3.99641687e-12 5.81794897e-14 3.93716299e-16]
+True distribution:[3.93601379e-01 2.38731304e-01 1.44797855e-01 8.78243387e-02
+ 5.32681541e-02 3.23087686e-02 1.95962588e-02 1.18857318e-02
+ 7.20906072e-03 4.37251635e-03 2.65206523e-03 1.60855887e-03
+ 9.75640275e-04 5.91755739e-04 3.58917999e-04 2.17694771e-04]
+Computational time for calculating maxent = 81.06202244758606 seconds
+
+########################################################################
+PROCESSING DISEASES: 15 FILE NUMBER: 5
+########################################################################
+The support is:  0.0417
+
+Partioning the feature graph and Finding the connected components:
+The clusters are:
+ [[0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1]]
+The total number of MBA constraints are:  46
+
+Total Probability:  0.9999999999999979
+
+Empirical: [0.32       0.22571429 0.16857143 0.1        0.04285714 0.02857143
+ 0.04285714 0.02571429 0.02       0.01142857 0.00571429 0.
+ 0.         0.00285714 0.00571429 0.        ]
+Maxent: [3.17878526e-01 1.80332169e-01 1.62531010e-01 1.19626098e-01
+ 8.05261317e-02 5.23230964e-02 3.36849203e-02 2.16459535e-02
+ 1.37772693e-02 8.51864936e-03 4.96155292e-03 2.59794464e-03
+ 1.13859960e-03 3.74057968e-04 7.70264192e-05 6.99474600e-06]
+True distribution:[0.34119358 0.22492867 0.14828212 0.0977536  0.06444314 0.04248354
+ 0.02800687 0.01846327 0.01217174 0.0080241  0.00528982 0.00348726
+ 0.00229894 0.00151556 0.00099912 0.00065866]
+Computational time for calculating maxent = 96.55735445022583 seconds
+

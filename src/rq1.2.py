@@ -1,4 +1,4 @@
-"""
+ """
 mlxtend version = 0.15.0
 python = 3.7.3
 """
@@ -21,7 +21,7 @@ from codebase.extract_features import ExtractFeatures
 # from codebase.optimizer import Optimizer
 
 #zero detection code implemented
-from codebase.optimizer_gurobi_v2 import Optimizer
+from codebase.optimizer_zeros import Optimizer
 from codebase.mba import marketbasket
 
 def read_prob_dist(filename):

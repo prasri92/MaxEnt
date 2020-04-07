@@ -1,0 +1,3336 @@
+Robust optimizer with width = 1 and Learned support
+########################################################################
+PROCESSING DISEASES: 4 FILE NUMBER: 1 PERT: 0
+########################################################################
+The support is:  0.06626516087948077
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1], [2], [3]]
+The total number of MBA constraints are:  0
+
+Total Probability:  1.0
+Maxent Prob: (Unregularized, Unperturbed) [5.458248e-01 3.581728e-01 8.653280e-02 9.116800e-03 3.528000e-04]
+Total Probability:  1.0
+Maxent Prob: (Regularized, Unperturbed) [5.458248e-01 3.581728e-01 8.653280e-02 9.116800e-03 3.528000e-04]
+Computational time for calculating maxent = 0.011997461318969727 seconds
+
+########################################################################
+PROCESSING DISEASES: 4 FILE NUMBER: 1 PERT: 1
+########################################################################
+The support is:  0.06626516087948077
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1], [2], [3]]
+The total number of MBA constraints are:  0
+
+Total Probability:  1.0
+Maxent Prob: (Unregularized, Perturbed) [5.20128e-01 3.71568e-01 9.69280e-02 1.09280e-02 4.48000e-04]
+
+Total Probability:  1.0
+Maxent Prob: (Regularized, Perturbed) [5.20128e-01 3.71568e-01 9.69280e-02 1.09280e-02 4.48000e-04]
+
+Computational time for calculating maxent = 0.017994165420532227 seconds
+
+The support is:  0.06626516087948077
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1], [2], [3]]
+The total number of MBA constraints are:  0
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Unregularized, Perturbed) [0.4964608 0.3816128 0.1079968 0.0133248 0.0006048]
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Regularized, Perturbed) [0.4964608 0.3816128 0.1079968 0.0133248 0.0006048]
+
+Computational time for calculating maxent = 0.017003297805786133 seconds
+
+The support is:  0.06626516087948077
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  4
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Unregularized, Perturbed) [0.49999983 0.26090578 0.14144767 0.07438765 0.02325908]
+
+Total Probability:  1.0
+Maxent Prob: (Regularized, Perturbed) [0.47999878 0.21471851 0.20707763 0.08496553 0.01323955]
+
+Computational time for calculating maxent = 0.06699585914611816 seconds
+
+The support is:  0.06626516087948077
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 3], [1, 2]]
+The total number of MBA constraints are:  2
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Unregularized, Perturbed) [0.46239992 0.31280008 0.1752     0.0416     0.008     ]
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Regularized, Perturbed) [0.43559969 0.31020022 0.19380004 0.04940005 0.01099999]
+
+Computational time for calculating maxent = 0.055995941162109375 seconds
+
+The support is:  0.06626516087948077
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 2, 3, 1]]
+The total number of MBA constraints are:  5
+
+Total Probability:  0.9999999999999997
+Maxent Prob: (Unregularized, Perturbed) [0.32000035 0.40812506 0.18340414 0.06881622 0.01965423]
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Regularized, Perturbed) [0.30000032 0.35772675 0.25376545 0.07928924 0.00921824]
+
+Computational time for calculating maxent = 0.09398150444030762 seconds
+
+The support is:  0.06626516087948077
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  7
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Unregularized, Perturbed) [0.30000017 0.37393597 0.19819064 0.08180971 0.0460635 ]
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Regularized, Perturbed) [0.27999643 0.33113693 0.24961972 0.11226469 0.02698222]
+
+Computational time for calculating maxent = 0.12499833106994629 seconds
+
+The support is:  0.06626516087948077
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  9
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Unregularized, Perturbed) [0.27998006 0.37776304 0.18675454 0.09324563 0.06225672]
+
+Total Probability:  1.0
+Maxent Prob: (Regularized, Perturbed) [0.26000045 0.3220386  0.25483401 0.12421823 0.03890872]
+
+Computational time for calculating maxent = 0.20799589157104492 seconds
+
+The support is:  0.06626516087948077
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  6
+
+Total Probability:  1.0
+Maxent Prob: (Unregularized, Perturbed) [0.14000216 0.40998676 0.33003559 0.1099631  0.0100124 ]
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Regularized, Perturbed) [0.12333307 0.38051095 0.36046878 0.12419738 0.01148982]
+
+Computational time for calculating maxent = 0.08399677276611328 seconds
+
+########################################################################
+PROCESSING DISEASES: 4 FILE NUMBER: 2 PERT: 0
+########################################################################
+The support is:  0.064543935586655
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2], [3]]
+The total number of MBA constraints are:  3
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Unregularized, Unperturbed) [0.53760116 0.28719987 0.10239928 0.06319972 0.00959997]
+Total Probability:  1.0
+Maxent Prob: (Regularized, Unperturbed) [0.52080023 0.25293989 0.15860374 0.06077234 0.0068838 ]
+Computational time for calculating maxent = 0.08999323844909668 seconds
+
+########################################################################
+PROCESSING DISEASES: 4 FILE NUMBER: 2 PERT: 1
+########################################################################
+The support is:  0.064543935586655
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  4
+
+Total Probability:  1.0
+Maxent Prob: (Unregularized, Perturbed) [0.5199993  0.28946687 0.10437214 0.06285542 0.02330628]
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Regularized, Perturbed) [0.5000002  0.2312045  0.18790403 0.07057804 0.01031323]
+
+Computational time for calculating maxent = 0.06000089645385742 seconds
+
+The support is:  0.064543935586655
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2], [3]]
+The total number of MBA constraints are:  3
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Unregularized, Perturbed) [0.48719999 0.3279999  0.11200014 0.06319997 0.00959999]
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Regularized, Perturbed) [0.47040014 0.2885475  0.17759988 0.05755776 0.00589472]
+
+Computational time for calculating maxent = 0.04499554634094238 seconds
+
+The support is:  0.064543935586655
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  4
+
+Total Probability:  1.0
+Maxent Prob: (Unregularized, Perturbed) [0.44000053 0.3344875  0.13048791 0.07555913 0.01946493]
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Regularized, Perturbed) [0.42000002 0.27907443 0.21296168 0.07685271 0.01111116]
+
+Computational time for calculating maxent = 0.07899737358093262 seconds
+
+The support is:  0.064543935586655
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  7
+
+Total Probability:  1.0
+Maxent Prob: (Unregularized, Perturbed) [0.35999865 0.29527971 0.21416163 0.10583959 0.02472043]
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Regularized, Perturbed) [0.33999808 0.25920598 0.26190958 0.1185649  0.02032146]
+
+Computational time for calculating maxent = 0.07899737358093262 seconds
+
+The support is:  0.064543935586655
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  6
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Unregularized, Perturbed) [0.36000594 0.38179781 0.14756222 0.07948331 0.03115071]
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Regularized, Perturbed) [0.33999628 0.32697015 0.22372865 0.09165704 0.01764789]
+
+Computational time for calculating maxent = 0.07300043106079102 seconds
+
+The support is:  0.064543935586655
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  5
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Unregularized, Perturbed) [0.27999934 0.41576994 0.18220051 0.08829078 0.03373943]
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Regularized, Perturbed) [0.25999926 0.34666698 0.28000022 0.10000016 0.01333338]
+
+Computational time for calculating maxent = 0.07699751853942871 seconds
+
+The support is:  0.064543935586655
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  8
+
+Total Probability:  1.0
+Maxent Prob: (Unregularized, Perturbed) [0.21999988 0.38435079 0.24694841 0.11305126 0.03564967]
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Regularized, Perturbed) [0.19999834 0.33752981 0.3088986  0.12962041 0.02395284]
+
+Computational time for calculating maxent = 0.06799483299255371 seconds
+
+The support is:  0.064543935586655
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  8
+
+Total Probability:  1.0000000000000007
+Maxent Prob: (Unregularized, Perturbed) [0.24000099 0.36839527 0.25481647 0.08518104 0.05160623]
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Regularized, Perturbed) [0.2200008  0.33154257 0.28755289 0.13026496 0.03063878]
+
+Computational time for calculating maxent = 0.0889902114868164 seconds
+
+########################################################################
+PROCESSING DISEASES: 4 FILE NUMBER: 3 PERT: 0
+########################################################################
+The support is:  0.064543935586655
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  5
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Unregularized, Unperturbed) [0.47999971 0.30867482 0.12761913 0.05873734 0.024969  ]
+Total Probability:  1.0
+Maxent Prob: (Regularized, Unperturbed) [0.4600004  0.25281977 0.20418043 0.07317875 0.00982065]
+Computational time for calculating maxent = 0.06099057197570801 seconds
+
+########################################################################
+PROCESSING DISEASES: 4 FILE NUMBER: 3 PERT: 1
+########################################################################
+The support is:  0.064543935586655
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  6
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Unregularized, Perturbed) [0.45999959 0.30877308 0.13368103 0.06631921 0.03122709]
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Regularized, Perturbed) [0.44       0.24783063 0.21641932 0.08366943 0.01208061]
+
+Computational time for calculating maxent = 0.07399988174438477 seconds
+
+The support is:  0.064543935586655
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  5
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Unregularized, Perturbed) [0.45999936 0.30998783 0.14128314 0.06747021 0.02125947]
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Regularized, Perturbed) [0.44000019 0.25882333 0.21294103 0.07764749 0.01058795]
+
+Computational time for calculating maxent = 0.06499648094177246 seconds
+
+The support is:  0.064543935586655
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  5
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Unregularized, Perturbed) [0.42000012 0.2918155  0.18117262 0.08220737 0.02480438]
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Regularized, Perturbed) [0.39999739 0.24951159 0.23635267 0.09876879 0.01536956]
+
+Computational time for calculating maxent = 0.06699895858764648 seconds
+
+The support is:  0.064543935586655
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  9
+
+Total Probability:  0.9999999999999996
+Maxent Prob: (Unregularized, Perturbed) [0.32002532 0.3568498  0.20940511 0.05059354 0.06312623]
+
+Total Probability:  1.0
+Maxent Prob: (Regularized, Perturbed) [0.29999896 0.31277955 0.24589507 0.10987955 0.03144687]
+
+Computational time for calculating maxent = 0.1179952621459961 seconds
+
+The support is:  0.064543935586655
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  5
+
+Total Probability:  1.0
+Maxent Prob: (Unregularized, Perturbed) [0.34000019 0.36440927 0.1822544  0.08226297 0.03107317]
+
+Total Probability:  0.9999999999999996
+Maxent Prob: (Regularized, Perturbed) [0.31999945 0.30576225 0.26212505 0.09846295 0.01365031]
+
+Computational time for calculating maxent = 0.05599093437194824 seconds
+
+The support is:  0.064543935586655
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  6
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Unregularized, Perturbed) [0.16000028 0.50237197 0.20960391 0.09367729 0.03434655]
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Regularized, Perturbed) [0.17851507 0.3805512  0.30298089 0.11832504 0.0196278 ]
+
+Computational time for calculating maxent = 0.06399297714233398 seconds
+
+The support is:  0.064543935586655
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  8
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Unregularized, Perturbed) [0.19999892 0.41473559 0.25579669 0.08420513 0.04526367]
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Regularized, Perturbed) [0.1799991  0.36384514 0.31235884 0.12374843 0.02004849]
+
+Computational time for calculating maxent = 0.08099508285522461 seconds
+
+The support is:  0.064543935586655
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  11
+
+Total Probability:  1.0000000000000007
+Maxent Prob: (Unregularized, Perturbed) [0.18000155 0.44001108 0.19999029 0.09999795 0.07999912]
+
+Total Probability:  1.0
+Maxent Prob: (Regularized, Perturbed) [0.16734295 0.36343754 0.29109964 0.118118   0.06000186]
+
+Computational time for calculating maxent = 0.16399312019348145 seconds
+
+########################################################################
+PROCESSING DISEASES: 4 FILE NUMBER: 4 PERT: 0
+########################################################################
+The support is:  0.06517236511306493
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  8
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Unregularized, Unperturbed) [0.51999395 0.2400065  0.12000001 0.06000233 0.05999722]
+Total Probability:  1.0000000000000004
+Maxent Prob: (Regularized, Unperturbed) [0.50000031 0.1926865  0.17106441 0.09981059 0.03643818]
+Computational time for calculating maxent = 0.13652443885803223 seconds
+
+########################################################################
+PROCESSING DISEASES: 4 FILE NUMBER: 4 PERT: 1
+########################################################################
+The support is:  0.06517236511306493
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  8
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Unregularized, Perturbed) [0.51999774 0.22818595 0.11545132 0.08454904 0.05181596]
+
+Total Probability:  1.0
+Maxent Prob: (Regularized, Perturbed) [0.50000028 0.17680234 0.18053227 0.10852835 0.03413675]
+
+Computational time for calculating maxent = 0.12400197982788086 seconds
+
+The support is:  0.06517236511306493
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  8
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Unregularized, Perturbed) [0.47999763 0.27999913 0.12000137 0.06000113 0.06000074]
+
+Total Probability:  0.9999999999999994
+Maxent Prob: (Regularized, Perturbed) [0.4600005  0.22936945 0.17781076 0.09626849 0.0365508 ]
+
+Computational time for calculating maxent = 0.10399770736694336 seconds
+
+The support is:  0.06517236511306493
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  8
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Unregularized, Perturbed) [0.42007198 0.34002313 0.11991685 0.06000004 0.05998799]
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Regularized, Perturbed) [0.39999986 0.28776893 0.1823142  0.0920646  0.0378524 ]
+
+Computational time for calculating maxent = 0.10899567604064941 seconds
+
+The support is:  0.06517236511306493
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  9
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Unregularized, Perturbed) [0.35999696 0.3268637  0.15940962 0.08058986 0.07313986]
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Regularized, Perturbed) [0.34000001 0.27588038 0.21580262 0.12075306 0.04756393]
+
+Computational time for calculating maxent = 0.11099505424499512 seconds
+
+The support is:  0.06517236511306493
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  11
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Unregularized, Perturbed) [0.38000091 0.30000073 0.17999812 0.06000153 0.07999872]
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Regularized, Perturbed) [0.36000021 0.2564073  0.22718783 0.09640515 0.0599995 ]
+
+Computational time for calculating maxent = 0.14199304580688477 seconds
+
+The support is:  0.06517236511306493
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  10
+
+Total Probability:  1.0
+Maxent Prob: (Unregularized, Perturbed) [0.23999966 0.33999747 0.22000176 0.14000251 0.0599986 ]
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Regularized, Perturbed) [0.22000277 0.28515975 0.29426654 0.1586619  0.04190903]
+
+Computational time for calculating maxent = 0.11299300193786621 seconds
+
+The support is:  0.06517236511306493
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  9
+
+Total Probability:  1.0000000000000007
+Maxent Prob: (Unregularized, Perturbed) [0.33998452 0.21510625 0.27466468 0.10536047 0.06488408]
+
+Total Probability:  1.0
+Maxent Prob: (Regularized, Perturbed) [0.31999977 0.1989178  0.27377257 0.16813339 0.03917646]
+
+Computational time for calculating maxent = 0.09099745750427246 seconds
+
+The support is:  0.06517236511306493
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  11
+
+Total Probability:  1.000000000000001
+Maxent Prob: (Unregularized, Perturbed) [0.27999331 0.23999521 0.25999802 0.1200164  0.09999707]
+
+Total Probability:  0.9999999999999997
+Maxent Prob: (Regularized, Perturbed) [0.259999   0.25000135 0.2462609  0.15476366 0.08897509]
+
+Computational time for calculating maxent = 0.1439969539642334 seconds
+
+########################################################################
+PROCESSING DISEASES: 4 FILE NUMBER: 5 PERT: 0
+########################################################################
+The support is:  0.05189937904343182
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  9
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Unregularized, Unperturbed) [0.39997797 0.25385352 0.21840269 0.08165163 0.04611419]
+Total Probability:  0.9999999999999999
+Maxent Prob: (Regularized, Unperturbed) [0.37999968 0.24076785 0.23378035 0.11383073 0.0316214 ]
+Computational time for calculating maxent = 0.12699508666992188 seconds
+
+########################################################################
+PROCESSING DISEASES: 4 FILE NUMBER: 5 PERT: 1
+########################################################################
+The support is:  0.05189937904343182
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  9
+
+Total Probability:  1.000000000000001
+Maxent Prob: (Unregularized, Perturbed) [0.39998252 0.23483602 0.23552263 0.08454603 0.0451128 ]
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Regularized, Perturbed) [0.37999991 0.23028867 0.23925652 0.11980077 0.03065413]
+
+Computational time for calculating maxent = 0.1239931583404541 seconds
+
+The support is:  0.05189937904343182
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  10
+
+Total Probability:  0.999999999999998
+Maxent Prob: (Unregularized, Perturbed) [0.33998752 0.31996797 0.18003208 0.12000996 0.04000248]
+
+Total Probability:  1.0
+Maxent Prob: (Regularized, Perturbed) [0.31999807 0.27000066 0.25831479 0.12085562 0.03083086]
+
+Computational time for calculating maxent = 0.13899898529052734 seconds
+
+The support is:  0.05189937904343182
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  10
+
+Total Probability:  1.0000000000000007
+Maxent Prob: (Unregularized, Perturbed) [0.26000092 0.33999723 0.19999813 0.16000179 0.04000193]
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Regularized, Perturbed) [0.24000035 0.27165549 0.30827353 0.15162601 0.02844461]
+
+Computational time for calculating maxent = 0.1069955825805664 seconds
+
+The support is:  0.05189937904343182
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  11
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Unregularized, Perturbed) [0.26000001 0.29999989 0.24000012 0.14000002 0.05999996]
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Regularized, Perturbed) [0.23999854 0.27176817 0.29234757 0.15446794 0.04141778]
+
+Computational time for calculating maxent = 0.13499832153320312 seconds
+
+The support is:  0.05189937904343182
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  10
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Unregularized, Perturbed) [0.19999858 0.40000125 0.19999924 0.15999796 0.04000297]
+
+Total Probability:  1.0
+Maxent Prob: (Regularized, Perturbed) [0.18000051 0.33551866 0.31792127 0.13934465 0.02721491]
+
+Computational time for calculating maxent = 0.16099786758422852 seconds
+
+The support is:  0.05189937904343182
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  10
+
+Total Probability:  1.0
+Maxent Prob: (Unregularized, Perturbed) [0.25999966 0.30000097 0.21999868 0.18000052 0.04000017]
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Regularized, Perturbed) [0.24000079 0.25434035 0.29865741 0.16812331 0.03887814]
+
+Computational time for calculating maxent = 0.10899639129638672 seconds
+
+The support is:  0.05189937904343182
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  11
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Unregularized, Perturbed) [0.26001015 0.19997882 0.2400072  0.23999845 0.06000537]
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Regularized, Perturbed) [0.23999759 0.19615956 0.28892431 0.20755622 0.06736232]
+
+Computational time for calculating maxent = 0.14499688148498535 seconds
+
+The support is:  0.05189937904343182
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3]]
+The total number of MBA constraints are:  11
+
+Total Probability:  1.0
+Maxent Prob: (Unregularized, Perturbed) [0.10000247 0.31999497 0.27999647 0.24000754 0.05999854]
+
+Total Probability:  1.0
+Maxent Prob: (Regularized, Perturbed) [0.07999837 0.27408546 0.3650355  0.22566459 0.05521609]
+
+Computational time for calculating maxent = 0.10299420356750488 seconds
+
+########################################################################
+PROCESSING DISEASES: 7 FILE NUMBER: 1 PERT: 0
+########################################################################
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1], [2], [3], [4], [5], [6]]
+The total number of MBA constraints are:  0
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Unregularized, Unperturbed) [6.55903291e-01 2.86090891e-01 5.24401567e-02 5.24506375e-03
+ 3.09592991e-04 1.07966401e-05 2.06180765e-07 1.66471926e-09]
+Total Probability:  1.0000000000000004
+Maxent Prob: (Regularized, Unperturbed) [6.55903291e-01 2.86090891e-01 5.24401567e-02 5.24506375e-03
+ 3.09592991e-04 1.07966401e-05 2.06180765e-07 1.66471926e-09]
+Computational time for calculating maxent = 0.04999542236328125 seconds
+
+########################################################################
+PROCESSING DISEASES: 7 FILE NUMBER: 1 PERT: 1
+########################################################################
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1], [2], [3], [4], [5], [6]]
+The total number of MBA constraints are:  0
+
+Total Probability:  0.9999999999999994
+Maxent Prob: (Unregularized, Perturbed) [6.17296356e-01 3.09857264e-01 6.49331403e-02 7.39700250e-03
+ 4.96173104e-04 1.96356734e-05 4.25019782e-07 3.88434493e-09]
+
+Total Probability:  0.9999999999999994
+Maxent Prob: (Regularized, Perturbed) [6.17296356e-01 3.09857264e-01 6.49331403e-02 7.39700250e-03
+ 4.96173104e-04 1.96356734e-05 4.25019782e-07 3.88434493e-09]
+
+Computational time for calculating maxent = 0.0429997444152832 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1], [2], [3], [4], [5], [6]]
+The total number of MBA constraints are:  0
+
+Total Probability:  1.0
+Maxent Prob: (Unregularized, Perturbed) [5.32974995e-01 3.52108072e-01 9.83850638e-02 1.50841529e-02
+ 1.37149294e-03 7.40009873e-05 2.19530677e-06 2.76381145e-08]
+
+Total Probability:  1.0
+Maxent Prob: (Regularized, Perturbed) [5.32974995e-01 3.52108072e-01 9.83850638e-02 1.50841529e-02
+ 1.37149294e-03 7.40009873e-05 2.19530677e-06 2.76381145e-08]
+
+Computational time for calculating maxent = 0.0349888801574707 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1], [2], [3], [4], [5], [6]]
+The total number of MBA constraints are:  0
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Unregularized, Perturbed) [4.45548831e-01 3.83800958e-01 1.39470265e-01 2.77023522e-02
+ 3.24518159e-03 2.23877589e-04 8.40283843e-06 1.31909183e-07]
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Regularized, Perturbed) [4.45548831e-01 3.83800958e-01 1.39470265e-01 2.77023522e-02
+ 3.24518159e-03 2.23877589e-04 8.40283843e-06 1.31909183e-07]
+
+Computational time for calculating maxent = 0.036997079849243164 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 6], [1], [2, 3], [4], [5]]
+The total number of MBA constraints are:  2
+
+Total Probability:  1.0
+Maxent Prob: (Unregularized, Perturbed) [3.28078716e-01 3.63591187e-01 2.09957647e-01 7.65672163e-02
+ 1.85370972e-02 2.97655468e-03 2.80417341e-04 1.11642193e-05]
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Regularized, Perturbed) [3.20964321e-01 3.59389350e-01 2.14521233e-01 8.10313167e-02
+ 2.03526487e-02 3.39707278e-03 3.30600096e-04 1.34567884e-05]
+
+Computational time for calculating maxent = 0.08200788497924805 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 6], [1], [2], [3], [4], [5]]
+The total number of MBA constraints are:  1
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Unregularized, Perturbed) [2.71118028e-01 3.81805615e-01 2.39500922e-01 8.60013466e-02
+ 1.88780472e-02 2.50570446e-03 1.84555951e-04 5.78027604e-06]
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Regularized, Perturbed) [2.67811947e-01 3.78601223e-01 2.41575498e-01 8.89712191e-02
+ 2.00874387e-02 2.73939549e-03 2.06672833e-04 6.60597305e-06]
+
+Computational time for calculating maxent = 0.05799460411071777 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  9
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Unregularized, Perturbed) [1.75999247e-01 3.88131202e-01 2.43964131e-01 1.22235539e-01
+ 5.07047862e-02 1.56490203e-02 3.04350809e-03 2.72565816e-04]
+
+Total Probability:  0.9999999999999996
+Maxent Prob: (Regularized, Perturbed) [1.81875085e-01 3.27135312e-01 2.79122618e-01 1.47501730e-01
+ 5.13520133e-02 1.14548493e-02 1.47550842e-03 8.28841379e-05]
+
+Computational time for calculating maxent = 0.12799596786499023 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  12
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Unregularized, Perturbed) [1.20000681e-01 4.05227472e-01 2.68737425e-01 1.34444141e-01
+ 5.20734529e-02 1.57926141e-02 3.36675413e-03 3.57460051e-04]
+
+Total Probability:  1.0000000000000007
+Maxent Prob: (Regularized, Perturbed) [1.27998929e-01 3.42660594e-01 3.01750727e-01 1.59704180e-01
+ 5.44013911e-02 1.18734323e-02 1.52369893e-03 8.70468545e-05]
+
+Computational time for calculating maxent = 0.17399907112121582 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  20
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Unregularized, Perturbed) [0.14400044 0.29509746 0.27880555 0.1728658  0.07678262 0.02578992
+ 0.00599267 0.00066555]
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Regularized, Perturbed) [1.35996203e-01 2.61614742e-01 2.99428923e-01 1.96746125e-01
+ 8.14371077e-02 2.13295021e-02 3.23407805e-03 2.13318539e-04]
+
+Computational time for calculating maxent = 0.23799586296081543 seconds
+
+########################################################################
+PROCESSING DISEASES: 7 FILE NUMBER: 2 PERT: 0
+########################################################################
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 4, 6], [1], [2], [3], [5]]
+The total number of MBA constraints are:  2
+
+Total Probability:  0.9999999999999997
+Maxent Prob: (Unregularized, Unperturbed) [4.74095454e-01 3.22059702e-01 1.40343386e-01 5.04107632e-02
+ 1.15315697e-02 1.46265999e-03 9.40661214e-05 2.39914574e-06]
+Total Probability:  1.0000000000000002
+Maxent Prob: (Regularized, Unperturbed) [4.68942027e-01 3.16225346e-01 1.47295302e-01 5.38988698e-02
+ 1.20560670e-02 1.48674553e-03 9.33097844e-05 2.33320274e-06]
+Computational time for calculating maxent = 0.23479747772216797 seconds
+
+########################################################################
+PROCESSING DISEASES: 7 FILE NUMBER: 2 PERT: 1
+########################################################################
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 4, 6], [1], [2], [3], [5]]
+The total number of MBA constraints are:  2
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Unregularized, Perturbed) [4.37639330e-01 3.33760616e-01 1.56680196e-01 5.68032739e-02
+ 1.32378399e-02 1.75520575e-03 1.20230129e-04 3.30784618e-06]
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Regularized, Perturbed) [4.32667894e-01 3.27932665e-01 1.63143393e-01 6.04732051e-02
+ 1.38676502e-02 1.79217211e-03 1.19794694e-04 3.22703588e-06]
+
+Computational time for calculating maxent = 0.0690009593963623 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 4, 6], [1], [2], [3], [5]]
+The total number of MBA constraints are:  2
+
+Total Probability:  1.0
+Maxent Prob: (Unregularized, Perturbed) [3.92267545e-01 3.50834161e-01 1.74443886e-01 6.41822160e-02
+ 1.58115098e-02 2.28392404e-03 1.71604763e-04 5.15269636e-06]
+
+Total Probability:  1.0
+Maxent Prob: (Regularized, Perturbed) [3.87652071e-01 3.42881007e-01 1.81197240e-01 6.90351152e-02
+ 1.67305036e-02 2.33050547e-03 1.68657887e-04 4.89974953e-06]
+
+Computational time for calculating maxent = 0.059999704360961914 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 2, 3, 4, 5, 6], [1]]
+The total number of MBA constraints are:  6
+
+Total Probability:  1.0000000000000007
+Maxent Prob: (Unregularized, Perturbed) [4.15870961e-01 2.54889177e-01 1.73980415e-01 9.78626061e-02
+ 4.20624762e-02 1.28321903e-02 2.36304885e-03 1.39125589e-04]
+
+Total Probability:  0.9999999999999991
+Maxent Prob: (Regularized, Perturbed) [4.08573739e-01 2.27627538e-01 1.94241428e-01 1.15022330e-01
+ 4.32220122e-02 9.99793268e-03 1.25653100e-03 5.84899435e-05]
+
+Computational time for calculating maxent = 0.10699272155761719 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 2, 4, 5, 6, 1], [3]]
+The total number of MBA constraints are:  6
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Unregularized, Perturbed) [2.44223721e-01 3.38205134e-01 2.36399679e-01 1.20331262e-01
+ 4.64080239e-02 1.23524407e-02 1.95004846e-03 1.29690555e-04]
+
+Total Probability:  0.9999999999999991
+Maxent Prob: (Regularized, Perturbed) [2.37440282e-01 3.07476843e-01 2.60925162e-01 1.37752126e-01
+ 4.58158086e-02 9.44010600e-03 1.09546728e-03 5.42041670e-05]
+
+Computational time for calculating maxent = 0.12999343872070312 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  12
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Unregularized, Perturbed) [0.23999939 0.31712859 0.22811122 0.12688706 0.05804468 0.02222878
+ 0.00653601 0.00106427]
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Regularized, Perturbed) [2.31999870e-01 2.74889947e-01 2.58872349e-01 1.52894761e-01
+ 6.14229055e-02 1.67807905e-02 2.89400745e-03 2.45369767e-04]
+
+Computational time for calculating maxent = 0.33530354499816895 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 2, 3, 4, 5, 6, 1]]
+The total number of MBA constraints are:  17
+
+Total Probability:  1.0
+Maxent Prob: (Unregularized, Perturbed) [0.23200165 0.29845343 0.218673   0.13467811 0.07168916 0.03178122
+ 0.01055769 0.00216574]
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Regularized, Perturbed) [0.22400029 0.25761866 0.24734357 0.1593401  0.07689828 0.02749258
+ 0.0065291  0.00077742]
+
+Computational time for calculating maxent = 0.2870001792907715 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  22
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Unregularized, Perturbed) [0.17600209 0.29663167 0.24863938 0.15394201 0.07804958 0.0342963
+ 0.01048909 0.00194988]
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Regularized, Perturbed) [0.168002   0.25466801 0.27426789 0.18412981 0.08509386 0.02757966
+ 0.00567625 0.00058253]
+
+Computational time for calculating maxent = 0.4213223457336426 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  26
+
+Total Probability:  1.0000000000000007
+Maxent Prob: (Unregularized, Perturbed) [0.11200068 0.22103375 0.29237485 0.21355852 0.10555385 0.04276893
+ 0.01149346 0.00121596]
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Regularized, Perturbed) [0.10399933 0.20179682 0.29444552 0.23285278 0.11731545 0.04068382
+ 0.0082705  0.00063579]
+
+Computational time for calculating maxent = 0.5642173290252686 seconds
+
+########################################################################
+PROCESSING DISEASES: 7 FILE NUMBER: 3 PERT: 0
+########################################################################
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 6], [5]]
+The total number of MBA constraints are:  13
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Unregularized, Unperturbed) [0.49177651 0.26304513 0.10489075 0.05381347 0.03743242 0.03163379
+ 0.01602393 0.00138401]
+Total Probability:  1.0000000000000002
+Maxent Prob: (Regularized, Unperturbed) [4.84542998e-01 2.12362120e-01 1.42552224e-01 8.19643326e-02
+ 4.75571480e-02 2.41655326e-02 6.40026770e-03 4.55376624e-04]
+Computational time for calculating maxent = 0.20751094818115234 seconds
+
+########################################################################
+PROCESSING DISEASES: 7 FILE NUMBER: 3 PERT: 1
+########################################################################
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 6], [5]]
+The total number of MBA constraints are:  15
+
+Total Probability:  0.9999999999999997
+Maxent Prob: (Unregularized, Perturbed) [0.47308592 0.26836512 0.1110383  0.05575856 0.0398763  0.03398731
+ 0.01638993 0.00149856]
+
+Total Probability:  0.9999999999999994
+Maxent Prob: (Regularized, Perturbed) [0.46592013 0.22355068 0.14453347 0.08043538 0.04793371 0.02812222
+ 0.00879898 0.00070542]
+
+Computational time for calculating maxent = 0.2989931106567383 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 6], [5]]
+The total number of MBA constraints are:  14
+
+Total Probability:  0.9999999999999994
+Maxent Prob: (Unregularized, Perturbed) [0.36275197 0.33409354 0.14042102 0.06757879 0.04623935 0.03356078
+ 0.01391369 0.00144088]
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Regularized, Perturbed) [0.35577757 0.2821799  0.18147985 0.09566676 0.05239724 0.02529688
+ 0.00664071 0.00056109]
+
+Computational time for calculating maxent = 0.27899670600891113 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 6], [5]]
+The total number of MBA constraints are:  18
+
+Total Probability:  0.9999999999999996
+Maxent Prob: (Unregularized, Perturbed) [0.315013   0.30700479 0.17813305 0.09109615 0.05725636 0.03611217
+ 0.01385741 0.00152706]
+
+Total Probability:  0.9999999999999996
+Maxent Prob: (Regularized, Perturbed) [0.30816021 0.26868598 0.20106744 0.11870539 0.06508778 0.02975602
+ 0.00782579 0.00071138]
+
+Computational time for calculating maxent = 0.28399062156677246 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  24
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Unregularized, Perturbed) [0.23200136 0.31116406 0.21533031 0.12060563 0.06590574 0.0361911
+ 0.01583016 0.00297164]
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Regularized, Perturbed) [0.22400123 0.26889731 0.24444436 0.14612818 0.07201437 0.0326777
+ 0.01046096 0.0013759 ]
+
+Computational time for calculating maxent = 0.3880007266998291 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  26
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Unregularized, Perturbed) [0.25600261 0.28516767 0.20543228 0.12256003 0.06771108 0.03918119
+ 0.01807802 0.00586712]
+
+Total Probability:  0.9999999999999997
+Maxent Prob: (Regularized, Perturbed) [0.24799964 0.23730644 0.23455719 0.15344448 0.07850165 0.03558274
+ 0.0109352  0.00167266]
+
+Computational time for calculating maxent = 0.37999773025512695 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  33
+
+Total Probability:  1.0000000000000009
+Maxent Prob: (Unregularized, Perturbed) [0.11999719 0.28208437 0.27834029 0.16459941 0.08012927 0.04438212
+ 0.02423586 0.00623149]
+
+Total Probability:  0.9999999999999996
+Maxent Prob: (Regularized, Perturbed) [0.11199572 0.26209222 0.27885906 0.18284197 0.09560432 0.04610537
+ 0.01878645 0.00371488]
+
+Computational time for calculating maxent = 0.7479956150054932 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  41
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Unregularized, Perturbed) [0.12799966 0.29467313 0.2817194  0.12986618 0.0694806  0.05508338
+ 0.03330061 0.00787704]
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Regularized, Perturbed) [0.12000283 0.2757139  0.27383034 0.16095422 0.0827784  0.05224622
+ 0.02790289 0.0065712 ]
+
+Computational time for calculating maxent = 0.870507001876831 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  45
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Unregularized, Perturbed) [0.05599931 0.3064938  0.25323591 0.16903009 0.11786992 0.06246337
+ 0.02820794 0.00669966]
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Regularized, Perturbed) [0.06399978 0.24007734 0.28292033 0.20407378 0.1191877  0.06113773
+ 0.02480249 0.00380085]
+
+Computational time for calculating maxent = 0.9799962043762207 seconds
+
+########################################################################
+PROCESSING DISEASES: 7 FILE NUMBER: 4 PERT: 0
+########################################################################
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5], [6]]
+The total number of MBA constraints are:  9
+
+Total Probability:  1.0000000000000009
+Maxent Prob: (Unregularized, Unperturbed) [0.37632205 0.31265289 0.15970917 0.07873194 0.04091363 0.02283884
+ 0.00794007 0.00089141]
+Total Probability:  1.0000000000000002
+Maxent Prob: (Regularized, Unperturbed) [3.69599967e-01 2.69017497e-01 1.88655169e-01 1.09164672e-01
+ 4.66154079e-02 1.41630717e-02 2.58871584e-03 1.95500524e-04]
+Computational time for calculating maxent = 0.11299777030944824 seconds
+
+########################################################################
+PROCESSING DISEASES: 7 FILE NUMBER: 4 PERT: 1
+########################################################################
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5], [6]]
+The total number of MBA constraints are:  12
+
+Total Probability:  1.0
+Maxent Prob: (Unregularized, Perturbed) [0.33944448 0.31822592 0.17178075 0.08545495 0.04620669 0.02590263
+ 0.01136232 0.00162227]
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Regularized, Perturbed) [0.33292773 0.27245737 0.19882549 0.11963711 0.05418222 0.0179009
+ 0.00373523 0.00033395]
+
+Computational time for calculating maxent = 0.1789989471435547 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  16
+
+Total Probability:  1.0
+Maxent Prob: (Unregularized, Perturbed) [0.30399998 0.35139976 0.16981351 0.08272632 0.04424864 0.02554239
+ 0.01580283 0.00646658]
+
+Total Probability:  1.0
+Maxent Prob: (Regularized, Perturbed) [0.29600005 0.28822391 0.21477145 0.11811761 0.05458387 0.02118444
+ 0.00620622 0.00091244]
+
+Computational time for calculating maxent = 0.22199583053588867 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  19
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Unregularized, Perturbed) [0.26399784 0.33275181 0.19617262 0.10369948 0.05229803 0.02930966
+ 0.01633344 0.00543713]
+
+Total Probability:  1.0
+Maxent Prob: (Regularized, Perturbed) [0.25600019 0.28395075 0.22759131 0.13240433 0.06367241 0.02663658
+ 0.00842894 0.00131548]
+
+Computational time for calculating maxent = 0.2945101261138916 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  21
+
+Total Probability:  1.0
+Maxent Prob: (Unregularized, Perturbed) [0.19199793 0.32927123 0.24141649 0.12392767 0.05670861 0.03474191
+ 0.01798982 0.00394635]
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Regularized, Perturbed) [0.18400173 0.2895607  0.26121428 0.15136093 0.07142617 0.03161797
+ 0.00960723 0.00121098]
+
+Computational time for calculating maxent = 0.3479938507080078 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  28
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Unregularized, Perturbed) [0.15199817 0.31719339 0.26893668 0.13360524 0.06334227 0.0338213
+ 0.02408137 0.00702158]
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Regularized, Perturbed) [0.14399763 0.2964661  0.26791922 0.1546544  0.07744535 0.03873975
+ 0.01718147 0.00359609]
+
+Computational time for calculating maxent = 0.5489919185638428 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  30
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Unregularized, Perturbed) [0.10399938 0.30506643 0.28521302 0.16410588 0.07368359 0.0381786
+ 0.02170486 0.00804826]
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Regularized, Perturbed) [0.10593228 0.27098217 0.28211933 0.18631396 0.09408806 0.04151007
+ 0.01544648 0.00360764]
+
+Computational time for calculating maxent = 0.6435110569000244 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  36
+
+Total Probability:  0.9999999999999997
+Maxent Prob: (Unregularized, Perturbed) [0.12799925 0.22505973 0.2903755  0.18622467 0.09756224 0.04634556
+ 0.01949662 0.00693643]
+
+Total Probability:  1.0000000000000009
+Maxent Prob: (Regularized, Perturbed) [0.12000274 0.21500974 0.27542667 0.20619521 0.11435104 0.05057065
+ 0.01582201 0.00262196]
+
+Computational time for calculating maxent = 0.676997184753418 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  39
+
+Total Probability:  0.9999999999999993
+Maxent Prob: (Unregularized, Perturbed) [0.05600091 0.18594867 0.29323053 0.25459702 0.13337131 0.05475622
+ 0.01813767 0.00395767]
+
+Total Probability:  1.0
+Maxent Prob: (Regularized, Perturbed) [0.04799701 0.1712309  0.28985924 0.26734419 0.15183051 0.05646321
+ 0.01354123 0.0017337 ]
+
+Computational time for calculating maxent = 0.48099446296691895 seconds
+
+########################################################################
+PROCESSING DISEASES: 7 FILE NUMBER: 5 PERT: 0
+########################################################################
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  19
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Unregularized, Unperturbed) [0.4079998  0.23539474 0.15826061 0.09098401 0.05202574 0.03310993
+ 0.01809774 0.00412744]
+Total Probability:  0.9999999999999991
+Maxent Prob: (Regularized, Unperturbed) [0.39999845 0.18827559 0.18444468 0.12356651 0.06529227 0.02869627
+ 0.00859824 0.001128  ]
+Computational time for calculating maxent = 0.40151500701904297 seconds
+
+########################################################################
+PROCESSING DISEASES: 7 FILE NUMBER: 5 PERT: 1
+########################################################################
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  21
+
+Total Probability:  0.9999999999999996
+Maxent Prob: (Unregularized, Perturbed) [0.38399967 0.2509059  0.16096129 0.09267549 0.05381492 0.03391243
+ 0.01778232 0.00594798]
+
+Total Probability:  1.0000000000000007
+Maxent Prob: (Regularized, Perturbed) [0.37600007 0.19997651 0.19172665 0.125396   0.06625485 0.02993008
+ 0.00929654 0.0014193 ]
+
+Computational time for calculating maxent = 0.32943224906921387 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  27
+
+Total Probability:  0.9999999999999991
+Maxent Prob: (Unregularized, Perturbed) [0.3600009  0.21823331 0.17795493 0.11225046 0.06457559 0.04032912
+ 0.02143509 0.0052206 ]
+
+Total Probability:  0.9999999999999993
+Maxent Prob: (Regularized, Perturbed) [0.35199919 0.18081523 0.19841566 0.13638183 0.07577003 0.03979719
+ 0.0146075  0.00221339]
+
+Computational time for calculating maxent = 0.35199737548828125 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  28
+
+Total Probability:  1.0
+Maxent Prob: (Unregularized, Perturbed) [0.28799999 0.27994363 0.18179684 0.1115231  0.06860733 0.04103922
+ 0.02135588 0.00773401]
+
+Total Probability:  1.0000000000000009
+Maxent Prob: (Regularized, Perturbed) [0.28000098 0.22704561 0.21748252 0.14178591 0.0782286  0.03911445
+ 0.01424501 0.00209691]
+
+Computational time for calculating maxent = 0.4810006618499756 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  32
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Unregularized, Perturbed) [0.20800023 0.30492028 0.21401517 0.12640368 0.07077189 0.04332798
+ 0.02382367 0.0087371 ]
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Regularized, Perturbed) [0.20000125 0.26095782 0.24036789 0.15317694 0.08192349 0.04201763
+ 0.0178852  0.00366979]
+
+Computational time for calculating maxent = 0.5039961338043213 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  35
+
+Total Probability:  1.0
+Maxent Prob: (Unregularized, Perturbed) [0.26400354 0.21549175 0.21019592 0.14626156 0.0811091  0.04875546
+ 0.02617982 0.00800286]
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Regularized, Perturbed) [0.25600419 0.18665754 0.22012153 0.16679056 0.09611763 0.04967872
+ 0.02054492 0.00408491]
+
+Computational time for calculating maxent = 0.612999439239502 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  42
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Unregularized, Perturbed) [0.10399844 0.27151557 0.27996963 0.16730533 0.0925139  0.04616262
+ 0.02796135 0.01057316]
+
+Total Probability:  0.9999999999999997
+Maxent Prob: (Regularized, Perturbed) [0.09599667 0.25089715 0.2793361  0.19057404 0.10198787 0.05053469
+ 0.02462922 0.00604425]
+
+Computational time for calculating maxent = 0.9419996738433838 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  44
+
+Total Probability:  1.0
+Maxent Prob: (Unregularized, Perturbed) [0.07199987 0.22660157 0.27620711 0.20422183 0.12151992 0.06497503
+ 0.02794867 0.00652599]
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Regularized, Perturbed) [0.06399968 0.19330585 0.28806344 0.23493028 0.13153245 0.06144335
+ 0.02263783 0.00408712]
+
+Computational time for calculating maxent = 1.0420022010803223 seconds
+
+The support is:  0.04989779828470518
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6]]
+The total number of MBA constraints are:  48
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Unregularized, Perturbed) [0.05600131 0.24639473 0.27552629 0.20635175 0.11513403 0.06130363
+ 0.02658295 0.01270532]
+
+Total Probability:  1.0000000000000007
+Maxent Prob: (Regularized, Perturbed) [0.05743854 0.20402935 0.28621577 0.22939483 0.12957881 0.06201847
+ 0.02431526 0.00700897]
+
+Computational time for calculating maxent = 1.0209991931915283 seconds
+
+########################################################################
+PROCESSING DISEASES: 10 FILE NUMBER: 1 PERT: 0
+########################################################################
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9]]
+The total number of MBA constraints are:  0
+
+Total Probability:  1.0000000000000027
+Maxent Prob: (Unregularized, Unperturbed) [6.26689362e-01 3.00184179e-01 6.43094334e-02 8.11144820e-03
+ 6.66791558e-04 3.73089921e-05 1.43819951e-06 3.76901813e-08
+ 6.42145574e-10 6.41695590e-12 2.85303074e-14]
+Total Probability:  1.0000000000000027
+Maxent Prob: (Regularized, Unperturbed) [6.26689362e-01 3.00184179e-01 6.43094334e-02 8.11144820e-03
+ 6.66791558e-04 3.73089921e-05 1.43819951e-06 3.76901813e-08
+ 6.42145574e-10 6.41695590e-12 2.85303074e-14]
+Computational time for calculating maxent = 0.26451706886291504 seconds
+
+########################################################################
+PROCESSING DISEASES: 10 FILE NUMBER: 1 PERT: 1
+########################################################################
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9]]
+The total number of MBA constraints are:  0
+
+Total Probability:  0.9999999999999963
+Maxent Prob: (Unregularized, Perturbed) [5.54399064e-01 3.37363457e-01 9.18523016e-02 1.47297678e-02
+ 1.54016800e-03 1.09674002e-04 5.38395832e-06 1.79825422e-07
+ 3.90873473e-09 4.98967075e-11 2.83860444e-13]
+
+Total Probability:  0.9999999999999963
+Maxent Prob: (Regularized, Perturbed) [5.54399064e-01 3.37363457e-01 9.18523016e-02 1.47297678e-02
+ 1.54016800e-03 1.09674002e-04 5.38395832e-06 1.79825422e-07
+ 3.90873473e-09 4.98967075e-11 2.83860444e-13]
+
+Computational time for calculating maxent = 0.20299553871154785 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9]]
+The total number of MBA constraints are:  0
+
+Total Probability:  1.0000000000000016
+Maxent Prob: (Unregularized, Perturbed) [4.41324469e-01 3.76896238e-01 1.44058981e-01 3.24430836e-02
+ 4.76575407e-03 4.76957686e-04 3.29217952e-05 1.54687796e-06
+ 4.73279656e-08 8.51019071e-10 6.82582618e-12]
+
+Total Probability:  1.0000000000000016
+Maxent Prob: (Regularized, Perturbed) [4.41324469e-01 3.76896238e-01 1.44058981e-01 3.24430836e-02
+ 4.76575407e-03 4.76957686e-04 3.29217952e-05 1.54687796e-06
+ 4.73279656e-08 8.51019071e-10 6.82582618e-12]
+
+Computational time for calculating maxent = 0.2279987335205078 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9]]
+The total number of MBA constraints are:  0
+
+Total Probability:  1.0000000000000016
+Maxent Prob: (Unregularized, Perturbed) [3.40469539e-01 3.87923191e-01 1.98225084e-01 5.98225396e-02
+ 1.18081372e-02 1.59289025e-03 1.48722417e-04 9.48993215e-06
+ 3.96074504e-07 9.76360823e-09 1.07950918e-10]
+
+Total Probability:  1.0000000000000016
+Maxent Prob: (Regularized, Perturbed) [3.40469539e-01 3.87923191e-01 1.98225084e-01 5.98225396e-02
+ 1.18081372e-02 1.59289025e-03 1.48722417e-04 9.48993215e-06
+ 3.96074504e-07 9.76360823e-09 1.07950918e-10]
+
+Computational time for calculating maxent = 0.23399090766906738 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9]]
+The total number of MBA constraints are:  0
+
+Total Probability:  0.9999999999999986
+Maxent Prob: (Unregularized, Perturbed) [2.55031834e-01 3.73775409e-01 2.46076957e-01 9.58342299e-02
+ 2.44496954e-02 4.26974949e-03 5.16891880e-04 4.28319456e-05
+ 2.32502896e-06 7.46556709e-08 1.07676493e-09]
+
+Total Probability:  0.9999999999999986
+Maxent Prob: (Regularized, Perturbed) [2.55031834e-01 3.73775409e-01 2.46076957e-01 9.58342299e-02
+ 2.44496954e-02 4.26974949e-03 5.16891880e-04 4.28319456e-05
+ 2.32502896e-06 7.46556709e-08 1.07676493e-09]
+
+Computational time for calculating maxent = 0.21299505233764648 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9]]
+The total number of MBA constraints are:  0
+
+Total Probability:  0.9999999999999984
+Maxent Prob: (Unregularized, Perturbed) [1.87267549e-01 3.42157426e-01 2.80565095e-01 1.35967652e-01
+ 4.31270377e-02 9.35518911e-03 1.40552949e-03 1.44416544e-04
+ 9.71196964e-06 3.86005801e-07 6.88536256e-09]
+
+Total Probability:  0.9999999999999984
+Maxent Prob: (Regularized, Perturbed) [1.87267549e-01 3.42157426e-01 2.80565095e-01 1.35967652e-01
+ 4.31270377e-02 9.35518911e-03 1.40552949e-03 1.44416544e-04
+ 9.71196964e-06 3.86005801e-07 6.88536256e-09]
+
+Computational time for calculating maxent = 0.2180004119873047 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 7, 8, 9, 6]]
+The total number of MBA constraints are:  22
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Unregularized, Perturbed) [1.12003693e-01 3.24130720e-01 2.61412356e-01 1.60688991e-01
+ 8.31849466e-02 3.74874754e-02 1.46929470e-02 4.87318925e-03
+ 1.27826002e-03 2.28011584e-04 1.94094884e-05]
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Regularized, Perturbed) [1.15999029e-01 2.78801721e-01 2.77914863e-01 1.85813040e-01
+ 9.23613741e-02 3.55564929e-02 1.06660569e-02 2.43987772e-03
+ 4.02740636e-04 4.26477640e-05 2.15642099e-06]
+
+Computational time for calculating maxent = 0.8410263061523438 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  33
+
+Total Probability:  0.9999999999999993
+Maxent Prob: (Unregularized, Perturbed) [9.59998733e-02 2.91842286e-01 2.65774187e-01 1.78522997e-01
+ 9.75055073e-02 4.49859302e-02 1.76865579e-02 5.83419954e-03
+ 1.53451746e-03 2.85965874e-04 2.79777924e-05]
+
+Total Probability:  1.0000000000000007
+Maxent Prob: (Regularized, Perturbed) [1.00000863e-01 2.43792579e-01 2.81209780e-01 2.07710590e-01
+ 1.09077273e-01 4.25662723e-02 1.24824611e-02 2.70629156e-03
+ 4.12527466e-04 3.95673957e-05 1.79495493e-06]
+
+Computational time for calculating maxent = 1.7285189628601074 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  45
+
+Total Probability:  0.9999999999999991
+Maxent Prob: (Unregularized, Perturbed) [6.79979785e-02 2.17671945e-01 2.69449900e-01 2.21043815e-01
+ 1.33010574e-01 6.14896981e-02 2.20270010e-02 5.98878850e-03
+ 1.16561976e-03 1.45765745e-04 8.91429698e-06]
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Regularized, Perturbed) [6.40025698e-02 1.91910032e-01 2.76235444e-01 2.41929941e-01
+ 1.43302525e-01 6.01358781e-02 1.80780315e-02 3.82080667e-03
+ 5.37938200e-04 4.51330741e-05 1.70015612e-06]
+
+Computational time for calculating maxent = 2.5170400142669678 seconds
+
+########################################################################
+PROCESSING DISEASES: 10 FILE NUMBER: 2 PERT: 0
+########################################################################
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9]]
+The total number of MBA constraints are:  0
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Unregularized, Unperturbed) [4.46763288e-01 3.75993643e-01 1.41161891e-01 3.11419091e-02
+ 4.47170832e-03 4.36778140e-04 2.93953605e-05 1.34618576e-06
+ 4.01546045e-08 7.04572834e-10 5.52335205e-12]
+Total Probability:  0.9999999999999999
+Maxent Prob: (Regularized, Unperturbed) [4.46763288e-01 3.75993643e-01 1.41161891e-01 3.11419091e-02
+ 4.47170832e-03 4.36778140e-04 2.93953605e-05 1.34618576e-06
+ 4.01546045e-08 7.04572834e-10 5.52335205e-12]
+Computational time for calculating maxent = 0.30699777603149414 seconds
+
+########################################################################
+PROCESSING DISEASES: 10 FILE NUMBER: 2 PERT: 1
+########################################################################
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9]]
+The total number of MBA constraints are:  0
+
+Total Probability:  0.9999999999999993
+Maxent Prob: (Unregularized, Perturbed) [3.93381716e-01 3.86016326e-01 1.68966532e-01 4.34610431e-02
+ 7.27682297e-03 8.28895133e-04 6.50652841e-05 3.47587881e-06
+ 1.20956635e-07 2.47618273e-09 2.26478213e-11]
+
+Total Probability:  0.9999999999999993
+Maxent Prob: (Regularized, Perturbed) [3.93381716e-01 3.86016326e-01 1.68966532e-01 4.34610431e-02
+ 7.27682297e-03 8.28895133e-04 6.50652841e-05 3.47587881e-06
+ 1.20956635e-07 2.47618273e-09 2.26478213e-11]
+
+Computational time for calculating maxent = 0.24299979209899902 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9]]
+The total number of MBA constraints are:  0
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Unregularized, Perturbed) [3.19459430e-01 3.87128113e-01 2.10021664e-01 6.71647514e-02
+ 1.40202074e-02 1.99587559e-03 1.96214860e-04 1.31527975e-05
+ 5.75288325e-07 1.48249628e-08 1.70913725e-10]
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Regularized, Perturbed) [3.19459430e-01 3.87128113e-01 2.10021664e-01 6.71647514e-02
+ 1.40202074e-02 1.99587559e-03 1.96214860e-04 1.31527975e-05
+ 5.75288325e-07 1.48249628e-08 1.70913725e-10]
+
+Computational time for calculating maxent = 0.23499631881713867 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 5, 6], [1], [2], [3], [4], [7], [8], [9]]
+The total number of MBA constraints are:  2
+
+Total Probability:  1.0000000000000013
+Maxent Prob: (Unregularized, Perturbed) [2.53608465e-01 3.58209164e-01 2.43445511e-01 1.05209329e-01
+ 3.16243018e-02 6.76629709e-03 1.02304227e-03 1.06381451e-04
+ 7.21688420e-06 2.87066526e-07 5.07336357e-09]
+
+Total Probability:  1.0000000000000018
+Maxent Prob: (Regularized, Perturbed) [2.52033247e-01 3.54776634e-01 2.44641146e-01 1.07685654e-01
+ 3.27133574e-02 6.99090625e-03 1.04499771e-03 1.06697485e-04
+ 7.08032558e-06 2.75030521e-07 4.74517270e-09]
+
+Computational time for calculating maxent = 0.3449995517730713 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 9, 5, 6, 7, 8, 3, 4], [1], [2]]
+The total number of MBA constraints are:  8
+
+Total Probability:  1.0000000000000007
+Maxent Prob: (Unregularized, Perturbed) [2.15847671e-01 3.11067028e-01 2.49010954e-01 1.40058730e-01
+ 5.95579561e-02 1.91477441e-02 4.49315566e-03 7.33648795e-04
+ 7.81345242e-05 4.84585868e-06 1.32042093e-07]
+
+Total Probability:  0.9999999999999996
+Maxent Prob: (Regularized, Perturbed) [2.12846245e-01 2.92485896e-01 2.58498980e-01 1.52608319e-01
+ 6.18113283e-02 1.76463401e-02 3.55899925e-03 4.96020362e-04
+ 4.53692468e-05 2.44473152e-06 5.86668081e-08]
+
+Computational time for calculating maxent = 0.47600293159484863 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 2, 4, 5, 6, 7, 8, 9, 1, 3]]
+The total number of MBA constraints are:  21
+
+Total Probability:  1.0
+Maxent Prob: (Unregularized, Perturbed) [1.55999958e-01 3.28327878e-01 2.42966888e-01 1.43217339e-01
+ 7.37707370e-02 3.43562166e-02 1.43943981e-02 5.19674452e-03
+ 1.47168887e-03 2.75007202e-04 2.31454342e-05]
+
+Total Probability:  0.9999999999999988
+Maxent Prob: (Regularized, Perturbed) [1.59557836e-01 2.81662448e-01 2.61545369e-01 1.68331219e-01
+ 8.30326590e-02 3.26364098e-02 1.02458510e-02 2.49501945e-03
+ 4.40940009e-04 4.96412253e-05 2.60731311e-06]
+
+Computational time for calculating maxent = 1.320995569229126 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  31
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Unregularized, Perturbed) [1.39999577e-01 2.98455047e-01 2.48087729e-01 1.58814682e-01
+ 8.64848190e-02 4.16403764e-02 1.77089575e-02 6.45028230e-03
+ 1.89881723e-03 4.09760653e-04 4.99521378e-05]
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Regularized, Perturbed) [1.36000044e-01 2.59941310e-01 2.66295571e-01 1.84981986e-01
+ 9.66075488e-02 3.95476157e-02 1.27748033e-02 3.19009973e-03
+ 5.85495141e-04 7.11660063e-05 4.35973023e-06]
+
+Computational time for calculating maxent = 1.3949971199035645 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  50
+
+Total Probability:  0.9999999999999997
+Maxent Prob: (Unregularized, Perturbed) [4.79992963e-02 2.21400688e-01 2.67877643e-01 2.14726264e-01
+ 1.32255916e-01 6.79066523e-02 3.07508117e-02 1.21829190e-02
+ 3.89667469e-03 8.88484414e-04 1.14650054e-04]
+
+Total Probability:  1.0000000000000013
+Maxent Prob: (Regularized, Perturbed) [5.20007452e-02 1.88916695e-01 2.67570397e-01 2.34253540e-01
+ 1.46570101e-01 7.12667491e-02 2.81476075e-02 8.87154897e-03
+ 2.06766515e-03 3.11719431e-04 2.32316228e-05]
+
+Computational time for calculating maxent = 2.389993906021118 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  50
+
+Total Probability:  0.999999999999999
+Maxent Prob: (Unregularized, Perturbed) [5.60013960e-02 1.43884811e-01 2.53937943e-01 2.54333012e-01
+ 1.68098991e-01 8.20008716e-02 3.12341356e-02 8.79128291e-03
+ 1.56743774e-03 1.44815246e-04 5.30437511e-06]
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Regularized, Perturbed) [5.19991953e-02 1.32855750e-01 2.50056860e-01 2.63550560e-01
+ 1.78664406e-01 8.50741526e-02 2.94906104e-02 7.14236254e-03
+ 1.07809664e-03 8.53429344e-05 2.66353309e-06]
+
+Computational time for calculating maxent = 2.785041093826294 seconds
+
+########################################################################
+PROCESSING DISEASES: 10 FILE NUMBER: 3 PERT: 0
+########################################################################
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1, 6, 7, 9, 2, 5, 8], [3], [4]]
+The total number of MBA constraints are:  11
+
+Total Probability:  0.9999999999999996
+Maxent Prob: (Unregularized, Unperturbed) [3.86073373e-01 3.16797114e-01 1.53758284e-01 6.92043852e-02
+ 3.53430819e-02 2.09760617e-02 1.21696135e-02 4.70060181e-03
+ 8.96286069e-04 7.86341063e-05 2.56480893e-06]
+Total Probability:  1.0000000000000009
+Maxent Prob: (Regularized, Unperturbed) [3.83170421e-01 2.94095679e-01 1.62961096e-01 8.51409998e-02
+ 4.29431918e-02 2.05533492e-02 8.36416063e-03 2.36331004e-03
+ 3.76972969e-04 2.99023122e-05 9.17285066e-07]
+Computational time for calculating maxent = 0.462522029876709 seconds
+
+########################################################################
+PROCESSING DISEASES: 10 FILE NUMBER: 3 PERT: 1
+########################################################################
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1, 6, 7, 9, 2, 5, 8], [3], [4]]
+The total number of MBA constraints are:  12
+
+Total Probability:  1.0000000000000007
+Maxent Prob: (Unregularized, Perturbed) [3.44091622e-01 3.27920641e-01 1.71276617e-01 7.61966588e-02
+ 3.77641015e-02 2.26356226e-02 1.34567429e-02 5.41985436e-03
+ 1.12452485e-03 1.09608720e-04 4.00675072e-06]
+
+Total Probability:  0.9999999999999991
+Maxent Prob: (Regularized, Perturbed) [3.41315810e-01 3.05748618e-01 1.78768210e-01 9.24284894e-02
+ 4.62085863e-02 2.25697581e-02 9.56204570e-03 2.85801197e-03
+ 4.95490760e-04 4.34896922e-05 1.48993640e-06]
+
+Computational time for calculating maxent = 0.43000006675720215 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 5, 6, 7, 8, 9, 1, 2], [3], [4]]
+The total number of MBA constraints are:  15
+
+Total Probability:  1.0000000000000016
+Maxent Prob: (Unregularized, Perturbed) [3.28328906e-01 3.02365795e-01 1.73499542e-01 9.10530103e-02
+ 4.89880930e-02 2.80361385e-02 1.62503918e-02 8.41409771e-03
+ 2.65759316e-03 3.86544413e-04 1.98878894e-05]
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Regularized, Perturbed) [3.25259219e-01 2.75682698e-01 1.82128685e-01 1.09539467e-01
+ 5.93123300e-02 2.93932967e-02 1.29086161e-02 4.57617742e-03
+ 1.06469382e-03 1.28862307e-04 5.95521638e-06]
+
+Computational time for calculating maxent = 0.3959958553314209 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  30
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Unregularized, Perturbed) [0.25199983 0.29256795 0.19908103 0.11745593 0.06503018 0.03594981
+ 0.01955056 0.01042891 0.00520921 0.00221492 0.00051167]
+
+Total Probability:  0.9999999999999997
+Maxent Prob: (Regularized, Perturbed) [2.47998395e-01 2.56546143e-01 2.14174351e-01 1.38229109e-01
+ 7.66924684e-02 3.85656466e-02 1.75834824e-02 7.12139337e-03
+ 2.40668166e-03 6.02397410e-04 7.99326528e-05]
+
+Computational time for calculating maxent = 1.4095196723937988 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  41
+
+Total Probability:  1.0000000000000022
+Maxent Prob: (Unregularized, Perturbed) [0.17200024 0.29250307 0.223984   0.13818893 0.07803864 0.04350605
+ 0.02487247 0.01448727 0.00800688 0.00354748 0.00086497]
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Regularized, Perturbed) [1.67999227e-01 2.56625223e-01 2.34858099e-01 1.59844705e-01
+ 9.21200304e-02 4.84791270e-02 2.39580150e-02 1.08059975e-02
+ 4.07190481e-03 1.09069393e-03 1.46977815e-04]
+
+Computational time for calculating maxent = 1.8629951477050781 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  48
+
+Total Probability:  0.9999999999999994
+Maxent Prob: (Unregularized, Perturbed) [0.11999956 0.26828238 0.2416007  0.16413884 0.09613409 0.05323666
+ 0.02949966 0.01613914 0.00777532 0.002727   0.00046665]
+
+Total Probability:  1.0000000000000013
+Maxent Prob: (Regularized, Perturbed) [1.15998319e-01 2.35644112e-01 2.51567148e-01 1.84983982e-01
+ 1.08842680e-01 5.67335929e-02 2.77676429e-02 1.25137481e-02
+ 4.65978133e-03 1.15984732e-03 1.29146283e-04]
+
+Computational time for calculating maxent = 2.718191146850586 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  49
+
+Total Probability:  1.000000000000001
+Maxent Prob: (Unregularized, Perturbed) [0.11200106 0.25401335 0.24434253 0.17215237 0.10361172 0.05804652
+ 0.03111096 0.01538198 0.00665098 0.00226781 0.0004207 ]
+
+Total Probability:  1.0000000000000013
+Maxent Prob: (Regularized, Perturbed) [1.07996887e-01 2.23411697e-01 2.52190169e-01 1.92463715e-01
+ 1.16850197e-01 6.15979550e-02 2.89403647e-02 1.17113885e-02
+ 3.83114737e-03 8.99304525e-04 1.07175171e-04]
+
+Computational time for calculating maxent = 2.3985180854797363 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  97
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Unregularized, Perturbed) [0.0480059  0.16764386 0.27175936 0.22706635 0.13683771 0.06863145
+ 0.03375183 0.01903306 0.01265326 0.01005619 0.00456102]
+
+Total Probability:  1.0000000000000016
+Maxent Prob: (Regularized, Perturbed) [0.04683111 0.17209194 0.25342324 0.22088347 0.14244409 0.07846561
+ 0.04125782 0.02264535 0.01317091 0.00697308 0.00181338]
+
+Computational time for calculating maxent = 6.9554595947265625 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  98
+
+Total Probability:  0.9999999999999996
+Maxent Prob: (Unregularized, Perturbed) [0.03199714 0.1514716  0.25375403 0.23784888 0.15730208 0.08237611
+ 0.04201945 0.02266556 0.01178102 0.00647304 0.00231111]
+
+Total Probability:  0.999999999999999
+Maxent Prob: (Regularized, Perturbed) [0.03397891 0.1448793  0.24157807 0.234925   0.16462597 0.09342179
+ 0.04730687 0.02307767 0.0107038  0.00446965 0.00103295]
+
+Computational time for calculating maxent = 6.387899160385132 seconds
+
+########################################################################
+PROCESSING DISEASES: 10 FILE NUMBER: 4 PERT: 0
+########################################################################
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  36
+
+Total Probability:  0.999999999999998
+Maxent Prob: (Unregularized, Unperturbed) [0.38000018 0.2821067  0.14828084 0.07321175 0.03925727 0.02465265
+ 0.01850484 0.01499212 0.01115573 0.00618199 0.00165592]
+Total Probability:  1.0000000000000004
+Maxent Prob: (Regularized, Unperturbed) [0.37599984 0.24036598 0.16921085 0.09372579 0.0489228  0.02834212
+ 0.01946854 0.01342192 0.00744487 0.00267021 0.00042707]
+Computational time for calculating maxent = 2.505995750427246 seconds
+
+########################################################################
+PROCESSING DISEASES: 10 FILE NUMBER: 4 PERT: 1
+########################################################################
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  38
+
+Total Probability:  0.9999999999999994
+Maxent Prob: (Unregularized, Perturbed) [0.34800446 0.28717458 0.15900639 0.08088863 0.04362918 0.0268228
+ 0.01943234 0.01542802 0.01138879 0.00642388 0.00180095]
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Regularized, Perturbed) [0.34400254 0.24654548 0.1779146  0.10115964 0.05408621 0.03114284
+ 0.02052389 0.01375493 0.00762593 0.00279221 0.00045174]
+
+Computational time for calculating maxent = 2.1918911933898926 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  51
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Unregularized, Perturbed) [0.29200002 0.28921561 0.183017   0.09615897 0.05016836 0.0296041
+ 0.01985496 0.01525769 0.01241159 0.00876376 0.00354794]
+
+Total Probability:  0.9999999999999994
+Maxent Prob: (Regularized, Perturbed) [0.28800185 0.26104106 0.19321183 0.11008079 0.05877142 0.03366179
+ 0.02181426 0.01569169 0.0107897  0.00551885 0.00141677]
+
+Computational time for calculating maxent = 3.2459962368011475 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  60
+
+Total Probability:  0.9999999999999988
+Maxent Prob: (Unregularized, Perturbed) [0.17599947 0.30526624 0.22837641 0.12431517 0.06283542 0.03605763
+ 0.02464971 0.01875354 0.01376149 0.00770416 0.00228077]
+
+Total Probability:  0.999999999999999
+Maxent Prob: (Regularized, Perturbed) [0.17200096 0.27759887 0.23520066 0.14050993 0.07330019 0.04059639
+ 0.02606552 0.01817052 0.01115789 0.00455248 0.00084659]
+
+Computational time for calculating maxent = 3.951695203781128 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  61
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Unregularized, Perturbed) [0.14399931 0.27396668 0.24723994 0.15263131 0.07709697 0.03796359
+ 0.02292684 0.01806882 0.01444187 0.00876456 0.00290011]
+
+Total Probability:  1.000000000000001
+Maxent Prob: (Regularized, Perturbed) [0.14000277 0.2557916  0.24525861 0.1621617  0.08820762 0.04608195
+ 0.02685006 0.01789047 0.01136002 0.00519362 0.00120159]
+
+Computational time for calculating maxent = 3.1992852687835693 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  95
+
+Total Probability:  0.9999999999999999
+Maxent Prob: (Unregularized, Perturbed) [0.09199922 0.26725635 0.26390347 0.16922143 0.08738433 0.04442244
+ 0.02519795 0.01642637 0.01288801 0.01262105 0.00867939]
+
+Total Probability:  0.9999999999999991
+Maxent Prob: (Regularized, Perturbed) [0.09599633 0.24829465 0.2586824  0.17473495 0.09495407 0.04933105
+ 0.02849725 0.01949684 0.01467765 0.01056694 0.00476787]
+
+Computational time for calculating maxent = 8.0660560131073 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  81
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Unregularized, Perturbed) [0.05199923 0.20616284 0.27786348 0.20996996 0.12014129 0.06028063
+ 0.02955778 0.01686292 0.01175567 0.00926003 0.00614616]
+
+Total Probability:  0.999999999999999
+Maxent Prob: (Regularized, Perturbed) [0.05600234 0.19779361 0.26081764 0.20959157 0.12895108 0.06967392
+ 0.03648912 0.02010602 0.01169585 0.00640513 0.00247372]
+
+Computational time for calculating maxent = 4.518505573272705 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  97
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Unregularized, Perturbed) [0.03999895 0.19617921 0.24727501 0.21084019 0.13601833 0.07779668
+ 0.04345321 0.02423493 0.01448012 0.00772446 0.00199891]
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Regularized, Perturbed) [0.0439986  0.17083568 0.24667646 0.22045678 0.14585683 0.0831718
+ 0.04483445 0.02384806 0.01302517 0.00597169 0.00132448]
+
+Computational time for calculating maxent = 6.628506898880005 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The approximated clusters are:
+ [[0, 3, 4, 5, 6, 8, 9], [1, 2, 7]]
+The total number of MBA constraints are:  59
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Unregularized, Perturbed) [0.02956802 0.10106464 0.20240665 0.24747278 0.20062755 0.11864298
+ 0.05763111 0.02707646 0.01148161 0.00346635 0.00056186]
+
+Total Probability:  0.9999999999999997
+Maxent Prob: (Regularized, Perturbed) [0.02788866 0.09976582 0.19564401 0.2404704  0.204121   0.12825728
+ 0.06430639 0.02737187 0.00953736 0.00235192 0.00028528]
+
+Computational time for calculating maxent = 1.396515130996704 seconds
+
+########################################################################
+PROCESSING DISEASES: 10 FILE NUMBER: 5 PERT: 0
+########################################################################
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  58
+
+Total Probability:  1.0000000000000007
+Maxent Prob: (Unregularized, Unperturbed) [0.37200785 0.22456742 0.1596122  0.09308391 0.05151431 0.03021296
+ 0.0201916  0.01528842 0.01356533 0.01242833 0.00752767]
+Total Probability:  1.0000000000000009
+Maxent Prob: (Regularized, Unperturbed) [0.36798924 0.19747498 0.16753803 0.1065576  0.06067855 0.03512225
+ 0.02238502 0.01604485 0.0128508  0.00946031 0.00389836]
+Computational time for calculating maxent = 3.5067296028137207 seconds
+
+########################################################################
+PROCESSING DISEASES: 10 FILE NUMBER: 5 PERT: 1
+########################################################################
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  66
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Unregularized, Perturbed) [0.32400889 0.25151115 0.17190714 0.09870293 0.05338694 0.03040697
+ 0.01981696 0.01523321 0.0137923  0.01326211 0.00797139]
+
+Total Probability:  1.0000000000000009
+Maxent Prob: (Regularized, Perturbed) [0.32000103 0.22132308 0.18384648 0.11296454 0.06174403 0.03452777
+ 0.02173402 0.01587007 0.01328257 0.01035115 0.00435526]
+
+Computational time for calculating maxent = 4.191995620727539 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  94
+
+Total Probability:  0.999999999999999
+Maxent Prob: (Unregularized, Perturbed) [0.30000027 0.22685373 0.18432691 0.11376102 0.06484716 0.03691974
+ 0.02156415 0.01430531 0.01288721 0.01474425 0.00979024]
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Regularized, Perturbed) [0.29599816 0.2007443  0.19419714 0.12893346 0.07143858 0.03816114
+ 0.02197429 0.01501232 0.01368181 0.01345945 0.00639937]
+
+Computational time for calculating maxent = 7.559034109115601 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The total number of MBA constraints are:  98
+
+Total Probability:  0.9999999999999989
+Maxent Prob: (Unregularized, Perturbed) [0.19600394 0.24357989 0.21227656 0.13888313 0.08196875 0.04647565
+ 0.02734711 0.01809338 0.01412177 0.01325657 0.00799325]
+
+Total Probability:  0.9999999999999997
+Maxent Prob: (Regularized, Perturbed) [0.19200145 0.22124328 0.21937823 0.15108685 0.08841404 0.04948605
+ 0.02889051 0.01866167 0.01361539 0.01146167 0.00576086]
+
+Computational time for calculating maxent = 6.689027786254883 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The approximated clusters are:
+ [[0, 2, 3, 6, 7, 8], [1, 4, 5, 9]]
+The total number of MBA constraints are:  36
+
+Total Probability:  1.0000000000000002
+Maxent Prob: (Unregularized, Perturbed) [0.10368016 0.23512948 0.25372831 0.18119454 0.10807984 0.05936784
+ 0.03410744 0.01670696 0.00564697 0.00168583 0.00067261]
+
+Total Probability:  0.999999999999999
+Maxent Prob: (Regularized, Perturbed) [0.10110297 0.22582242 0.2480597  0.18736393 0.11658515 0.06447144
+ 0.0342348  0.01532052 0.00512853 0.00150761 0.00040293]
+
+Computational time for calculating maxent = 0.877000093460083 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The approximated clusters are:
+ [[1, 2, 5, 6, 7, 8, 9], [0, 3, 4]]
+The total number of MBA constraints are:  45
+
+Total Probability:  0.9999999999999992
+Maxent Prob: (Unregularized, Perturbed) [0.08064092 0.17014705 0.23608901 0.22096327 0.1452543  0.07723909
+ 0.03859027 0.0198816  0.00833325 0.00243091 0.00043033]
+
+Total Probability:  0.9999999999999994
+Maxent Prob: (Regularized, Perturbed) [7.82074742e-02 1.66719060e-01 2.28630931e-01 2.17052946e-01
+ 1.52998635e-01 8.67742048e-02 4.26656297e-02 1.86261959e-02
+ 6.50995690e-03 1.60590223e-03 2.09064345e-04]
+
+Computational time for calculating maxent = 1.0129947662353516 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The approximated clusters are:
+ [[0, 7, 9], [1, 2, 3, 4, 5, 6, 8]]
+The total number of MBA constraints are:  52
+
+Total Probability:  0.9999999999999994
+Maxent Prob: (Unregularized, Perturbed) [0.06614382 0.14741738 0.22410414 0.22558365 0.16033315 0.09208312
+ 0.04683366 0.02372073 0.00990507 0.00316608 0.0007092 ]
+
+Total Probability:  1.0000000000000016
+Maxent Prob: (Regularized, Perturbed) [0.06383958 0.14395446 0.21741137 0.22269598 0.16640323 0.099886
+ 0.05118499 0.02322425 0.00858832 0.00241167 0.00040016]
+
+Computational time for calculating maxent = 1.5079920291900635 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The approximated clusters are:
+ [[0, 2, 4, 5, 6, 7, 9], [1, 3, 8]]
+The total number of MBA constraints are:  57
+
+Total Probability:  0.9999999999999991
+Maxent Prob: (Unregularized, Perturbed) [0.03359954 0.12585346 0.21519253 0.23008138 0.17790766 0.11014501
+ 0.06024054 0.0304449  0.01265003 0.00345069 0.00043427]
+
+Total Probability:  0.9999999999999988
+Maxent Prob: (Regularized, Perturbed) [0.03047901 0.1155861  0.20825012 0.23437289 0.18673784 0.11621939
+ 0.06233065 0.03027507 0.01213166 0.00322835 0.00038892]
+
+Computational time for calculating maxent = 1.7015063762664795 seconds
+
+The support is:  0.04095843656893633
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]
+The approximated clusters are:
+ [[0, 1, 2, 4, 6, 8, 9], [3, 5, 7]]
+The total number of MBA constraints are:  71
+
+Total Probability:  1.000000000000001
+Maxent Prob: (Unregularized, Perturbed) [0.01904054 0.09363604 0.19288975 0.23416957 0.19833837 0.13026851
+ 0.07273375 0.03696193 0.01628444 0.00480745 0.00086964]
+
+Total Probability:  1.0000000000000013
+Maxent Prob: (Regularized, Perturbed) [0.01766285 0.08585    0.18553735 0.23805558 0.20735215 0.13528752
+ 0.07273754 0.03596676 0.01588238 0.0048539  0.00081398]
+
+Computational time for calculating maxent = 4.488029479980469 seconds
+
+########################################################################
+PROCESSING DISEASES: 15 FILE NUMBER: 1 PERT: 0
+########################################################################
+The support is:  0.023999545424489045
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14]]
+The total number of MBA constraints are:  0
+
+Total Probability:  0.9999999999999616
+Maxent Prob: (Unregularized, Unperturbed) [7.23435572e-01 2.36962052e-01 3.60074624e-02 3.36756146e-03
+ 2.16804077e-04 1.01785012e-05 3.60008396e-07 9.76871835e-09
+ 2.05033117e-10 3.32865755e-12 4.14574080e-14 3.88986266e-16
+ 2.66141845e-18 1.25342951e-20 3.63306460e-23 4.88493308e-26]
+Total Probability:  0.9999999999999616
+Maxent Prob: (Regularized, Unperturbed) [7.23435572e-01 2.36962052e-01 3.60074624e-02 3.36756146e-03
+ 2.16804077e-04 1.01785012e-05 3.60008396e-07 9.76871835e-09
+ 2.05033117e-10 3.32865755e-12 4.14574080e-14 3.88986266e-16
+ 2.66141845e-18 1.25342951e-20 3.63306460e-23 4.88493308e-26]
+Computational time for calculating maxent = 8.218055486679077 seconds
+
+########################################################################
+PROCESSING DISEASES: 15 FILE NUMBER: 1 PERT: 1
+########################################################################
+The support is:  0.023999545424489045
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14]]
+The total number of MBA constraints are:  0
+
+Total Probability:  0.9999999999999564
+Maxent Prob: (Unregularized, Perturbed) [6.02873756e-01 3.10586991e-01 7.43594884e-02 1.09750997e-02
+ 1.11680906e-03 8.29952332e-05 4.65326304e-06 2.00429826e-07
+ 6.68691908e-09 1.72800874e-10 3.43050030e-12 5.13788365e-14
+ 5.61943548e-16 4.23710179e-18 1.96935202e-20 4.25325179e-23]
+
+Total Probability:  0.9999999999999564
+Maxent Prob: (Regularized, Perturbed) [6.02873756e-01 3.10586991e-01 7.43594884e-02 1.09750997e-02
+ 1.11680906e-03 8.29952332e-05 4.65326304e-06 2.00429826e-07
+ 6.68691908e-09 1.72800874e-10 3.43050030e-12 5.13788365e-14
+ 5.61943548e-16 4.23710179e-18 1.96935202e-20 4.25325179e-23]
+
+Computational time for calculating maxent = 9.436051845550537 seconds
+
+The support is:  0.023999545424489045
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14]]
+The total number of MBA constraints are:  0
+
+Total Probability:  0.9999999999999873
+Maxent Prob: (Unregularized, Perturbed) [4.76508365e-01 3.62303137e-01 1.28332605e-01 2.80926379e-02
+ 4.25033223e-03 4.70802478e-04 3.94432260e-05 2.54507513e-06
+ 1.27523280e-07 4.96186369e-09 1.48700387e-10 3.37074846e-12
+ 5.59457543e-14 6.41853518e-16 4.55156654e-18 1.50392993e-20]
+
+Total Probability:  0.9999999999999873
+Maxent Prob: (Regularized, Perturbed) [4.76508365e-01 3.62303137e-01 1.28332605e-01 2.80926379e-02
+ 4.25033223e-03 4.70802478e-04 3.94432260e-05 2.54507513e-06
+ 1.27523280e-07 4.96186369e-09 1.48700387e-10 3.37074846e-12
+ 5.59457543e-14 6.41853518e-16 4.55156654e-18 1.50392993e-20]
+
+Computational time for calculating maxent = 8.613565444946289 seconds
+
+The support is:  0.023999545424489045
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14]]
+The total number of MBA constraints are:  0
+
+Total Probability:  1.0000000000000087
+Maxent Prob: (Unregularized, Perturbed) [2.92172667e-01 3.75100318e-01 2.24233438e-01 8.28026838e-02
+ 2.11242121e-02 3.94397639e-03 5.56738836e-04 6.05091289e-05
+ 5.10528017e-06 3.34397685e-07 1.68657789e-08 6.43268547e-10
+ 1.79600756e-11 3.46547205e-13 4.13227978e-15 2.29552356e-17]
+
+Total Probability:  1.0000000000000087
+Maxent Prob: (Regularized, Perturbed) [2.92172667e-01 3.75100318e-01 2.24233438e-01 8.28026838e-02
+ 2.11242121e-02 3.94397639e-03 5.56738836e-04 6.05091289e-05
+ 5.10528017e-06 3.34397685e-07 1.68657789e-08 6.43268547e-10
+ 1.79600756e-11 3.46547205e-13 4.13227978e-15 2.29552356e-17]
+
+Computational time for calculating maxent = 8.649059295654297 seconds
+
+The support is:  0.023999545424489045
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 3, 8, 4, 7], [1], [2], [5], [6], [9], [10], [11], [12], [13], [14]]
+The total number of MBA constraints are:  4
+
+Total Probability:  1.0000000000000362
+Maxent Prob: (Unregularized, Perturbed) [2.00723403e-01 3.25433802e-01 2.60706271e-01 1.37937827e-01
+ 5.39529652e-02 1.64061571e-02 3.95336219e-03 7.56898467e-04
+ 1.14469160e-04 1.35271410e-05 1.22958446e-06 8.40203128e-08
+ 4.16602206e-09 1.41288096e-10 2.92866091e-12 2.79661608e-14]
+
+Total Probability:  1.0000000000000029
+Maxent Prob: (Regularized, Perturbed) [1.99725081e-01 3.21117585e-01 2.60707415e-01 1.40925004e-01
+ 5.58462552e-02 1.68792475e-02 3.95803540e-03 7.24982937e-04
+ 1.03784800e-04 1.15537600e-05 9.88835664e-07 6.37597567e-08
+ 2.99411612e-09 9.65842258e-11 1.91272047e-12 1.75250490e-14]
+
+Computational time for calculating maxent = 9.454541206359863 seconds
+
+The support is:  0.023999545424489045
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 3, 4, 5, 6, 8, 9, 10, 12, 13, 14, 1, 2, 11], [7]]
+The total number of MBA constraints are:  26
+
+Total Probability:  1.0000000000000007
+Maxent Prob: (Unregularized, Perturbed) [1.12408366e-01 2.74560598e-01 2.70344078e-01 1.82767832e-01
+ 9.63762756e-02 4.17683148e-02 1.53007339e-02 4.80448379e-03
+ 1.29857005e-03 3.00846272e-04 5.89814602e-05 9.56008102e-06
+ 1.23308780e-06 1.18762014e-07 7.58403668e-09 2.37914962e-10]
+
+Total Probability:  1.000000000000004
+Maxent Prob: (Regularized, Perturbed) [1.12501698e-01 2.49871161e-01 2.74839426e-01 1.97992867e-01
+ 1.04206985e-01 4.23567112e-02 1.37122723e-02 3.59509984e-03
+ 7.68724311e-04 1.33924502e-04 1.88395873e-05 2.10020304e-06
+ 1.79511962e-07 1.11015421e-08 4.43919266e-10 8.63981726e-12]
+
+Computational time for calculating maxent = 16.655598163604736 seconds
+
+The support is:  0.023999545424489045
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1]]
+The total number of MBA constraints are:  54
+
+Total Probability:  1.0000000000000044
+Maxent Prob: (Unregularized, Perturbed) [6.28578468e-02 2.55033205e-01 2.66709152e-01 1.99045709e-01
+ 1.18122571e-01 5.88676515e-02 2.53721547e-02 9.59065457e-03
+ 3.18766986e-03 9.25210727e-04 2.30803280e-04 4.81916154e-05
+ 8.07768800e-06 1.01517466e-06 8.44435521e-08 3.45212563e-09]
+
+Total Probability:  0.9999999999999988
+Maxent Prob: (Regularized, Perturbed) [6.57170619e-02 2.20060846e-01 2.70763603e-01 2.19739893e-01
+ 1.31194567e-01 6.08936520e-02 2.26513418e-02 6.86312899e-03
+ 1.70447817e-03 3.46267899e-04 5.69404197e-05 7.42335917e-06
+ 7.40506652e-07 5.31808465e-08 2.44964692e-09 5.43365207e-11]
+
+Computational time for calculating maxent = 41.97430181503296 seconds
+
+The support is:  0.023999545424489045
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The approximated clusters are:
+ [[0, 1, 5, 9, 13], [2, 3, 8], [4, 6, 7, 10, 11, 12, 14]]
+The total number of MBA constraints are:  33
+
+Total Probability:  0.9999999999999992
+Maxent Prob: (Unregularized, Perturbed) [3.41873383e-02 1.35754286e-01 2.35616441e-01 2.46568464e-01
+ 1.80037355e-01 1.00028760e-01 4.46348292e-02 1.64707323e-02
+ 5.07665957e-03 1.30066800e-03 2.72556766e-04 4.55171809e-05
+ 5.82596141e-06 5.35861754e-07 3.13668486e-08 8.69044931e-10]
+
+Total Probability:  1.0000000000000109
+Maxent Prob: (Regularized, Perturbed) [3.41077472e-02 1.27796259e-01 2.25455150e-01 2.48116897e-01
+ 1.90255861e-01 1.07579263e-01 4.63011448e-02 1.54284527e-02
+ 4.00722788e-03 8.09806092e-04 1.26040366e-04 1.48065820e-05
+ 1.26814937e-06 7.45962472e-08 2.68870306e-09 4.46544362e-11]
+
+Computational time for calculating maxent = 15.316053628921509 seconds
+
+The support is:  0.023999545424489045
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The approximated clusters are:
+ [[0, 2, 8, 10, 12, 13, 14], [3, 4, 5], [1, 6, 7, 9, 11]]
+The total number of MBA constraints are:  34
+
+Total Probability:  0.9999999999999891
+Maxent Prob: (Unregularized, Perturbed) [2.42768813e-02 1.02261465e-01 2.01087954e-01 2.45402021e-01
+ 2.07722049e-01 1.29010890e-01 6.06338313e-02 2.19145893e-02
+ 6.12504463e-03 1.31966543e-03 2.16622199e-04 2.65087678e-05
+ 2.33289022e-06 1.38934481e-07 4.99156496e-09 8.13208537e-11]
+
+Total Probability:  1.0000000000000049
+Maxent Prob: (Regularized, Perturbed) [2.35193645e-02 9.80845576e-02 1.95415868e-01 2.43780422e-01
+ 2.11190956e-01 1.33669815e-01 6.34929898e-02 2.29410380e-02
+ 6.33400649e-03 1.33258262e-03 2.11410208e-04 2.47919381e-05
+ 2.07709490e-06 1.17212090e-07 3.97844618e-09 6.11408450e-11]
+
+Computational time for calculating maxent = 15.968076944351196 seconds
+
+########################################################################
+PROCESSING DISEASES: 15 FILE NUMBER: 2 PERT: 0
+########################################################################
+The support is:  0.021649098664240706
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14]]
+The total number of MBA constraints are:  0
+
+Total Probability:  0.9999999999999982
+Maxent Prob: (Unregularized, Unperturbed) [4.45866112e-01 3.70342511e-01 1.43207329e-01 3.41974821e-02
+ 5.63962555e-03 6.80327958e-04 6.20158307e-05 4.34960022e-06
+ 2.36642047e-07 9.98619849e-09 3.24175635e-10 7.94921843e-12
+ 1.42516284e-13 1.76339464e-15 1.34632335e-17 4.78062385e-20]
+Total Probability:  0.9999999999999982
+Maxent Prob: (Regularized, Unperturbed) [4.45866112e-01 3.70342511e-01 1.43207329e-01 3.41974821e-02
+ 5.63962555e-03 6.80327958e-04 6.20158307e-05 4.34960022e-06
+ 2.36642047e-07 9.98619849e-09 3.24175635e-10 7.94921843e-12
+ 1.42516284e-13 1.76339464e-15 1.34632335e-17 4.78062385e-20]
+Computational time for calculating maxent = 10.622052192687988 seconds
+
+########################################################################
+PROCESSING DISEASES: 15 FILE NUMBER: 2 PERT: 1
+########################################################################
+The support is:  0.021649098664240706
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14]]
+The total number of MBA constraints are:  0
+
+Total Probability:  1.0000000000000338
+Maxent Prob: (Unregularized, Perturbed) [3.79507414e-01 3.80314522e-01 1.77340792e-01 5.10444711e-02
+ 1.01426450e-02 1.47377284e-03 1.61779114e-04 1.36617629e-05
+ 8.94854406e-07 4.54639815e-08 1.77704823e-09 5.24787960e-11
+ 1.13344768e-12 1.69025893e-14 1.55620278e-16 6.66843270e-19]
+
+Total Probability:  1.0000000000000338
+Maxent Prob: (Regularized, Perturbed) [3.79507414e-01 3.80314522e-01 1.77340792e-01 5.10444711e-02
+ 1.01426450e-02 1.47377284e-03 1.61779114e-04 1.36617629e-05
+ 8.94854406e-07 4.54639815e-08 1.77704823e-09 5.24787960e-11
+ 1.13344768e-12 1.69025893e-14 1.55620278e-16 6.66843270e-19]
+
+Computational time for calculating maxent = 13.716023445129395 seconds
+
+The support is:  0.021649098664240706
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9], [10], [11], [12], [13], [14]]
+The total number of MBA constraints are:  0
+
+Total Probability:  1.0000000000000167
+Maxent Prob: (Unregularized, Perturbed) [2.90452901e-01 3.74653191e-01 2.25144872e-01 8.36143267e-02
+ 2.14609917e-02 4.03237035e-03 5.72961515e-04 6.26905615e-05
+ 5.32521632e-06 3.51169572e-07 1.78306227e-08 6.84543174e-10
+ 1.92343952e-11 3.73404396e-13 4.47825914e-15 2.50109365e-17]
+
+Total Probability:  1.0000000000000167
+Maxent Prob: (Regularized, Perturbed) [2.90452901e-01 3.74653191e-01 2.25144872e-01 8.36143267e-02
+ 2.14609917e-02 4.03237035e-03 5.72961515e-04 6.26905615e-05
+ 5.32521632e-06 3.51169572e-07 1.78306227e-08 6.84543174e-10
+ 1.92343952e-11 3.73404396e-13 4.47825914e-15 2.50109365e-17]
+
+Computational time for calculating maxent = 13.101098775863647 seconds
+
+The support is:  0.021649098664240706
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0], [1, 14, 8, 10], [2], [3], [4, 13, 6, 7, 9], [5], [11], [12]]
+The total number of MBA constraints are:  9
+
+Total Probability:  0.9999999999999976
+Maxent Prob: (Unregularized, Perturbed) [2.08630430e-01 3.19282185e-01 2.51534258e-01 1.36786275e-01
+ 5.74068031e-02 1.94535256e-02 5.40465112e-03 1.23341199e-03
+ 2.29678472e-04 3.43651181e-05 4.03256272e-06 3.59048212e-07
+ 2.31982079e-08 1.01803958e-09 2.69898188e-11 3.24958750e-13]
+
+Total Probability:  0.9999999999999976
+Maxent Prob: (Regularized, Perturbed) [2.06673902e-01 3.10080021e-01 2.53086520e-01 1.42964538e-01
+ 6.06226665e-02 2.00310291e-02 5.24380822e-03 1.09177946e-03
+ 1.79985344e-04 2.32506378e-05 2.31590945e-06 1.73683966e-07
+ 9.45683214e-09 3.52034328e-10 7.99881901e-12 8.35525962e-14]
+
+Computational time for calculating maxent = 11.948256492614746 seconds
+
+The support is:  0.021649098664240706
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 6, 7, 8, 9, 10, 11, 12, 13, 14, 1, 2, 3, 4, 5]]
+The total number of MBA constraints are:  40
+
+Total Probability:  1.0000000000000047
+Maxent Prob: (Unregularized, Perturbed) [1.25716429e-01 2.74711594e-01 2.57385150e-01 1.74459430e-01
+ 9.54810033e-02 4.45363141e-02 1.82032819e-02 6.59908042e-03
+ 2.12383439e-03 6.01421909e-04 1.46954372e-04 3.00013595e-05
+ 4.87378311e-06 5.84466866e-07 4.53713027e-08 1.67731401e-09]
+
+Total Probability:  0.9999999999999954
+Maxent Prob: (Regularized, Perturbed) [1.22856011e-01 2.45080188e-01 2.67108270e-01 1.93914969e-01
+ 1.04931398e-01 4.47911025e-02 1.55509982e-02 4.45933886e-03
+ 1.06106049e-03 2.08564139e-04 3.34049104e-05 4.25207884e-06
+ 4.12935994e-07 2.86108528e-08 1.25193326e-09 2.58214122e-11]
+
+Computational time for calculating maxent = 29.1394202709198 seconds
+
+The support is:  0.021649098664240706
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The total number of MBA constraints are:  72
+
+Total Probability:  0.9999999999999973
+Maxent Prob: (Unregularized, Perturbed) [8.28550354e-02 2.68081270e-01 2.54033202e-01 1.80978414e-01
+ 1.08237603e-01 5.73802553e-02 2.77664828e-02 1.24493404e-02
+ 5.19513376e-03 2.00938359e-03 7.11398821e-04 2.25323544e-04
+ 6.14104315e-05 1.34723251e-05 2.10146613e-06 1.73117897e-07]
+
+Total Probability:  1.000000000000004
+Maxent Prob: (Regularized, Perturbed) [8.57111448e-02 2.21299474e-01 2.62137704e-01 2.09130606e-01
+ 1.25896409e-01 6.06357029e-02 2.41399951e-02 8.08230249e-03
+ 2.28996465e-03 5.47411493e-04 1.09085353e-04 1.77160225e-05
+ 2.25815423e-06 2.12008783e-07 1.30206178e-08 3.91302372e-10]
+
+Computational time for calculating maxent = 46.512486934661865 seconds
+
+The support is:  0.021649098664240706
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The approximated clusters are:
+ [[2], [0, 3, 5, 6, 8, 13, 14], [1, 4, 7, 9, 10, 11, 12]]
+The total number of MBA constraints are:  43
+
+Total Probability:  1.0000000000000016
+Maxent Prob: (Unregularized, Perturbed) [4.23469890e-02 1.49764674e-01 2.39508196e-01 2.38076636e-01
+ 1.69917287e-01 9.44060734e-02 4.28296668e-02 1.62258144e-02
+ 5.16941642e-03 1.38316941e-03 3.07698520e-04 5.56643755e-05
+ 7.85936570e-06 8.02776889e-07 5.13206095e-08 1.47685629e-09]
+
+Total Probability:  1.0000000000000013
+Maxent Prob: (Regularized, Perturbed) [4.13120968e-02 1.41752636e-01 2.31942719e-01 2.41129697e-01
+ 1.78633545e-01 1.00163352e-01 4.40180019e-02 1.54619061e-02
+ 4.37827958e-03 9.98170797e-04 1.81141222e-04 2.55551870e-05
+ 2.69199044e-06 1.98015115e-07 9.00367958e-09 1.88898683e-10]
+
+Computational time for calculating maxent = 41.02607583999634 seconds
+
+The support is:  0.021649098664240706
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The approximated clusters are:
+ [[0, 12], [1, 5, 6, 7, 8, 13], [2, 3, 4, 9, 10, 11, 14]]
+The total number of MBA constraints are:  40
+
+Total Probability:  1.0000000000000053
+Maxent Prob: (Unregularized, Perturbed) [2.76710657e-02 1.06158536e-01 2.01550227e-01 2.42872989e-01
+ 2.04959070e-01 1.27078477e-01 5.97660747e-02 2.18786946e-02
+ 6.33116932e-03 1.44415030e-03 2.53537834e-04 3.28609746e-05
+ 2.96879479e-06 1.72623581e-07 5.68708431e-09 7.95269046e-11]
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Regularized, Perturbed) [2.67973406e-02 1.03324923e-01 1.97127089e-01 2.40153621e-01
+ 2.06130713e-01 1.30786733e-01 6.31444951e-02 2.36587085e-02
+ 6.95172166e-03 1.59952582e-03 2.83718450e-04 3.76232566e-05
+ 3.55594245e-06 2.22666290e-07 8.15320944e-09 1.30521597e-10]
+
+Computational time for calculating maxent = 44.843717098236084 seconds
+
+The support is:  0.021649098664240706
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The approximated clusters are:
+ [[0, 1, 3, 10, 12, 13, 14], [2, 4, 6, 7, 8, 9, 11], [5]]
+The total number of MBA constraints are:  49
+
+Total Probability:  1.0000000000000095
+Maxent Prob: (Unregularized, Perturbed) [2.36361683e-02 8.86974343e-02 1.76021602e-01 2.28911614e-01
+ 2.12182408e-01 1.46123639e-01 7.73069961e-02 3.23714613e-02
+ 1.09507951e-02 3.00617704e-03 6.61804106e-04 1.13829213e-04
+ 1.46737431e-05 1.32368351e-06 7.29636060e-08 1.78329869e-09]
+
+Total Probability:  0.9999999999999959
+Maxent Prob: (Regularized, Perturbed) [2.28652553e-02 8.53424292e-02 1.71294880e-01 2.26232574e-01
+ 2.14237147e-01 1.50872391e-01 8.09117855e-02 3.36854347e-02
+ 1.10279399e-02 2.85054212e-03 5.78063930e-04 9.02312992e-05
+ 1.04460020e-05 8.38661183e-07 4.10658010e-08 9.02359137e-10]
+
+Computational time for calculating maxent = 42.8886501789093 seconds
+
+########################################################################
+PROCESSING DISEASES: 15 FILE NUMBER: 3 PERT: 0
+########################################################################
+The support is:  0.02141074196644463
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 14, 7, 10], [1, 8], [2], [3], [4], [5], [6], [9], [11], [12], [13]]
+The total number of MBA constraints are:  4
+
+Total Probability:  1.0000000000000044
+Maxent Prob: (Unregularized, Unperturbed) [3.58521371e-01 3.43186393e-01 1.86691641e-01 7.69116677e-02
+ 2.58059442e-02 7.03615722e-03 1.53938919e-03 2.67116617e-04
+ 3.62320474e-05 3.77446831e-06 2.95962066e-07 1.70407335e-08
+ 6.95556845e-10 1.89972258e-11 3.10813981e-13 2.30059309e-15]
+Total Probability:  0.9999999999999981
+Maxent Prob: (Regularized, Unperturbed) [3.56040900e-01 3.38252837e-01 1.88961664e-01 8.03239312e-02
+ 2.71967105e-02 7.34267516e-03 1.57554821e-03 2.66711618e-04
+ 3.51773402e-05 3.55873979e-06 2.71139270e-07 1.51968594e-08
+ 6.05302545e-10 1.61749606e-11 2.59576802e-13 1.88896248e-15]
+Computational time for calculating maxent = 22.781415224075317 seconds
+
+########################################################################
+PROCESSING DISEASES: 15 FILE NUMBER: 3 PERT: 1
+########################################################################
+The support is:  0.02141074196644463
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 10, 14, 7, 1, 8], [2], [3], [4, 6], [5], [9], [11], [12], [13]]
+The total number of MBA constraints are:  7
+
+Total Probability:  1.0000000000000009
+Maxent Prob: (Unregularized, Perturbed) [3.25280542e-01 3.30076433e-01 1.96968451e-01 9.26873612e-02
+ 3.73255323e-02 1.28951699e-02 3.71726146e-03 8.64964089e-04
+ 1.58914650e-04 2.26912381e-05 2.46907812e-06 1.98947165e-07
+ 1.13916141e-08 4.35156127e-10 9.89068392e-12 1.00805781e-13]
+
+Total Probability:  1.000000000000004
+Maxent Prob: (Regularized, Perturbed) [3.22811925e-01 3.22241022e-01 1.99042192e-01 9.83161589e-02
+ 4.00217100e-02 1.32131904e-02 3.48670366e-03 7.29549895e-04
+ 1.20372933e-04 1.55185095e-05 1.53672687e-06 1.13758030e-07
+ 6.04598178e-09 2.16559441e-10 4.65886423e-12 4.53146420e-14]
+
+Computational time for calculating maxent = 23.184444665908813 seconds
+
+The support is:  0.02141074196644463
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 7, 8, 9, 10, 11, 14, 3, 4, 6], [2], [5], [12], [13]]
+The total number of MBA constraints are:  25
+
+Total Probability:  0.9999999999999942
+Maxent Prob: (Unregularized, Perturbed) [2.80141864e-01 3.20513596e-01 2.03189015e-01 1.02076255e-01
+ 4.81684789e-02 2.31852729e-02 1.16614067e-02 6.00784961e-03
+ 3.00305713e-03 1.36092267e-03 5.15959582e-04 1.47026268e-04
+ 2.64287870e-05 2.71859501e-06 1.45566575e-07 3.14551291e-09]
+
+Total Probability:  0.9999999999999862
+Maxent Prob: (Regularized, Perturbed) [2.78185592e-01 2.96521807e-01 2.08197160e-01 1.18082438e-01
+ 5.76435227e-02 2.53942948e-02 1.03352194e-02 3.86832032e-03
+ 1.29568052e-03 3.71990525e-04 8.66374207e-05 1.52963662e-05
+ 1.88612138e-06 1.48476241e-07 6.59501661e-09 1.24764924e-10]
+
+Computational time for calculating maxent = 27.486414670944214 seconds
+
+The support is:  0.02141074196644463
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 2, 5]]
+The total number of MBA constraints are:  54
+
+Total Probability:  1.0000000000000022
+Maxent Prob: (Unregularized, Perturbed) [1.91429062e-01 3.13180671e-01 2.17030507e-01 1.26551307e-01
+ 6.91741144e-02 3.73169737e-02 2.03527706e-02 1.13150621e-02
+ 6.38057296e-03 3.59635602e-03 1.97634554e-03 1.01819883e-03
+ 4.63404558e-04 1.68877946e-04 4.12000259e-05 4.57695815e-06]
+
+Total Probability:  1.0000000000000016
+Maxent Prob: (Regularized, Perturbed) [1.88570381e-01 2.71369492e-01 2.30264981e-01 1.49522024e-01
+ 8.33352847e-02 4.21805961e-02 1.99438083e-02 8.90196721e-03
+ 3.73837492e-03 1.45562854e-03 5.12390997e-04 1.56959862e-04
+ 3.95812814e-05 7.54234988e-06 9.33996693e-07 5.33756588e-08]
+
+Computational time for calculating maxent = 82.23870348930359 seconds
+
+The support is:  0.02141074196644463
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The total number of MBA constraints are:  88
+
+Total Probability:  1.000000000000007
+Maxent Prob: (Unregularized, Perturbed) [1.00000704e-01 2.82554154e-01 2.41409620e-01 1.63774794e-01
+ 9.82147470e-02 5.49090373e-02 2.94272077e-02 1.53068743e-02
+ 7.73766462e-03 3.77214390e-03 1.74552938e-03 7.47590230e-04
+ 2.85005583e-04 9.07125142e-05 2.14150793e-05 2.79917927e-06]
+
+Total Probability:  0.9999999999999963
+Maxent Prob: (Regularized, Perturbed) [1.02856697e-01 2.36515192e-01 2.48643462e-01 1.88382754e-01
+ 1.15524429e-01 6.08687842e-02 2.84611039e-02 1.19934666e-02
+ 4.56853982e-03 1.56171873e-03 4.71110085e-04 1.22003003e-04
+ 2.59904854e-05 4.25160263e-06 4.71307316e-07 2.62518596e-08]
+
+Computational time for calculating maxent = 125.06903910636902 seconds
+
+The support is:  0.02141074196644463
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The approximated clusters are:
+ [[2], [0, 1, 4, 7, 8, 10, 13], [3, 5, 6, 9, 11, 12, 14]]
+The total number of MBA constraints are:  41
+
+Total Probability:  1.0000000000000033
+Maxent Prob: (Unregularized, Perturbed) [5.31013030e-02 1.73916722e-01 2.51268512e-01 2.26307329e-01
+ 1.51714092e-01 8.27060451e-02 3.83170072e-02 1.53412833e-02
+ 5.29171729e-03 1.55692673e-03 3.86044510e-04 7.87738946e-05
+ 1.26499210e-05 1.48091256e-06 1.10218333e-07 3.82775444e-09]
+
+Total Probability:  0.9999999999999963
+Maxent Prob: (Regularized, Perturbed) [5.21671944e-02 1.61487556e-01 2.42315192e-01 2.34430608e-01
+ 1.64270652e-01 8.87221020e-02 3.82686800e-02 1.34187447e-02
+ 3.83966277e-03 8.89623071e-04 1.63954146e-04 2.33706097e-05
+ 2.47073371e-06 1.81286506e-07 8.18690219e-09 1.70173286e-10]
+
+Computational time for calculating maxent = 39.678529500961304 seconds
+
+The support is:  0.02141074196644463
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The approximated clusters are:
+ [[0], [1, 4, 8, 10, 11, 12, 14], [2, 3, 5, 6, 7, 9, 13]]
+The total number of MBA constraints are:  48
+
+Total Probability:  1.000000000000004
+Maxent Prob: (Unregularized, Perturbed) [3.28750358e-02 1.22458771e-01 2.13990003e-01 2.36317422e-01
+ 1.87131669e-01 1.14582392e-01 5.70173156e-02 2.37893231e-02
+ 8.45107012e-03 2.56208565e-03 6.57587670e-04 1.40127071e-04
+ 2.38872323e-05 3.04550093e-06 2.55716477e-07 1.04557081e-08]
+
+Total Probability:  0.999999999999994
+Maxent Prob: (Regularized, Perturbed) [3.19500181e-02 1.16199213e-01 2.07223297e-01 2.36883832e-01
+ 1.93668006e-01 1.20388801e-01 5.92692214e-02 2.37671412e-02
+ 7.88757401e-03 2.17140006e-03 4.89890856e-04 8.82015034e-05
+ 1.21367800e-05 1.19072305e-06 7.34930285e-08 2.11869838e-09]
+
+Computational time for calculating maxent = 44.262385845184326 seconds
+
+The support is:  0.02141074196644463
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The approximated clusters are:
+ [[0, 1, 5, 6, 7, 10, 14], [2, 3, 4, 8, 9, 12, 13], [11]]
+The total number of MBA constraints are:  53
+
+Total Probability:  1.0000000000000047
+Maxent Prob: (Unregularized, Perturbed) [1.63428138e-02 7.79746606e-02 1.70455345e-01 2.31051158e-01
+ 2.16643028e-01 1.50604611e-01 8.18713291e-02 3.62072135e-02
+ 1.33559745e-02 4.14250669e-03 1.07480968e-03 2.30668373e-04
+ 4.00216458e-05 5.34351459e-06 4.93928598e-07 2.34001619e-08]
+
+Total Probability:  0.9999999999999986
+Maxent Prob: (Regularized, Perturbed) [1.62650478e-02 7.51135413e-02 1.64657299e-01 2.26784167e-01
+ 2.18602704e-01 1.56412901e-01 8.63300030e-02 3.77295752e-02
+ 1.32694631e-02 3.78050394e-03 8.70007687e-04 1.59579668e-04
+ 2.26778863e-05 2.36305908e-06 1.61177942e-07 5.35603307e-09]
+
+Computational time for calculating maxent = 44.72699213027954 seconds
+
+The support is:  0.02141074196644463
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The approximated clusters are:
+ [[0, 1, 5, 6, 8, 9, 14], [2, 3, 4, 10, 11, 12, 13], [7]]
+The total number of MBA constraints are:  73
+
+Total Probability:  1.0000000000000087
+Maxent Prob: (Unregularized, Perturbed) [1.34391074e-02 6.39673016e-02 1.48297780e-01 2.15492740e-01
+ 2.18726121e-01 1.65673463e-01 9.82852913e-02 4.74856582e-02
+ 1.92758270e-02 6.70933414e-03 2.00960025e-03 5.10991248e-04
+ 1.07043366e-04 1.75555963e-05 2.05670724e-06 1.30636868e-07]
+
+Total Probability:  0.9999999999999986
+Maxent Prob: (Regularized, Perturbed) [1.28636419e-02 6.17870039e-02 1.43504044e-01 2.11109035e-01
+ 2.19268674e-01 1.70503763e-01 1.03141164e-01 4.98432393e-02
+ 1.95816573e-02 6.30872165e-03 1.66506405e-03 3.55751067e-04
+ 5.99645793e-05 7.59383420e-06 6.53399800e-07 2.90443358e-08]
+
+Computational time for calculating maxent = 56.804821252822876 seconds
+
+########################################################################
+PROCESSING DISEASES: 15 FILE NUMBER: 4 PERT: 0
+########################################################################
+The support is:  0.021233055976277986
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The total number of MBA constraints are:  43
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Unregularized, Unperturbed) [4.31432730e-01 2.00763166e-01 1.51350938e-01 9.36541587e-02
+ 5.33085375e-02 2.97247111e-02 1.68269280e-02 9.82713016e-03
+ 5.89344612e-03 3.53990544e-03 2.03427077e-03 1.04389820e-03
+ 4.36644170e-04 1.34296837e-04 2.66292035e-05 2.60990496e-06]
+Total Probability:  0.9999999999999954
+Maxent Prob: (Regularized, Unperturbed) [4.28573014e-01 1.70096144e-01 1.58035783e-01 1.09951314e-01
+ 6.49797020e-02 3.50204525e-02 1.78942660e-02 8.75967140e-03
+ 4.05235187e-03 1.72157908e-03 6.47181788e-04 2.05601490e-04
+ 5.20210159e-05 9.67937764e-06 1.16861020e-06 6.89675573e-08]
+Computational time for calculating maxent = 67.93105554580688 seconds
+
+########################################################################
+PROCESSING DISEASES: 15 FILE NUMBER: 4 PERT: 1
+########################################################################
+The support is:  0.021233055976277986
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The total number of MBA constraints are:  56
+
+Total Probability:  1.0000000000000044
+Maxent Prob: (Unregularized, Perturbed) [3.94288844e-01 2.02109957e-01 1.60467843e-01 1.02604578e-01
+ 5.95574470e-02 3.36578719e-02 1.92727893e-02 1.13708453e-02
+ 6.91980610e-03 4.30117569e-03 2.66279648e-03 1.56095602e-03
+ 8.00456919e-04 3.23423606e-04 8.89128239e-05 1.22968139e-05]
+
+Total Probability:  0.9999999999999961
+Maxent Prob: (Regularized, Perturbed) [3.91428684e-01 1.68735235e-01 1.65656418e-01 1.20287346e-01
+ 7.35050349e-02 4.06302458e-02 2.11047187e-02 1.04290797e-02
+ 4.87783101e-03 2.12383627e-03 8.36992585e-04 2.85956892e-04
+ 7.96340209e-05 1.65831827e-05 2.25589990e-06 1.48740475e-07]
+
+Computational time for calculating maxent = 84.98363852500916 seconds
+
+The support is:  0.021233055976277986
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The total number of MBA constraints are:  73
+
+Total Probability:  0.9999999999999994
+Maxent Prob: (Unregularized, Perturbed) [2.48592678e-01 2.97783519e-01 1.98863233e-01 1.12376894e-01
+ 6.03467141e-02 3.25945873e-02 1.83167613e-02 1.09312658e-02
+ 6.96344777e-03 4.68966430e-03 3.27158962e-03 2.29197708e-03
+ 1.53858791e-03 9.16110060e-04 4.17867487e-04 1.05103241e-04]
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Regularized, Perturbed) [2.45716964e-01 2.61610332e-01 2.07769441e-01 1.29928358e-01
+ 7.24892317e-02 3.86536062e-02 2.05195053e-02 1.10476280e-02
+ 6.01392907e-03 3.24646791e-03 1.68787639e-03 8.14360700e-04
+ 3.46955484e-04 1.21099502e-04 3.02766263e-05 3.96771554e-06]
+
+Computational time for calculating maxent = 118.86866235733032 seconds
+
+The support is:  0.021233055976277986
+
+Partioning the feature graph and Finding the connected components:
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The total number of MBA constraints are:  96
+
+Total Probability:  1.0000000000000067
+Maxent Prob: (Unregularized, Perturbed) [1.99998615e-01 2.36055311e-01 2.15017885e-01 1.46212228e-01
+ 8.66140838e-02 4.87387331e-02 2.74208124e-02 1.58871556e-02
+ 9.58640460e-03 6.01731678e-03 3.79567989e-03 2.32371118e-03
+ 1.34361641e-03 6.73015690e-04 2.57035336e-04 5.83962548e-05]
+
+Total Probability:  0.9999999999999981
+Maxent Prob: (Regularized, Perturbed) [1.97146353e-01 2.08954073e-01 2.16738940e-01 1.60615305e-01
+ 9.88071545e-02 5.51344236e-02 2.95459907e-02 1.57486698e-02
+ 8.47207631e-03 4.57154037e-03 2.39183517e-03 1.15883756e-03
+ 4.94804963e-04 1.71689544e-04 4.25403967e-05 5.76709297e-06]
+
+Computational time for calculating maxent = 125.08364272117615 seconds
+
+The support is:  0.021233055976277986
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The approximated clusters are:
+ [[0, 3, 5, 7, 9, 11, 13], [2], [1, 4, 6, 8, 10, 12, 14]]
+The total number of MBA constraints are:  43
+
+Total Probability:  1.000000000000004
+Maxent Prob: (Unregularized, Perturbed) [7.24897070e-02 1.89468169e-01 2.43277238e-01 2.12348490e-01
+ 1.43205291e-01 7.94083620e-02 3.73470036e-02 1.50981941e-02
+ 5.26439138e-03 1.58074363e-03 4.06478160e-04 8.80822115e-05
+ 1.55480258e-05 2.10037392e-06 1.92108466e-07 8.79133767e-09]
+
+Total Probability:  0.999999999999992
+Maxent Prob: (Regularized, Perturbed) [7.11196430e-02 1.76317223e-01 2.37536071e-01 2.20150177e-01
+ 1.53807305e-01 8.46747923e-02 3.75830091e-02 1.36001784e-02
+ 4.02356048e-03 9.68615055e-04 1.87381544e-04 2.84838526e-05
+ 3.27782224e-06 2.68076703e-07 1.38411629e-08 3.37453117e-10]
+
+Computational time for calculating maxent = 41.83121705055237 seconds
+
+The support is:  0.021233055976277986
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The approximated clusters are:
+ [[0, 2, 5, 9, 12, 13, 14], [1, 3, 4, 6, 8, 10, 11], [7]]
+The total number of MBA constraints are:  45
+
+Total Probability:  0.9999999999999998
+Maxent Prob: (Unregularized, Perturbed) [3.78901033e-02 1.34034463e-01 2.19388347e-01 2.29184623e-01
+ 1.76515866e-01 1.08489197e-01 5.58421430e-02 2.47515752e-02
+ 9.53997535e-03 3.18537384e-03 9.10702965e-04 2.18350020e-04
+ 4.23711255e-05 6.25700425e-06 6.22022226e-07 3.06708804e-08]
+
+Total Probability:  1.0000000000000029
+Maxent Prob: (Regularized, Perturbed) [3.69127092e-02 1.25644271e-01 2.11108035e-01 2.31657943e-01
+ 1.85737116e-01 1.15627629e-01 5.80095700e-02 2.39880162e-02
+ 8.26292098e-03 2.36934630e-03 5.59028141e-04 1.06056828e-04
+ 1.55771653e-05 1.66272596e-06 1.14554661e-07 3.80362151e-09]
+
+Computational time for calculating maxent = 30.113630056381226 seconds
+
+The support is:  0.021233055976277986
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The approximated clusters are:
+ [[1, 5, 6, 13], [2, 7, 9, 12], [0, 3, 4, 8, 10, 11, 14]]
+The total number of MBA constraints are:  49
+
+Total Probability:  0.9999999999999992
+Maxent Prob: (Unregularized, Perturbed) [2.18135446e-02 9.57403457e-02 1.91836900e-01 2.36227804e-01
+ 2.03420929e-01 1.32494482e-01 6.92510964e-02 3.07311358e-02
+ 1.22084619e-02 4.42087080e-03 1.40434235e-03 3.65689669e-04
+ 7.30331830e-05 1.03919855e-05 9.32590714e-07 3.94083413e-08]
+
+Total Probability:  0.9999999999999982
+Maxent Prob: (Regularized, Perturbed) [2.14741858e-02 9.24199628e-02 1.85328150e-01 2.32386993e-01
+ 2.05981829e-01 1.38435564e-01 7.40064346e-02 3.26274440e-02
+ 1.21669417e-02 3.87155691e-03 1.03569855e-03 2.23874595e-04
+ 3.68142359e-05 4.24022421e-06 3.00369397e-07 9.75679319e-09]
+
+Computational time for calculating maxent = 45.54946279525757 seconds
+
+The support is:  0.021233055976277986
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The approximated clusters are:
+ [[0, 1, 2, 6, 9, 13, 14], [3, 4, 5, 7, 8, 10, 11], [12]]
+The total number of MBA constraints are:  81
+
+Total Probability:  0.9999999999999953
+Maxent Prob: (Unregularized, Perturbed) [1.70279416e-02 7.09431600e-02 1.54192667e-01 2.15824861e-01
+ 2.15467238e-01 1.59046241e-01 9.15163781e-02 4.43819915e-02
+ 1.94992819e-02 8.01051276e-03 2.89580390e-03 8.80576359e-04
+ 2.37162553e-04 6.06962650e-05 1.38487337e-05 1.63846254e-06]
+
+Total Probability:  1.0000000000000073
+Maxent Prob: (Regularized, Perturbed) [1.64762904e-02 7.09720312e-02 1.50332770e-01 2.09351284e-01
+ 2.11371501e-01 1.62790785e-01 9.92319937e-02 4.92932661e-02
+ 2.03825811e-02 7.09452022e-03 2.07732205e-03 5.06797234e-04
+ 1.01133581e-04 1.58569832e-05 1.76516293e-06 1.03247016e-07]
+
+Computational time for calculating maxent = 46.78567624092102 seconds
+
+The support is:  0.021233055976277986
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The approximated clusters are:
+ [[0, 1, 2, 3, 4, 7, 13], [5, 6, 8, 9, 11, 12, 14], [10]]
+The total number of MBA constraints are:  102
+
+Total Probability:  0.9999999999999951
+Maxent Prob: (Unregularized, Perturbed) [9.06320395e-03 4.42910327e-02 1.10804494e-01 1.81742353e-01
+ 2.11266972e-01 1.85830539e-01 1.29104264e-01 7.28085770e-02
+ 3.44177068e-02 1.40081732e-02 4.85349194e-03 1.39419667e-03
+ 3.35386712e-04 6.84329074e-05 1.03891548e-05 7.88083667e-07]
+
+Total Probability:  1.0000000000000053
+Maxent Prob: (Regularized, Perturbed) [8.60175703e-03 4.20669642e-02 1.07066962e-01 1.77596306e-01
+ 2.11353639e-01 1.89567639e-01 1.32904019e-01 7.51582757e-02
+ 3.52952619e-02 1.40495618e-02 4.71334572e-03 1.29398677e-03
+ 2.80812927e-04 4.60492845e-05 5.13336062e-06 2.86256256e-07]
+
+Computational time for calculating maxent = 81.41292572021484 seconds
+
+########################################################################
+PROCESSING DISEASES: 15 FILE NUMBER: 5 PERT: 0
+########################################################################
+The support is:  0.021233055976277986
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The approximated clusters are:
+ [[0, 1, 7, 8, 10, 12], [9, 2], [3, 4, 5, 6, 11, 13, 14]]
+The total number of MBA constraints are:  44
+
+Total Probability:  1.0000000000000027
+Maxent Prob: (Unregularized, Unperturbed) [1.91360331e-01 2.60767628e-01 2.18174157e-01 1.45930251e-01
+ 8.72750061e-02 4.85341227e-02 2.56659573e-02 1.30169838e-02
+ 5.71817201e-03 2.27602334e-03 8.50079935e-04 3.02966380e-04
+ 9.79169950e-05 2.57090027e-05 4.29177446e-06 4.03300072e-07]
+Total Probability:  0.9999999999999972
+Maxent Prob: (Regularized, Unperturbed) [1.88484036e-01 2.41593611e-01 2.18753172e-01 1.57390323e-01
+ 9.74453884e-02 5.27111750e-02 2.55857229e-02 1.13065682e-02
+ 4.45177162e-03 1.59321037e-03 5.07450339e-04 1.40191873e-04
+ 3.14543006e-05 5.29803174e-06 5.92662369e-07 3.39140039e-08]
+Computational time for calculating maxent = 44.77029299736023 seconds
+
+########################################################################
+PROCESSING DISEASES: 15 FILE NUMBER: 5 PERT: 1
+########################################################################
+The support is:  0.021233055976277986
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The approximated clusters are:
+ [[0, 1, 4, 5, 8, 12, 13], [2, 3, 6, 7, 10, 11, 14], [9]]
+The total number of MBA constraints are:  60
+
+Total Probability:  1.0000000000000004
+Maxent Prob: (Unregularized, Perturbed) [1.81386974e-01 2.56767655e-01 2.19017729e-01 1.47245972e-01
+ 8.66108743e-02 4.88455690e-02 2.88082805e-02 1.71967485e-02
+ 8.32081390e-03 3.52256960e-03 1.39033465e-03 5.44748354e-04
+ 2.23707013e-04 8.91864564e-05 2.61786458e-05 2.65889016e-06]
+
+Total Probability:  1.000000000000007
+Maxent Prob: (Regularized, Perturbed) [1.79142860e-01 2.40513011e-01 2.18312785e-01 1.55384121e-01
+ 9.52219489e-02 5.45270758e-02 3.02092813e-02 1.54431951e-02
+ 6.87903197e-03 2.78690870e-03 1.04035707e-03 3.70956660e-04
+ 1.25696889e-04 3.56023520e-05 6.65621597e-06 5.11533600e-07]
+
+Computational time for calculating maxent = 47.40596580505371 seconds
+
+The support is:  0.021233055976277986
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The approximated clusters are:
+ [[1, 6, 7, 8, 10, 14], [9, 2], [0, 3, 4, 5, 11, 12, 13]]
+The total number of MBA constraints are:  49
+
+Total Probability:  1.0000000000000018
+Maxent Prob: (Unregularized, Perturbed) [1.23430491e-01 2.28016642e-01 2.31609175e-01 1.74369872e-01
+ 1.10814323e-01 6.48879192e-02 3.59159049e-02 1.80939103e-02
+ 8.03058935e-03 3.16700683e-03 1.14156173e-03 3.80639791e-04
+ 1.11705817e-04 2.59058945e-05 4.01796066e-06 3.35739335e-07]
+
+Total Probability:  0.999999999999996
+Maxent Prob: (Regularized, Perturbed) [1.21261870e-01 2.11076787e-01 2.29155613e-01 1.84147138e-01
+ 1.21314833e-01 7.00009658e-02 3.61642615e-02 1.66684449e-02
+ 6.79559096e-03 2.42550759e-03 7.47599272e-04 1.93957638e-04
+ 4.04466800e-05 6.30281936e-06 6.48367017e-07 3.29973729e-08]
+
+Computational time for calculating maxent = 48.86038565635681 seconds
+
+The support is:  0.021233055976277986
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The approximated clusters are:
+ [[1, 7, 8, 9, 10], [2, 4, 14], [0, 3, 5, 6, 11, 12, 13]]
+The total number of MBA constraints are:  53
+
+Total Probability:  0.9999999999999974
+Maxent Prob: (Unregularized, Perturbed) [7.08116235e-02 1.74930352e-01 2.27744675e-01 2.07017100e-01
+ 1.46468738e-01 8.69028561e-02 4.57368152e-02 2.27219199e-02
+ 1.06639094e-02 4.53691885e-03 1.71232967e-03 5.59460194e-04
+ 1.53935081e-04 3.35298603e-05 5.33040557e-06 5.07558034e-07]
+
+Total Probability:  0.9999999999999963
+Maxent Prob: (Regularized, Perturbed) [6.93196548e-02 1.67114408e-01 2.22502631e-01 2.08549469e-01
+ 1.52168012e-01 9.22447443e-02 4.87356877e-02 2.33328822e-02
+ 1.01798200e-02 3.99012701e-03 1.36315466e-03 3.91071172e-04
+ 9.04701112e-05 1.58421673e-05 1.90643406e-06 1.19156305e-07]
+
+Computational time for calculating maxent = 52.52714991569519 seconds
+
+The support is:  0.021233055976277986
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The approximated clusters are:
+ [[1, 5, 6, 7, 10, 11, 14], [9, 2], [0, 3, 4, 8, 12, 13]]
+The total number of MBA constraints are:  60
+
+Total Probability:  1.0000000000000036
+Maxent Prob: (Unregularized, Perturbed) [5.04185119e-02 1.48444175e-01 2.17620851e-01 2.13792504e-01
+ 1.60504852e-01 1.00828772e-01 5.67321568e-02 2.93284009e-02
+ 1.36654545e-02 5.63614211e-03 2.06892571e-03 6.88975551e-04
+ 2.08749431e-04 5.20709318e-05 8.72925618e-06 7.29756683e-07]
+
+Total Probability:  1.0000000000000115
+Maxent Prob: (Regularized, Perturbed) [4.91695909e-02 1.42378198e-01 2.11589708e-01 2.13663963e-01
+ 1.65601657e-01 1.06571055e-01 5.99250532e-02 3.00109939e-02
+ 1.33266717e-02 5.21935699e-03 1.80592872e-03 5.54144236e-04
+ 1.47660519e-04 3.12356800e-05 4.46434173e-06 3.18465881e-07]
+
+Computational time for calculating maxent = 57.1244478225708 seconds
+
+The support is:  0.021233055976277986
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The approximated clusters are:
+ [[0, 1, 4, 5, 9, 10, 13], [2, 3, 6, 7, 8, 11, 14], [12]]
+The total number of MBA constraints are:  99
+
+Total Probability:  0.9999999999999932
+Maxent Prob: (Unregularized, Perturbed) [3.27842702e-02 1.02993388e-01 1.79125414e-01 2.11440129e-01
+ 1.86585868e-01 1.29974941e-01 7.62542206e-02 4.13250048e-02
+ 2.17915469e-02 1.07814852e-02 4.53414181e-03 1.61176740e-03
+ 5.40647942e-04 1.89651558e-04 5.90386394e-05 8.48459477e-06]
+
+Total Probability:  1.0000000000000029
+Maxent Prob: (Regularized, Perturbed) [3.18842265e-02 1.01010530e-01 1.74448726e-01 2.07466486e-01
+ 1.86459257e-01 1.34100684e-01 8.16130983e-02 4.45099418e-02
+ 2.23577544e-02 1.01526378e-02 4.01711959e-03 1.38843101e-03
+ 4.36399610e-04 1.24399995e-04 2.73526688e-05 2.95423425e-06]
+
+Computational time for calculating maxent = 75.62702918052673 seconds
+
+The support is:  0.021233055976277986
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The approximated clusters are:
+ [[0, 1, 3, 6, 7, 10, 11], [2, 4, 5, 8, 9, 12, 13], [14]]
+The total number of MBA constraints are:  115
+
+Total Probability:  1.000000000000009
+Maxent Prob: (Unregularized, Perturbed) [1.86965906e-02 7.29257247e-02 1.51049783e-01 2.03539330e-01
+ 1.99760304e-01 1.52117579e-01 9.63448455e-02 5.45428830e-02
+ 2.86292753e-02 1.37312794e-02 5.70033557e-03 2.03570746e-03
+ 6.61511694e-04 2.05821978e-04 5.26483112e-05 6.38055740e-06]
+
+Total Probability:  0.9999999999999984
+Maxent Prob: (Regularized, Perturbed) [1.80145727e-02 7.16371827e-02 1.46859717e-01 1.98890457e-01
+ 1.98423032e-01 1.55784468e-01 1.01762688e-01 5.79732183e-02
+ 2.95206572e-02 1.33744959e-02 5.26542961e-03 1.79103155e-03
+ 5.34939566e-04 1.38493005e-04 2.70086717e-05 2.60896360e-06]
+
+Computational time for calculating maxent = 98.73892068862915 seconds
+
+The support is:  0.021233055976277986
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The approximated clusters are:
+ [[0, 1, 2, 3, 11, 13, 14], [4, 5, 6, 7, 8, 9, 10], [12]]
+The total number of MBA constraints are:  135
+
+Total Probability:  0.9999999999999948
+Maxent Prob: (Unregularized, Perturbed) [8.13591299e-03 4.65644579e-02 1.20879724e-01 1.91518443e-01
+ 2.09764371e-01 1.73971316e-01 1.15871236e-01 6.65943426e-02
+ 3.57938164e-02 1.81438595e-02 8.15473870e-03 3.12418251e-03
+ 1.01701251e-03 3.29638799e-04 1.16096657e-04 2.08516836e-05]
+
+Total Probability:  0.9999999999999997
+Maxent Prob: (Regularized, Perturbed) [7.89771593e-03 4.44119259e-02 1.16459538e-01 1.88004153e-01
+ 2.10199802e-01 1.76474373e-01 1.19296861e-01 6.96736318e-02
+ 3.72301539e-02 1.82780833e-02 7.85397947e-03 2.88897497e-03
+ 9.45064550e-04 2.91337234e-04 8.19936175e-05 1.24124336e-05]
+
+Computational time for calculating maxent = 115.61676359176636 seconds
+
+The support is:  0.021233055976277986
+
+Partioning the feature graph and Finding the connected components:
+Approximating the following clusters through forced partitioning:
+ [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
+The approximated clusters are:
+ [[0, 5, 6, 7, 11, 13, 14], [1, 2, 3, 4, 8, 10, 12], [9]]
+The total number of MBA constraints are:  145
+
+Total Probability:  0.99999999999999
+Maxent Prob: (Unregularized, Perturbed) [4.96778951e-03 3.29837871e-02 9.44549178e-02 1.63353638e-01
+ 2.00039641e-01 1.86206247e-01 1.40038700e-01 8.86401819e-02
+ 4.90004021e-02 2.40836644e-02 1.05623824e-02 3.95044701e-03
+ 1.27272907e-03 3.53926538e-04 8.09088222e-05 1.06382031e-05]
+
+Total Probability:  1.000000000000002
+Maxent Prob: (Regularized, Perturbed) [4.84406362e-03 3.00164001e-02 8.79255212e-02 1.60040342e-01
+ 2.02704675e-01 1.91822800e-01 1.43729262e-01 8.99340861e-02
+ 4.91581547e-02 2.40384520e-02 1.03580787e-02 3.81045331e-03
+ 1.20802869e-03 3.28493658e-04 7.22491051e-05 8.93978274e-06]
+
+Computational time for calculating maxent = 131.3046796321869 seconds
+

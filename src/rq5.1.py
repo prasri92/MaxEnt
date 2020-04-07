@@ -18,9 +18,10 @@ sys.path.insert(0, path_to_codebase)
 from codebase.utils import clean_preproc_data
 from codebase.utils import clean_preproc_data_real
 from codebase.extract_features import ExtractFeatures
-# from codebase.optimizer import Optimizer
+from codebase.robust_optimizer_box import Optimizer as Optimizer_robust
+from codebase.optimizer import Optimizer
 #zero detection code implemented
-from codebase.optimizer_gurobi_v2 import Optimizer
+# from codebase.optimizer_zeros import Optimizer as Optimizer_zeros
 from codebase.mba import marketbasket
 
 def read_prob_dist(filename):
@@ -46,7 +47,9 @@ def compute_prob_exact(optobj):
         total_prob += p_vec
         maxent_prob.append(p_vec) 
     
+    print("Maxent prob: ", maxent_sum_diseases)
     print('Total Probability: ', total_prob)
+    print() 
 
     emp_prob = np.zeros(num_feats + 1)
     for vec in optobj.feats_obj.data_arr:
@@ -64,7 +67,10 @@ def main(file_num=None, k=None, dataset_num=None, support=None, i=None):
     '''
     #Measure time to compute maxent
     tic = time.time()
-
+    print("#####################################################################")
+    print("DATASET: ", dataset_num, " DISEASES: ", k, " FILE NUMBER: ", file_num, " SUPPORT: ", support)
+    print("#####################################################################")
+    print() 
     # generating synthetic data 
     directory = '../data/dataset_s'+str(dataset_num)+'/d'+str(k)+'/synthetic_data_expt'+str(file_num)+'.csv'
     
@@ -102,12 +108,15 @@ def main(file_num=None, k=None, dataset_num=None, support=None, i=None):
     # print('four_wayc', four_wayc)
     # print('The total number of constraints are: ', str(len(two_wayc) + len(three_wayc) + len(four_wayc)))
     num_constraints = len(two_wayc) + len(three_wayc) + len(four_wayc) 
-    print()
+    print("The number of MBA constraints are: \n", num_constraints)
 
-    opt = Optimizer(feats) 
+    # opt = Optimizer(feats) 
+    # width_factor = 1, width = size of the dataset 
+    width = 1
+    opt = Optimizer_robust(feats, width)
 
     #Use LP to detect zero atoms 
-    opt.exact_zero_detection(cleaneddata)
+    # opt.exact_zero_detection(cleaneddata)
     # opt.approximate_zero_detection(cleaneddata)
     
     soln_opt = opt.solver_optimize()
@@ -126,34 +135,14 @@ def main(file_num=None, k=None, dataset_num=None, support=None, i=None):
     
     toc = time.time()
     print('Computational time for calculating maxent = {} seconds'.format(toc-tic))
+    print() 
 
 if __name__ == '__main__':
     # for synthetic data 
     num_dis = int(sys.argv[1])
     dataset_num = int(sys.argv[2])
-
-    # Determined by trial and error method
-    # For all d4, d7, d10, support = [0.001, 0.1]
-    # For d=15, l=0.42, support = [0.001 - 0.01], 
-    # d=15, l=0.5, support = [0.001 - 0.02],
-    # d=15, l=0.62, support = [0.001 - 0.03], 
-    # d=15, l=0.83, support = [0.01 - 0.05]
-    # d-15, l=1.25, support = [0.014/5 - 0.06]
-    if num_dis <= 12:
-        supports = list(np.linspace(0.001, 0.1, num=12))
-        print(supports)
-    elif num_dis > 12:
-        if file_num==1:
-            supports = list(np.linspace(0.001, 0.01, num=12))
-        elif file_num==2:
-            supports = list(np.linspace(0.001, 0.02, num=12))
-        elif file_num==3:
-            supports = list(np.linspace(0.001, 0.03, num=12))
-        elif file_num==4:
-            supports = list(np.linspace(0.01, 0.05, num=12))
-        elif file_num==5:
-            supports = list(np.linspace(0.015, 0.06, num=12))
+    support_num = int(sys.argv[3])
+    support = float(sys.argv[4])
     for j in range(1,11):
-        for i,sup in enumerate(supports):
-            print("SUPPORT: ", sup)   
-            main(file_num=j, k=int(num_dis), dataset_num=dataset_num, support=sup, i=i)
+        main(file_num=j, k=int(num_dis), dataset_num=dataset_num, support=support, i=support_num)
+        

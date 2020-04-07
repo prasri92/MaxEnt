@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# EARLIER VERSION
 # confvar=0
 # for ((dataset=26;dataset<=61;dataset++))
 # do
@@ -14,19 +15,43 @@
 # 	done
 # done
 
-for ((dataset=1;dataset<=20;dataset++))
-do
-	for i in 4 6 8 10 12 14 16 18 20 
+# FOR DISEASES = 4 - 16
+# for ((dataset=1;dataset<101;dataset++))
+# do
+# 	for i in 4 6 8 10 12 14 16
+# 	do
+# 		echo $i $dataset
+# 		sbatch synthetic_data_job_2.sh $i $dataset
+# 	done
+# done
+
+# FOR DISEASES 18-20, FIRST CALL THIS, TO CREATE PARAMETERS
+# for larger datasets, place each generation as a separate process
+# for ((dataset=1;dataset<101;dataset++))
+# do 
+# 	for i in 18 20
+# 	do
+# 		echo $i $dataset
+# 		sbatch synthetic_data_job_3.sh $i $dataset 
+# 	done
+# done 
+
+# FOR DISEASES 18-20, CALL NEXT TO START THE PROCESS
+# Calls a separate thread for each of the 10 datasets to be generated
+for ((dataset=1;dataset<101;dataset++))
+do 
+	for i in 18 20
 	do
 		echo $i $dataset
-		sbatch synthetic_data_job_2.sh $i $dataset
-	done
-done
-
-
+		for j in {1..10}
+		do
+			sbatch synthetic_data_job_4.sh $i $dataset $j
+		done
+	done 
+done 
 
 # cd ../../
-# for i in {1..100}
+# for i in {21..40}
 # do
 # 	cd data
 # 	mkdir dataset_s$i

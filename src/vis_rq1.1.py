@@ -1,6 +1,10 @@
 '''
+Requirements
 Python = 3.7 
-matplotlib to plot figures
+matplotlib 
+
+Visualize the robust maxent and store output in figures to test performance. 
+Perform test for both learned support and non-learned support 
 '''
 #PYTHON3 
 import numpy as np
@@ -38,7 +42,7 @@ def calc_div(k):
 		true_file = '../output/d'+str(k)+'/truedist_expt'+str(ind+1)+'.pickle'
 		true_dist, true_prob = read_true_prob(true_file)
 
-		maxent_file = '../output/d'+str(k)+'/syn_maxent_expt'+str(ind+1)+'.pickle'
+		maxent_file = '../output/d'+str(k)+'_robust_ls/syn_maxent_expt'+str(ind+1)+'.pickle'
 		maxent_dist, maxent_prob, emp_prob = read_maxent_prob(maxent_file)
 
 		emp_prob = np.around(emp_prob, decimals=4)
@@ -75,17 +79,17 @@ def plot():
 		divs[dis] = calc_div(dis)
 		plt.plot(lambdas, divs[dis], label=str(dis)+' diseases')
 
-	y_ticks = np.arange(0, 2.4, 0.4)
-	# plt.yticks(y_ticks)
+	y_ticks = np.arange(0, 2.5, 0.25)
+	plt.yticks(y_ticks)
 	plt.legend(fontsize=9)
-	plt.title('Power Divergence curves for maximum entropy fitted \n disease distributions of varying exponents')
+	plt.title('Power Divergence curves (Robust + Learned Support)')
 	plt.xlabel(r'Exponent ($\alpha$) of the exponential distribution')
 	plt.ylabel(r'Power Divergence ($\lambda$ = 2/3)')
 	plt.show()
 
 	print('DataFrame is:\n', df)
 
-	df.to_csv('../output/expt1.1_zero/main_dis.csv', index=False)
+	df.to_csv('../output/expt1.1_robust_rfregr.csv', index=False)
 
 # globally accessible variables
 diseases = [4,7,10,15]
@@ -94,4 +98,3 @@ kls = {}
 cols = ['Exponent', '# Diseases', 'Power Divergence']
 df = pd.DataFrame(columns=cols)
 plot()
-

@@ -257,16 +257,16 @@ class ExtractFeatures(object):
                 # Here tup_3way is a triplet of feature indices
                 # print("Added edge for:", tup_3way)
                 self.util_add_edges(graph, tup_3way)
-        else:
-            print("No 3 way constraints specified")
+        # else:
+        #     print("No 3 way constraints specified")
 
         if len(self.four_way_dict) != 0:
             for tup_4way in self.four_way_dict.keys():
                 # Here tup_3way is a triplet of feature indices
                 # print("Added edge for:", tup_4way)
                 self.util_add_edges(graph, tup_4way)
-        else:
-            print("No 4 way constraints specified")            
+        # else:
+            # print("No 4 way constraints specified")            
 
         print()
         self.feat_graph = graph
@@ -327,7 +327,7 @@ class ExtractFeatures(object):
                 with a cluster index in approx_clusters"""
                 edgetracker={}
                 for i in self.two_way_dict:
-                    x, y =i
+                    x, y = i
                     counter=0
                     for cluster in approx_clusters:
                         if x in cluster:
@@ -336,7 +336,7 @@ class ExtractFeatures(object):
                             counter+=1
         
                 for i in self.three_way_dict:
-                    x, y, z =i
+                    x, y, z = i
                     counter=0
                     for cluster in approx_clusters:
                         if x in cluster:
@@ -345,11 +345,11 @@ class ExtractFeatures(object):
                             counter+=1
                     
                 for i in self.four_way_dict:
-                    x, y, z, a =i
+                    x, y, z, a = i
                     counter=0
                     for cluster in approx_clusters:
                         if x in cluster:
-                            edgetracker[(x, y)]=counter
+                            edgetracker[(x, y, z, a)]=counter
                         else:
                             counter+=1
                 
@@ -361,8 +361,8 @@ class ExtractFeatures(object):
                 marginalsvals = marginalsvals/size
                 marginals={} #dict stores all marginal probabilities of diseases in approx_clusters
                 for a in approx_clusters:
-                    for i in a:
-                          marginals[i]=marginalsvals[i]    
+                    for j in a:
+                          marginals[j]=marginalsvals[j]    
                 approximated=[] #list to store the approximated cluster pieces from the original cluster
                 broken_edges=[] #list to store all edges in the graph that were broken
         
@@ -431,6 +431,8 @@ class ExtractFeatures(object):
                         
                         else:
                             broken_edges.append(X)
+
+                    # print("BROKEN EDGES", broken_edges)
                                                        
                     N_n= [list(N) for N in N_n if N!={}] #filter out empty cluster to feed the optimizer
                     for L in N_n:

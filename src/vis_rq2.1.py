@@ -36,10 +36,10 @@ def calc_kl(k, i=3):
 	kl_ur_p = []
 	kl_r_p = []
 
-	maxent_ur_up, maxent_r_up = read_up_prob('../output/d'+str(k)+'_expt2.1_zero/syn_maxent_up'+str(i)+'.pickle')
+	maxent_ur_up, maxent_r_up = read_up_prob('../output/d'+str(k)+'_expt2.1_w1_ls/syn_maxent_up'+str(i)+'.pickle')
 
 	for p in perturb_prob:
-		maxent_file = '../output/d'+str(k)+'_expt2.1_zero/syn_maxent_p'+str(i)+'_'+str(p)+'.pickle'
+		maxent_file = '../output/d'+str(k)+'_expt2.1_w1_ls/syn_maxent_p'+str(i)+'_'+str(p)+'.pickle'
 		maxent_ur_p, maxent_r_p = read_p_prob(maxent_file)
 
 		p = np.array(maxent_ur_up)
@@ -47,17 +47,21 @@ def calc_kl(k, i=3):
 		r = np.array(maxent_r_up)
 		s = np.array(maxent_r_p)
 		try:
-			# kl_1, p_val_1 = power_divergence(f_obs=q, f_exp=p, lambda_="cressie-read")
-			# kl_2, p_val_2 = power_divergence(f_obs=s, f_exp=r, lambda_="cressie-read")
-			kl_1 = distance.jensenshannon(p, q)
-			kl_2 = distance.jensenshannon(r, s)
+			kl_1, p_val_1 = power_divergence(f_obs=q, f_exp=p, lambda_="cressie-read")
+			kl_2, p_val_2 = power_divergence(f_obs=s, f_exp=r, lambda_="cressie-read")
+			# kl_1 = distance.jensenshannon(p, q)
+			# kl_2 = distance.jensenshannon(r, s)
 			# kl_1 = kl_divergence(p, q)
 			# kl_2 = kl_divergence(r, s)
 		except:
-			print('P:', p)
-			print('Q:', q)
-			print('R:', r)
-			print('S:', s)
+			p[p == 0] = 1e-300
+			r[r == 0] = 1e-300
+			kl_1, p_val_1 = power_divergence(f_obs=q, f_exp=p, lambda_="cressie-read")
+			kl_2, p_val_2 = power_divergence(f_obs=s, f_exp=r, lambda_="cressie-read")
+			# print('P:', p)
+			# print('Q:', q)
+			# print('R:', r)
+			# print('S:', s)
 			
 
 		kl_ur_p.append(kl_1)
@@ -78,9 +82,11 @@ def plot(k):
 	# plt.xticks(x_ticks)
 	# plt.yticks(y_ticks)
 	plt.legend(fontsize=9)
-	plt.title('Regularization for different Perturbations: '+str(k)+' diseases')
+	plt.title('Regularization for different Perturbations: '+str(k)+' diseases (Learned Support)\n'+'Single Width W = 1')
 	plt.xlabel('Perturbed Probability')
-	plt.ylabel('Jensen-Shannon Divergence')
+	plt.ylabel(r'Power Divergence ($\lambda$ = 2/3)')
+	# plt.ylabel('Jensen-Shannon Divergence')
+	plt.savefig('../figures/Experiments/pert_d'+str(k)+'_robust_ls.png')
 	plt.show()
 
 num_dis = sys.argv[1]

@@ -26,7 +26,7 @@ class Synthetic_object(object):
 		self.dataset_num = int(opt_dict['dataset_num'])
 
 		self.clusters = random.choice([int(self.num_diseases*(0.25)), int(self.num_diseases*(0.5)), int(self.num_diseases*(0.75))])
-		self.size = random.randint(a=50, b=1000)
+		self.size = random.randint(a=1000, b=60000)
 
 		self.p = random.uniform(a=0.25,b=0.75)
 		self.q1 = random.uniform(a=0.25,b=0.75)
