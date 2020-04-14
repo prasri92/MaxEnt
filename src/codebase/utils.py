@@ -82,13 +82,20 @@ def clean_preproc_data_real(filePath):
         person's disease prevalence data. 
     """
     data=pd.read_csv(filePath, error_bad_lines=False, index_col=None)
-    data.drop(columns={'Unnamed: 0'}, inplace=True)
+    # data.drop(columns={'Unnamed: 0'}, inplace=True)
     data.reset_index(drop=True, inplace=True)
 
-    for col in data.columns:
-        data[col] = data[col].apply(lambda x: int(1) if x > 1 else int(0))
+    disease_numbers = data.columns
+    col_names = range(0,20)
+    mappings = dict(zip(disease_numbers, col_names))
 
-        
+    print("The Disease Mappings are: \n", mappings)
+
+    data.rename(columns=mappings, inplace=True)
+    for col in data.columns:
+        data[col] = data[col].apply(lambda x: int(1) if x >= 1 else int(0))
+
+    # print(data.head())
     return data
 
 def clean_preproc_data(filePath):
@@ -121,6 +128,7 @@ def clean_preproc_data(filePath):
         new_index = [str(i) for i in new_index]
         data.columns = new_index
 
+    # print(data.head())
     return data
 
 def clean_preproc_data_perturb(filePath, perturb_prob):
